@@ -25,4 +25,8 @@
       init.defaultBranch = "main";
     };
   };
+
+  programs.foot = {
+    enable = true;
+  };
 }
