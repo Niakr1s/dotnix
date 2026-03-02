@@ -1,5 +1,10 @@
-{ config, lib, pkgs, ... }:
-
+{ config, lib, pkgs, nixpkgs-unstable, ... }:
+let
+  unstablePkgs = import nixpkgs-unstable {
+    system = pkgs.system;
+    config = config.nixpkgs.config;
+  };
+in
 {
   imports =
     [
@@ -23,6 +28,12 @@
   networking.hostName = "desktop"; # Define your hostname.
   networking.networkmanager.enable = true;
   time.timeZone = "Europe/Moscow";
+
+  services.v2raya = {
+    enable = true;
+    package = pkgs.unstable.v2raya;
+    cliPackage = pkgs.unstable.xray;
+  };
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
