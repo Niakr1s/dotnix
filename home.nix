@@ -13,10 +13,6 @@ in
   home.homeDirectory = "/home/nea";
 
   home.packages = with pkgs; [
-    kitty
-    nemo
-    fuzzel
-    waybar
   ];
 
   # Wallpaper
@@ -62,16 +58,6 @@ in
 
   xdg.configFile."nvim" = {
     source = config.lib.file.mkOutOfStoreSymlink "/home/nea/.dotnix/config/nvim";
-    recursive = true;
-  };
-
-  xdg.configFile."hypr" = {
-    source = config.lib.file.mkOutOfStoreSymlink "/home/nea/.dotnix/config/hypr";
-    recursive = true;
-  };
-
-  xdg.configFile."waybar" = {
-    source = config.lib.file.mkOutOfStoreSymlink "/home/nea/.dotnix/config/waybar";
     recursive = true;
   };
 

@@ -256,7 +256,6 @@ in
     bat
     yazi
 
-    gnome-terminal
     gnomeExtensions.blur-my-shell
     gnomeExtensions.just-perfection
     gnomeExtensions.forge
