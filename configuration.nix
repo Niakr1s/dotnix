@@ -25,6 +25,12 @@ in
     };
   };
 
+  # Garbage collection daily
+  nix.gc = {
+    automatic = true;
+    dates = "21:00";
+  };
+
   nixpkgs.config.allowUnfree = true;
 
   networking.hostName = "desktop"; # Define your hostname.
