@@ -91,8 +91,29 @@ in
     update = "sudo nixos-rebuild switch --flake /home/nea/.dotnix#desktop";
   };
 
+  environment.shells = with pkgs; [ zsh ];
+
+  system.userActivationScripts.zshrc = "touch .zshrc";
   programs.zsh = {
     enable = true;
+    enableCompletion = true;
+
+    syntaxHighlighting = {
+      enable = true;
+    };
+
+    autosuggestions = {
+      enable = true;
+      async = true;
+    };
+
+    ohMyZsh = {
+      enable = true;
+      plugins = [
+        "git"
+      ];
+      theme = "robbyrussell";
+    };
   };
 
   programs.firefox.enable = true;
