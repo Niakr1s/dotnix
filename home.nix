@@ -21,6 +21,13 @@ in
     sha256 = "sha256-QcKntDg+YYSRxtwQeA+rahXGwxktcPwvyMy5GJoiNec=";
   };
 
+  fonts.fontconfig = {
+    enable = true;
+    antialiasing = true;
+    hinting = "slight"; # null or one of "none", "slight", "medium", "full"
+    subpixelRendering = "rgb"; # one of "rgb", "bgr", "vrgb", "vbgr", "none"
+  };
+
   programs.zsh = {
     enable = true;
 
@@ -194,6 +201,8 @@ in
       "org/gnome/desktop/interface" = {
         accent-color = "blue";
 	color-scheme = "prefer-dark";
+	clock-show-seconds = true;
+        clock-show-weekday = true;
       };
 
       "org/gnome/shell" = {
