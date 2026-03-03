@@ -56,6 +56,100 @@ in
       };
 
       "org/gnome/shell" = {
+        favorite-apps = [
+	  "firefox.desktop"
+	  "org.gnome.Terminal.desktop"
+	];
+      };
+
+      "org/gnome/shell/keybindings" = {
+        toggle-message-tray = [];
+	focus-active-notification = [];
+	toggle-quick-settings = [];
+	restore-shortcuts = [];
+	toggle-application-view = ["<Super>d"];
+      };
+
+      "org/gnome/settings-daemon/plugins/media-keys" = {
+        help = [];
+	logout = [];
+        screenreader = [];
+	magnifier = [];
+	magnifier-zoom-in = [];
+	magnifier-zoom-out = [];
+	screensaver = ["<Alt><Super>l"];
+      };
+
+      "org/gnome/mutter/keybindings" = {
+        toggle-tiled-left = ["<Shift><Super>h"];
+        toggle-tiled-right = ["<Shift><Super>l"];
+      };
+
+      "org/gnome/desktop/wm/keybindings" = {
+	close = ["<Super>q"];
+	minimize = [];
+	maximize = [];
+	unmaximize = [];
+	begin-move = [];
+	begin-resize = [];
+	toggle-fullscreen = ["<Super>f"];
+	toggle-maximized = ["<Shift><Super>f"];
+	panel-run-dialog = ["<Alt><Super>d"];
+
+        # Move to monitors
+	move-to-monitor-down = [];
+	move-to-monitor-up = [];
+	move-to-monitor-left = ["<Shift><Super>bracketleft"];
+	move-to-monitor-right = ["<Shift><Super>bracketright"];
+
+        # Move to workspaces
+	move-to-workspace-left = [];
+	move-to-workspace-right = [];
+	move-to-workspace-last = [];
+	move-to-workspace-1 = ["<Shift><Super>1"];
+	move-to-workspace-2 = ["<Shift><Super>2"];
+	move-to-workspace-3 = ["<Shift><Super>3"];
+	move-to-workspace-4 = ["<Shift><Super>4"];
+
+	# Switch applications
+	switch-applications = [];
+	switch-applications-backward = [];
+
+	# Switch system controls
+	switch-panels = [];
+	switch-panels-backward = [];
+
+	# Switch system controls directly
+	cycle-panels = [];
+	cycle-panels-backward = [];
+
+        # Switch to workspaces
+	switch-to-workspace-1 = ["<Super>1"];
+	switch-to-workspace-2 = ["<Super>2"];
+	switch-to-workspace-3 = ["<Super>3"];
+	switch-to-workspace-4 = ["<Super>4"];
+	switch-to-workspace-last = [];
+	switch-to-workspace-left = [];
+	switch-to-workspace-right = [];
+
+        # Switch windows
+	switch-windows = [];
+        switch-windows-backward = [];
+
+	# Switch windows directly
+	cycle-windows = ["<Super>Tab"];
+        cycle-windows-backward = ["<Shift><Super>Tab"];
+
+	# Switch windows of an app directly
+	cycle-group = [];
+	cycle-group-backward = [];
+
+	# Switch windows of an application
+	switch-group = [];
+	switch-group-backward = [];
+      };
+
+      "org/gnome/shell" = {
         last-selected-power-profile = "perfomance";
         disable-user-extensions = false; # Optionally disable user extensions entirely
         enabled-extensions = [
