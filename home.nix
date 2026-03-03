@@ -203,6 +203,13 @@ in
 	color-scheme = "prefer-dark";
 	clock-show-seconds = true;
         clock-show-weekday = true;
+
+        # Noto Sans for UI - clean and modern
+        font-name = "Noto Sans 11";
+        # Liberation for documents - professional and compatible
+        document-font-name = "Liberation Serif 12";
+        # JetBrains Mono Nerd Font for terminal - icons + readability
+        monospace-font-name = "JetBrainsMono Nerd Font 10";
       };
 
       "org/gnome/shell" = {
