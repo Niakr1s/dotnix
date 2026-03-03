@@ -219,6 +219,15 @@ in
 	magnifier-zoom-in = [];
 	magnifier-zoom-out = [];
 	screensaver = ["<Alt><Super>l"];
+	custom-keybindings = [
+          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+	];
+      };
+
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+        name = "Console";
+        command = "kgx";
+        binding = "<Super>Return";
       };
 
       "org/gnome/settings-daemon/plugins/power" = {
