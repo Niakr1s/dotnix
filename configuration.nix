@@ -29,8 +29,16 @@ in
   networking.networkmanager.enable = true;
   time.timeZone = "Europe/Moscow";
 
-  # Enable xinput2 to improve touchscreen support and enable additional touchpad gestures and smooth scrolling.
-  environment.sessionVariables.MOZ_USE_XINPUT2 = "1";
+  # These variables will be set by PAM early in the login process.
+  environment.sessionVariables = {
+    MOZ_USE_XINPUT2 = "1";
+  };
+
+  # These variables will be set on shell initialisation (e.g. in /etc/profile).
+  environment.variables = {
+    EDITOR = "vim";
+    VISUAL = "vim";
+  };
 
   services.v2raya = {
     enable = true;
