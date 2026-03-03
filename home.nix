@@ -1,4 +1,4 @@
-{ config, lib, pkgs, nixpkgs-unstable, ... }:
+{ config, lib, pkgs, inputs, nixpkgs-unstable, ... }:
 let
   unstablePkgs = import nixpkgs-unstable {
     system = pkgs.system;
@@ -14,6 +14,18 @@ in
 
   home.packages = with pkgs; [
   ];
+
+  imports = [
+    inputs.nixvim.homeManagerModules.nixvim
+  ];
+
+  programs.nixvim = {
+    enable = true;
+  };
+
+  # imports = [
+  #   ./nixvim.nix
+  # ];
 
   # Wallpaper
   xdg.configFile.".wallpaper".source = pkgs.fetchurl {
