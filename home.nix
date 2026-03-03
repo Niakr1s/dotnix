@@ -17,15 +17,8 @@ in
 
   imports = [
     inputs.nvf.homeManagerModules.default
+    ./nvf.nix
   ];
-
-  programs.nvf = {
-    enable = true;
-  };
-
-  # imports = [
-  #   ./nixvim.nix
-  # ];
 
   # Wallpaper
   xdg.configFile.".wallpaper".source = pkgs.fetchurl {
@@ -65,15 +58,15 @@ in
     };
   };
 
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-    withNodeJs = true;
-    withPython3 = true;
-    withRuby = true;
-  };
+  # programs.neovim = {
+  #   enable = true;
+  #   defaultEditor = true;
+  #   viAlias = true;
+  #   vimAlias = true;
+  #   withNodeJs = true;
+  #   withPython3 = true;
+  #   withRuby = true;
+  # };
 
   # xdg.configFile."nvim" = {
   #   source = config.lib.file.mkOutOfStoreSymlink "/home/nea/.dotnix/config/nvim";
