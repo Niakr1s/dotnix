@@ -14,6 +14,12 @@ in
   home.packages = with pkgs; [
   ];
 
+  # Wallpaper
+  xdg.configFile.".wallpaper".source = pkgs.fetchurl {
+    url = "https://w.wallhaven.cc/full/o5/wallhaven-o5k319.jpg"; 
+    sha256 = "sha256-QcKntDg+YYSRxtwQeA+rahXGwxktcPwvyMy5GJoiNec=";
+  };
+
   programs.zsh = {
     enable = true;
 
@@ -244,6 +250,23 @@ in
       "org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9" = {
         font = "JetBrainsMono Nerd Font 10";
 	use-system-font = false;
+      };
+      
+      # Gnomw wallpaper
+      "org/gnome/desktop/background" = {
+        picture-uri = "file:///home/nea/.config/.wallpaper";
+        picture-uri-dark = "file:///home/nea/.config/.wallpaper";
+        primary-color = "#3465a4";
+        secondary-color = "#000000";
+	color-shading-type = "solid";
+	picture-options = "zoom";
+      };
+      "org/gnome/desktop/screensaver" = {
+        picture-uri = "file:///home/nea/config/.wallpaper";
+        primary-color = "#3465a4";
+        secondary-color = "#000000";
+	color-shading-type = "solid";
+	picture-options = "zoom";
       };
     };
   };
