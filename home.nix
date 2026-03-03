@@ -168,7 +168,7 @@ in
         enabled-extensions = [
           pkgs.gnomeExtensions.blur-my-shell.extensionUuid
           pkgs.gnomeExtensions.just-perfection.extensionUuid
-          pkgs.gnomeExtensions.forge.extensionUuid
+          # pkgs.gnomeExtensions.forge.extensionUuid
 	];
       };
 
