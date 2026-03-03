@@ -59,7 +59,7 @@ in
   # services.xserver.enable = true;
 
   # Configure keymap in X11
-  # services.xserver.xkb.layout = "us";
+  services.xserver.xkb.layout = "us,ru";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
@@ -125,11 +125,20 @@ in
     btop
     tree
     bat
+
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.just-perfection
   ];
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
+
+  qt = {
+    enable = true;
+    platformTheme = "gnome";
+    style = "adwaita-dark";
+  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
