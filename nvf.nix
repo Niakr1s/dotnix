@@ -151,6 +151,22 @@
             enable = true;
           };
         };
+
+        treesitter.context.enable = true;
+
+        binds = {
+          whichKey.enable = true;
+          cheatsheet.enable = false;
+        };
+
+        telescope.enable = true;
+
+        git = {
+          enable = true;
+          gitsigns.enable = true;
+          gitsigns.codeActions.enable = false; # throws an annoying debug message
+          neogit.enable = true;
+        };
       };
     };
   };
