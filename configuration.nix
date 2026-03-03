@@ -166,6 +166,7 @@ in
     btop
     tree
     bat
+    yazi
 
     gnome-terminal
     gnomeExtensions.blur-my-shell
