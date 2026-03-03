@@ -29,4 +29,19 @@
   programs.foot = {
     enable = true;
   };
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    withNodeJs = true;
+    withPython3 = true;
+    withRuby = true;
+  };
+
+  xdg.configFile."nvim" = {
+    source = config.lib.file.mkOutOfStoreSymlink "/home/nea/.dotnix/config/nvim";
+    recursive = true;
+  };
 }
