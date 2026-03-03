@@ -29,6 +29,9 @@ in
   networking.networkmanager.enable = true;
   time.timeZone = "Europe/Moscow";
 
+  # Enable xinput2 to improve touchscreen support and enable additional touchpad gestures and smooth scrolling.
+  environment.sessionVariables.MOZ_USE_XINPUT2 = "1";
+
   services.v2raya = {
     enable = true;
     package = pkgs.unstable.v2raya;
@@ -124,7 +127,19 @@ in
     };
   };
 
-  programs.firefox.enable = true;
+  programs.firefox = {
+    enable = true;
+
+    languagePacks = [ "en-US" ];
+
+    preferences = {
+      "privacy.resistFingerprinting" = true;
+    };
+
+    policies = {
+      DisableTelemetry = true;
+    };
+  };
 
   environment.systemPackages = with pkgs; [
     vim
