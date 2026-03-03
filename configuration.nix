@@ -94,9 +94,25 @@ in
     ];
   };
 
+  # https://github.com/lutris/docs/blob/master/HowToEsync.md
+  # The Lutris documentation shows how to make your system esync compatible. These steps can be achieved on NixOS with the config below
+  # systemd.extraConfig = "DefaultLimitNOFILE=524288"; deprecated, using systemd.settings.Manager
+  systemd.settings.Manager = {
+    DefaultLimitNOFILE = 524288;
+  };
+  security.pam.loginLimits = [{
+    domain = "nea"; # your user name
+    type = "hard";
+    item = "nofile";
+    value = "524288";
+  }];
+
+  programs.gamemode.enable = true; # for performance mode
+
   # Enable OpenGL
   hardware.graphics = {
     enable = true;
+    enable32Bit = true;
   };
 
   # Load nvidia driver for Xorg and Wayland
@@ -233,6 +249,10 @@ in
     gnomeExtensions.blur-my-shell
     gnomeExtensions.just-perfection
     gnomeExtensions.forge
+
+    protonup-qt # GUI for installing custom Proton versions like GE_Proton
+    lutris
+    retroarch
   ];
 
   fonts.packages = with pkgs; [
