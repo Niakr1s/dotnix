@@ -231,6 +231,10 @@ in
 	screensaver = ["<Alt><Super>l"];
       };
 
+      "org/gnome/settings-daemon/plugins/power" = {
+        sleep-inactive-ac-type = "nothing";
+      };
+
       "org/gnome/mutter/keybindings" = {
         toggle-tiled-left = ["<Shift><Super>h"];
         toggle-tiled-right = ["<Shift><Super>l"];
