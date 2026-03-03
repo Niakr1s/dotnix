@@ -63,10 +63,10 @@ in
     withRuby = true;
   };
 
-  xdg.configFile."nvim" = {
-    source = config.lib.file.mkOutOfStoreSymlink "/home/nea/.dotnix/config/nvim";
-    recursive = true;
-  };
+  # xdg.configFile."nvim" = {
+  #   source = config.lib.file.mkOutOfStoreSymlink "/home/nea/.dotnix/config/nvim";
+  #   recursive = true;
+  # };
 
   xdg.configFile."MangoHud" = {
     source = config.lib.file.mkOutOfStoreSymlink "/home/nea/.dotnix/config/MangoHud";
