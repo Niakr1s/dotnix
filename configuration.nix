@@ -80,8 +80,19 @@ in
   users.users.nea = {
     isNormalUser = true;
     extraGroups = [ "wheel" "video" "audio" "disk" "networkmanager" ];
+    shell = pkgs.zsh;
     packages = with pkgs; [
     ];
+  };
+
+  environment.shellAliases = {
+    ll = "ls -l";
+    la = "ls -la";
+    update = "sudo nixos-rebuild switch --flake /home/nea/.dotnix#desktop";
+  };
+
+  programs.zsh = {
+    enable = true;
   };
 
   programs.firefox.enable = true;
@@ -91,7 +102,6 @@ in
     wget
     git
     btop
-    zsh
     tree
     bat
   ];

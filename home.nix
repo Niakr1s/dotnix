@@ -5,13 +5,10 @@
   home.homeDirectory = "/home/nea";
   home.stateVersion = "25.11";
 
-  programs.bash = {
+  programs.zsh = {
     enable = true;
 
     shellAliases = {
-      ll = "ls -l";
-      la = "ls -la";
-      update = "sudo nixos-rebuild switch --flake /home/nea/.dotnix#desktop";
     };
   };
 
