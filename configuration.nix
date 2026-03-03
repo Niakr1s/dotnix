@@ -129,6 +129,7 @@ in
     gnome-terminal
     gnomeExtensions.blur-my-shell
     gnomeExtensions.just-perfection
+    gnomeExtensions.forge
   ];
 
   fonts.packages = with pkgs; [
