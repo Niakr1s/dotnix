@@ -61,6 +61,21 @@ in
     recursive = true;
   };
 
+  xdg.configFile."hypr" = {
+    source = config.lib.file.mkOutOfStoreSymlink "/home/nea/.dotnix/config/hypr";
+    recursive = true;
+  };
+
+  xdg.configFile."waybar" = {
+    source = config.lib.file.mkOutOfStoreSymlink "/home/nea/.dotnix/config/waybar";
+    recursive = true;
+  };
+
+  xdg.configFile."MangoHud" = {
+    source = config.lib.file.mkOutOfStoreSymlink "/home/nea/.dotnix/config/MangoHud";
+    recursive = true;
+  };
+
   # home.file."local/share/lutris/runners/wine.yml".source = config.lib.file.mkOutOfStoreSymlink "/path/to/your/wine.yml";
 
   programs.firefox = {
