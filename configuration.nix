@@ -94,6 +94,15 @@ in
     ];
   };
 
+  # Hyprland
+  programs.hyprland = {
+    enable = true;
+    # set the flake package
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    # make sure to also set the portal package, so that they are in sync
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+  };
+
   # https://github.com/lutris/docs/blob/master/HowToEsync.md
   # The Lutris documentation shows how to make your system esync compatible. These steps can be achieved on NixOS with the config below
   # systemd.extraConfig = "DefaultLimitNOFILE=524288"; deprecated, using systemd.settings.Manager
