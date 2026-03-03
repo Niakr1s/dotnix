@@ -126,11 +126,8 @@
           fidget-nvim.enable = true;
 
           highlight-undo.enable = true;
-          blink-indent.enable = true;
           indent-blankline.enable = true;
-
-          # Fun
-          cellular-automaton.enable = false;
+          rainbow-delimiters.enable = true;
         };
 
         autopairs.nvim-autopairs.enable = false;
@@ -166,6 +163,100 @@
           gitsigns.enable = true;
           gitsigns.codeActions.enable = false; # throws an annoying debug message
           neogit.enable = true;
+        };
+
+        minimap = {
+          minimap-vim.enable = false;
+          codewindow.enable = true; # lighter, faster, and uses lua for configuration
+        };
+
+        dashboard = {
+          dashboard-nvim.enable = false;
+          alpha.enable = true;
+        };
+
+        notify = {
+          nvim-notify.enable = true;
+        };
+
+        projects = {
+          project-nvim.enable = true;
+        };
+
+        utility = {
+          ccc.enable = false;
+          diffview-nvim.enable = true;
+          direnv.enable = true;
+          icon-picker.enable = true;
+          motion = {
+            flash-nvim.enable = true;
+          };
+          surround = {
+            enable = true;
+            useVendoredKeybindings = true; # use alternative keybindings "gzz"
+          };
+          sleuth.enable = true;
+          undotree.enable = true;
+          nvim-biscuits.enable = true;
+          yazi-nvim.enable = true;
+          grug-far-nvim.enable = true;
+        };
+        notes = {
+          neorg.enable = false;
+          orgmode.enable = false;
+          mind-nvim.enable = true;
+          todo-comments.enable = true;
+        };
+
+        terminal = {
+          toggleterm = {
+            enable = true;
+            lazygit.enable = true;
+          };
+        };
+
+        ui = {
+          borders.enable = true;
+          colorizer.enable = true;
+          modes-nvim.enable = false; # the theme looks terrible with catppuccin
+          illuminate.enable = true;
+          breadcrumbs = {
+            enable = true;
+            navbuddy.enable = true;
+          };
+          smartcolumn = {
+            enable = true;
+            setupOpts.custom_colorcolumn = {
+              # this is a freeform module, it's `buftype = int;` for configuring column position
+              nix = "110";
+              ruby = "120";
+              java = "130";
+              go = ["90" "130"];
+            };
+          };
+          fastaction.enable = true;
+        };
+
+        assistant = {
+          chatgpt.enable = false;
+          copilot = {
+            enable = false;
+            cmp.enable = true;
+          };
+          codecompanion-nvim.enable = false;
+          avante-nvim.enable = true;
+        };
+
+        session = {
+          nvim-session-manager.enable = false;
+        };
+
+        gestures = {
+          gesture-nvim.enable = false;
+        };
+
+        comments = {
+          comment-nvim.enable = true;
         };
       };
     };
