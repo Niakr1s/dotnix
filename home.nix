@@ -16,10 +16,10 @@ in
   ];
 
   imports = [
-    inputs.nixvim.homeManagerModules.nixvim
+    inputs.nvf.homeManagerModules.default
   ];
 
-  programs.nixvim = {
+  programs.nvf = {
     enable = true;
   };
 
