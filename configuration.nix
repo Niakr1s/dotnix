@@ -256,6 +256,7 @@ in
   environment.systemPackages = with pkgs; [
     vim
     wget
+    curl
     git
     btop
     tree
