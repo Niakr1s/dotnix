@@ -178,6 +178,69 @@ in
         noise-amount = 0;
       };
 
+      # Forge config
+      "org/gnome/shell/extensions/forge" = {
+        focus-on-hover-enabled = false;
+	move-pointer-focus-enabled = false;
+
+	window-gap-size = 0;
+	window-gap-size-increment = 0;
+	window-gap-hidden-on-single = true;
+
+      };
+      "org/gnome/shell/extensions/forge/keybindings" = {
+        window-gap-size-decrease = [];
+        window-gap-size-increase = [];
+
+        window-resize-bottom-decrease = [];
+        window-resize-bottom-increase = [];
+        window-resize-left-decrease = [];
+        window-resize-left-increase = [];
+        window-resize-right-decrease = [];
+        window-resize-right-increase = [];
+        window-resize-top-decrease = [];
+        window-resize-top-increase = [];
+
+        window-snap-center = [];
+        window-snap-one-third-left = [];
+        window-snap-one-third-right = [];
+        window-snap-two-third-left = [];
+        window-snap-two-third-right = [];
+
+        window-move-down = ["<Super><Shift>j"];
+        window-move-left = ["<Super><Shift>h"];
+        window-move-right = ["<Super><Shift>l"];
+        window-move-up = ["<Super><Shift>k"];
+
+        window-swap-down = [];
+        window-swap-left = [];
+        window-swap-right = [];
+        window-swap-up = [];
+        # window-swap-down = ["<Super><Alt>j"];
+        # window-swap-left = ["<Super><Alt>h"];
+        # window-swap-right = ["<Super><Alt>l"];
+        # window-swap-up = ["<Super><Alt>k"];
+
+        window-swap-last-active = [];
+	  
+        window-toggle-always-float = ["<Super>c"];
+        window-toggle-float = [];
+
+        # Layouts
+        con-split-layout-toggle = ["<Super>v"];
+        con-stacked-layout-toggle = ["<Super>s"];
+        con-tabbed-layout-toggle = ["<Super>t"];
+
+        con-split-horizontal = [];
+        con-split-vertical = [];
+        con-tabbed-showtab-decoration-toggle = [];
+
+        workspace-active-tile-toggle = [];
+        focus-border-toggle = [];
+        prefs-open = [];
+        prefs-tiling-toggle = [];
+      };
+
       "org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9" = {
         font = "JetBrainsMono Nerd Font 10";
 	use-system-font = false;
