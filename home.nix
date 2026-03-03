@@ -75,6 +75,11 @@ in
         brightness = 0.75;
         noise-amount = 0;
       };
+
+      "org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9" = {
+        font = "JetBrainsMono Nerd Font 10";
+	use-system-font = false;
+      };
     };
   };
 }
