@@ -32,6 +32,13 @@ in
     };
   };
 
+  programs.gh = {
+    enable = true;
+    gitCredentialHelper = {
+      enable = true;
+    };
+  };
+
   programs.neovim = {
     enable = true;
     defaultEditor = true;
