@@ -64,47 +64,54 @@ in
     enable = true;
   
     languagePacks = [ "en-US" ];
-  
-    policies = {
-      # Updates & Background Services
-      AppAutoUpdate                 = false;
-      BackgroundAppUpdate           = false;
-  
-      # Feature Disabling
-      DisableBuiltinPDFViewer       = true;
-      DisableFirefoxStudies         = true;
-      DisableFirefoxAccounts        = true;
-      DisableFirefoxScreenshots     = true;
-      DisableForgetButton           = true;
-      DisableMasterPasswordCreation = true;
-      DisableProfileImport          = true;
-      DisableProfileRefresh         = true;
-      DisableSetDesktopBackground   = true;
-      DisablePocket                 = true;
-      DisableTelemetry              = true;
-      DisableFormHistory            = true;
-      DisablePasswordReveal         = true;
-  
-      # Access Restrictions
-      BlockAboutConfig              = false;
-      BlockAboutProfiles            = true;
-      BlockAboutSupport             = true;
-  
-      # UI and Behavior
-      DisplayMenuBar                = "never";
-      DontCheckDefaultBrowser       = true;
-      HardwareAcceleration          = true;
-      OfferToSaveLogins             = false;
-      DefaultDownloadDirectory      = "/home/nea/Downloads";
-    };
-  
+
+    profiles.default.extraConfig = ''
+      // https://gist.github.com/lassekongo83/7026910c6a277d5d9cf37989d83e9f6d
+
+      // Don't close window with last tab
+      user_pref("browser.tabs.closeWindowWithLastTab", false);
+
+      // Disable Firefox View
+      user_pref("browser.tabs.firefox-view", false);
+
+      // Disable disc cache
+      user_pref("browser.cache.disk.enable", false);
+
+      // Disable push notifications
+      user_pref("dom.push.enabled", false);
+
+      // Telemetry
+      user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
+      user_pref("browser.newtabpage.activity-stream.telemetry", false);
+      user_pref("browser.ping-centre.telemetry", false);
+      user_pref("toolkit.telemetry.archive.enabled", false);
+      user_pref("toolkit.telemetry.bhrPing.enabled", false);
+      user_pref("toolkit.telemetry.enabled", false);
+      user_pref("toolkit.telemetry.firstShutdownPing.enabled", false);
+      user_pref("toolkit.telemetry.newProfilePing.enabled", false);
+      user_pref("toolkit.telemetry.reportingpolicy.firstRun", false);
+      user_pref("toolkit.telemetry.shutdownPingSender.enabled", false);
+      user_pref("toolkit.telemetry.unified", false);
+      user_pref("toolkit.telemetry.updatePing.enabled", false);
+
+      // PREF: Disable sending reports of tab crashes to Mozilla (about:tabcrashed), don't nag user about unsent crash reports
+      user_pref("browser.tabs.crashReporting.sendReport", false);
+      user_pref("browser.crashReports.unsubmittedCheck.enabled", false);
+
+      // Ads
+      user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
+      user_pref("browser.newtabpage.activity-stream.showSponsored", false);
+      user_pref("browser.vpn_promo.enabled", false);
+      user_pref("browser.promo.focus.enabled", false);
+    '';
+
     profiles.default.search = {
       force           = true;
       default         = "ddg";
       privateDefault  = "ddg";
   
       engines = {
-        "Nix Packages" = {
+        "nix packages" = {
           urls = [
             {
               template = "https://search.nixos.org/packages";
@@ -118,7 +125,7 @@ in
           definedAliases = [ "@np" ];
         };
   
-        "Nix Options" = {
+        "nix options" = {
           urls = [
             {
               template = "https://search.nixos.org/options";
@@ -132,7 +139,7 @@ in
           definedAliases = [ "@no" ];
         };
   
-        "NixOS Wiki" = {
+        "nixos wiki" = {
           urls = [
             {
               template = "https://wiki.nixos.org/w/index.php";
@@ -145,7 +152,7 @@ in
           definedAliases = [ "@nw" ];
         };
   
-        "NixOS My" = {
+        "my nixos" = {
           urls = [
             {
               template = "https://mynixos.com/search";
@@ -158,7 +165,7 @@ in
           definedAliases = [ "@nm" ];
         };
   
-        "YouTube" = {
+        "youtube" = {
           urls = [
             {
               template = "https://www.youtube.com/results";
