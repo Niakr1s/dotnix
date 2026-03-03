@@ -126,6 +126,7 @@ in
     tree
     bat
 
+    gnome-terminal
     gnomeExtensions.blur-my-shell
     gnomeExtensions.just-perfection
   ];
