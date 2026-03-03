@@ -60,6 +60,107 @@ in
     recursive = true;
   };
 
+  programs.firefox = {
+    enable = true;
+  
+    languagePacks = [ "en-US" ];
+  
+    policies = {
+      # Updates & Background Services
+      AppAutoUpdate                 = false;
+      BackgroundAppUpdate           = false;
+  
+      # Feature Disabling
+      DisableBuiltinPDFViewer       = true;
+      DisableFirefoxStudies         = true;
+      DisableFirefoxAccounts        = true;
+      DisableFirefoxScreenshots     = true;
+      DisableForgetButton           = true;
+      DisableMasterPasswordCreation = true;
+      DisableProfileImport          = true;
+      DisableProfileRefresh         = true;
+      DisableSetDesktopBackground   = true;
+      DisablePocket                 = true;
+      DisableTelemetry              = true;
+      DisableFormHistory            = true;
+      DisablePasswordReveal         = true;
+  
+      # Access Restrictions
+      BlockAboutConfig              = false;
+      BlockAboutProfiles            = true;
+      BlockAboutSupport             = true;
+  
+      # UI and Behavior
+      DisplayMenuBar                = "never";
+      DontCheckDefaultBrowser       = true;
+      HardwareAcceleration          = true;
+      OfferToSaveLogins             = false;
+      DefaultDownloadDirectory      = "/home/nea/Downloads";
+    };
+  
+    profiles.default.search = {
+      force           = true;
+      default         = "ddg";
+      privateDefault  = "ddg";
+  
+      engines = {
+        "Nix Packages" = {
+          urls = [
+            {
+              template = "https://search.nixos.org/packages";
+              params = [
+                { name = "channel"; value = "unstable"; }
+                { name = "query";   value = "{searchTerms}"; }
+              ];
+            }
+          ];
+          icon           = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+          definedAliases = [ "@np" ];
+        };
+  
+        "Nix Options" = {
+          urls = [
+            {
+              template = "https://search.nixos.org/options";
+              params = [
+                { name = "channel"; value = "unstable"; }
+                { name = "query";   value = "{searchTerms}"; }
+              ];
+            }
+          ];
+          icon           = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+          definedAliases = [ "@no" ];
+        };
+  
+        "NixOS Wiki" = {
+          urls = [
+            {
+              template = "https://wiki.nixos.org/w/index.php";
+              params = [
+                { name = "search"; value = "{searchTerms}"; }
+              ];
+            }
+          ];
+          icon           = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+          definedAliases = [ "@nw" ];
+        };
+  
+        "NixOS My" = {
+          urls = [
+            {
+              template = "https://mynixos.com/search";
+              params = [
+                { name = "q";   value = "{searchTerms}"; }
+              ];
+            }
+          ];
+          icon           = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+          definedAliases = [ "@nm" ];
+        };
+      };
+    };
+  };
+
   dconf = {
     enable = true;
     settings = {
