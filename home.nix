@@ -214,8 +214,9 @@ in
 
       "org/gnome/shell" = {
         favorite-apps = [
-	  "firefox.desktop"
 	  "org.gnome.Console.desktop"
+	  "org.gnome.Nautilus.desktop"
+	  "firefox.desktop"
 	  "net.lutris.Lutris.desktop"
 	];
       };
