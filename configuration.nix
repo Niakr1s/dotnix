@@ -253,6 +253,21 @@ in
     protonup-qt # GUI for installing custom Proton versions like GE_Proton
     lutris
     retroarch
+
+    # ------
+
+    # On x86_64-linux, the wine package supports by default both 32- and 64-bit applications.
+    # On every other platform, the wine package supports by default only 32-bit applications.
+
+    # wineWow64Packages.stable # support both 32- and 64-bit applications
+    # wine # support 32-bit only (read above!)
+    # (wine.override { wineBuild = "wine64"; }) # support 64-bit only
+    # wine64 # support 64-bit only
+    # wineWow64Packages.staging # wine-staging (version with experimental features)
+    # winetricks # winetricks (all versions)
+    wineWow64Packages.waylandFull # native wayland support (unstable)
+
+    # ------
   ];
 
   fonts.packages = with pkgs; [
