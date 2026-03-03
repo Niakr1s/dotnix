@@ -53,10 +53,28 @@ in
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
   
-  services.gnome.core-apps.enable = false;
+  services.gnome.core-apps.enable = true;
   services.gnome.core-developer-tools.enable = false;
-  services.gnome.games.enable = false;
-  environment.gnome.excludePackages = with pkgs; [ gnome-tour gnome-user-docs ];
+  services.gnome.games.enable = true;
+  environment.gnome.excludePackages = with pkgs; [
+    gnome-clocks
+    #gnome-control-center
+    gnome-initial-setup
+    gnome-music
+    #pkgs.gnome-connections
+    pkgs.gnome-contacts
+    pkgs.gnome-tour
+    #pkgs.snapshot
+    cheese
+    epiphany
+    evince
+    geary
+    totem
+    yelp
+    decibels
+    snapshot
+    showtime
+  ];
 
   xdg.portal = {
     enable = true;
