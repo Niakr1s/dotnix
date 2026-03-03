@@ -13,6 +13,10 @@ in
   home.homeDirectory = "/home/nea";
 
   home.packages = with pkgs; [
+    kitty
+    nemo
+    fuzzel
+    waybar
   ];
 
   # Wallpaper
