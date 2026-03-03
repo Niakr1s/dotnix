@@ -261,6 +261,8 @@ in
     tree
     bat
     yazi
+    fzf
+    ripgrep
 
     gnomeExtensions.blur-my-shell
     gnomeExtensions.just-perfection
