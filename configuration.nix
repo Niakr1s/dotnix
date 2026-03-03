@@ -169,6 +169,7 @@ in
   users.users.nea = {
     isNormalUser = true;
     extraGroups = [ "wheel" "video" "audio" "disk" "networkmanager" ];
+    uid = 1000;
     shell = pkgs.zsh;
     packages = with pkgs; [
     ];

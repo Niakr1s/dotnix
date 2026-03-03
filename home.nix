@@ -7,9 +7,10 @@ let
 in
 
 {
+  home.stateVersion = "25.11";
+
   home.username = "nea";
   home.homeDirectory = "/home/nea";
-  home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
   ];

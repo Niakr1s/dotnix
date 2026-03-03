@@ -12,6 +12,7 @@
   boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
+  boot.supportedFilesystems = [ "ntfs" ];
 
   fileSystems."/" =
     { device = "/dev/mapper/nixos--vg-root";
@@ -22,6 +23,18 @@
     { device = "/dev/disk/by-uuid/F20E-E1F6";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
+    };
+
+  fileSystems."/data/ssd" =
+    { device = "/dev/disk/by-uuid/01DB61C186A0F740";
+      fsType = "ntfs-3g";
+      options = [ "rw" "uid=1000"];
+    };
+
+  fileSystems."/data/hdd1" =
+    { device = "/dev/disk/by-uuid/01DAAB0556CD1D00";
+      fsType = "ntfs-3g";
+      options = [ "rw" "uid=1000"];
     };
 
   swapDevices =
