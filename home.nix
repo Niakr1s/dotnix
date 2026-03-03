@@ -183,6 +183,15 @@ in
         brightness = 0.75;
         noise-amount = 0;
       };
+      "org/gnome/shell/extensions/blur-my-shell/applications" = {
+	enable-all = true;
+	blur = true;
+	blacklist = [
+	  "Plank"
+	  "com.desktop.ding"
+	  "Conky"
+	];
+      };
 
       # Forge config
       "org/gnome/shell/extensions/forge" = {
