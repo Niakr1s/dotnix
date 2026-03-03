@@ -61,6 +61,8 @@ in
     recursive = true;
   };
 
+  # home.file."local/share/lutris/runners/wine.yml".source = config.lib.file.mkOutOfStoreSymlink "/path/to/your/wine.yml";
+
   programs.firefox = {
     enable = true;
   
