@@ -236,6 +236,8 @@ in
     };
   };
 
+  programs.steam.enable = true;
+
   environment.systemPackages = with pkgs; [
     vim
     wget
@@ -250,7 +252,8 @@ in
     gnomeExtensions.just-perfection
     gnomeExtensions.forge
 
-    protonup-qt # GUI for installing custom Proton versions like GE_Proton
+    protonup-ng # GUI for installing custom Proton versions like GE_Proton
+    mangohud
     lutris
     retroarch
 
