@@ -208,7 +208,9 @@
     bat
     yazi
     fzf
+    fd
     ripgrep
+    usbutils
 
     gnomeExtensions.blur-my-shell
     gnomeExtensions.just-perfection
