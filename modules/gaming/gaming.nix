@@ -1,0 +1,29 @@
+{
+  inputs,
+  config,
+  lib,
+  pkgs,
+  nixpkgs-unstable,
+  hostname,
+  username,
+  stateVersion,
+  ...
+}: let
+in {
+  # https://github.com/lutris/docs/blob/master/HowToEsync.md
+  # The Lutris documentation shows how to make your system esync compatible. These steps can be achieved on NixOS with the config below
+  # systemd.extraConfig = "DefaultLimitNOFILE=524288"; deprecated, using systemd.settings.Manager
+  systemd.settings.Manager = {
+    DefaultLimitNOFILE = 524288;
+  };
+  security.pam.loginLimits = [
+    {
+      domain = "${username}"; # your user name
+      type = "hard";
+      item = "nofile";
+      value = "524288";
+    }
+  ];
+  programs.steam.enable = true;
+  programs.gamemode.enable = true; # for performance mode
+}
