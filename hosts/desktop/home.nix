@@ -28,7 +28,7 @@ in {
 
   imports = [
     inputs.nvf.homeManagerModules.default
-    ./nvf.nix
+    ../../home/modules/nvf/nvf.nix
   ];
 
   # Wallpaper

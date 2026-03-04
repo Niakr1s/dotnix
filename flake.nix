@@ -54,7 +54,7 @@
         inherit username;
       };
       modules = [
-        ./hosts/${desktopHostName} # probably we can hardcode this
+        ./hosts/${desktopHostName}/configuration.nix # probably we can hardcode this
 
         unstable-overlays
 
@@ -69,7 +69,7 @@
           };
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.nea = import ./home.nix;
+          home-manager.users.${username} = import ./hosts/${desktopHostName}/home.nix;
         }
       ];
     };
