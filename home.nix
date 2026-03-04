@@ -5,6 +5,8 @@
   inputs,
   nixpkgs-unstable,
   stateVersion,
+  hostname,
+  username,
   ...
 }: let
   unstablePkgs = import nixpkgs-unstable {
@@ -14,8 +16,8 @@
 in {
   home.stateVersion = "${stateVersion}";
 
-  home.username = "nea";
-  home.homeDirectory = "/home/nea";
+  home.username = "${username}";
+  home.homeDirectory = "/home/${username}";
 
   home.packages = with pkgs; [
   ];
@@ -65,7 +67,7 @@ in {
 
   programs.mpv.enable = true;
   xdg.configFile."mpv" = {
-    source = config.lib.file.mkOutOfStoreSymlink "/home/nea/.dotnix/config/mpv";
+    source = config.lib.file.mkOutOfStoreSymlink "/home/${username}/.dotnix/config/mpv";
     recursive = true;
   };
 
@@ -80,12 +82,12 @@ in {
   # };
 
   # xdg.configFile."nvim" = {
-  #   source = config.lib.file.mkOutOfStoreSymlink "/home/nea/.dotnix/config/nvim";
+  #   source = config.lib.file.mkOutOfStoreSymlink "/home/${username}/.dotnix/config/nvim";
   #   recursive = true;
   # };
 
   xdg.configFile."MangoHud" = {
-    source = config.lib.file.mkOutOfStoreSymlink "/home/nea/.dotnix/config/MangoHud";
+    source = config.lib.file.mkOutOfStoreSymlink "/home/${username}/.dotnix/config/MangoHud";
     recursive = true;
   };
 
@@ -480,15 +482,15 @@ in {
 
       # Gnomw wallpaper
       "org/gnome/desktop/background" = {
-        picture-uri = "file:///home/nea/.config/.wallpaper";
-        picture-uri-dark = "file:///home/nea/.config/.wallpaper";
+        picture-uri = "file:///home/${username}/.config/.wallpaper";
+        picture-uri-dark = "file:///home/${username}/.config/.wallpaper";
         primary-color = "#3465a4";
         secondary-color = "#000000";
         color-shading-type = "solid";
         picture-options = "zoom";
       };
       "org/gnome/desktop/screensaver" = {
-        picture-uri = "file:///home/nea/config/.wallpaper";
+        picture-uri = "file:///home/${username}/config/.wallpaper";
         primary-color = "#3465a4";
         secondary-color = "#000000";
         color-shading-type = "solid";
