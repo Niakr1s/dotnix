@@ -11,6 +11,16 @@
       vim = {
         viAlias = true;
         vimAlias = true;
+        lineNumberMode = "number";
+
+        clipboard = {
+          enable = true;
+          providers.wl-copy.enable = true;
+        };
+
+        options = {
+          autoindent = true;
+        };
 
         statusline = {
           lualine = {
@@ -149,7 +159,10 @@
           };
         };
 
-        treesitter.context.enable = true;
+        treesitter = {
+          context.enable = true;
+          indent.enable = true;
+        };
 
         binds = {
           whichKey.enable = true;
