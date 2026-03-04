@@ -64,12 +64,20 @@ in {
     loadModels = ["gemma3:12b"];
   };
 
-  # services.qbittorrent = {
-  #   enable = true;
-  #   openFirewall = true;
-  #   torrentingPort = 6881;
-  #   webuiPort = 8080;
-  # };
+  services.qbittorrent = {
+    enable = true;
+    openFirewall = true;
+    torrentingPort = 6881;
+    webuiPort = 8080;
+  };
+
+  # man tmpfiles.d
+  systemd.tmpfiles.rules = [
+    "R /var/lib/qBittorrent/qBittorrent/config/categories.json - - - - -"
+    "C /var/lib/qBittorrent/qBittorrent/config/categories.json 0644 qbittorrent qbittorrent - /home/nea/.dotnix/config/qBittorrent/config/categories.json"
+    "R /var/lib/qBittorrent/qBittorrent/config/watched_folders.json - - - - -"
+    "C /var/lib/qBittorrent/qBittorrent/config/watched_folders.json 0644 qbittorrent qbittorrent - /home/nea/.dotnix/config/qBittorrent/config/watched_folders.json"
+  ];
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -283,7 +291,6 @@ in {
     yazi
     fzf
     ripgrep
-    qbittorrent
 
     gnomeExtensions.blur-my-shell
     gnomeExtensions.just-perfection

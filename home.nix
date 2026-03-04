@@ -82,9 +82,6 @@ in {
     recursive = true;
   };
 
-  xdg.configFile."qBittorrent/categories.json".source = config.lib.file.mkOutOfStoreSymlink "/home/nea/.dotnix/config/qBittorrent/categories.json";
-  xdg.configFile."qBittorrent/watched_folders.json".source = config.lib.file.mkOutOfStoreSymlink "/home/nea/.dotnix/config/qBittorrent/watched_folders.json";
-
   # home.file."local/share/lutris/runners/wine.yml".source = config.lib.file.mkOutOfStoreSymlink "/path/to/your/wine.yml";
 
   programs.firefox = {
