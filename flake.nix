@@ -41,7 +41,7 @@
     username = "nea"; # will be common among my hosts
 
     desktopStateVersion = "25.11"; # version of iso
-    desktopHostName = "desktop"; # desktop hostname
+    desktopHostName = "desktop"; # desktop hostname, it should be equal to hosts/{host} directory name
   in {
     # desktop configuration
     nixosConfigurations.${desktopHostName} = nixpkgs.lib.nixosSystem {
@@ -54,7 +54,7 @@
         inherit username;
       };
       modules = [
-        ./configuration.nix
+        ./hosts/${desktopHostName} # probably we can hardcode this
 
         unstable-overlays
 
