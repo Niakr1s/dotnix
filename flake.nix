@@ -38,16 +38,19 @@
       ];
     };
 
-    desktop = "desktop"; # desktop hostname
-    username = "nea"; # better not change this for now
+    username = "nea"; # will be common among my hosts
+
+    desktopStateVersion = "25.11"; # version of iso
+    desktopHostName = "desktop"; # desktop hostname
   in {
     # desktop configuration
-    nixosConfigurations.${desktop} = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.${desktopHostName} = nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = {
         inherit inputs;
+        stateVersion = "${desktopStateVersion}";
 
-        hostname = "desktop";
+        hostname = "${desktopHostName}";
         inherit username;
       };
       modules = [
@@ -59,7 +62,9 @@
         {
           home-manager.extraSpecialArgs = {
             inherit inputs;
-            hostname = "desktop";
+            stateVersion = "${desktopStateVersion}";
+
+            hostname = "${desktopHostName}";
             inherit username;
           };
           home-manager.useGlobalPkgs = true;

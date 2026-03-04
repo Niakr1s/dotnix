@@ -6,6 +6,7 @@
   nixpkgs-unstable,
   hostname,
   username,
+  stateVersion,
   ...
 }: let
   unstablePkgs = import nixpkgs-unstable {
@@ -391,5 +392,5 @@ in {
   # accidentally delete configuration.nix.
   # system.copySystemConfiguration = true;
 
-  system.stateVersion = "25.11"; # Set this to first installed version, and then don't change it
+  system.stateVersion = "${stateVersion}"; # Set this to first installed version, and then don't change it
 }
