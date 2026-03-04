@@ -43,6 +43,10 @@ so I thought, that the thing is that the dongle immediatly disconnects, but
 after the gamepad connected, `dmesg` continued to give such output, so it's
 seems a normal behaviour.
 
+Btw, the gamepad connected while I was resetting the dongle for 10 seconds(a
+tiny hole in it), and the gamepad was in search mode, but it worked after 10th
+time I guess? So strange.
+
 So if your gamepad is already connected to dongle - don't try to disconnect or
 reset settings, because it will cost you a lot of time. But I don't regret
 actually, I've learned a bit more about Linux.
