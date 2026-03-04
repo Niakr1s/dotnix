@@ -227,7 +227,7 @@ in {
 
   dconf = {
     enable = true;
-    settings = {
+    settings = with lib.hm.gvariant; {
       "org/gnome/desktop/interface" = {
         accent-color = "blue";
         color-scheme = "prefer-dark";
@@ -473,8 +473,8 @@ in {
         recent-files-max-age = 30;
       };
       "org/gnome/Console" = {
-        last-window-size = "(1024, 1024)";
-        restore-window-size = "true";
+        # last-window-size = mkTuple [1024 1024];
+        # restore-window-size = true;
       };
     };
   };

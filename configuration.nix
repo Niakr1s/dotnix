@@ -280,6 +280,7 @@ in {
     gnomeExtensions.blur-my-shell
     gnomeExtensions.just-perfection
     gnomeExtensions.forge
+    dconf-editor
 
     protonup-ng # GUI for installing custom Proton versions like GE_Proton
     mangohud
