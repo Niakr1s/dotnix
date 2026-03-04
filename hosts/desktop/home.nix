@@ -19,6 +19,8 @@ in {
     ./wallpaper.nix # You can change wallpaper in this file
   ];
 
+  # HOME SYMLINKS
+
   xdg.configFile."MangoHud" = {
     source = config.lib.file.mkOutOfStoreSymlink "/home/${username}/.dotnix/config/MangoHud";
     recursive = true;
