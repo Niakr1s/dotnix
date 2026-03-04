@@ -1,13 +1,17 @@
-{ inputs, config, lib, pkgs, nixpkgs-unstable, ... }:
-let
+{
+  inputs,
+  config,
+  lib,
+  pkgs,
+  nixpkgs-unstable,
+  ...
+}: let
   unstablePkgs = import nixpkgs-unstable {
     system = pkgs.system;
     config = config.nixpkgs.config;
   };
-in
-{
-  imports =
-  [
+in {
+  imports = [
     ./hardware-configuration.nix
   ];
 
@@ -54,6 +58,12 @@ in
     cliPackage = pkgs.unstable.xray;
   };
 
+  services.ollama = {
+    enable = true;
+    package = pkgs.ollama-cuda;
+    loadModels = ["gemma3:12b"];
+  };
+
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -68,7 +78,7 @@ in
 
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
-  
+
   services.gnome.core-apps.enable = true;
   services.gnome.core-developer-tools.enable = false;
   services.gnome.games.enable = true;
@@ -115,12 +125,14 @@ in
   systemd.settings.Manager = {
     DefaultLimitNOFILE = 524288;
   };
-  security.pam.loginLimits = [{
-    domain = "nea"; # your user name
-    type = "hard";
-    item = "nofile";
-    value = "524288";
-  }];
+  security.pam.loginLimits = [
+    {
+      domain = "nea"; # your user name
+      type = "hard";
+      item = "nofile";
+      value = "524288";
+    }
+  ];
 
   programs.gamemode.enable = true; # for performance mode
 
@@ -199,7 +211,7 @@ in
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.nea = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" "audio" "disk" "networkmanager" ];
+    extraGroups = ["wheel" "video" "audio" "disk" "networkmanager"];
     uid = 1000;
     shell = pkgs.zsh;
     packages = with pkgs; [
@@ -212,7 +224,7 @@ in
     update = "sudo nixos-rebuild switch --flake /home/nea/.dotnix#desktop";
   };
 
-  environment.shells = with pkgs; [ zsh ];
+  environment.shells = with pkgs; [zsh];
 
   system.userActivationScripts.zshrc = "touch .zshrc";
   programs.zsh = {
@@ -240,7 +252,7 @@ in
   programs.firefox = {
     enable = true;
 
-    languagePacks = [ "en-US" ];
+    languagePacks = ["en-US"];
 
     preferences = {
       "privacy.resistFingerprinting" = true;
@@ -310,7 +322,7 @@ in
     style = "adwaita-dark";
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -338,4 +350,3 @@ in
 
   system.stateVersion = "25.11"; # Set this to first installed version, and then don't change it
 }
-
