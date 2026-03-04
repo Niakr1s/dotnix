@@ -2,6 +2,7 @@
   cofig,
   pkgs,
   inputs,
+  lib,
   ...
 }: {
   programs.nvf = {
@@ -21,6 +22,30 @@
             action = ":Neotree toggle<CR>";
             # action = ":NvimTreeToggle<CR>";
             desc = "Toggle Explorer";
+          }
+          {
+            key = "td";
+            mode = "n";
+            silent = true;
+            action = ":tabclose<CR>";
+            # action = ":NvimTreeToggle<CR>";
+            desc = "Close tab";
+          }
+          {
+            key = "t]";
+            mode = "n";
+            silent = true;
+            action = ":tabnext<CR>";
+            # action = ":NvimTreeToggle<CR>";
+            desc = "Next tab";
+          }
+          {
+            key = "t[";
+            mode = "n";
+            silent = true;
+            action = ":tabprevious<CR>";
+            # action = ":NvimTreeToggle<CR>";
+            desc = "Previouis tab";
           }
         ];
 
