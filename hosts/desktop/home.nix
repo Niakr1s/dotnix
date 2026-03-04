@@ -16,13 +16,8 @@
 in {
   imports = [
     ../common/home.nix
+    ./wallpaper.nix # You can change wallpaper in this file
   ];
-
-  # Wallpaper
-  xdg.configFile.".wallpaper".source = pkgs.fetchurl {
-    url = "https://w.wallhaven.cc/full/o5/wallhaven-o5k319.jpg";
-    sha256 = "sha256-QcKntDg+YYSRxtwQeA+rahXGwxktcPwvyMy5GJoiNec=";
-  };
 
   xdg.configFile."MangoHud" = {
     source = config.lib.file.mkOutOfStoreSymlink "/home/${username}/.dotnix/config/MangoHud";
