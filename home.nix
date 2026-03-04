@@ -1,12 +1,16 @@
-{ config, lib, pkgs, inputs, nixpkgs-unstable, ... }:
-let
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  nixpkgs-unstable,
+  ...
+}: let
   unstablePkgs = import nixpkgs-unstable {
     system = pkgs.system;
     config = config.nixpkgs.config;
   };
-in
-
-{
+in {
   home.stateVersion = "25.11";
 
   home.username = "nea";
@@ -22,7 +26,7 @@ in
 
   # Wallpaper
   xdg.configFile.".wallpaper".source = pkgs.fetchurl {
-    url = "https://w.wallhaven.cc/full/o5/wallhaven-o5k319.jpg"; 
+    url = "https://w.wallhaven.cc/full/o5/wallhaven-o5k319.jpg";
     sha256 = "sha256-QcKntDg+YYSRxtwQeA+rahXGwxktcPwvyMy5GJoiNec=";
   };
 
@@ -82,8 +86,8 @@ in
 
   programs.firefox = {
     enable = true;
-  
-    languagePacks = [ "en-US" ];
+
+    languagePacks = ["en-US"];
 
     profiles.default.extraConfig = ''
       // https://gist.github.com/lassekongo83/7026910c6a277d5d9cf37989d83e9f6d
@@ -126,75 +130,96 @@ in
     '';
 
     profiles.default.search = {
-      force           = true;
-      default         = "ddg";
-      privateDefault  = "ddg";
-  
+      force = true;
+      default = "ddg";
+      privateDefault = "ddg";
+
       engines = {
         "nix packages" = {
           urls = [
             {
               template = "https://search.nixos.org/packages";
               params = [
-                { name = "channel"; value = "unstable"; }
-                { name = "query";   value = "{searchTerms}"; }
+                {
+                  name = "channel";
+                  value = "unstable";
+                }
+                {
+                  name = "query";
+                  value = "{searchTerms}";
+                }
               ];
             }
           ];
-          icon           = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-          definedAliases = [ "@np" ];
+          icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+          definedAliases = ["@np"];
         };
-  
+
         "nix options" = {
           urls = [
             {
               template = "https://search.nixos.org/options";
               params = [
-                { name = "channel"; value = "unstable"; }
-                { name = "query";   value = "{searchTerms}"; }
+                {
+                  name = "channel";
+                  value = "unstable";
+                }
+                {
+                  name = "query";
+                  value = "{searchTerms}";
+                }
               ];
             }
           ];
-          icon           = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-          definedAliases = [ "@no" ];
+          icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+          definedAliases = ["@no"];
         };
-  
+
         "nixos wiki" = {
           urls = [
             {
               template = "https://wiki.nixos.org/w/index.php";
               params = [
-                { name = "search"; value = "{searchTerms}"; }
+                {
+                  name = "search";
+                  value = "{searchTerms}";
+                }
               ];
             }
           ];
-          icon           = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-          definedAliases = [ "@nw" ];
+          icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+          definedAliases = ["@nw"];
         };
-  
+
         "my nixos" = {
           urls = [
             {
               template = "https://mynixos.com/search";
               params = [
-                { name = "q";   value = "{searchTerms}"; }
+                {
+                  name = "q";
+                  value = "{searchTerms}";
+                }
               ];
             }
           ];
-          icon           = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-          definedAliases = [ "@nm" ];
+          icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+          definedAliases = ["@nm"];
         };
-  
+
         "youtube" = {
           urls = [
             {
               template = "https://www.youtube.com/results";
               params = [
-                { name = "search_query";   value = "{searchTerms}"; }
+                {
+                  name = "search_query";
+                  value = "{searchTerms}";
+                }
               ];
             }
           ];
-          definedAliases = [ "@yt" ];
+          definedAliases = ["@yt"];
         };
       };
     };
@@ -205,8 +230,8 @@ in
     settings = {
       "org/gnome/desktop/interface" = {
         accent-color = "blue";
-	color-scheme = "prefer-dark";
-	clock-show-seconds = true;
+        color-scheme = "prefer-dark";
+        clock-show-seconds = true;
         clock-show-weekday = true;
 
         # Noto Sans for UI - clean and modern
@@ -219,32 +244,32 @@ in
 
       "org/gnome/shell" = {
         favorite-apps = [
-	  "org.gnome.Console.desktop"
-	  "org.gnome.Nautilus.desktop"
-	  "firefox.desktop"
-	  "net.lutris.Lutris.desktop"
-	];
+          "org.gnome.Console.desktop"
+          "org.gnome.Nautilus.desktop"
+          "firefox.desktop"
+          "net.lutris.Lutris.desktop"
+        ];
       };
 
       "org/gnome/shell/keybindings" = {
         toggle-message-tray = [];
-	focus-active-notification = [];
-	toggle-quick-settings = [];
-	restore-shortcuts = [];
-	toggle-application-view = ["<Super>d"];
+        focus-active-notification = [];
+        toggle-quick-settings = [];
+        restore-shortcuts = [];
+        toggle-application-view = ["<Super>d"];
       };
 
       "org/gnome/settings-daemon/plugins/media-keys" = {
         help = [];
-	logout = [];
+        logout = [];
         screenreader = [];
-	magnifier = [];
-	magnifier-zoom-in = [];
-	magnifier-zoom-out = [];
-	screensaver = ["<Alt><Super>l"];
-	custom-keybindings = [
+        magnifier = [];
+        magnifier-zoom-in = [];
+        magnifier-zoom-out = [];
+        screensaver = ["<Alt><Super>l"];
+        custom-keybindings = [
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
-	];
+        ];
       };
 
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
@@ -263,67 +288,67 @@ in
       };
 
       "org/gnome/desktop/wm/keybindings" = {
-	close = ["<Super>q"];
-	minimize = [];
-	maximize = [];
-	unmaximize = [];
-	begin-move = [];
-	begin-resize = [];
-	toggle-fullscreen = ["<Super>f"];
-	toggle-maximized = ["<Shift><Super>f"];
-	panel-run-dialog = ["<Alt><Super>d"];
+        close = ["<Super>q"];
+        minimize = [];
+        maximize = [];
+        unmaximize = [];
+        begin-move = [];
+        begin-resize = [];
+        toggle-fullscreen = ["<Super>f"];
+        toggle-maximized = ["<Shift><Super>f"];
+        panel-run-dialog = ["<Alt><Super>d"];
 
         # Move to monitors
-	move-to-monitor-down = [];
-	move-to-monitor-up = [];
-	move-to-monitor-left = ["<Shift><Super>bracketleft"];
-	move-to-monitor-right = ["<Shift><Super>bracketright"];
+        move-to-monitor-down = [];
+        move-to-monitor-up = [];
+        move-to-monitor-left = ["<Shift><Super>bracketleft"];
+        move-to-monitor-right = ["<Shift><Super>bracketright"];
 
         # Move to workspaces
-	move-to-workspace-left = [];
-	move-to-workspace-right = [];
-	move-to-workspace-last = [];
-	move-to-workspace-1 = ["<Shift><Super>1"];
-	move-to-workspace-2 = ["<Shift><Super>2"];
-	move-to-workspace-3 = ["<Shift><Super>3"];
-	move-to-workspace-4 = ["<Shift><Super>4"];
+        move-to-workspace-left = [];
+        move-to-workspace-right = [];
+        move-to-workspace-last = [];
+        move-to-workspace-1 = ["<Shift><Super>1"];
+        move-to-workspace-2 = ["<Shift><Super>2"];
+        move-to-workspace-3 = ["<Shift><Super>3"];
+        move-to-workspace-4 = ["<Shift><Super>4"];
 
-	# Switch applications
-	switch-applications = [];
-	switch-applications-backward = [];
+        # Switch applications
+        switch-applications = [];
+        switch-applications-backward = [];
 
-	# Switch system controls
-	switch-panels = [];
-	switch-panels-backward = [];
+        # Switch system controls
+        switch-panels = [];
+        switch-panels-backward = [];
 
-	# Switch system controls directly
-	cycle-panels = [];
-	cycle-panels-backward = [];
+        # Switch system controls directly
+        cycle-panels = [];
+        cycle-panels-backward = [];
 
         # Switch to workspaces
-	switch-to-workspace-1 = ["<Super>1"];
-	switch-to-workspace-2 = ["<Super>2"];
-	switch-to-workspace-3 = ["<Super>3"];
-	switch-to-workspace-4 = ["<Super>4"];
-	switch-to-workspace-last = [];
-	switch-to-workspace-left = [];
-	switch-to-workspace-right = [];
+        switch-to-workspace-1 = ["<Super>1"];
+        switch-to-workspace-2 = ["<Super>2"];
+        switch-to-workspace-3 = ["<Super>3"];
+        switch-to-workspace-4 = ["<Super>4"];
+        switch-to-workspace-last = [];
+        switch-to-workspace-left = [];
+        switch-to-workspace-right = [];
 
         # Switch windows
-	switch-windows = [];
+        switch-windows = [];
         switch-windows-backward = [];
 
-	# Switch windows directly
-	cycle-windows = ["<Super>Tab"];
+        # Switch windows directly
+        cycle-windows = ["<Super>Tab"];
         cycle-windows-backward = ["<Shift><Super>Tab"];
 
-	# Switch windows of an app directly
-	cycle-group = [];
-	cycle-group-backward = [];
+        # Switch windows of an app directly
+        cycle-group = [];
+        cycle-group-backward = [];
 
-	# Switch windows of an application
-	switch-group = [];
-	switch-group-backward = [];
+        # Switch windows of an application
+        switch-group = [];
+        switch-group-backward = [];
       };
 
       "org/gnome/shell" = {
@@ -333,13 +358,14 @@ in
           pkgs.gnomeExtensions.blur-my-shell.extensionUuid
           pkgs.gnomeExtensions.just-perfection.extensionUuid
           # pkgs.gnomeExtensions.forge.extensionUuid
-	];
+        ];
       };
 
       "org/gnome/settings-daemon/plugins/color" = {
+        night-light-enabled = true;
         night-light-schedule-from = 20.0;
         night-light-schedule-to = 7.0;
-	night-light-temperature = 3700;
+        night-light-temperature = 4000;
       };
 
       # Configure individual extensions
@@ -348,24 +374,23 @@ in
         noise-amount = 0;
       };
       "org/gnome/shell/extensions/blur-my-shell/applications" = {
-	enable-all = true;
-	blur = true;
-	blacklist = [
-	  "Plank"
-	  "com.desktop.ding"
-	  "Conky"
-	];
+        enable-all = true;
+        blur = true;
+        blacklist = [
+          "Plank"
+          "com.desktop.ding"
+          "Conky"
+        ];
       };
 
       # Forge config
       "org/gnome/shell/extensions/forge" = {
         focus-on-hover-enabled = false;
-	move-pointer-focus-enabled = false;
+        move-pointer-focus-enabled = false;
 
-	window-gap-size = 0;
-	window-gap-size-increment = 0;
-	window-gap-hidden-on-single = true;
-
+        window-gap-size = 0;
+        window-gap-size-increment = 0;
+        window-gap-hidden-on-single = true;
       };
       "org/gnome/shell/extensions/forge/keybindings" = {
         window-gap-size-decrease = [];
@@ -401,7 +426,7 @@ in
         # window-swap-up = ["<Super><Alt>k"];
 
         window-swap-last-active = [];
-	  
+
         window-toggle-always-float = ["<Super>c"];
         window-toggle-float = [];
 
@@ -422,24 +447,34 @@ in
 
       "org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9" = {
         font = "JetBrainsMono Nerd Font 10";
-	use-system-font = false;
+        use-system-font = false;
       };
-      
+
       # Gnomw wallpaper
       "org/gnome/desktop/background" = {
         picture-uri = "file:///home/nea/.config/.wallpaper";
         picture-uri-dark = "file:///home/nea/.config/.wallpaper";
         primary-color = "#3465a4";
         secondary-color = "#000000";
-	color-shading-type = "solid";
-	picture-options = "zoom";
+        color-shading-type = "solid";
+        picture-options = "zoom";
       };
       "org/gnome/desktop/screensaver" = {
         picture-uri = "file:///home/nea/config/.wallpaper";
         primary-color = "#3465a4";
         secondary-color = "#000000";
-	color-shading-type = "solid";
-	picture-options = "zoom";
+        color-shading-type = "solid";
+        picture-options = "zoom";
+      };
+      "org/gnome/desktop/privacy" = {
+        remove-old-trash-files = true;
+        old-files-age = 30;
+        remove-old-temp-files = true;
+        recent-files-max-age = 30;
+      };
+      "org/gnome/Console" = {
+        last-window-size = "(1024, 1024)";
+        restore-window-size = "true";
       };
     };
   };
