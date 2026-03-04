@@ -18,13 +18,13 @@
           providers.wl-copy.enable = true;
         };
 
-        options = {
-          tabstop = 2;
-          shiftwidth = 2;
-          expandtab = true;
-          autoindent = true;
-          smartindent = true;
-        };
+        # options = {
+        #   tabstop = 2;
+        #   shiftwidth = 2;
+        #   expandtab = true;
+        #   autoindent = true;
+        #   smartindent = true;
+        # };
 
         statusline = {
           lualine = {
@@ -37,37 +37,37 @@
           enable = true;
           name = "catppuccin";
           style = "mocha";
-          transparent = false;
+          transparent = true;
         };
 
-        debugger = {
-          nvim-dap = {
-            enable = true;
-            ui.enable = true;
-          };
-        };
+        # debugger = {
+        #   nvim-dap = {
+        #     enable = true;
+        #     ui.enable = true;
+        #   };
+        # };
 
         lsp = {
           # This must be enabled for the language modules to hook into
           # the LSP API.
           enable = true;
-
           formatOnSave = true;
-          lspkind.enable = false;
+
+          # lspkind.enable = false;
           lightbulb.enable = true;
-          lspsaga.enable = false;
+          # lspsaga.enable = false;
           trouble.enable = true;
-          lspSignature.enable = false; # conflicts with blink in maximal
-          otter-nvim.enable = true;
-          nvim-docs-view.enable = true;
-          harper-ls.enable = true;
+          # lspSignature.enable = false; # conflicts with blink in maximal
+          # otter-nvim.enable = true; # Otter.nvim provides lsp features, including code completion, for code embedded in other documents
+          # nvim-docs-view.enable = true; # A neovim plugin to display lsp hover documentation in a side panel.
+          # harper-ls.enable = true; # grammar chekcer
         };
 
         # This section does not include a comprehensive list of available language modules.
         # To list all available language module options, please visit the nvf manual.
         languages = {
           enableFormat = true;
-          enableTreesitter = true;
+          # enableTreesitter = true; # IMPORTANT: this breaks identation
           enableExtraDiagnostics = true;
 
           # Languages that will be supported in default and maximal configurations.
@@ -98,53 +98,53 @@
           xml.enable = true;
 
           # Language modules that are not as common.
-          arduino.enable = false;
-          assembly.enable = false;
-          astro.enable = false;
-          nu.enable = false;
-          csharp.enable = true;
-          julia.enable = false;
-          vala.enable = false;
-          scala.enable = false;
-          r.enable = false;
-          gleam.enable = false;
-          glsl.enable = false;
-          dart.enable = false;
-          ocaml.enable = false;
-          elixir.enable = false;
-          haskell.enable = false;
-          hcl.enable = false;
-          ruby.enable = false;
-          fsharp.enable = false;
-          just.enable = false;
-          make.enable = true;
-          qml.enable = false;
-          jinja.enable = false;
-          tailwind.enable = false;
-          svelte.enable = false;
-          tera.enable = false;
+          # arduino.enable = false;
+          # assembly.enable = false;
+          # astro.enable = false;
+          # nu.enable = false;
+          # csharp.enable = true;
+          # julia.enable = false;
+          # vala.enable = false;
+          # scala.enable = false;
+          # r.enable = false;
+          # gleam.enable = false;
+          # glsl.enable = false;
+          # dart.enable = false;
+          # ocaml.enable = false;
+          # elixir.enable = false;
+          # haskell.enable = false;
+          # hcl.enable = false;
+          # ruby.enable = false;
+          # fsharp.enable = false;
+          # just.enable = false;
+          # make.enable = true;
+          # qml.enable = false;
+          # jinja.enable = false;
+          # tailwind.enable = false;
+          # svelte.enable = false;
+          # tera.enable = false;
 
           # Nim LSP is broken on Darwin and therefore
           # should be disabled by default. Users may still enable
           # `vim.languages.vim` to enable it, this does not restrict
           # that.
           # See: <https://github.com/PMunch/nimlsp/issues/178#issue-2128106096>
-          nim.enable = true;
+          # nim.enable = true;
         };
 
         visuals = {
           nvim-scrollbar.enable = true;
           nvim-web-devicons.enable = true;
-          nvim-cursorline.enable = true;
-          cinnamon-nvim.enable = true;
-          fidget-nvim.enable = true;
+          nvim-cursorline.enable = true; # Highlight words and lines on the cursor for Neovim
+          cinnamon-nvim.enable = true; # Smooth scrolling
+          fidget-nvim.enable = true; # Extensible UI for Neovim notifications and LSP progress messages.
 
-          highlight-undo.enable = true;
-          indent-blankline.enable = true;
-          rainbow-delimiters.enable = true;
+          highlight-undo.enable = true; # Highlight changed text after any action not in insert mode which modifies the current buffer.
+          indent-blankline.enable = true; # This plugin adds indentation guides to Neovim.
+          rainbow-delimiters.enable = true; # This Neovim plugin provides alternating syntax highlighting (“rainbow parentheses”) for Neovim
         };
 
-        autopairs.nvim-autopairs.enable = false;
+        autopairs.nvim-autopairs.enable = true;
 
         # nvf provides various autocomplete options. The tried and tested nvim-cmp
         # is enabled in default package, because it does not trigger a build. We
@@ -155,13 +155,13 @@
           blink-cmp.enable = false;
         };
 
-        snippets.luasnip.enable = true;
+        # snippets.luasnip.enable = true;
 
-        filetree = {
-          neo-tree = {
-            enable = true;
-          };
-        };
+        # filetree = {
+        #   neo-tree = {
+        #     enable = true;
+        #   };
+        # };
 
         treesitter = {
           context.enable = true;
@@ -173,76 +173,76 @@
           cheatsheet.enable = false;
         };
 
-        telescope.enable = true;
+        telescope.enable = true; # find files and text
 
         git = {
           enable = true;
           gitsigns.enable = true;
           gitsigns.codeActions.enable = false; # throws an annoying debug message
-          neogit.enable = true;
+          # neogit.enable = true;
         };
 
-        minimap = {
-          minimap-vim.enable = false;
-          codewindow.enable = true; # lighter, faster, and uses lua for configuration
-        };
+        # minimap = {
+        #   minimap-vim.enable = false;
+        #   codewindow.enable = true; # lighter, faster, and uses lua for configuration
+        # };
 
-        dashboard = {
-          dashboard-nvim.enable = false;
-          alpha.enable = true;
-        };
+        # dashboard = {
+        #   dashboard-nvim.enable = false; # start screen at startup
+        #   alpha.enable = true;
+        # };
 
         notify = {
           nvim-notify.enable = true;
         };
 
         projects = {
-          project-nvim.enable = true;
+          project-nvim.enable = true; # project.nvim is an all in one neovim plugin written in lua that provides superior project management.
         };
 
         utility = {
-          ccc.enable = false;
-          diffview-nvim.enable = true;
-          direnv.enable = true;
-          icon-picker.enable = true;
+          ccc.enable = false; # create color code
+          diffview-nvim.enable = true; # Single tabpage interface for easily cycling through diffs for all modified files for any git rev.
+          # direnv.enable = true; # A neovim wrapper around direnv, in pure lua.
+          icon-picker.enable = true; # icon-picker.nvim is a Neovim plugin that helps you pick 𝑨𝕃𝚻 Font Characters, Symbols Σ, Nerd Font Icons  & Emojis ✨
           motion = {
-            flash-nvim.enable = true;
+            flash-nvim.enable = true; # lets you navigate your code with search labels, enhanced character motions, and Treesitter integration.
           };
           surround = {
             enable = true;
             useVendoredKeybindings = true; # use alternative keybindings "gzz"
           };
-          sleuth.enable = true;
-          undotree.enable = true;
-          nvim-biscuits.enable = true;
-          yazi-nvim.enable = true;
-          grug-far-nvim.enable = true;
+          sleuth.enable = true; # indentation computation
+          undotree.enable = true; # Edit history visualizer
+          nvim-biscuits.enable = true; # Code Biscuits are in-editor annotations usually at the end of a closing tag/bracket/parenthesis/etc
+          yazi-nvim.enable = true; # Yazi integration
+          grug-far-nvim.enable = true; # Find And Replace plugin for neovim
         };
+
         notes = {
           neorg.enable = false;
           orgmode.enable = false;
-          mind-nvim.enable = true;
-          todo-comments.enable = true;
+          mind-nvim.enable = false; # deprecated
+          todo-comments.enable = true; # highlight and search todo comments
         };
 
-        terminal = {
-          toggleterm = {
-            enable = true;
-            lazygit.enable = true;
-          };
-        };
+        # terminal = {
+        #   toggleterm = {
+        #     enable = true;
+        #     lazygit.enable = true;
+        #   };
+        # };
 
         ui = {
-          borders.enable = true;
-          colorizer.enable = true;
-          modes-nvim.enable = false; # the theme looks terrible with catppuccin
-          illuminate.enable = true;
+          # borders.enable = true; # Adds borders to all windows
+          colorizer.enable = true; # A high-performance color highlighter for Neovim which has no external dependencies!
+          # illuminate.enable = true;
           breadcrumbs = {
             enable = true;
             navbuddy.enable = true;
           };
           smartcolumn = {
-            enable = true;
+            enable = false;
             setupOpts.custom_colorcolumn = {
               # this is a freeform module, it's `buftype = int;` for configuring column position
               nix = "110";
@@ -251,29 +251,29 @@
               go = ["90" "130"];
             };
           };
-          fastaction.enable = true;
+          fastaction.enable = true; # Whether to enable overriding vim.ui.select with fastaction.nvim.
         };
 
         assistant = {
-          chatgpt.enable = false;
-          copilot = {
-            enable = false;
-            cmp.enable = true;
-          };
-          codecompanion-nvim.enable = false;
-          avante-nvim.enable = true;
+          # chatgpt.enable = false;
+          # copilot = {
+          #   enable = false;
+          #   cmp.enable = true;
+          # };
+          # codecompanion-nvim.enable = false;
+          avante-nvim.enable = false;
         };
 
-        session = {
-          nvim-session-manager.enable = false;
-        };
+        # session = {
+        #   nvim-session-manager.enable = false;
+        # };
 
-        gestures = {
-          gesture-nvim.enable = false;
-        };
+        # gestures = {
+        #   gesture-nvim.enable = false; # mouse gestures
+        # };
 
         comments = {
-          comment-nvim.enable = true;
+          comment-nvim.enable = true; # comments with gcc
         };
       };
     };
