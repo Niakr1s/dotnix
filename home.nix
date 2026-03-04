@@ -32,9 +32,9 @@ in {
 
   fonts.fontconfig = {
     enable = true;
-    antialiasing = true;
-    hinting = "slight"; # null or one of "none", "slight", "medium", "full"
-    subpixelRendering = "rgb"; # one of "rgb", "bgr", "vrgb", "vbgr", "none"
+    # antialiasing = true;
+    # hinting = "slight"; # null or one of "none", "slight", "medium", "full"
+    # subpixelRendering = "rgb"; # one of "rgb", "bgr", "vrgb", "vbgr", "none"
   };
 
   programs.zsh = {
