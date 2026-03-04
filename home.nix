@@ -4,6 +4,7 @@
   pkgs,
   inputs,
   nixpkgs-unstable,
+  stateVersion,
   ...
 }: let
   unstablePkgs = import nixpkgs-unstable {
@@ -11,7 +12,7 @@
     config = config.nixpkgs.config;
   };
 in {
-  home.stateVersion = "25.11";
+  home.stateVersion = "${stateVersion}";
 
   home.username = "nea";
   home.homeDirectory = "/home/nea";
