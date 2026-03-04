@@ -19,6 +19,7 @@ in {
     ../common/common.nix
     ../../modules/hardware/nvidia/nvidia.nix
     ../../modules/gaming/gaming.nix
+    ../../modules/ai/ollama/ollama.nix
   ];
 
   # BOOT
@@ -35,14 +36,6 @@ in {
       device = "/dev/nvme0n1p2";
       preLVM = true;
     };
-  };
-
-  # AI
-
-  services.ollama = {
-    enable = true;
-    package = pkgs.ollama-cuda;
-    loadModels = ["gemma3:12b"];
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
