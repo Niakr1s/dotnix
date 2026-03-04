@@ -270,7 +270,7 @@ in {
     wget
     curl
     git
-    btop
+    btop-cuda
     tree
     bat
     yazi
