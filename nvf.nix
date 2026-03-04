@@ -265,25 +265,28 @@
           fastaction.enable = true; # Whether to enable overriding vim.ui.select with fastaction.nvim.
         };
 
-        assistant = {
-          # chatgpt.enable = false;
-          # copilot = {
-          #   enable = false;
-          #   cmp.enable = true;
-          # };
-          # codecompanion-nvim.enable = false;
-          avante-nvim = {
-            enable = true;
-            setupOpts = {
-              provider = "ollama";
-              providers = {
-                ollama = {
-                  model = "gemma3:12b";
-                };
-              };
-            };
-          };
-        };
+        # assistant = {
+        #   # chatgpt.enable = false;
+        #   # copilot = {
+        #   #   enable = false;
+        #   #   cmp.enable = true;
+        #   # };
+        #   # codecompanion-nvim.enable = false;
+        #   avante-nvim = { # WARN: it breaks indentation somehow
+        #     enable = true;
+        #     setupOpts = {
+        #       provider = "ollama";
+        #       auto_suggestions_provider = "ollama";
+        #       providers = {
+        #         ollama = {
+        #           # api_key_name = "";
+        #           # endpoint = "http://localhost:11434/v1";
+        #           model = "gemma3:12b";
+        #         };
+        #       };
+        #     };
+        #   };
+        # };
 
         # session = {
         #   nvim-session-manager.enable = false;
