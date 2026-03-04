@@ -64,6 +64,13 @@ in {
     loadModels = ["gemma3:12b"];
   };
 
+  # services.qbittorrent = {
+  #   enable = true;
+  #   openFirewall = true;
+  #   torrentingPort = 6881;
+  #   webuiPort = 8080;
+  # };
+
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -276,6 +283,7 @@ in {
     yazi
     fzf
     ripgrep
+    qbittorrent
 
     gnomeExtensions.blur-my-shell
     gnomeExtensions.just-perfection
