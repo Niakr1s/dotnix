@@ -62,6 +62,12 @@ in {
     };
   };
 
+  programs.mpv.enable = true;
+  xdg.configFile."mpv" = {
+    source = config.lib.file.mkOutOfStoreSymlink "/home/nea/.dotnix/config/mpv";
+    recursive = true;
+  };
+
   # programs.neovim = {
   #   enable = true;
   #   defaultEditor = true;
