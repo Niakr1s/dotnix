@@ -13,6 +13,17 @@
         vimAlias = true;
         lineNumberMode = "number";
 
+        keymaps = [
+          {
+            key = "<leader>n";
+            mode = "n";
+            silent = true;
+            action = ":Neotree toggle<CR>";
+            # action = ":NvimTreeToggle<CR>";
+            desc = "Toggle Explorer";
+          }
+        ];
+
         clipboard = {
           enable = true;
           providers.wl-copy.enable = true;
@@ -157,11 +168,11 @@
 
         # snippets.luasnip.enable = true;
 
-        # filetree = {
-        #   neo-tree = {
-        #     enable = true;
-        #   };
-        # };
+        filetree = {
+          neo-tree = {
+            enable = true;
+          };
+        };
 
         treesitter = {
           context.enable = true;
