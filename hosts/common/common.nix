@@ -9,6 +9,8 @@
   stateVersion,
   ...
 }: {
+  system.stateVersion = "${stateVersion}"; # Set this to first installed version, and then don't change it
+
   # Latest kernel by default
   boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
 
@@ -272,6 +274,4 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
-  system.stateVersion = "${stateVersion}"; # Set this to first installed version, and then don't change it
 }
