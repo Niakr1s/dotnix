@@ -72,19 +72,4 @@ in {
     source = config.lib.file.mkOutOfStoreSymlink "/home/${username}/.dotnix/config/mpv";
     recursive = true;
   };
-
-  # programs.neovim = {
-  #   enable = true;
-  #   defaultEditor = true;
-  #   viAlias = true;
-  #   vimAlias = true;
-  #   withNodeJs = true;
-  #   withPython3 = true;
-  #   withRuby = true;
-  # };
-
-  # xdg.configFile."nvim" = {
-  #   source = config.lib.file.mkOutOfStoreSymlink "/home/${username}/.dotnix/config/nvim";
-  #   recursive = true;
-  # };
 }
