@@ -365,7 +365,7 @@ in {
         night-light-enabled = true;
         night-light-schedule-from = 20.0;
         night-light-schedule-to = 7.0;
-        night-light-temperature = 4000;
+        night-light-temperature = 4700;
       };
 
       # Configure individual extensions
