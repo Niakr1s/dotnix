@@ -91,7 +91,7 @@ in {
       };
       Preferences = {
         WebUI = {
-          Username = "nea";
+          Username = "${username}";
           Password_PBKDF2 = "@ByteArray(agI2Tr50yXx8i5Gm9kTfkA==:79jfEujByGcX3FQTbLt2IIm4t7pSxfQhwVIcVFOlTKLtJ1XIJPnDN28+w2udq2ksKpr3UUjxKoCYO6WzaiT+8w==)";
         };
       };
@@ -101,9 +101,9 @@ in {
   # man tmpfiles.d
   systemd.tmpfiles.rules = [
     "R /var/lib/qBittorrent/qBittorrent/config/categories.json - - - - -"
-    "C /var/lib/qBittorrent/qBittorrent/config/categories.json 0644 qbittorrent qbittorrent - /home/nea/.dotnix/config/qBittorrent/config/categories.json"
+    "C /var/lib/qBittorrent/qBittorrent/config/categories.json 0644 qbittorrent qbittorrent - /home/${username}/.dotnix/config/qBittorrent/config/categories.json"
     "R /var/lib/qBittorrent/qBittorrent/config/watched_folders.json - - - - -"
-    "C /var/lib/qBittorrent/qBittorrent/config/watched_folders.json 0644 qbittorrent qbittorrent - /home/nea/.dotnix/config/qBittorrent/config/watched_folders.json"
+    "C /var/lib/qBittorrent/qBittorrent/config/watched_folders.json 0644 qbittorrent qbittorrent - /home/${username}/.dotnix/config/qBittorrent/config/watched_folders.json"
     "d /srv/torrents 2770 qbittorrent qbittorrent - -"
   ];
 
@@ -170,7 +170,7 @@ in {
   };
   security.pam.loginLimits = [
     {
-      domain = "nea"; # your user name
+      domain = "${username}"; # your user name
       type = "hard";
       item = "nofile";
       value = "524288";
@@ -252,7 +252,7 @@ in {
   # services.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.nea = {
+  users.users.${username} = {
     isNormalUser = true;
     extraGroups = ["wheel" "video" "audio" "disk" "networkmanager" "qbittorrent"];
     uid = 1000;
