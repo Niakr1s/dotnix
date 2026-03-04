@@ -22,6 +22,10 @@ in {
   home.packages = with pkgs; [
   ];
 
+  home.shellAliases = {
+    update = "sudo nixos-rebuild switch --flake /home/${username}/.dotnix#${hostname}";
+  };
+
   imports = [
     inputs.nvf.homeManagerModules.default
     ./nvf.nix

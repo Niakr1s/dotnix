@@ -264,7 +264,6 @@ in {
   environment.shellAliases = {
     ll = "ls -l";
     la = "ls -la";
-    update = "sudo nixos-rebuild switch --flake /home/nea/.dotnix#desktop";
   };
 
   environment.shells = with pkgs; [zsh];
