@@ -4,6 +4,8 @@
   lib,
   pkgs,
   nixpkgs-unstable,
+  hostname,
+  username,
   ...
 }: let
   unstablePkgs = import nixpkgs-unstable {
@@ -37,7 +39,7 @@ in {
 
   nixpkgs.config.allowUnfree = true;
 
-  networking.hostName = "desktop"; # Define your hostname.
+  networking.hostName = "${hostname}"; # Define your hostname.
   networking.networkmanager.enable = true;
   time.timeZone = "Europe/Moscow";
 

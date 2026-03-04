@@ -16,8 +16,14 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nvf, ... }@inputs:
-  let
+  outputs = {
+    self,
+    nixpkgs,
+    nixpkgs-unstable,
+    home-manager,
+    nvf,
+    ...
+  } @ inputs: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
 
@@ -31,12 +37,18 @@
         })
       ];
     };
-  in
-  {
-    nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
+
+    desktop = "desktop"; # desktop hostname
+    username = "nea"; # better not change this for now
+  in {
+    # desktop configuration
+    nixosConfigurations.${desktop} = nixpkgs.lib.nixosSystem {
       inherit system;
-      specialArgs = { 
+      specialArgs = {
         inherit inputs;
+
+        hostname = "desktop";
+        inherit username;
       };
       modules = [
         ./configuration.nix
@@ -45,10 +57,14 @@
 
         home-manager.nixosModules.home-manager
         {
+          home-manager.extraSpecialArgs = {
+            inherit inputs;
+            hostname = "desktop";
+            inherit username;
+          };
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.nea = import ./home.nix;
-	  home-manager.extraSpecialArgs = { inherit inputs; };
         }
       ];
     };
