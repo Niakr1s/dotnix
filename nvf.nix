@@ -272,7 +272,17 @@
           #   cmp.enable = true;
           # };
           # codecompanion-nvim.enable = false;
-          avante-nvim.enable = false;
+          avante-nvim = {
+            enable = true;
+            setupOpts = {
+              provider = "ollama";
+              providers = {
+                ollama = {
+                  model = "gemma3:12b";
+                };
+              };
+            };
+          };
         };
 
         # session = {
