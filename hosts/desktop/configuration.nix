@@ -40,4 +40,7 @@ in {
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true; TODO: enable in in laptop
+  environment.systemPackages = with pkgs; [
+    gnomeExtensions.display-configuration-switcher
+  ];
 }
