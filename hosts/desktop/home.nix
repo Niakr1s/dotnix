@@ -34,5 +34,10 @@ in {
         pkgs.gnomeExtensions.display-configuration-switcher.extensionUuid
       ];
     };
+    "org/gnome/shell/extensions/display-configuration-switcher" = {
+      display-configuration-switcher-shortcut-next = ["<Alt><Super>p"];
+      display-configuration-switcher-shortcut-previous = [];
+      display-configuration-switcher-shortcuts-enabled = true;
+    };
   };
 }
