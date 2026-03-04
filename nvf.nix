@@ -179,7 +179,7 @@
           enable = true;
           gitsigns.enable = true;
           gitsigns.codeActions.enable = false; # throws an annoying debug message
-          # neogit.enable = true;
+          neogit.enable = true;
         };
 
         # minimap = {
@@ -214,7 +214,7 @@
           };
           sleuth.enable = true; # indentation computation
           undotree.enable = true; # Edit history visualizer
-          nvim-biscuits.enable = true; # Code Biscuits are in-editor annotations usually at the end of a closing tag/bracket/parenthesis/etc
+          # nvim-biscuits.enable = true; # WARN: Conflicts with treesitter! usually at the end of a closing tag/bracket/parenthesis/etc
           yazi-nvim.enable = true; # Yazi integration
           grug-far-nvim.enable = true; # Find And Replace plugin for neovim
         };
