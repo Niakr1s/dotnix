@@ -132,7 +132,7 @@
       plugins = [
         "git"
       ];
-      theme = "robbyrussell";
+      theme = "maran";
     };
   };
 
