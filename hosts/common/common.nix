@@ -9,32 +9,45 @@
   stateVersion,
   ...
 }: {
+  # Nixos settings
+
   system.stateVersion = "${stateVersion}"; # Set this to first installed version, and then don't change it
+  nixpkgs.config.allowUnfree = true;
+  nix.settings.experimental-features = ["nix-command" "flakes"];
+
+  # Imports
 
   imports = [
     ../../modules/de/gnome/gnome.nix
     ../../modules/services/qbittorrent/qbittorrent.nix
   ];
 
-  # Latest kernel by default
+  # Kernel
+
   boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
 
-  nixpkgs.config.allowUnfree = true;
+  # Users
 
-  # Garbage collection daily
-  nix.gc = {
-    automatic = true;
-    dates = "21:00";
+  # Don't forget to set a password with ‘passwd’.
+  users.users.${username} = {
+    isNormalUser = true;
+    extraGroups = ["wheel" "video" "audio" "disk" "networkmanager"];
+    uid = 1000;
+    shell = pkgs.zsh;
+    packages = with pkgs; [];
   };
+
+  # Environment
 
   networking.hostName = "${hostname}"; # Define your hostname.
   networking.networkmanager.enable = true;
   time.timeZone = "Europe/Moscow";
+  i18n.defaultLocale = "en_DK.UTF-8";
+  services.xserver.xkb.layout = "us,ru";
 
   # These variables will be set by PAM early in the login process.
   environment.sessionVariables = {
-    # To enable one-to-one trackpad scrolling in Firefox
-    MOZ_USE_XINPUT2 = "1";
+    MOZ_USE_XINPUT2 = "1"; # To enable one-to-one trackpad scrolling in Firefox
   };
 
   # These variables will be set on shell initialisation (e.g. in /etc/profile).
@@ -43,14 +56,43 @@
     VISUAL = "vim";
   };
 
+  # Services
+
+  # Firewall
+  networking.firewall = {
+    enable = false;
+    allowedTCPPorts = [];
+    allowedUDPPorts = [];
+  };
+
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
+
+  # Enable sound.
+  services.pulseaudio.enable = false;
+  # OR
+  services.pipewire = {
+    enable = true;
+    pulse.enable = true;
+  };
+
+  # Garbage collection daily
+  nix.gc = {
+    automatic = true;
+    dates = "21:00";
+  };
+
+  # Enable the OpenSSH daemon.
+  services.openssh.enable = true;
+
+  # VPN
   services.v2raya = {
     enable = true;
     package = pkgs.unstable.v2raya;
     cliPackage = pkgs.unstable.xray;
   };
 
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_DK.UTF-8";
+  # DE
 
   # Some DE stuff
   services.displayManager.gdm.enable = true;
@@ -62,29 +104,7 @@
     ];
   };
 
-  # Configure keymap in X11
-  services.xserver.xkb.layout = "us,ru";
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable sound.
-  # services.pulseaudio.enable = true;
-  # OR
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-  };
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.${username} = {
-    isNormalUser = true;
-    extraGroups = ["wheel" "video" "audio" "disk" "networkmanager"];
-    uid = 1000;
-    shell = pkgs.zsh;
-    packages = with pkgs; [
-    ];
-  };
+  # Shells
 
   environment.shellAliases = {
     ll = "ls -l";
@@ -115,6 +135,40 @@
       theme = "robbyrussell";
     };
   };
+
+  # Fonts
+
+  fonts.enableDefaultPackages = true;
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-color-emoji
+    liberation_ttf
+    fira-code
+    fira-code-symbols
+    mplus-outline-fonts.githubRelease
+    dina-font
+    proggyfonts
+  ];
+
+  # Syling
+
+  qt = {
+    enable = true;
+    platformTheme = "gnome";
+    style = "adwaita-dark";
+  };
+
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  # programs.mtr.enable = true;
+  # programs.gnupg.agent = {
+  #   enable = true;
+  #   enableSSHSupport = true;
+  # };
+
+  # Software
 
   environment.systemPackages = with pkgs; [
     vim
@@ -152,43 +206,4 @@
 
     # ------
   ];
-
-  fonts.enableDefaultPackages = true;
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-    noto-fonts
-    noto-fonts-cjk-sans
-    noto-fonts-color-emoji
-    liberation_ttf
-    fira-code
-    fira-code-symbols
-    mplus-outline-fonts.githubRelease
-    dina-font
-    proggyfonts
-  ];
-
-  qt = {
-    enable = true;
-    platformTheme = "gnome";
-    style = "adwaita-dark";
-  };
-
-  nix.settings.experimental-features = ["nix-command" "flakes"];
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 }
