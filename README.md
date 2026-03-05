@@ -222,9 +222,7 @@ My working configuration as of March 2026 looks like:
 Transparent Proxy/System Proxy = 'On: Do not Split Traffic'
 Transparent Proxy/System Proxy Implementation = 'redirect'
 Traffic Splitting Mode of Rule Port = RoutingA
-Prevent DNS Spoofing = Off
-Special Mode = Off
-TCPFastOpen = Keep Default
+# Others options are default
 ```
 
 and RoutingA configuration is simple:
