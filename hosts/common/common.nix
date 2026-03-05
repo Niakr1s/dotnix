@@ -173,6 +173,7 @@
     fd
     ripgrep
     usbutils
+    neofetch # for sure
 
     dconf-editor # you probably need it even in not gnome environment
   ];

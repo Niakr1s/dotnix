@@ -47,5 +47,9 @@ in {
   # services.libinput.enable = true; TODO: enable in in laptop
   environment.systemPackages = with pkgs; [
     gnomeExtensions.display-configuration-switcher
+
+    ### Video editors
+    handbrake
+    losslesscut-bin
   ];
 }
