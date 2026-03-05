@@ -11,6 +11,10 @@
 }: {
   system.stateVersion = "${stateVersion}"; # Set this to first installed version, and then don't change it
 
+  imports = [
+    ../../modules/de/gnome/gnome.nix
+  ];
+
   # Latest kernel by default
   boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
 
@@ -88,31 +92,6 @@
   i18n.defaultLocale = "en_DK.UTF-8";
 
   services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
-
-  services.gnome.core-apps.enable = true;
-  services.gnome.core-developer-tools.enable = false;
-  services.gnome.games.enable = true;
-  environment.gnome.excludePackages = with pkgs; [
-    gnome-clocks
-    #gnome-control-center
-    gnome-initial-setup
-    gnome-music
-    #pkgs.gnome-connections
-    pkgs.gnome-contacts
-    pkgs.gnome-tour
-    #pkgs.snapshot
-    cheese
-    epiphany
-    evince
-    geary
-    totem
-    yelp
-    decibels
-    snapshot
-    showtime
-  ];
-
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
@@ -212,10 +191,7 @@
     ripgrep
     usbutils
 
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.just-perfection
-    gnomeExtensions.forge
-    dconf-editor
+    dconf-editor # you probably need it even in not gnome environment
 
     protonup-ng # GUI for installing custom Proton versions like GE_Proton
     mangohud
