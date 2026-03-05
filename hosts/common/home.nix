@@ -53,6 +53,8 @@ in {
     enable = true;
     enableZshIntegration = true;
     enableBashIntegration = true;
+    enableFishIntegration = true;
+    tmux.enableShellIntegration = true;
 
     defaultCommand = "fd --type f --hidden --exclude .git --exclude dosdevices --exclude drive_c";
 
