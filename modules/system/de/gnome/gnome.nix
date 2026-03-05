@@ -37,6 +37,5 @@
   environment.systemPackages = with pkgs; [
     gnomeExtensions.blur-my-shell
     gnomeExtensions.just-perfection
-    gnomeExtensions.forge
   ];
 }

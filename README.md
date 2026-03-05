@@ -2,6 +2,8 @@
 
 ## Installation
 
+### A new system on a new host
+
 Consider reading the [article](https://qfpl.io/posts/installing-nixos/) about
 installing nixos to properly configure disks and enable encryption.
 
@@ -157,10 +159,16 @@ will probably need to configure network again with `nmtui`.
 ```
 
 Copy `/etc/nixos/hardware-configuration` to your host hardware configuration, or
-modify it if needed.
+modify it if needed. Note: If `hardware-configuration.nix` was not in git, you
+should `git add` it, otherwise it will error you.
 
 AFterwards, run `sudo nixos-rebuild switch --flake /home/nea/.dotnix#desktop`
 and you are gtg.
+
+### Reinstallation
+
+Keep in mind, that you already have `hardware-configuration.nix`, so you'll
+probably want to reuse it.
 
 ## Hardware
 
@@ -199,3 +207,28 @@ time I guess? So strange.
 So if your gamepad is already connected to dongle - don't try to disconnect or
 reset settings, because it will cost you a lot of time. But I don't regret
 actually, I've learned a bit more about Linux.
+
+## Software
+
+### v2raya
+
+You'll need a certain version of `v2raya` package to work it with `xhttp`. It's
+already configured in this configuration via `nixos-unstable` overlay, so don't
+mind it. Just login at `http://localhost:2017` and configure it.
+
+My working configuration as of March 2026 looks like:
+
+```
+Transparent Proxy/System Proxy = 'On: Do not Split Traffic'
+Transparent Proxy/System Proxy Implementation = 'redirect'
+Traffic Splitting Mode of Rule Port = RoutingA
+# Others options are default
+```
+
+and RoutingA configuration is simple:
+
+```
+default: proxy
+```
+
+Add this configuration and run service.
