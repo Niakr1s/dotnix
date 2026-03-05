@@ -207,3 +207,30 @@ time I guess? So strange.
 So if your gamepad is already connected to dongle - don't try to disconnect or
 reset settings, because it will cost you a lot of time. But I don't regret
 actually, I've learned a bit more about Linux.
+
+## Software
+
+### v2raya
+
+You'll need a certain version of `v2raya` package to work it with `xhttp`. It's
+already configured in this configuration via `nixos-unstable` overlay, so don't
+mind it. Just login at `http://localhost:2017` and configure it.
+
+My working configuration as of March 2026 looks like:
+
+```
+Transparent Proxy/System Proxy = 'On: Do not Split Traffic'
+Transparent Proxy/System Proxy Implementation = 'redirect'
+Traffic Splitting Mode of Rule Port = RoutingA
+Prevent DNS Spoofing = Off
+Special Mode = Off
+TCPFastOpen = Keep Default
+```
+
+and RoutingA configuration is simple:
+
+```
+default: proxy
+```
+
+Add this configuration and run service.
