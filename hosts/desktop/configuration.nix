@@ -35,14 +35,6 @@ in {
 
   boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_18; # Nvidia compatibility
 
-  # Encryption
-  boot.initrd.luks.devices = {
-    root = {
-      device = "/dev/nvme0n1p2";
-      preLVM = true;
-    };
-  };
-
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true; TODO: enable in in laptop
   environment.systemPackages = with pkgs; [
