@@ -106,35 +106,18 @@
 
   # Shells
 
+  # A list of permissible login shells for user accounts. No need to mention /bin/sh here, it is placed into this list implicitly.
+  environment.shells = with pkgs; [zsh];
+  programs.zsh.enable = true; # in order to home config to work
+
+  # some common aliases
   environment.shellAliases = {
     ll = "ls -l";
     la = "ls -la";
   };
 
-  environment.shells = with pkgs; [zsh];
-
-  system.userActivationScripts.zshrc = "touch .zshrc";
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-
-    syntaxHighlighting = {
-      enable = true;
-    };
-
-    autosuggestions = {
-      enable = true;
-      async = true;
-    };
-
-    ohMyZsh = {
-      enable = true;
-      plugins = [
-        "git"
-      ];
-      theme = "maran";
-    };
-  };
+  # this not needed anymore, because we'll manage zsh with home-manager
+  # system.userActivationScripts.zshrc = "touch .zshrc";
 
   # Fonts
 

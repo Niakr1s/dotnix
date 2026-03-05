@@ -42,6 +42,21 @@ in {
     # subpixelRendering = "rgb"; # one of "rgb", "bgr", "vrgb", "vbgr", "none"
   };
 
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    syntaxHighlighting.enable = true;
+    autosuggestion.enable = true;
+
+    oh-my-zsh = {
+      enable = true;
+      plugins = [
+        "git"
+      ];
+      theme = "maran";
+    };
+  };
+
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
