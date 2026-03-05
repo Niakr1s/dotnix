@@ -96,6 +96,12 @@
 
   # Some DE stuff
   services.displayManager.gdm.enable = true;
+
+  services.displayManager.autoLogin = {
+    enable = true;
+    user = "${username}";
+  };
+
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
@@ -107,6 +113,7 @@
   # Shells
 
   # A list of permissible login shells for user accounts. No need to mention /bin/sh here, it is placed into this list implicitly.
+  # It fixes whether GDM doesn't show user if user's default shell is zsh
   environment.shells = with pkgs; [zsh];
   programs.zsh.enable = true; # in order to home config to work
 
