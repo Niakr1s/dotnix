@@ -123,9 +123,6 @@ in {
     );
 
     config = {
-      # profile = "high-quality";
-      # ytdl-format = "bestvideo+bestaudio";
-      # cache-default = 4000000;
       window-scale = 0.5;
       hwdec = "auto";
       slang = "en";
