@@ -26,6 +26,9 @@
 
   boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
 
+  ### BLuetooth
+  hardware.bluetooth.enable = true;
+
   # Users
 
   # Don't forget to set a password with ‘passwd’.
