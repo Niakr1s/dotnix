@@ -34,7 +34,12 @@ in {
     # NVF
     inputs.nvf.homeManagerModules.default
     ../../modules/home/nvf/nvf.nix
+
+    ### TLDR
     ../../modules/home/tldr/tldr.nix
+
+    ### MPV
+    ../../modules/home/mpv/mpv.nix
   ];
 
   fonts.fontconfig = {
@@ -102,39 +107,6 @@ in {
     enable = true;
     gitCredentialHelper = {
       enable = true;
-    };
-  };
-
-  programs.mpv = {
-    enable = true;
-
-    package = (
-      pkgs.mpv-unwrapped.wrapper {
-        scripts = with pkgs.mpvScripts; [
-          uosc
-          sponsorblock
-        ];
-
-        mpv = pkgs.mpv-unwrapped.override {
-          waylandSupport = true;
-          ffmpeg = pkgs.ffmpeg-full;
-        };
-      }
-    );
-
-    config = {
-      window-scale = 0.5;
-      hwdec = "auto";
-      slang = "en";
-      fullscreen = "yes";
-      border = "no";
-      osd-font-size = 33;
-      autofit-larger = "75%";
-      sub-delay = 1;
-      title = "$\{filename\}";
-      vo = "gpu-next";
-      gpu-api = "vulkan";
-      target-colorspace-hint = "yes";
     };
   };
 }
