@@ -18,8 +18,8 @@
   # Imports
 
   imports = [
-    ../../modules/de/gnome/gnome.nix
-    ../../modules/services/qbittorrent/qbittorrent.nix
+    ../../modules/system/de/gnome/gnome.nix
+    ../../modules/system/services/qbittorrent/qbittorrent.nix
   ];
 
   # Kernel

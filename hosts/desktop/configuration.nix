@@ -17,14 +17,14 @@ in {
   imports = [
     ./hardware-configuration.nix
     ../common/common.nix
-    ../../modules/hardware/nvidia/nvidia.nix
+    ../../modules/system/hardware/nvidia/nvidia.nix
 
     # I couldn't wire my gamepad with dongle, so I spent 3 hours to do this...
     # More in README.md
     # ../../modules/hardware/gamepad/gamepad.nix
 
-    ../../modules/gaming/gaming.nix
-    ../../modules/ai/ollama/ollama.nix
+    ../../modules/system/gaming/gaming.nix
+    ../../modules/system/ai/ollama/ollama.nix
   ];
 
   # BOOT
