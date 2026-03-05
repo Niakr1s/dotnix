@@ -16,7 +16,7 @@
 in {
   imports = [
     ./hardware-configuration.nix
-    ../common/common.nix
+    ../default/configuration.nix
     ../../modules/system/hardware/nvidia/nvidia.nix
 
     # I couldn't wire my gamepad with dongle, so I spent 3 hours to do this...

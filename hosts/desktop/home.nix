@@ -15,7 +15,7 @@
   };
 in {
   imports = [
-    ../common/home.nix
+    ../default/home.nix
     ./wallpaper.nix # You can change wallpaper in this file
     ../../modules/home/tldr/tldr.nix
     ../../modules/home/dconf/dconf.multiple.monitors.nix
