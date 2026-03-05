@@ -17,6 +17,7 @@ in {
   imports = [
     ./hardware-configuration.nix
     ../default/configuration.nix
+    ../../modules/system/hardware/intel/intel.nix
   ];
 
   # BOOT
