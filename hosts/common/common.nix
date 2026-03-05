@@ -52,6 +52,7 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_DK.UTF-8";
 
+  # Some DE stuff
   services.displayManager.gdm.enable = true;
   xdg.portal = {
     enable = true;
@@ -112,20 +113,6 @@
         "git"
       ];
       theme = "robbyrussell";
-    };
-  };
-
-  programs.firefox = {
-    enable = true;
-
-    languagePacks = ["en-US"];
-
-    preferences = {
-      "privacy.resistFingerprinting" = true;
-    };
-
-    policies = {
-      DisableTelemetry = true;
     };
   };
 
