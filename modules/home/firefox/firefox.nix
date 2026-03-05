@@ -10,6 +10,13 @@
   ...
 }: let
 in {
+  xdg.autostart = {
+    enable = true;
+    entries = [
+      "${pkgs.firefox}/share/applications/firefox.desktop"
+    ];
+  };
+
   programs.firefox = {
     enable = true;
 
