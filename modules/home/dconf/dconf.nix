@@ -43,7 +43,7 @@ in {
         focus-active-notification = [];
         toggle-quick-settings = [];
         restore-shortcuts = [];
-        toggle-application-view = ["<Super>d"];
+        # toggle-application-view = ["<Super>d"]; # not needed: press twice <Super>
         shift-overview-down = [];
         shift-overview-up = [];
         show-screen-recording-ui = [];
@@ -77,6 +77,7 @@ in {
         screensaver = ["<Alt><Super>l"];
         custom-keybindings = [
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
         ];
       };
 
@@ -84,6 +85,12 @@ in {
         name = "Console";
         command = "kgx";
         binding = "<Super>Return";
+      };
+
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+        name = "Files";
+        command = "nautilus";
+        binding = "<Super>e";
       };
 
       "org/gnome/settings-daemon/plugins/power" = {
