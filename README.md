@@ -232,3 +232,10 @@ default: proxy
 ```
 
 Add this configuration and run service.
+
+### qbittorrent
+
+The service should work as a system service. The downloads will be placed in
+`/srv/torrents` by default. Directory `/srv/torrents/autoload` is being watched
+for new torrents, so users can put their files there and they will be downloaded
+automatically.
