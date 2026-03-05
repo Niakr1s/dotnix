@@ -24,6 +24,4 @@ in {
       value = "524288";
     }
   ];
-  programs.steam.enable = true;
-  programs.gamemode.enable = true; # for performance mode
 }
