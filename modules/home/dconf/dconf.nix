@@ -67,6 +67,18 @@ in {
         switch-to-application-9 = [];
       };
 
+      ### Nautilus
+      "org/gtk/gtk4/settings/file-chooser" = {
+        sort-directories-first = true;
+        show-hidden = false;
+      };
+      "org/gnome/nautilus/preferences" = {
+        default-folder-viewer = "list-view";
+      };
+      "org/gnome/nautilus/preferences/date-time-format" = {
+        date-time-format = "detauled";
+      };
+
       "org/gnome/settings-daemon/plugins/media-keys" = {
         help = [];
         logout = [];
