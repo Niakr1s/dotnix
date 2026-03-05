@@ -42,6 +42,9 @@
 
     desktopStateVersion = "25.11"; # version of iso
     desktopHostName = "desktop"; # desktop hostname, it should be equal to hosts/{host} directory name
+
+    laptopStateVersion = "25.11"; # version of iso
+    laptopHostName = "laptop"; # laptop hostname, it should be equal to hosts/{host} directory name
   in {
     # desktop configuration
     nixosConfigurations.${desktopHostName} = nixpkgs.lib.nixosSystem {
@@ -70,6 +73,37 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.${username} = import ./hosts/${desktopHostName}/home.nix;
+        }
+      ];
+    };
+
+    # laptop configuration
+    nixosConfigurations.${laptopHostName} = nixpkgs.lib.nixosSystem {
+      inherit system;
+      specialArgs = {
+        inherit inputs;
+        stateVersion = "${laptopStateVersion}";
+
+        hostname = "${laptopHostName}";
+        inherit username;
+      };
+      modules = [
+        ./hosts/${laptopHostName}/configuration.nix # probably we can hardcode this
+
+        unstable-overlays
+
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.extraSpecialArgs = {
+            inherit inputs;
+            stateVersion = "${laptopStateVersion}";
+
+            hostname = "${laptopHostName}";
+            inherit username;
+          };
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.${username} = import ./hosts/${laptopHostName}/home.nix;
         }
       ];
     };
