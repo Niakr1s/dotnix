@@ -26,7 +26,8 @@ in {
     recursive = true;
   };
 
-  # home.file."local/share/lutris/runners/wine.yml".source = config.lib.file.mkOutOfStoreSymlink "/path/to/your/wine.yml";
+  home.file.".local/share/lutris/runners/wine.yml".source =
+    config.lib.file.mkOutOfStoreSymlink "/home/${username}/.dotnix/local/share/lutris/runners/wine.yml";
 
   dconf.settings = {
     "org/gnome/shell" = {
