@@ -13,6 +13,7 @@
 
   imports = [
     ../../modules/de/gnome/gnome.nix
+    ../../modules/services/qbittorrent/qbittorrent.nix
   ];
 
   # Latest kernel by default
