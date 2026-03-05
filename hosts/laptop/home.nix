@@ -18,4 +18,14 @@ in {
     ../default/home.nix
     ./wallpaper.nix # You can change wallpaper in this file
   ];
+  dconf = {
+    enable = true;
+    settings = with lib.hm.gvariant; {
+      "org/gnome/shell" = {
+        enabled-extensions = [
+          pkgs.gnomeExtensions.screen-rotate.extensionUuid
+        ];
+      };
+    };
+  };
 }
