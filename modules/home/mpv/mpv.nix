@@ -17,14 +17,14 @@ in {
 
   programs.mpv = {
     enable = true;
-    scripts = with pkgs.mpvScripts; [
-      modernz
-      autosub
-      thumbfast
-    ];
-
     package = (
       pkgs.mpv-unwrapped.wrapper {
+        scripts = with pkgs.mpvScripts; [
+          modernz
+          autosub
+          thumbfast
+        ];
+
         mpv = pkgs.mpv-unwrapped.override {
           waylandSupport = true;
           ffmpeg = pkgs.ffmpeg-full;
