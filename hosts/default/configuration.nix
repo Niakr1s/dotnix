@@ -145,6 +145,11 @@
     proggyfonts
   ];
 
+  fonts.fontconfig = {
+    enable = true;
+    useEmbeddedBitmaps = true; # Noto Color Emoji doesn't render on Firefox
+  };
+
   # Syling
 
   qt = {
