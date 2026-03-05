@@ -123,9 +123,21 @@ in {
     );
 
     config = {
-      profile = "high-quality";
-      ytdl-format = "bestvideo+bestaudio";
-      cache-default = 4000000;
+      # profile = "high-quality";
+      # ytdl-format = "bestvideo+bestaudio";
+      # cache-default = 4000000;
+      window-scale = 0.5;
+      hwdec = "auto";
+      slang = "en";
+      fullscreen = "yes";
+      border = "no";
+      osd-font-size = 33;
+      autofit-larger = "75%";
+      sub-delay = 1;
+      title = "$\{filename\}";
+      vo = "gpu-next";
+      gpu-api = "vulkan";
+      target-colorspace-hint = "yes";
     };
   };
 }
