@@ -42,13 +42,6 @@ in {
     # subpixelRendering = "rgb"; # one of "rgb", "bgr", "vrgb", "vbgr", "none"
   };
 
-  programs.zsh = {
-    enable = true;
-
-    shellAliases = {
-    };
-  };
-
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
