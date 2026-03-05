@@ -19,7 +19,7 @@
         Session = {
           DefaultSavePath = "/srv/torrents"; # systemd will create this directory for us
           TempPath = "/srv/torrents/temp";
-          TorrentExportDirectory = "/srv/torrents/.torrents";
+          # TorrentExportDirectory = "/srv/torrents/.torrents";
           AlternativeGlobalDLSpeedLimit = 6000;
           DisableAutoTMMByDefault = false;
           GlobalMaxRatio = 1; # stop seeding after ratio 1
@@ -47,6 +47,7 @@
     "R /var/lib/qBittorrent/qBittorrent/config/watched_folders.json - - - - -"
     "C /var/lib/qBittorrent/qBittorrent/config/watched_folders.json 0644 qbittorrent qbittorrent - /home/${username}/.dotnix/config/qBittorrent/config/watched_folders.json"
     "d /srv/torrents 2770 qbittorrent qbittorrent - -"
+    "d /srv/torrents/autoload 2770 qbittorrent qbittorrent - -"
   ];
 
   users.users.${username}.extraGroups = ["qbittorrent"];
