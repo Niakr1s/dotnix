@@ -105,11 +105,11 @@ in {
         toggle-maximized = ["<Shift><Super>f"];
         panel-run-dialog = ["<Alt><Super>d"];
 
-        # Move to monitors
+        # Disable move to monitors
         move-to-monitor-down = [];
         move-to-monitor-up = [];
-        move-to-monitor-left = ["<Shift><Super>bracketleft"];
-        move-to-monitor-right = ["<Shift><Super>bracketright"];
+        move-to-monitor-left = lib.mkDefault [];
+        move-to-monitor-right = lib.mkDefault [];
 
         # Move to workspaces
         move-to-workspace-left = [];

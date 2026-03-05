@@ -18,20 +18,8 @@ in {
     ../common/home.nix
     ./wallpaper.nix # You can change wallpaper in this file
     ../../modules/home/tldr/tldr.nix
+    ../../modules/home/dconf/dconf.multiple.monitors.nix
   ];
-
-  dconf.settings = {
-    "org/gnome/shell" = {
-      enabled-extensions = [
-        pkgs.gnomeExtensions.display-configuration-switcher.extensionUuid
-      ];
-    };
-    "org/gnome/shell/extensions/display-configuration-switcher" = {
-      display-configuration-switcher-shortcut-next = ["<Alt><Super>p"];
-      display-configuration-switcher-shortcut-previous = [];
-      display-configuration-switcher-shortcuts-enabled = true;
-    };
-  };
 
   # aichat
   programs.aichat = {
