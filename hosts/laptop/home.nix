@@ -17,6 +17,5 @@ in {
   imports = [
     ../default/home.nix
     ./wallpaper.nix # You can change wallpaper in this file
-    ../../modules/home/tldr/tldr.nix
   ];
 }

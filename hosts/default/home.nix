@@ -34,6 +34,7 @@ in {
     # NVF
     inputs.nvf.homeManagerModules.default
     ../../modules/home/nvf/nvf.nix
+    ../../modules/home/tldr/tldr.nix
   ];
 
   fonts.fontconfig = {
