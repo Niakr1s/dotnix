@@ -2,6 +2,8 @@
 
 ## Installation
 
+### A new system on a new host
+
 Consider reading the [article](https://qfpl.io/posts/installing-nixos/) about
 installing nixos to properly configure disks and enable encryption.
 
@@ -157,10 +159,16 @@ will probably need to configure network again with `nmtui`.
 ```
 
 Copy `/etc/nixos/hardware-configuration` to your host hardware configuration, or
-modify it if needed.
+modify it if needed. Note: If `hardware-configuration.nix` was not in git, you
+should `git add` it, otherwise it will error you.
 
 AFterwards, run `sudo nixos-rebuild switch --flake /home/nea/.dotnix#desktop`
 and you are gtg.
+
+### Reinstallation
+
+Keep in mind, that you already have `hardware-configuration.nix`, so you'll
+probably want to reuse it.
 
 ## Hardware
 
