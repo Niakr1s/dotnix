@@ -28,14 +28,6 @@ in {
 
   boot.kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
 
-  # Encryption
-  # boot.initrd.luks.devices = {
-  #   root = {
-  #     device = "/dev/nvme0n1p2";
-  #     preLVM = true;
-  #   };
-  # };
-
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 }
