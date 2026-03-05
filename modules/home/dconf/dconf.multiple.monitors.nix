@@ -19,8 +19,8 @@ in {
         # Move to monitors
         move-to-monitor-down = [];
         move-to-monitor-up = [];
-        move-to-monitor-left = lib.mkForce ["<Shift><Super>bracketleft"];
-        move-to-monitor-right = lib.mkForce ["<Shift><Super>bracketright"];
+        move-to-monitor-left = lib.mkForce ["<Alt><Super>bracketleft"];
+        move-to-monitor-right = lib.mkForce ["<Alt><Super>bracketright"];
       };
 
       ### Display configuration switcher
