@@ -20,6 +20,7 @@ in {
   home.homeDirectory = "/home/${username}";
 
   home.packages = with pkgs; [
+    telegram-desktop
   ];
 
   home.shellAliases = {
