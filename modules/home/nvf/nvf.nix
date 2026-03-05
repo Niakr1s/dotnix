@@ -66,6 +66,12 @@
           lualine = {
             enable = true;
             theme = "catppuccin";
+            activeSection.b = [
+              ''{ "filetype", colored = true, icon_only = true, icon = { align = 'left' } } ''
+              # Adding path = 3 to show full paths
+              ''{ "filename", symbols = {modified = ' ', readonly = ' '}, separator = {right = ''}, path = 3 } ''
+              ''{ "", draw_empty = true, separator = { left = '', right = '' } } ''
+            ];
           };
         };
 
