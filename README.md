@@ -239,3 +239,16 @@ The service should work as a system service. The downloads will be placed in
 `/srv/torrents` by default. Directory `/srv/torrents/autoload` is being watched
 for new torrents, so users can put their files there and they will be downloaded
 automatically.
+
+### Lutris
+
+If you don't want to waste brandwidth and disk space, be sure to disable auto
+updates or runtime and wine, because the source of it will be provided by nixos.
+So, make sure you have
+
+```
+wine-update-channel = self-maintained
+auto_update_runtime = False
+```
+
+in your `~/.config/lutris/lutris.conf`
