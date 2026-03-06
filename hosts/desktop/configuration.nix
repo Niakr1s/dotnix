@@ -36,8 +36,6 @@ in {
   boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_18; # Nvidia compatibility
 
   environment.systemPackages = with pkgs; [
-    gnomeExtensions.display-configuration-switcher
-
     ### Video editors
     handbrake
     losslesscut-bin
