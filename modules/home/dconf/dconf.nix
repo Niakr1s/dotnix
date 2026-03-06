@@ -32,7 +32,8 @@ in {
           "org.gnome.Console.desktop"
           "org.gnome.Nautilus.desktop"
           "firefox.desktop"
-          "mpv.desktop"
+          # "mpv.desktop"
+          "io.github.celluloid_player.Celluloid.desktop"
           "org.telegram.desktop.desktop"
           "net.lutris.Lutris.desktop"
         ];
