@@ -38,8 +38,9 @@ in {
     ### TLDR
     ../../modules/home/tldr/tldr.nix
 
-    ### MPV
+    ### Video players
     ../../modules/home/mpv/mpv.nix
+    ../../modules/home/celluloid/celluloid.nix
   ];
 
   fonts.fontconfig = {
