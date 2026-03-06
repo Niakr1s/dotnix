@@ -20,9 +20,9 @@
             };
             swap = {
               size = "8G";
-              type = 8200;
               content = {
                 type = "swap";
+                discardPolicy = "both";
                 resumeDevice = true; # resume from hybernation
               };
             };
