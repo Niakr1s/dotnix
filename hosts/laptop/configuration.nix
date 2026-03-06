@@ -32,8 +32,4 @@ in {
   services.libinput.enable = true;
 
   hardware.sensor.iio.enable = true;
-
-  environment.systemPackages = with pkgs; [
-    gnomeExtensions.screen-rotate
-  ];
 }

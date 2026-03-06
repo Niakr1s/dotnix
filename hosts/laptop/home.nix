@@ -17,21 +17,17 @@ in {
   imports = [
     ../default/home.nix
     ./wallpaper.nix # You can change wallpaper in this file
+    ../../modules/gnome/extensions/screen-rotate.nix
   ];
   home.packages = with pkgs; [
     gnomeExtensions.gjs-osk
   ];
   dconf = {
-    enable = true;
     settings = with lib.hm.gvariant; {
       "org/gnome/shell" = {
         enabled-extensions = [
-          pkgs.gnomeExtensions.screen-rotate.extensionUuid
           pkgs.gnomeExtensions.gjs-osk.extensionUuid
         ];
-      };
-      "org/gnome/shell/extensions/screen-rotate" = {
-        manual-flip = true;
       };
       "org/gnome/shell/extensions/gjsosk" = {
         enable-drag = true;
