@@ -42,10 +42,10 @@ in {
     ../../modules/home/mpv/mpv.nix
     ../../modules/home/celluloid/celluloid.nix
 
-    ../../modules/git/git.nix
+    ../../modules/home/git/git.nix
 
-    ../../modules/zsh/zsh.nix
-    ../../modules/fzf/fzf.nix
+    ../../modules/home/zsh/zsh.nix
+    ../../modules/home/fzf/fzf.nix
   ];
 
   fonts.fontconfig = {
