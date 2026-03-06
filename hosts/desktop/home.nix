@@ -18,35 +18,8 @@ in {
     ../default/home.nix
     ./wallpaper.nix # You can change wallpaper in this file
     ../../modules/home/dconf/dconf.multiple.monitors.nix
+    ../../modules/home/gnome/extensions/blur-my-shell.nix
   ];
-
-  ### Gnome
-
-  home.packages = with pkgs; [
-    gnomeExtensions.blur-my-shell
-  ];
-
-  dconf.settings = {
-    "org/gnome/shell" = {
-      enabled-extensions = [
-        pkgs.gnomeExtensions.blur-my-shell.extensionUuid
-      ];
-    };
-    # Configure individual extensions
-    "org/gnome/shell/extensions/blur-my-shell" = {
-      brightness = 0.75;
-      noise-amount = 0;
-    };
-    "org/gnome/shell/extensions/blur-my-shell/applications" = {
-      enable-all = true;
-      blur = true;
-      blacklist = [
-        "Plank"
-        "com.desktop.ding"
-        "Conky"
-      ];
-    };
-  };
 
   # aichat
   programs.aichat = {
