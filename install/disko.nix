@@ -22,6 +22,14 @@
                 mountOptions = ["umask=0077"];
               };
             };
+            swap = {
+              size = "8G";
+              type = 8200;
+              content = {
+                type = "swap";
+                resumeDevice = true; # resume from hybernation
+              };
+            };
             zfs = {
               size = "100%";
               content = {
