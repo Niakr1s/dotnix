@@ -183,7 +183,6 @@ in {
         disable-user-extensions = false; # Optionally disable user extensions entirely
         enabled-extensions = [
           pkgs.gnomeExtensions.blur-my-shell.extensionUuid
-          pkgs.gnomeExtensions.just-perfection.extensionUuid
         ];
       };
 
