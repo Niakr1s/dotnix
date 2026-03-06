@@ -1,0 +1,21 @@
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  nixpkgs-unstable,
+  stateVersion,
+  hostname,
+  username,
+  ...
+}: let
+in {
+  dconf = {
+    settings = with lib.hm.gvariant; {
+      "org/gnome/settings-daemon/plugins/power" = {
+        sleep-inactive-ac-type = lib.mkForce "suspend";
+        sleep-inactive-ac-timeout = lib.mkForce "900"; # in seconds
+      };
+    };
+  };
+}

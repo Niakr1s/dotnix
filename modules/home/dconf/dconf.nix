@@ -107,7 +107,8 @@ in {
       };
 
       "org/gnome/settings-daemon/plugins/power" = {
-        sleep-inactive-ac-type = "nothing";
+        sleep-inactive-ac-type = lib.mkDefault "nothing";
+        sleep-inactive-ac-timeout = lib.mkDefault "900"; # in seconds
       };
 
       "org/gnome/mutter/keybindings" = {
