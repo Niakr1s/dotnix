@@ -179,33 +179,11 @@ in {
         switch-group-backward = [];
       };
 
-      "org/gnome/shell" = {
-        disable-user-extensions = false; # Optionally disable user extensions entirely
-        enabled-extensions = [
-          pkgs.gnomeExtensions.blur-my-shell.extensionUuid
-        ];
-      };
-
       "org/gnome/settings-daemon/plugins/color" = {
         night-light-enabled = true;
         night-light-schedule-from = 20.0;
         night-light-schedule-to = 7.0;
         night-light-temperature = 4700;
-      };
-
-      # Configure individual extensions
-      "org/gnome/shell/extensions/blur-my-shell" = {
-        brightness = 0.75;
-        noise-amount = 0;
-      };
-      "org/gnome/shell/extensions/blur-my-shell/applications" = {
-        enable-all = true;
-        blur = true;
-        blacklist = [
-          "Plank"
-          "com.desktop.ding"
-          "Conky"
-        ];
       };
 
       "org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9" = {
