@@ -42,6 +42,8 @@ in {
     ../../modules/home/mpv/mpv.nix
     ../../modules/home/celluloid/celluloid.nix
 
+    ../../modules/git/git.nix
+
     ../../modules/zsh/zsh.nix
     ../../modules/fzf/fzf.nix
   ];
@@ -51,23 +53,5 @@ in {
     # antialiasing = true;
     # hinting = "slight"; # null or one of "none", "slight", "medium", "full"
     # subpixelRendering = "rgb"; # one of "rgb", "bgr", "vrgb", "vbgr", "none"
-  };
-
-  programs.git = {
-    enable = true;
-    settings = {
-      user = {
-        name = "Niakr1s";
-        email = "pavel2188@gmail.com";
-      };
-      init.defaultBranch = "main";
-    };
-  };
-
-  programs.gh = {
-    enable = true;
-    gitCredentialHelper = {
-      enable = true;
-    };
   };
 }
