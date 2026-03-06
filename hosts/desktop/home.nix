@@ -20,6 +20,12 @@ in {
     ../../modules/home/dconf/dconf.multiple.monitors.nix
   ];
 
+  ### Gnome
+
+  home.packages = with pkgs; [
+    gnomeExtensions.blur-my-shell
+  ];
+
   dconf.settings = {
     "org/gnome/shell" = {
       last-selected-power-profile = lib.mkForce "perfomance";

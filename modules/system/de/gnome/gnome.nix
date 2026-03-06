@@ -19,10 +19,10 @@
     #gnome-control-center
     gnome-initial-setup
     gnome-music
-    #pkgs.gnome-connections
-    pkgs.gnome-contacts
-    pkgs.gnome-tour
-    #pkgs.snapshot
+    #gnome-connections
+    gnome-contacts
+    gnome-tour
+    #snapshot
     cheese
     epiphany
     evince
@@ -32,10 +32,5 @@
     decibels
     snapshot
     showtime
-  ];
-
-  environment.systemPackages = with pkgs; [
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.just-perfection
   ];
 }
