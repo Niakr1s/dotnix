@@ -26,12 +26,6 @@ in {
     gnomeExtensions.blur-my-shell
   ];
 
-  dconf.settings = {
-    "org/gnome/shell" = {
-      last-selected-power-profile = lib.mkForce "perfomance";
-    };
-  };
-
   # aichat
   programs.aichat = {
     enable = true;
