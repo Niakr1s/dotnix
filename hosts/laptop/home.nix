@@ -30,6 +30,9 @@ in {
           pkgs.gnomeExtensions.gjs-osk.extensionUuid
         ];
       };
+      "org/gnome/shell/extensions/screen-rotate" = {
+        manual-flip = true;
+      };
       "org/gnome/shell/extensions/gjsosk" = {
         enable-drag = true;
         indicator-enabled = true;
