@@ -35,6 +35,7 @@
         WebUI = {
           Username = "${username}";
           Password_PBKDF2 = "@ByteArray(agI2Tr50yXx8i5Gm9kTfkA==:79jfEujByGcX3FQTbLt2IIm4t7pSxfQhwVIcVFOlTKLtJ1XIJPnDN28+w2udq2ksKpr3UUjxKoCYO6WzaiT+8w==)";
+          LocalHostAuth = false;
         };
       };
     };
