@@ -20,6 +20,7 @@
   imports = [
     ../../modules/system/de/gnome/gnome.nix
     ../../modules/system/services/qbittorrent/qbittorrent.nix
+    ../../modules/system/services/v2raya/v2raya.nix
   ];
 
   # Kernel
@@ -87,13 +88,6 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-
-  # VPN
-  services.v2raya = {
-    enable = true;
-    package = pkgs.unstable.v2raya;
-    cliPackage = pkgs.unstable.xray;
-  };
 
   # DE
 
