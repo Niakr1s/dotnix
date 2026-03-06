@@ -25,7 +25,7 @@ imports =
   ./hardware-configuration.nix
   # Add this two lines
   "${builtins.fetchTarball "https://github.com/nix-community/disko/archive/master.tar.gz"}/module.nix"
-  ./disk-config.nix
+  ./disko-config.nix
 ];
 ```
 
@@ -47,9 +47,9 @@ boot = {
       { devices = [ "nodev" ]; path = "/boot"; }
     ];
   };
-  # ZFS need this
-  networking.hostId = "<output of 'head -c 8 /etc/machine-id'>";
 };
+# ZFS need this
+networking.hostId = "<output of 'head -c 8 /etc/machine-id'>";
 ```
 
 8. You'll probably need to edit a bit `configuration.nix`: add correct user and
