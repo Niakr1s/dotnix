@@ -41,6 +41,9 @@ in {
     ### Video players
     ../../modules/home/mpv/mpv.nix
     ../../modules/home/celluloid/celluloid.nix
+
+    ../../modules/zsh/zsh.nix
+    ../../modules/fzf/fzf.nix
   ];
 
   fonts.fontconfig = {
@@ -48,49 +51,6 @@ in {
     # antialiasing = true;
     # hinting = "slight"; # null or one of "none", "slight", "medium", "full"
     # subpixelRendering = "rgb"; # one of "rgb", "bgr", "vrgb", "vbgr", "none"
-  };
-
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    syntaxHighlighting.enable = true;
-    autosuggestion.enable = true;
-
-    oh-my-zsh = {
-      enable = true;
-      plugins = [
-        "git"
-      ];
-      theme = "maran";
-    };
-  };
-
-  programs.fzf = {
-    enable = true;
-    enableZshIntegration = true;
-    enableBashIntegration = true;
-    enableFishIntegration = true;
-    tmux.enableShellIntegration = true;
-
-    defaultCommand = "fd --type f --hidden --exclude .git --exclude dosdevices --exclude drive_c";
-
-    # Command line options for the CTRL-T keybinding.
-    # fileWidgetCommand = "";
-    fileWidgetOptions = [
-      "--walker-skip '.git,node_modules,target,dosdevices,drive_c'"
-      "--preview 'bat -n --color=always {}'"
-    ];
-
-    # Command line options for the ALT-C keybinding.
-    # changeDirWidgetCommand = "";
-    changeDirWidgetOptions = [
-      "--walker-skip '.git,node_modules,target,dosdevices,drive_c'"
-      "--preview 'tree -C {}'"
-    ];
-
-    # Command line options for the CTRL-R keybinding.
-    historyWidgetOptions = [
-    ];
   };
 
   programs.git = {
