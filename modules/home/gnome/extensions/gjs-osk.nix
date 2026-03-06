@@ -23,6 +23,7 @@ in {
       "org/gnome/shell/extensions/gjsosk" = {
         enable-drag = true;
         indicator-enabled = true;
+        play-sound = false;
 
         # open upon clicking on text field
         # 0 = never, 1 = only on touch, 2 = always
