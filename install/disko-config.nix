@@ -1,14 +1,10 @@
-# USAGE in your configuration.nix.
-# Update devices to match your hardware.
-# {
-#  imports = [ ./disko-config.nix ];
-#  disko.devices.disk.main.device = "/dev/sda";
-# }
+# follow instructions from README.md
 {
   disko.devices = {
     disk = {
       main = {
         type = "disk";
+        # device = "/dev/<name from lsblk>";
         content = {
           type = "gpt";
           partitions = {
