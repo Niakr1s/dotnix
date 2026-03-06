@@ -23,6 +23,7 @@ in {
       mpv-input-config-file = "file:///home/${username}/.config/celluloid/input.conf";
       mpv-config-enable = true;
       mpv-config-file = "file:///home/${username}/.config/celluloid/mpv.conf";
+      csd-enable = true;
     };
   };
 }
