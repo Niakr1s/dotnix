@@ -20,6 +20,12 @@ in {
     ../../modules/home/dconf/dconf.multiple.monitors.nix
   ];
 
+  dconf.settings = {
+    "org/gnome/shell" = {
+      last-selected-power-profile = lib.mkForce "perfomance";
+    };
+  };
+
   # aichat
   programs.aichat = {
     enable = true;

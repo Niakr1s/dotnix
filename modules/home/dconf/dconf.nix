@@ -180,7 +180,7 @@ in {
       };
 
       "org/gnome/shell" = {
-        last-selected-power-profile = "perfomance";
+        last-selected-power-profile = lib.mkDefault "balanced";
         disable-user-extensions = false; # Optionally disable user extensions entirely
         enabled-extensions = [
           pkgs.gnomeExtensions.blur-my-shell.extensionUuid
