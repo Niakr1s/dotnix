@@ -35,8 +35,6 @@ in {
 
   boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_18; # Nvidia compatibility
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.libinput.enable = true; TODO: enable in in laptop
   environment.systemPackages = with pkgs; [
     gnomeExtensions.display-configuration-switcher
 
