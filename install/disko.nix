@@ -89,6 +89,23 @@
               mountpoint = "none";
             };
           };
+          # README MORE: https://wiki.archlinux.org/title/ZFS#Swap_volume
+          "local/swap" = {
+            type = "zfs_volume";
+            size = "4G";
+            content = {
+              type = "swap";
+            };
+            options = {
+              volblocksize = "4096";
+              compression = "zle";
+              logbias = "throughput";
+              sync = "always";
+              primarycache = "metadata";
+              secondarycache = "none";
+              "com.sun:auto-snapshot" = "false";
+            };
+          };
         };
       };
     };
