@@ -7,21 +7,24 @@
   stateVersion,
   hostname,
   username,
+  home-manager,
   ...
 }: let
 in {
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    syntaxHighlighting.enable = true;
-    autosuggestion.enable = true;
-
-    oh-my-zsh = {
+  home-manager.users.${username} = {
+    programs.zsh = {
       enable = true;
-      plugins = [
-        "git"
-      ];
-      theme = "maran";
+      enableCompletion = true;
+      syntaxHighlighting.enable = true;
+      autosuggestion.enable = true;
+
+      oh-my-zsh = {
+        enable = true;
+        plugins = [
+          "git"
+        ];
+        theme = "maran";
+      };
     };
   };
 }

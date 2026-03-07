@@ -31,9 +31,6 @@ in {
     # NVF
     inputs.nvf.homeManagerModules.default
     ../../modules/editors/nvf/nvf.nix
-
-    ../../modules/shells/zsh/zsh.nix
-    ../../modules/shells/fzf/fzf.nix
   ];
 
   fonts.fontconfig = {

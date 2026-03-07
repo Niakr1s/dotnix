@@ -34,6 +34,10 @@
     ### VCS
     ../../modules/vcs/git/git.nix
     ../../modules/vcs/git/gh.nix
+
+    ### Shells
+    ../../modules/shells/zsh/zsh.nix
+    ../../modules/shells/fzf/fzf.nix
   ];
 
   # Kernel
