@@ -18,7 +18,7 @@ in {
   imports = [
     # Don't change this
     ../default/configuration.nix
-    ./hardware-configuration.nix
+    ./boot.nix
     ./disko-config.nix
     # Don't change this ------- END
 
@@ -31,27 +31,10 @@ in {
     ../../modules/home/lutris/lutris.nix
   ];
 
-  # BOOT
-  boot = {
-    loader.grub = {
-      enable = true;
-      efiSupport = true;
-      efiInstallAsRemovable = true;
-
-      # ZFS needs this
-      mirroredBoots = [
-        {
-          devices = ["nodev"];
-          path = "/boot";
-        }
-      ];
-    };
-  };
-
   # ZFS need this
   networking.hostId = "82473af6";
 
-  boot.kernelPackages = lib.mkForce pkgs.linuxPackages;
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   environment.systemPackages = with pkgs; [
     ### Video editors

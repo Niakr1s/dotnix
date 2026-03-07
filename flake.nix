@@ -54,6 +54,8 @@
     laptopStateVersion = "25.11"; # version of iso
     laptopHostName = "laptop"; # laptop hostname, it should be equal to hosts/{host} directory name
   in {
+    nixpkgs.hostPlatform = "${system}";
+
     # desktop configuration
     nixosConfigurations.${desktopHostName} = nixpkgs.lib.nixosSystem {
       inherit system;
