@@ -20,11 +20,13 @@ in {
     ../default/configuration.nix
     ./boot.nix
     ./disko-config.nix
+    ../../modules/hardware/nvidia/nvidia.nix
     # Don't change this ------- END
 
     ./wallpaper.nix
 
-    ../../modules/hardware/nvidia/nvidia.nix
+    ../../modules/dconf/dconf.multiple.monitors.nix
+
     ../../modules/ai/ollama/ollama.nix
     ../../modules/ai/aichat/aichat.nix
 
