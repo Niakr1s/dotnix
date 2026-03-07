@@ -18,9 +18,9 @@
   # Imports
 
   imports = [
-    ../../modules/system/de/gnome/gnome.nix
-    ../../modules/system/services/qbittorrent/qbittorrent.nix
-    ../../modules/system/services/v2raya/v2raya.nix
+    ../../modules/de/gnome/gnome.nix
+    ../../modules/services/qbittorrent/qbittorrent.nix
+    ../../modules/services/v2raya/v2raya.nix
   ];
 
   # Kernel

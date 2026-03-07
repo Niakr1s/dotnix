@@ -25,10 +25,10 @@ in {
     # I couldn't wire my gamepad with dongle, so I spent 3 hours to do this...
     # ../../modules/hardware/gamepad/gamepad.nix
 
-    ../../modules/system/hardware/nvidia/nvidia.nix
-    ../../modules/system/gaming/gaming.nix
-    ../../modules/system/ai/ollama/ollama.nix
-    ../../modules/home/lutris/lutris.nix
+    ../../modules/hardware/nvidia/nvidia.nix
+    ../../modules/gaming/gaming.nix
+    ../../modules/ai/ollama/ollama.nix
+    ../../modules/gaming/lutris/lutris.nix
   ];
 
   # ZFS need this

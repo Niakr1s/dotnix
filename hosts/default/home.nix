@@ -28,24 +28,24 @@ in {
   };
 
   imports = [
-    ../../modules/home/dconf/dconf.nix
-    ../../modules/home/firefox/firefox.nix
+    ../../modules/dconf/dconf.nix
+    ../../modules/browsers/firefox/firefox.nix
 
     # NVF
     inputs.nvf.homeManagerModules.default
-    ../../modules/home/nvf/nvf.nix
+    ../../modules/editors/nvf/nvf.nix
 
     ### TLDR
-    ../../modules/home/tldr/tldr.nix
+    ../../modules/utilites/tldr/tldr.nix
 
     ### Video players
-    ../../modules/home/mpv/mpv.nix
-    ../../modules/home/celluloid/celluloid.nix
+    ../../modules/players/mpv/mpv.nix
+    ../../modules/players/celluloid/celluloid.nix
 
-    ../../modules/home/git/git.nix
+    ../../modules/vcs/git/git.nix
 
-    ../../modules/home/zsh/zsh.nix
-    ../../modules/home/fzf/fzf.nix
+    ../../modules/shells/zsh/zsh.nix
+    ../../modules/shells/fzf/fzf.nix
   ];
 
   fonts.fontconfig = {

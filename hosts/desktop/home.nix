@@ -17,10 +17,10 @@ in {
   imports = [
     ../default/home.nix
     ./wallpaper.nix # You can change wallpaper in this file
-    ../../modules/home/aichat/aichat.nix
-    ../../modules/home/mangohud/mangohud.nix
-    ../../modules/home/dconf/dconf.multiple.monitors.nix
-    ../../modules/home/gnome/extensions/blur-my-shell.nix
-    ../../modules/home/gnome/extensions/display-configuration-switcher.nix
+    ../../modules/ai/aichat/aichat.nix
+    ../../modules/gaming/mangohud/mangohud.nix
+    ../../modules/dconf/dconf.multiple.monitors.nix
+    ../../modules/de/gnome/extensions/blur-my-shell.nix
+    ../../modules/de/gnome/extensions/display-configuration-switcher.nix
   ];
 }
