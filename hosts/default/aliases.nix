@@ -6,7 +6,6 @@
   hostname,
   unstablePkgs,
   username,
-  stateVersion,
   home-manager,
   ...
 }: {

@@ -6,7 +6,6 @@
   nixpkgs-unstable,
   hostname,
   username,
-  stateVersion,
   home-manager,
   ...
 }: let

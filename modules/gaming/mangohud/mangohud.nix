@@ -4,7 +4,6 @@
   pkgs,
   inputs,
   nixpkgs-unstable,
-  stateVersion,
   hostname,
   username,
   home-manager,

@@ -6,7 +6,6 @@
   hostname,
   unstablePkgs,
   username,
-  stateVersion,
   ...
 }: {
   services.desktopManager.gnome.enable = true;

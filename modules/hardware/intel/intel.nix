@@ -6,7 +6,6 @@
   nixpkgs-unstable,
   hostname,
   username,
-  stateVersion,
   ...
 }: let
 in {

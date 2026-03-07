@@ -53,12 +53,15 @@
         inherit system;
         specialArgs = {
           inherit inputs;
-          stateVersion = "${stateVersion}";
-
           hostname = "${hostname}";
           inherit username;
         };
         modules = [
+          {
+            system.stateVersion = "${stateVersion}"; # Set this to first installed version, and then don't change it
+            nixpkgs.config.allowUnfree = true;
+            nix.settings.experimental-features = ["nix-command" "flakes"];
+          }
           ./hosts/${hostname}/configuration.nix # probably we can hardcode this
           disko.nixosModules.disko
 

@@ -7,7 +7,6 @@
   disko,
   hostname,
   username,
-  stateVersion,
   ...
 }: let
   unstablePkgs = import nixpkgs-unstable {

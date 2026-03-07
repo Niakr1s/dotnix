@@ -6,17 +6,8 @@
   hostname,
   unstablePkgs,
   username,
-  stateVersion,
   ...
 }: {
-  # Nixos settings
-
-  system.stateVersion = "${stateVersion}"; # Set this to first installed version, and then don't change it
-  nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = ["nix-command" "flakes"];
-
-  # Imports
-
   imports = [
     ./aliases.nix
     ./fonts.nix
