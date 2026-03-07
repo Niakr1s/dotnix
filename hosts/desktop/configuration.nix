@@ -32,6 +32,7 @@ in {
 
     ../../modules/system/gaming/gaming.nix
     ../../modules/system/ai/ollama/ollama.nix
+    ../../modules/home/lutris/lutris.nix
   ];
 
   # BOOT
