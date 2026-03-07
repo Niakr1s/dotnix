@@ -53,33 +53,30 @@
         inherit system;
         specialArgs = {
           inherit inputs;
-          hostname = "${hostname}";
+          inherit hostname;
           inherit username;
         };
         modules = [
+          unstable-overlays
+
+          disko.nixosModules.disko
+          home-manager.nixosModules.home-manager
+
+          # Configurations
+          ./hosts/${hostname}/configuration.nix # probably we can hardcode this
           {
             system.stateVersion = "${stateVersion}"; # Set this to first installed version, and then don't change it
             nixpkgs.config.allowUnfree = true;
             nix.settings.experimental-features = ["nix-command" "flakes"];
-          }
-          ./hosts/${hostname}/configuration.nix # probably we can hardcode this
-          disko.nixosModules.disko
-
-          unstable-overlays
-
-          home-manager.nixosModules.home-manager
-          {
             home-manager.extraSpecialArgs = {
               inherit inputs;
-              stateVersion = "${stateVersion}";
-
-              hostname = "${hostname}";
+              inherit hostname;
               inherit username;
             };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.${username} = {
-              home.stateVersion = "${stateVersion}";
+              home.stateVersion = "${stateVersion}"; # Set this to first installed version, and then don't change it
               home.username = "${username}";
               home.homeDirectory = "/home/${username}";
             };
