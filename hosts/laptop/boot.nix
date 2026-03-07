@@ -22,7 +22,6 @@
         "rtsx_usb_sdmmc" # Realtek USB SD card reader
       ];
       kernelModules = [
-        "dm-snapshot"
       ];
     };
 
