@@ -13,8 +13,17 @@
     extraModulePackages = [];
 
     initrd = {
-      availableKernelModules = ["ahci" "xhci_pci" "usb_storage" "sd_mod" "sdhci_pci" "rtsx_usb_sdmmc"];
-      kernelModules = ["dm-snapshot"];
+      availableKernelModules = [
+        "ahici" # SATA controller driver
+        "xhci_pci" # USB 3.0 controller driver
+        "usb_storage" # USB storage devices
+        "sd_mod" # SCSI disk support
+        "sdhci_pci" # SD card host controller
+        "rtsx_usb_sdmmc" # Realtek USB SD card reader
+      ];
+      kernelModules = [
+        "dm-snapshot"
+      ];
     };
 
     loader.grub = {

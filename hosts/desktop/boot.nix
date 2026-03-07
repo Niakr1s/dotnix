@@ -13,8 +13,16 @@
     extraModulePackages = [];
 
     initrd = {
-      availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod"];
-      kernelModules = [];
+      availableKernelModules = [
+        "ahici" # SATA controller driver
+        "xhci_pci" # USB 3.0 controller driver
+        "usb_storage" # USB storage devices
+        "sd_mod" # SCSI disk support
+        "nvme" # NVME disk support
+        "usbhid" # USB Human Interface Device
+      ];
+      kernelModules = [
+      ];
     };
 
     supportedFilesystems = ["ntfs"];
