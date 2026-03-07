@@ -28,6 +28,7 @@ in {
   };
 
   imports = [
+    inputs.nvf.homeManagerModules.default # TODO
   ];
 
   fonts.fontconfig = {
