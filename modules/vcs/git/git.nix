@@ -7,17 +7,20 @@
   stateVersion,
   hostname,
   username,
+  home-manager,
   ...
 }: let
 in {
-  programs.git = {
-    enable = true;
-    settings = {
-      user = {
-        name = "Niakr1s";
-        email = "pavel2188@gmail.com";
+  home-manager.users.${username} = {
+    programs.git = {
+      enable = true;
+      settings = {
+        user = {
+          name = "Niakr1s";
+          email = "pavel2188@gmail.com";
+        };
+        init.defaultBranch = "main";
       };
-      init.defaultBranch = "main";
     };
   };
 }

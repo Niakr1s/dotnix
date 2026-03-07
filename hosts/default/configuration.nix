@@ -30,6 +30,10 @@
     ### Video players
     ../../modules/players/celluloid/celluloid.nix
     ../../modules/players/mpv/mpv.nix
+
+    ### VCS
+    ../../modules/vcs/git/git.nix
+    ../../modules/vcs/git/gh.nix
   ];
 
   # Kernel

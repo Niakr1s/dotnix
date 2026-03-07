@@ -7,13 +7,16 @@
   stateVersion,
   hostname,
   username,
+  home-manager,
   ...
 }: let
 in {
-  programs.gh = {
-    enable = true;
-    gitCredentialHelper = {
+  home-manager.users.${username} = {
+    programs.gh = {
       enable = true;
+      gitCredentialHelper = {
+        enable = true;
+      };
     };
   };
 }

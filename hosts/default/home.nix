@@ -32,9 +32,6 @@ in {
     inputs.nvf.homeManagerModules.default
     ../../modules/editors/nvf/nvf.nix
 
-    ../../modules/vcs/git/git.nix
-    ../../modules/vcs/git/gh.nix
-
     ../../modules/shells/zsh/zsh.nix
     ../../modules/shells/fzf/fzf.nix
   ];
