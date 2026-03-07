@@ -48,83 +48,47 @@
 
     username = "nea"; # will be common among my hosts
 
-    desktopStateVersion = "25.11"; # version of iso
-    desktopHostName = "desktop"; # desktop hostname, it should be equal to hosts/{host} directory name
+    mkHostConfig = hostname: stateVersion: {
+      ${hostname} = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+          inherit inputs;
+          stateVersion = "${stateVersion}";
 
-    laptopStateVersion = "25.11"; # version of iso
-    laptopHostName = "laptop"; # laptop hostname, it should be equal to hosts/{host} directory name
+          hostname = "${hostname}";
+          inherit username;
+        };
+        modules = [
+          ./hosts/${hostname}/configuration.nix # probably we can hardcode this
+          disko.nixosModules.disko
+
+          unstable-overlays
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+              stateVersion = "${stateVersion}";
+
+              hostname = "${hostname}";
+              inherit username;
+            };
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.${username} = {
+              home.stateVersion = "${stateVersion}";
+              home.username = "${username}";
+              home.homeDirectory = "/home/${username}";
+            };
+          }
+        ];
+      };
+    };
   in {
     nixpkgs.hostPlatform = "${system}";
 
-    # desktop configuration
-    nixosConfigurations.${desktopHostName} = nixpkgs.lib.nixosSystem {
-      inherit system;
-      specialArgs = {
-        inherit inputs;
-        stateVersion = "${desktopStateVersion}";
-
-        hostname = "${desktopHostName}";
-        inherit username;
-      };
-      modules = [
-        ./hosts/${desktopHostName}/configuration.nix # probably we can hardcode this
-        disko.nixosModules.disko
-
-        unstable-overlays
-
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.extraSpecialArgs = {
-            inherit inputs;
-            stateVersion = "${desktopStateVersion}";
-
-            hostname = "${desktopHostName}";
-            inherit username;
-          };
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.${username} = {
-            home.stateVersion = "${desktopStateVersion}";
-            home.username = "${username}";
-            home.homeDirectory = "/home/${username}";
-          };
-        }
-      ];
-    };
-
-    # laptop configuration
-    nixosConfigurations.${laptopHostName} = nixpkgs.lib.nixosSystem {
-      inherit system;
-      specialArgs = {
-        inherit inputs;
-        stateVersion = "${laptopStateVersion}";
-
-        hostname = "${laptopHostName}";
-        inherit username;
-      };
-      modules = [
-        ./hosts/${laptopHostName}/configuration.nix # probably we can hardcode this
-
-        unstable-overlays
-
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.extraSpecialArgs = {
-            inherit inputs;
-            stateVersion = "${laptopStateVersion}";
-
-            hostname = "${laptopHostName}";
-            inherit username;
-          };
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.${username} = {
-            home.stateVersion = "${desktopStateVersion}";
-            home.username = "${username}";
-            home.homeDirectory = "/home/${username}";
-          };
-        }
-      ];
-    };
+    nixosConfigurations =
+      (mkHostConfig "desktop" "25.11")
+      // (mkHostConfig "laptop" "25.11");
   };
 }
