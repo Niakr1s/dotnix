@@ -22,6 +22,8 @@ in {
     ./disko-config.nix
     # Don't change this ------- END
 
+    ./wallpaper.nix
+
     # I couldn't wire my gamepad with dongle, so I spent 3 hours to do this...
     # ../../modules/hardware/gamepad/gamepad.nix
 

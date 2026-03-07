@@ -16,7 +16,6 @@
 in {
   imports = [
     ../default/home.nix
-    ./wallpaper.nix # You can change wallpaper in this file
     ../../modules/ai/aichat/aichat.nix
     ../../modules/gaming/mangohud/mangohud.nix
     ../../modules/dconf/dconf.multiple.monitors.nix
