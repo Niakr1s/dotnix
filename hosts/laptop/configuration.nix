@@ -15,9 +15,18 @@
   };
 in {
   imports = [
-    ./hardware-configuration.nix
+    # Don't change this
     ../default/configuration.nix
+    ./hardware-configuration.nix
     ../../modules/hardware/intel/intel.nix
+    # Don't change this ------- END
+
+    ./wallpaper.nix # You can change wallpaper in this file
+
+    # ../../modules/dconf/dconf.suspend.nix # turn on suspend for laptop
+
+    ../../modules/de/gnome/extensions/screen-rotate.nix
+    ../../modules/de/gnome/extensions/gjs-osk.nix
   ];
 
   # BOOT
