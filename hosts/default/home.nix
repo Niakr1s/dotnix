@@ -15,13 +15,8 @@
   };
 in {
   home.stateVersion = "${stateVersion}";
-
   home.username = "${username}";
   home.homeDirectory = "/home/${username}";
-
-  home.packages = with pkgs; [
-    telegram-desktop
-  ];
 
   home.shellAliases = {
     update = "sudo nixos-rebuild switch --flake /home/${username}/.dotnix#${hostname}";
