@@ -24,12 +24,12 @@ in {
 
     ./wallpaper.nix
 
-    # I couldn't wire my gamepad with dongle, so I spent 3 hours to do this...
-    # ../../modules/hardware/gamepad/gamepad.nix
-
     ../../modules/hardware/nvidia/nvidia.nix
-    ../../modules/gaming/gaming.nix
     ../../modules/ai/ollama/ollama.nix
+    ../../modules/ai/aichat/aichat.nix
+
+    ../../modules/gaming/gaming.nix
+    # ../../modules/hardware/gamepad/gamepad.nix
     ../../modules/gaming/lutris/lutris.nix
   ];
 
