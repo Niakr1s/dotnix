@@ -33,7 +33,6 @@ in {
     ../../modules/editors/nvf/nvf.nix
 
     ### Video players
-    ../../modules/players/mpv/mpv.nix
     ../../modules/players/celluloid/celluloid.nix
 
     ../../modules/vcs/git/git.nix
