@@ -7,156 +7,159 @@
   stateVersion,
   hostname,
   username,
+  home-manager,
   ...
 }: let
 in {
-  xdg.autostart = {
-    enable = true;
-    entries = [
-      "${pkgs.firefox}/share/applications/firefox.desktop"
-    ];
-  };
+  home-manager.users.${username} = {
+    xdg.autostart = {
+      enable = true;
+      entries = [
+        "${pkgs.firefox}/share/applications/firefox.desktop"
+      ];
+    };
 
-  programs.firefox = {
-    enable = true;
+    programs.firefox = {
+      enable = true;
 
-    languagePacks = ["en-US"];
+      languagePacks = ["en-US"];
 
-    profiles.default.extraConfig = ''
-      // https://gist.github.com/lassekongo83/7026910c6a277d5d9cf37989d83e9f6d
+      profiles.default.extraConfig = ''
+        // https://gist.github.com/lassekongo83/7026910c6a277d5d9cf37989d83e9f6d
 
-      // Don't close window with last tab
-      user_pref("browser.tabs.closeWindowWithLastTab", false);
+        // Don't close window with last tab
+        user_pref("browser.tabs.closeWindowWithLastTab", false);
 
-      // Disable Firefox View
-      user_pref("browser.tabs.firefox-view", false);
+        // Disable Firefox View
+        user_pref("browser.tabs.firefox-view", false);
 
-      // Disable disc cache
-      user_pref("browser.cache.disk.enable", false);
+        // Disable disc cache
+        user_pref("browser.cache.disk.enable", false);
 
-      // Disable push notifications
-      user_pref("dom.push.enabled", false);
+        // Disable push notifications
+        user_pref("dom.push.enabled", false);
 
-      // Telemetry
-      user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
-      user_pref("browser.newtabpage.activity-stream.telemetry", false);
-      user_pref("browser.ping-centre.telemetry", false);
-      user_pref("toolkit.telemetry.archive.enabled", false);
-      user_pref("toolkit.telemetry.bhrPing.enabled", false);
-      user_pref("toolkit.telemetry.enabled", false);
-      user_pref("toolkit.telemetry.firstShutdownPing.enabled", false);
-      user_pref("toolkit.telemetry.newProfilePing.enabled", false);
-      user_pref("toolkit.telemetry.reportingpolicy.firstRun", false);
-      user_pref("toolkit.telemetry.shutdownPingSender.enabled", false);
-      user_pref("toolkit.telemetry.unified", false);
-      user_pref("toolkit.telemetry.updatePing.enabled", false);
+        // Telemetry
+        user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
+        user_pref("browser.newtabpage.activity-stream.telemetry", false);
+        user_pref("browser.ping-centre.telemetry", false);
+        user_pref("toolkit.telemetry.archive.enabled", false);
+        user_pref("toolkit.telemetry.bhrPing.enabled", false);
+        user_pref("toolkit.telemetry.enabled", false);
+        user_pref("toolkit.telemetry.firstShutdownPing.enabled", false);
+        user_pref("toolkit.telemetry.newProfilePing.enabled", false);
+        user_pref("toolkit.telemetry.reportingpolicy.firstRun", false);
+        user_pref("toolkit.telemetry.shutdownPingSender.enabled", false);
+        user_pref("toolkit.telemetry.unified", false);
+        user_pref("toolkit.telemetry.updatePing.enabled", false);
 
-      // PREF: Disable sending reports of tab crashes to Mozilla (about:tabcrashed), don't nag user about unsent crash reports
-      user_pref("browser.tabs.crashReporting.sendReport", false);
-      user_pref("browser.crashReports.unsubmittedCheck.enabled", false);
+        // PREF: Disable sending reports of tab crashes to Mozilla (about:tabcrashed), don't nag user about unsent crash reports
+        user_pref("browser.tabs.crashReporting.sendReport", false);
+        user_pref("browser.crashReports.unsubmittedCheck.enabled", false);
 
-      // Ads
-      user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
-      user_pref("browser.newtabpage.activity-stream.showSponsored", false);
-      user_pref("browser.vpn_promo.enabled", false);
-      user_pref("browser.promo.focus.enabled", false);
+        // Ads
+        user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
+        user_pref("browser.newtabpage.activity-stream.showSponsored", false);
+        user_pref("browser.vpn_promo.enabled", false);
+        user_pref("browser.promo.focus.enabled", false);
 
-      // Toolbars and stuff
+        // Toolbars and stuff
 
-      user_pref("browser.uiCustomization.state", "{"placements":{"widget-overflow-fixed-list":[],"unified-extensions-area":["sponsorblocker_ajay_app-browser-action","ublock0_raymondhill_net-browser-action","_d7742d87-e61d-4b78-b8a1-b469842139fa_-browser-action","_0d7cafdd-501c-49ca-8ebb-e3341caaa55e_-browser-action","mozilla_cc3_internetdownloadmanager_com-browser-action","_clipboard-inserter-browser-action","firefox_tampermonkey_net-browser-action","_762f9885-5a13-4abd-9c77-433dcd38b8fd_-browser-action","_4f391a9e-8717-4ba6-a5b1-488a34931fcb_-browser-action","addon_darkreader_org-browser-action","_6b733b82-9261-47ee-a595-2dda294a4d08_-browser-action"],"nav-bar":["back-button","forward-button","stop-reload-button","vertical-spacer","home-button","urlbar-container","downloads-button","fxa-toolbar-menu-button","unified-extensions-button","_testpilot-containers-browser-action","simple-translate_sienori-browser-action","openmultipleurls_ustat_de-browser-action","_bd3d8e6a-1518-40b9-92ff-e21f2d968152_-browser-action","_e6e36c9a-8323-446c-b720-a176017e38ff_-browser-action","_0c3ab5c8-57ac-4ad8-9dd1-ee331517884d_-browser-action"],"toolbar-menubar":["menubar-items"],"TabsToolbar":["sidebar-button","tabbrowser-tabs","new-tab-button","alltabs-button"],"vertical-tabs":[],"PersonalToolbar":["import-button","personal-bookmarks"]},"seen":["developer-button","screenshot-button","openmultipleurls_ustat_de-browser-action","_0d7cafdd-501c-49ca-8ebb-e3341caaa55e_-browser-action","simple-translate_sienori-browser-action","sponsorblocker_ajay_app-browser-action","ublock0_raymondhill_net-browser-action","_0c3ab5c8-57ac-4ad8-9dd1-ee331517884d_-browser-action","mozilla_cc3_internetdownloadmanager_com-browser-action","_clipboard-inserter-browser-action","firefox_tampermonkey_net-browser-action","_762f9885-5a13-4abd-9c77-433dcd38b8fd_-browser-action","_testpilot-containers-browser-action","_4f391a9e-8717-4ba6-a5b1-488a34931fcb_-browser-action","addon_darkreader_org-browser-action","_bd3d8e6a-1518-40b9-92ff-e21f2d968152_-browser-action","_6b733b82-9261-47ee-a595-2dda294a4d08_-browser-action","_d7742d87-e61d-4b78-b8a1-b469842139fa_-browser-action","_e6e36c9a-8323-446c-b720-a176017e38ff_-browser-action"],"dirtyAreaCache":["nav-bar","vertical-tabs","PersonalToolbar","toolbar-menubar","TabsToolbar","unified-extensions-area"],"currentVersion":23,"newElementCount":7}");
-    '';
+        user_pref("browser.uiCustomization.state", "{"placements":{"widget-overflow-fixed-list":[],"unified-extensions-area":["sponsorblocker_ajay_app-browser-action","ublock0_raymondhill_net-browser-action","_d7742d87-e61d-4b78-b8a1-b469842139fa_-browser-action","_0d7cafdd-501c-49ca-8ebb-e3341caaa55e_-browser-action","mozilla_cc3_internetdownloadmanager_com-browser-action","_clipboard-inserter-browser-action","firefox_tampermonkey_net-browser-action","_762f9885-5a13-4abd-9c77-433dcd38b8fd_-browser-action","_4f391a9e-8717-4ba6-a5b1-488a34931fcb_-browser-action","addon_darkreader_org-browser-action","_6b733b82-9261-47ee-a595-2dda294a4d08_-browser-action"],"nav-bar":["back-button","forward-button","stop-reload-button","vertical-spacer","home-button","urlbar-container","downloads-button","fxa-toolbar-menu-button","unified-extensions-button","_testpilot-containers-browser-action","simple-translate_sienori-browser-action","openmultipleurls_ustat_de-browser-action","_bd3d8e6a-1518-40b9-92ff-e21f2d968152_-browser-action","_e6e36c9a-8323-446c-b720-a176017e38ff_-browser-action","_0c3ab5c8-57ac-4ad8-9dd1-ee331517884d_-browser-action"],"toolbar-menubar":["menubar-items"],"TabsToolbar":["sidebar-button","tabbrowser-tabs","new-tab-button","alltabs-button"],"vertical-tabs":[],"PersonalToolbar":["import-button","personal-bookmarks"]},"seen":["developer-button","screenshot-button","openmultipleurls_ustat_de-browser-action","_0d7cafdd-501c-49ca-8ebb-e3341caaa55e_-browser-action","simple-translate_sienori-browser-action","sponsorblocker_ajay_app-browser-action","ublock0_raymondhill_net-browser-action","_0c3ab5c8-57ac-4ad8-9dd1-ee331517884d_-browser-action","mozilla_cc3_internetdownloadmanager_com-browser-action","_clipboard-inserter-browser-action","firefox_tampermonkey_net-browser-action","_762f9885-5a13-4abd-9c77-433dcd38b8fd_-browser-action","_testpilot-containers-browser-action","_4f391a9e-8717-4ba6-a5b1-488a34931fcb_-browser-action","addon_darkreader_org-browser-action","_bd3d8e6a-1518-40b9-92ff-e21f2d968152_-browser-action","_6b733b82-9261-47ee-a595-2dda294a4d08_-browser-action","_d7742d87-e61d-4b78-b8a1-b469842139fa_-browser-action","_e6e36c9a-8323-446c-b720-a176017e38ff_-browser-action"],"dirtyAreaCache":["nav-bar","vertical-tabs","PersonalToolbar","toolbar-menubar","TabsToolbar","unified-extensions-area"],"currentVersion":23,"newElementCount":7}");
+      '';
 
-    profiles.default.search = {
-      force = true;
-      default = "ddg";
-      privateDefault = "ddg";
+      profiles.default.search = {
+        force = true;
+        default = "ddg";
+        privateDefault = "ddg";
 
-      engines = {
-        "nix packages" = {
-          urls = [
-            {
-              template = "https://search.nixos.org/packages";
-              params = [
-                {
-                  name = "channel";
-                  value = "unstable";
-                }
-                {
-                  name = "query";
-                  value = "{searchTerms}";
-                }
-              ];
-            }
-          ];
-          icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-          definedAliases = ["@np"];
-        };
+        engines = {
+          "nix packages" = {
+            urls = [
+              {
+                template = "https://search.nixos.org/packages";
+                params = [
+                  {
+                    name = "channel";
+                    value = "unstable";
+                  }
+                  {
+                    name = "query";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+            definedAliases = ["@np"];
+          };
 
-        "nix options" = {
-          urls = [
-            {
-              template = "https://search.nixos.org/options";
-              params = [
-                {
-                  name = "channel";
-                  value = "unstable";
-                }
-                {
-                  name = "query";
-                  value = "{searchTerms}";
-                }
-              ];
-            }
-          ];
-          icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-          definedAliases = ["@no"];
-        };
+          "nix options" = {
+            urls = [
+              {
+                template = "https://search.nixos.org/options";
+                params = [
+                  {
+                    name = "channel";
+                    value = "unstable";
+                  }
+                  {
+                    name = "query";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+            definedAliases = ["@no"];
+          };
 
-        "nixos wiki" = {
-          urls = [
-            {
-              template = "https://wiki.nixos.org/w/index.php";
-              params = [
-                {
-                  name = "search";
-                  value = "{searchTerms}";
-                }
-              ];
-            }
-          ];
-          icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-          definedAliases = ["@nw"];
-        };
+          "nixos wiki" = {
+            urls = [
+              {
+                template = "https://wiki.nixos.org/w/index.php";
+                params = [
+                  {
+                    name = "search";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+            definedAliases = ["@nw"];
+          };
 
-        "my nixos" = {
-          urls = [
-            {
-              template = "https://mynixos.com/search";
-              params = [
-                {
-                  name = "q";
-                  value = "{searchTerms}";
-                }
-              ];
-            }
-          ];
-          icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-          definedAliases = ["@nm"];
-        };
+          "my nixos" = {
+            urls = [
+              {
+                template = "https://mynixos.com/search";
+                params = [
+                  {
+                    name = "q";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+            definedAliases = ["@nm"];
+          };
 
-        "youtube" = {
-          urls = [
-            {
-              template = "https://www.youtube.com/results";
-              params = [
-                {
-                  name = "search_query";
-                  value = "{searchTerms}";
-                }
-              ];
-            }
-          ];
-          definedAliases = ["@yt"];
+          "youtube" = {
+            urls = [
+              {
+                template = "https://www.youtube.com/results";
+                params = [
+                  {
+                    name = "search_query";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+            definedAliases = ["@yt"];
+          };
         };
       };
     };

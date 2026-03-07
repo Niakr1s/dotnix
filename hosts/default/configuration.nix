@@ -23,6 +23,8 @@
 
     ../../modules/services/qbittorrent/qbittorrent.nix
     ../../modules/services/v2raya/v2raya.nix
+
+    ../../modules/browsers/firefox/firefox.nix
   ];
 
   # Kernel

@@ -28,8 +28,6 @@ in {
   };
 
   imports = [
-    ../../modules/browsers/firefox/firefox.nix
-
     # NVF
     inputs.nvf.homeManagerModules.default
     ../../modules/editors/nvf/nvf.nix
