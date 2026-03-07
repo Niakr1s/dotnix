@@ -14,7 +14,7 @@
 
     initrd = {
       availableKernelModules = [
-        "ahici" # SATA controller driver
+        "ahci" # SATA controller driver
         "xhci_pci" # USB 3.0 controller driver
         "usb_storage" # USB storage devices
         "sd_mod" # SCSI disk support
