@@ -69,6 +69,7 @@
       modules = [
         ./hosts/${desktopHostName}/configuration.nix # probably we can hardcode this
         disko.nixosModules.disko
+        inputs.nvf.homeManagerModules.default
 
         unstable-overlays
 

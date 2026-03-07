@@ -38,6 +38,10 @@
     ### Shells
     ../../modules/shells/zsh/zsh.nix
     ../../modules/shells/fzf/fzf.nix
+
+    # NVF
+    inputs.nvf.homeManagerModules.default # TODO
+    ../../modules/editors/nvf/nvf.nix
   ];
 
   # Kernel

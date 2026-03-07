@@ -28,9 +28,6 @@ in {
   };
 
   imports = [
-    # NVF
-    inputs.nvf.homeManagerModules.default
-    ../../modules/editors/nvf/nvf.nix
   ];
 
   fonts.fontconfig = {
