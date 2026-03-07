@@ -27,10 +27,6 @@ in {
     update = "sudo nixos-rebuild switch --flake /home/${username}/.dotnix#${hostname}";
   };
 
-  imports = [
-    inputs.nvf.homeManagerModules.default # TODO
-  ];
-
   fonts.fontconfig = {
     enable = true;
     # antialiasing = true;

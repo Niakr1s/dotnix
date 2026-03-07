@@ -8,6 +8,10 @@
   ...
 }: {
   home-manager.users.${username} = {
+    imports = [
+      inputs.nvf.homeManagerModules.default # TODO
+    ];
+
     programs.nvf = {
       enable = true;
 
