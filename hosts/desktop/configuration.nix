@@ -26,6 +26,8 @@ in {
     ./wallpaper.nix
 
     ../../modules/dconf/dconf.multiple.monitors.nix
+    ../../modules/de/gnome/extensions/blur-my-shell.nix
+    ../../modules/de/gnome/extensions/display-configuration-switcher.nix
 
     ../../modules/ai/ollama/ollama.nix
     ../../modules/ai/aichat/aichat.nix
