@@ -13,9 +13,16 @@
     system = pkgs.system;
     config = config.nixpkgs.config;
   };
+  disko = builtins.fetchTarball {
+    url =  "https://github.com/nix-community/disko/archive/refs/tags/v1.13.0.tar.gz";
+    sha256 = "03jz60kw0khm1lp72q65z8gq69bfrqqbj08kw0hbiav1qh3g7p08";
+  };
 in {
   imports = [
     ./hardware-configuration.nix
+    "${disko}/module.nix"
+    ./disko-config.nix
+
     ../default/configuration.nix
     ../../modules/system/hardware/nvidia/nvidia.nix
 
@@ -28,12 +35,23 @@ in {
   ];
 
   # BOOT
+boot = {
+  loader.grub = {
+    enable = true;
+    efiSupport = true;
+    efiInstallAsRemovable = true;
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+    # ZFS needs this
+    mirroredBoots = [
+      { devices = [ "nodev" ]; path = "/boot"; }
+    ];
+  };
+};
 
-  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_18; # Nvidia compatibility
+# ZFS need this
+networking.hostId = "82473af6";
+
+  boot.kernelPackages = lib.mkForce pkgs.linuxPackages; # ZFS and Nvidia compatibility
 
   environment.systemPackages = with pkgs; [
     ### Video editors
