@@ -4,6 +4,7 @@
   lib,
   pkgs,
   nixpkgs-unstable,
+  disko,
   hostname,
   username,
   stateVersion,
@@ -13,23 +14,18 @@
     system = pkgs.system;
     config = config.nixpkgs.config;
   };
-  disko = builtins.fetchTarball {
-    url = "https://github.com/nix-community/disko/archive/refs/tags/v1.13.0.tar.gz";
-    sha256 = "03jz60kw0khm1lp72q65z8gq69bfrqqbj08kw0hbiav1qh3g7p08";
-  };
 in {
   imports = [
     # Don't change this
-    ./hardware-configuration.nix
-    "${disko}/module.nix"
-    ./disko-config.nix
     ../default/configuration.nix
-    ../../modules/system/hardware/nvidia/nvidia.nix
+    ./hardware-configuration.nix
+    ./disko-config.nix
     # Don't change this ------- END
 
     # I couldn't wire my gamepad with dongle, so I spent 3 hours to do this...
     # ../../modules/hardware/gamepad/gamepad.nix
 
+    ../../modules/system/hardware/nvidia/nvidia.nix
     ../../modules/system/gaming/gaming.nix
     ../../modules/system/ai/ollama/ollama.nix
     ../../modules/home/lutris/lutris.nix

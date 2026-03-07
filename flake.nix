@@ -4,10 +4,17 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
+
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     hyprland.url = "github:hyprwm/Hyprland";
 
     nvf = {
@@ -21,6 +28,7 @@
     nixpkgs,
     nixpkgs-unstable,
     home-manager,
+    disko,
     nvf,
     ...
   } @ inputs: let
@@ -58,6 +66,7 @@
       };
       modules = [
         ./hosts/${desktopHostName}/configuration.nix # probably we can hardcode this
+        disko.nixosModules.disko
 
         unstable-overlays
 
