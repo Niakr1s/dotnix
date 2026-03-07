@@ -18,6 +18,7 @@
   # Imports
 
   imports = [
+    ../../modules/fonts/fonts.nix
     ./software.nix
   ];
 
@@ -120,27 +121,6 @@
 
   # this not needed anymore, because we'll manage zsh with home-manager
   # system.userActivationScripts.zshrc = "touch .zshrc";
-
-  # Fonts
-
-  fonts.enableDefaultPackages = true;
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-    noto-fonts
-    noto-fonts-cjk-sans
-    noto-fonts-color-emoji
-    liberation_ttf
-    fira-code
-    fira-code-symbols
-    mplus-outline-fonts.githubRelease
-    dina-font
-    proggyfonts
-  ];
-
-  fonts.fontconfig = {
-    enable = true;
-    useEmbeddedBitmaps = true; # Noto Color Emoji doesn't render on Firefox
-  };
 
   # Syling
 
