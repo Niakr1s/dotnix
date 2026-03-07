@@ -7,7 +7,57 @@
   unstablePkgs,
   username,
   ...
-}: {
+}: let
+  categories_json = lib.replaceStrings ["\n"] ["\\n"] ''
+    {
+        "Books": {
+            "save_path": ""
+        },
+        "Games": {
+            "save_path": ""
+        },
+        "Soft": {
+            "save_path": ""
+        },
+        "Video": {
+            "save_path": ""
+        },
+        "Video/Anime": {
+            "save_path": ""
+        },
+        "Video/Movies": {
+            "save_path": ""
+        },
+        "Video/Series": {
+            "save_path": ""
+        }
+    }
+  '';
+  watched_folders_json = lib.replaceStrings ["\n"] ["\\n"] ''
+    {
+      "/srv/torrents/autoload": {
+        "add_torrent_params": {
+          "category": "",
+          "download_limit": -1,
+          "download_path": "",
+          "inactive_seeding_time_limit": -2,
+          "operating_mode": "AutoManaged",
+          "ratio_limit": -2,
+          "save_path": "",
+          "seeding_time_limit": -2,
+          "share_limit_action": "Default",
+          "skip_checking": false,
+          "ssl_certificate": "",
+          "ssl_dh_params": "",
+          "ssl_private_key": "",
+          "tags": [],
+          "upload_limit": -1
+        },
+        "recursive": false
+      }
+    }
+  '';
+in {
   services.qbittorrent = {
     enable = true;
     openFirewall = true;
@@ -42,12 +92,10 @@
 
   # man tmpfiles.d
   systemd.tmpfiles.rules = [
-    "R /var/lib/qBittorrent/qBittorrent/config/categories.json - - - - -"
-    "C /var/lib/qBittorrent/qBittorrent/config/categories.json 0644 qbittorrent qbittorrent - /home/${username}/.dotnix/config/qBittorrent/config/categories.json"
-    "R /var/lib/qBittorrent/qBittorrent/config/watched_folders.json - - - - -"
-    "C /var/lib/qBittorrent/qBittorrent/config/watched_folders.json 0644 qbittorrent qbittorrent - /home/${username}/.dotnix/config/qBittorrent/config/watched_folders.json"
     "d /srv/torrents 2770 qbittorrent qbittorrent - -"
     "d /srv/torrents/autoload 2770 qbittorrent qbittorrent - -"
+    "f+ /var/lib/qBittorrent/qBittorrent/config/categories.json 0644 qbittorrent qbittorrent - ${categories_json}"
+    "f+ /var/lib/qBittorrent/qBittorrent/config/watched_folders.json 0644 qbittorrent qbittorrent - ${watched_folders_json}"
   ];
 
   users.users.${username}.extraGroups = ["qbittorrent"];
