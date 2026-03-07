@@ -17,8 +17,4 @@ in {
   home.stateVersion = "${stateVersion}";
   home.username = "${username}";
   home.homeDirectory = "/home/${username}";
-
-  home.shellAliases = {
-    update = "sudo nixos-rebuild switch --flake /home/${username}/.dotnix#${hostname}";
-  };
 }

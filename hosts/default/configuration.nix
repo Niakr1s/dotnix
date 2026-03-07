@@ -18,6 +18,7 @@
   # Imports
 
   imports = [
+    ./aliases.nix
     ./fonts.nix
     ./software.nix
   ];
@@ -108,12 +109,6 @@
   # It fixes whether GDM doesn't show user if user's default shell is zsh
   environment.shells = with pkgs; [zsh];
   programs.zsh.enable = true; # in order to home config to work
-
-  # some common aliases
-  environment.shellAliases = {
-    ll = "ls -l";
-    la = "ls -la";
-  };
 
   # this not needed anymore, because we'll manage zsh with home-manager
   # system.userActivationScripts.zshrc = "touch .zshrc";
