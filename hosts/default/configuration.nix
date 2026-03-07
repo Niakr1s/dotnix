@@ -22,10 +22,6 @@
     ./software.nix
   ];
 
-  # Kernel
-
-  boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
-
   ### BLuetooth
   hardware.bluetooth.enable = true;
 

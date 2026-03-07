@@ -26,7 +26,7 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages; # LTS
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;

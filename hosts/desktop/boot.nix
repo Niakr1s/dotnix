@@ -7,7 +7,7 @@
   ...
 }: {
   boot = {
-    kernelPackages = pkgs.linuxPackages; # linux kernel
+    kernelPackages = pkgs.linuxPackages; # LTS
 
     kernelModules = ["kvm-intel"];
     extraModulePackages = [];
