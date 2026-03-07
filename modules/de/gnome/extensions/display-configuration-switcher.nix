@@ -11,11 +11,10 @@
   ...
 }: let
 in {
-  home.packages = with pkgs; [
-    gnomeExtensions.display-configuration-switcher
-  ];
-
   home-manager.users.${username} = {
+    home.packages = with pkgs; [
+      gnomeExtensions.display-configuration-switcher
+    ];
     dconf = {
       settings = with lib.hm.gvariant; {
         "org/gnome/shell" = {
