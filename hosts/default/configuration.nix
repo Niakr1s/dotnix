@@ -18,7 +18,7 @@
   # Imports
 
   imports = [
-    ../../modules/fonts/fonts.nix
+    ./fonts.nix
     ./software.nix
   ];
 
