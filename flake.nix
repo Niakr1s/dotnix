@@ -83,7 +83,11 @@
           };
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.${username} = import ./hosts/${desktopHostName}/home.nix;
+          home-manager.users.${username} = {
+            home.stateVersion = "${desktopStateVersion}";
+            home.username = "${username}";
+            home.homeDirectory = "/home/${username}";
+          };
         }
       ];
     };
@@ -114,7 +118,11 @@
           };
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.${username} = import ./hosts/${laptopHostName}/home.nix;
+          home-manager.users.${username} = {
+            home.stateVersion = "${desktopStateVersion}";
+            home.username = "${username}";
+            home.homeDirectory = "/home/${username}";
+          };
         }
       ];
     };
