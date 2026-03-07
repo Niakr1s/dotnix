@@ -31,6 +31,7 @@ in {
     ../../modules/gaming/gaming.nix
     # ../../modules/hardware/gamepad/gamepad.nix
     ../../modules/gaming/lutris/lutris.nix
+    ../../modules/gaming/mangohud/mangohud.nix
   ];
 
   # ZFS need this
