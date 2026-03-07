@@ -7,12 +7,15 @@
   unstablePkgs,
   username,
   stateVersion,
+  home-manager,
   ...
 }: {
-  home.packages = [pkgs.tealdeer];
-  services.tldr-update = {
-    enable = true;
-    package = pkgs.tealdeer;
-    period = "weekly";
+  home-manager.users.${username} = {
+    home.packages = [pkgs.tealdeer];
+    services.tldr-update = {
+      enable = true;
+      package = pkgs.tealdeer;
+      period = "weekly";
+    };
   };
 }

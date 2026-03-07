@@ -25,6 +25,7 @@
     ../../modules/services/v2raya/v2raya.nix
 
     ../../modules/browsers/firefox/firefox.nix
+    ../../modules/utilites/tldr/tldr.nix
   ];
 
   # Kernel

@@ -32,9 +32,6 @@ in {
     inputs.nvf.homeManagerModules.default
     ../../modules/editors/nvf/nvf.nix
 
-    ### TLDR
-    ../../modules/utilites/tldr/tldr.nix
-
     ### Video players
     ../../modules/players/mpv/mpv.nix
     ../../modules/players/celluloid/celluloid.nix
