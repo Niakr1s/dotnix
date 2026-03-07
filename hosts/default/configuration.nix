@@ -26,6 +26,9 @@
 
     ../../modules/utilites/tldr/tldr.nix
     ../../modules/browsers/firefox/firefox.nix
+
+    ### Video players
+    ../../modules/players/celluloid/celluloid.nix
     ../../modules/players/mpv/mpv.nix
   ];
 

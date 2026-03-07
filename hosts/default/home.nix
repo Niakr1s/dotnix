@@ -32,9 +32,6 @@ in {
     inputs.nvf.homeManagerModules.default
     ../../modules/editors/nvf/nvf.nix
 
-    ### Video players
-    ../../modules/players/celluloid/celluloid.nix
-
     ../../modules/vcs/git/git.nix
     ../../modules/vcs/git/gh.nix
 
