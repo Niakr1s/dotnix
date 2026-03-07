@@ -16,7 +16,8 @@ in {
   imports = [
     # Don't change this
     ../default/configuration.nix
-    ./hardware-configuration.nix
+    ./boot.nix
+    ./disko-config.nix
     ../../modules/hardware/intel/intel.nix
     # Don't change this ------- END
 
@@ -28,13 +29,8 @@ in {
     ../../modules/de/gnome/extensions/gjs-osk.nix
   ];
 
-  # BOOT
-
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  boot.kernelPackages = pkgs.linuxPackages; # LTS
+  # ZFS need this
+  networking.hostId = "1314f71d";
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
