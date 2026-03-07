@@ -28,7 +28,6 @@ in {
   };
 
   imports = [
-    ../../modules/dconf/dconf.nix
     ../../modules/browsers/firefox/firefox.nix
 
     # NVF

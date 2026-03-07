@@ -9,10 +9,6 @@
   username,
   ...
 }: let
-  unstablePkgs = import nixpkgs-unstable {
-    system = pkgs.system;
-    config = config.nixpkgs.config;
-  };
 in {
   imports = [
     ../default/home.nix

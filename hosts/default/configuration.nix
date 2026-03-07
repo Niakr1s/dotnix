@@ -19,6 +19,8 @@
 
   imports = [
     ../../modules/de/gnome/gnome.nix
+    ../../modules/dconf/dconf.nix
+
     ../../modules/services/qbittorrent/qbittorrent.nix
     ../../modules/services/v2raya/v2raya.nix
   ];
