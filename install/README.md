@@ -48,14 +48,21 @@ boot = {
     ];
   };
 };
+```
+
+8. For ZFS, you'll need to generate a new hostId or take an existing one from
+   your configuration. Don't change this hostId, otherwise the system won't be
+   able to mount your disks.
+
+```
 # ZFS need this
 networking.hostId = "<output of 'head -c 8 /etc/machine-id'>";
 ```
 
-8. You'll probably need to edit a bit `configuration.nix`: add correct user and
+9. You'll probably need to edit a bit `configuration.nix`: add correct user and
    add some programs for him (`vim`, `git`).
 
-9. When you are ready, hit the button:
+10. When you are ready, hit the button:
 
 ```
 nixos-install
