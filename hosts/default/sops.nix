@@ -1,12 +1,13 @@
 {
   inputs,
   config,
+  ...
 }: {
   sops = {
     # This will add secrets.yml to the nix store
     # You can avoid this by adding a string to the full path instead, i.e.
     # sops.defaultSopsFile = "/root/.sops/secrets/example.yaml";
-    defaultSopsFile = ./secrets.yaml;
+    defaultSopsFile = ../../secrets.yaml;
     age = {
       # This will automatically import SSH keys as age keys
       sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
@@ -17,10 +18,7 @@
     };
     secrets = {
       # This is the actual specification of the secrets.
-      example-key = {};
-      example-array = {};
-      example-number = {};
-      example-booleans = {};
+      example_key = {};
       # "myservice/my_subdir/my_secret" = {};
     };
   };
