@@ -11,7 +11,7 @@
 in {
   home-manager.users.${username} = {config, ...}: {
     xdg.configFile."mpv" = {
-      source = config.lib.file.mkOutOfStoreSymlink "/home/${username}/.dotnix/config/celluloid";
+      source = config.lib.file.mkOutOfStoreSymlink ./config/celluloid;
       recursive = true;
     };
 
