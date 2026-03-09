@@ -15,6 +15,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     hyprland.url = "github:hyprwm/Hyprland";
 
     nvf = {
@@ -29,6 +34,7 @@
     nixpkgs-unstable,
     home-manager,
     disko,
+    sops-nix,
     nvf,
     ...
   } @ inputs: let
@@ -63,6 +69,7 @@
 
           disko.nixosModules.disko
           home-manager.nixosModules.home-manager
+          sops-nix.nixosModules.sops
 
           # Configurations
           ./hosts/${hostname}/configuration.nix # probably we can hardcode this
