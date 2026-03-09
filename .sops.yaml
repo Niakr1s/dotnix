@@ -1,11 +1,11 @@
 keys:
   - &users:
-    - &nea@desktop age1kaqrcpc5gqt3kwnl9f65ujv93cs4cqxrx383plr34nnnq4e5a3ysfe5v5w
+    - &nea_desktop age1kaqrcpc5gqt3kwnl9f65ujv93cs4cqxrx383plr34nnnq4e5a3ysfe5v5w
   - &hosts:
     - &desktop age1972evl3pnwugxlxgxg2mxmwhm9lv55vacde9w9tas82augj3632q5mx3a8
 creation_rules:
   - path_regex: secrets.yaml$
     key_groups:
       - age:
-        - *nea@desktop
+        - *nea_desktop
         - *desktop
