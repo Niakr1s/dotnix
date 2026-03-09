@@ -483,6 +483,24 @@
         "type": "github"
       }
     },
+    "mysecrets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1773090574,
+        "narHash": "sha256-+xfZflLHevvPL0QfcKZFe2SXB0JK1x3VCNnAM1QSIJU=",
+        "ref": "main",
+        "rev": "b3a3de637e465e30c26247b8bd32c5b66f7fb3a5",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/Niakr1s/secrets.git"
+      },
+      "original": {
+        "ref": "main",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/Niakr1s/secrets.git"
+      }
+    },
     "ndg": {
       "inputs": {
         "nixpkgs": [
@@ -604,6 +622,7 @@
         "disko": "disko",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
+        "mysecrets": "mysecrets",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nvf": "nvf",

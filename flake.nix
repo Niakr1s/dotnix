@@ -20,6 +20,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    mysecrets = {
+      url = "git+ssh://git@github.com/Niakr1s/secrets.git?ref=main&shallow=1";
+      # url = "git@github.com:Niakr1s/secrets.git";
+      flake = false;
+    };
+
     hyprland.url = "github:hyprwm/Hyprland";
 
     nvf = {
