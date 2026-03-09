@@ -1,174 +1,84 @@
 # This is my nixos dotfiles for future me
 
-## Installation
+## Installation with `disko`
 
-### A new system on a new host
+Warning: all data on your disk will be destroyed, so proceed carefully.
 
-Consider reading the [article](https://qfpl.io/posts/installing-nixos/) about
-installing nixos to properly configure disks and enable encryption.
+1. Download `disko-config.nix` to `/tmp`.
 
-Then there is a great
-[article](https://www.tonybtw.com/tutorial/nixos-from-scratch/) from TonyBtw
-about how to use flakes.
+2. In `disko-config.nix`: set `disk.main.device` to your device (e.g.
+   `/dev/sda`). Use `lsblk` command.
 
-Boot with minimal iso. Next, configure network with `nmtui`.
+3. Run
+   `sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount /tmp/disk-config.nix`.
+   This will format and mount partitions.
 
-Remove all partitions from your disk and configure partitions
+4. Run `nixos-generate-config --no-filesystems --root /mnt`. This will generate
+   configuration inside `/mnt/etc/nixos`.
 
-```
--- Identify the disk to install NixOS on - something like /dev/nvme0n1 or /dev/sda.
--- We'll refer to it as $DISK.
-# lsblk
+5. Move the config to `/mnt/etc/nixos`:
+   `mv /tmp/disk-config.nix /mnt/etc/nixos`.
 
--- Open gdisk on the disk we're installing on
-# gdisk $DISK 
+6. Add the following to `/mnt/etc/nixos/configuration.nix`:
 
------------------------
--- BEGIN GDISK COMMANDS
-
--- print the partitions on the disk
-Command: p
-
--- Delete a partition. Select the partition number when prompted.
--- Repeat for all partitions.
-Command: d
-
--- Create the EFI boot partition
-Command: n
-Partition number: 1
-First sector: <enter for default>
-Last sector: +1G       --  make a 1 gigabyte partition
-Hex code or GUID: ef00 -- this is the EFI System type
-
--- Create the LVM partition
-Command: n
-Partition number: 2
-First sector: <enter for default>
-Last sector: <enter for default - rest of disk>
-Hex code or GUID: 8e00 -- Linux LVM type
-
--- Write changes and quit
-Command: w
-
--- END GDISK COMMANDS
----------------------
+```nix
+imports =
+[ # Don't remove the results of the hardware scan
+  ./hardware-configuration.nix
+  # Add this two lines
+  "${builtins.fetchTarball "https://github.com/nix-community/disko/archive/master.tar.gz"}/module.nix"
+  ./disko-config.nix
+];
 ```
 
-Setup encryption on second partition. This is the second partition that we
-created above - so should be something like /dev/nvme0n1p2 or /dev/sda2. We’ll
-refer to it as $LVM_PARTITION below. Note that our boot partition won’t be
-encrypted.
+7. Change this in `/mnt/etc/nixos/configuration.nix`:
 
 ```
--- You will be asked to enter your passphrase - DO NOT FORGET THIS
-# cryptsetup luksFormat $LVM_PARTITION
+# Comment or remove this
+# boot.loader.systemd-boot.enable = true;
+# boot.loader.efi.canTouchEfiVariables = true;
 
--- Decrypt the encrypted partition and call it nixos-enc. The decrypted partition
--- will get mounted at /dev/mapper/nixos-enc
-# cryptsetup luksOpen $LVM_PARTITION nixos-enc
-    
--- Create the LVM physical volume using nixos-enc
-# pvcreate /dev/mapper/nixos-enc 
+boot = {
+  loader.grub = {
+    enable = true;
+    efiSupport = true;
+    efiInstallAsRemovable = true;
 
--- Create a volume group that will contain our root and swap partitions
-# vgcreate nixos-vg /dev/mapper/nixos-enc
-
--- Create a swap partition that is 16G in size - the amount of RAM on this machine
--- Volume is labeled "swap"'
-# lvcreate -L 16G -n swap nixos-vg
-
--- Create a logical volume for our root filesystem from all remaining free space.
--- Volume is labeled "root"
-# lvcreate -l 100%FREE -n root nixos-vg
-```
-
-Now create our filesystems
-
-```
--- Create a FAT32 filesystem on our boot partition
-# mkfs.vfat -n boot $BOOT_PARTITION
-
--- Create an ext4 filesystem for our root partition
-# mkfs.ext4 -L nixos /dev/nixos-vg/root
-
--- Tell our swap partition to be a swap
-# mkswap -L swap /dev/nixos-vg/swap
-
--- Turn the swap on before install
-# swapon /dev/nixos-vg/swap
-```
-
-Mount filesystems and prepare for install. The snippet below uses
-$BOOT_PARTITION as a placeholder for the UEFI boot partition we created earlier.
-This was the first partition on the disk, and will probably be something like
-/dev/sda1 or /dev/nvme0n1p1.
-
-```
-# mount /dev/nixos-vg/root /mnt
-# mkdir /mnt/boot
-# mount $BOOT_PARTITION /mnt/boot
-```
-
-Generate our initial config
-
-```
-# nixos-generate-config --root /mnt
-```
-
-Add encryption settings to `/etc/nixos/hardware-configuration.nix`. Change
-device path to $LVM_PARTITION
-
-```
-boot.initrd.luks.devices = {
-  root = { 
-    device = "/dev/${LVM_PARTITION}";
-    preLVM = true;
+    # ZFS needs this
+    mirroredBoots = [
+      { devices = [ "nodev" ]; path = "/boot"; }
+    ];
   };
 };
 ```
 
-Uncomment user settings in `/etc/nixos/configuration.nix`. This config uses
-`nea` as username, so do this.
+8. For ZFS, you'll need to generate a new hostId or take an existing one from
+   your configuration. Don't change this hostId, otherwise the system won't be
+   able to mount your disks.
 
 ```
-users.users.nea = {
-  isNormalUser = true;
-  extraGroups = [ "wheel" ];
-  packages = with pkgs; [
-    git # Add this to be able to clone this configuration afterwards
-    vim # Is useful to edit files
-  ];
-};
+# ZFS need this
+networking.hostId = "<output of 'head -c 8 /etc/machine-id'>";
 ```
 
-Pull the trigger
+9. You'll probably need to edit a bit `configuration.nix`: add correct user and
+   add some programs for him (`vim`, `git`).
+
+10. When you are ready, hit the button:
 
 ```
-# nixos-install
--- IT'LL ASK YOU FOR YOUR ROOT PASSWORD NOW - DON'T FORGET IT
-# reboot
+nixos-install
+ENTER ROOT PASSWORD HERE
+reboot
 ```
 
-Setup user password after reboot. Login as `root` and run `passwd $USER`.
+## Reinstallation
 
-Login as `nea` and clone this repository to `/home/nea/.dotnix` directory. You
-will probably need to configure network again with `nmtui`.
-
-```
-# git clone --recurse-submodules ${this repo} /home/nea/.dotnix
-```
-
-Copy `/etc/nixos/hardware-configuration` to your host hardware configuration, or
-modify it if needed. Note: If `hardware-configuration.nix` was not in git, you
-should `git add` it, otherwise it will error you.
-
-AFterwards, run `sudo nixos-rebuild switch --flake /home/nea/.dotnix#desktop`
-and you are gtg.
-
-### Reinstallation
-
-Keep in mind, that you already have `hardware-configuration.nix`, so you'll
-probably want to reuse it.
+Probably you just need to run
+`nixos-install --flake github:niakr1s/dotnix#somehost`. Untested yet. Don't know
+whether it'll run `disko` module correctly. If not, partition disks with `disko`
+as in [Installation](#installation-with-disko) part, aftewards run the
+`nixos-install` command.
 
 ## Hardware
 

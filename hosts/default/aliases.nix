@@ -7,6 +7,7 @@
   unstablePkgs,
   username,
   home-manager,
+  flakeDir,
   ...
 }: {
   # some common aliases
@@ -17,7 +18,7 @@
 
   home-manager.users.${username} = {
     home.shellAliases = {
-      update = "sudo nixos-rebuild switch --flake /home/${username}/.dotnix#${hostname}";
+      update = "sudo nixos-rebuild switch --flake ${flakeDir}#${hostname}";
     };
   };
 }

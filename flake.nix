@@ -47,6 +47,7 @@
     };
 
     username = "nea"; # will be common among my hosts
+    flakeDir = "/etc/nixos"; # root of this flake
 
     mkHostConfig = hostname: stateVersion: {
       ${hostname} = nixpkgs.lib.nixosSystem {
@@ -55,6 +56,7 @@
           inherit inputs;
           inherit hostname;
           inherit username;
+          inherit flakeDir;
         };
         modules = [
           unstable-overlays
@@ -72,6 +74,7 @@
               inherit inputs;
               inherit hostname;
               inherit username;
+              inherit flakeDir;
             };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;

@@ -7,12 +7,13 @@
   hostname,
   username,
   home-manager,
+  flakeDir,
   ...
 }: let
 in {
   home-manager.users.${username} = {config, ...}: {
     xdg.configFile."celluloid" = {
-      source = config.lib.file.mkOutOfStoreSymlink "/home/${username}/.dotnix/config/celluloid";
+      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/config/celluloid";
       recursive = true;
     };
 
