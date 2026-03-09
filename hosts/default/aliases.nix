@@ -14,6 +14,9 @@
   environment.shellAliases = {
     ll = "ls -l";
     la = "ls -la";
+    mvi = "mv -i";
+    cpi = "cp -i";
+    rmi = "rm -i";
   };
 
   home-manager.users.${username} = {
