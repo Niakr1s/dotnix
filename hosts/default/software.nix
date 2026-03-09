@@ -59,6 +59,7 @@ in {
     ssh-to-age
     ssh-to-pgp
     sops
+    authenticator
 
     vim
     wget
@@ -73,6 +74,11 @@ in {
     ripgrep
     usbutils
     neofetch # for sure
+
+    ### Archives
+    zip
+    p7zip
+    rar
 
     dconf-editor # you probably need it even in not gnome environment
 
