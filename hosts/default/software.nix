@@ -58,6 +58,7 @@ in {
     age
     ssh-to-age
     ssh-to-pgp
+    sops
 
     vim
     wget

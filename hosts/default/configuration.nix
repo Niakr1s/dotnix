@@ -12,6 +12,7 @@
     ./aliases.nix
     ./fonts.nix
     ./software.nix
+    ./sops.nix
   ];
 
   ### BLuetooth
