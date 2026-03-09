@@ -18,7 +18,8 @@
 
   home-manager.users.${username} = {
     home.shellAliases = {
-      update = "sudo nixos-rebuild switch --flake ${flakeDir}#${hostname}";
+      nixedit = "cd ${flakeDir} && vim .";
+      nixupdate = "sudo nixos-rebuild switch --flake ${flakeDir}#${hostname}";
     };
   };
 }
