@@ -16,10 +16,4 @@ in {
   environment.systemPackages = with pkgs; [
     losslesscut-bin
   ];
-
-  home-manager.users.${username} = {config, ...}: {
-    xdg.configFile."LosslessCut/config.json" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/config/LosslessCut/config.json";
-    };
-  };
 }
