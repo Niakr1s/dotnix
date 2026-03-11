@@ -112,6 +112,7 @@ in {
     rhash # Console utility and library for computing and verifying hash sums of files
     rclone # Command line program to sync files and directories to and from major cloud storage
     rsync # Fast incremental file transfer utility
+    trash-cli # trash management
   ];
 
   # Home packages
