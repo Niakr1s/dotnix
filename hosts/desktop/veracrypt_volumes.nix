@@ -10,7 +10,12 @@
   flakeDir,
   ...
 }: let
-  mkHdd = devName: sopsPath: aliasName: mountPoint: {
+  mkHdd = {
+    devName, # last part of /dev/<device name>, e.g sdd2 of /dev/sdd2
+    sopsPath, # same path as in secrets.yaml
+    aliasName, # prefix of aliases
+    mountPoint, # mount point
+  }: {
     sops.secrets = {
       # This is the actual specification of the secrets.
       "${sopsPath}" = {
@@ -32,8 +37,18 @@
     ];
   };
   hddConfigs = [
-    (mkHdd "sdb2" "desktop/veracrypt/hdd4_pass" "hdd4" "/data/hdd4")
-    (mkHdd "sdd2" "desktop/veracrypt/hdd20_pass" "hdd20" "/data/hdd20")
+    (mkHdd {
+      devName = "sdb2";
+      sopsPath = "desktop/veracrypt/hdd4_pass";
+      aliasName = "hdd4";
+      mountPoint = "/data/hdd4";
+    })
+    (mkHdd {
+      devName = "sdd2";
+      sopsPath = "desktop/veracrypt/hdd20_pass";
+      aliasName = "hdd20";
+      mountPoint = "/data/hdd20";
+    })
   ];
 in
   lib.foldl lib.recursiveUpdate {} hddConfigs

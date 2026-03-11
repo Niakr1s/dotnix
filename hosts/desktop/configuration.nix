@@ -24,7 +24,7 @@ in {
 
     ./wallpaper.nix
 
-    ./hdds.nix
+    ./veracrypt_volumes.nix
 
     ../../modules/dconf/dconf.multiple.monitors.nix
     ../../modules/dconf/dconf.numlock.nix
