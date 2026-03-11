@@ -40,6 +40,8 @@ in {
     # ../../modules/hardware/gamepad/gamepad.nix
     ../../modules/gaming/lutris/lutris.nix
     ../../modules/gaming/mangohud/mangohud.nix
+
+    ../../modules/video/handbrake/handbrake.nix
   ];
 
   # ZFS need this
@@ -49,9 +51,6 @@ in {
 
   environment.systemPackages = with pkgs; [
     ### Video editors
-    (handbrake.overrideAttrs (previous: {
-      nativeBuildInputs = (previous.nativeBuildInputs or []) ++ [pkgs.autoAddDriverRunpath];
-    }))
     losslesscut-bin
   ];
 }
