@@ -13,10 +13,8 @@ in {
   home-manager.users.${username} = {
     programs.yazi = {
       enable = true;
-      plugins = {
-        inherit (pkgs.yaziPlugins) mount;
-      };
-      #initLua = ./init.lua
+      plugins = {};
+
       settings = {
         mgr = {
           ratio = [
@@ -33,6 +31,10 @@ in {
           show_symlink = true;
         };
       };
+
+      keymap = {};
+
+      theme = {};
     };
   };
 }
