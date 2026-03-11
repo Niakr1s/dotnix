@@ -486,10 +486,10 @@
     "mysecrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1773090574,
-        "narHash": "sha256-+xfZflLHevvPL0QfcKZFe2SXB0JK1x3VCNnAM1QSIJU=",
+        "lastModified": 1773213167,
+        "narHash": "sha256-wUOteXPEQAxGLjKO2hrP5Z53X+P6dz2X1XZcitwjjA0=",
         "ref": "main",
-        "rev": "b3a3de637e465e30c26247b8bd32c5b66f7fb3a5",
+        "rev": "6833c327632679a68d8d8aad3fc8ab083ea654e9",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/Niakr1s/secrets.git"
