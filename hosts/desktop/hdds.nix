@@ -22,9 +22,9 @@
 
     home-manager.users.${username} = {
       home.shellAliases = {
-        "${aliasName}m" = "cat /run/secrets/${sopsPath} | veracrypt --text --stdin --non-interactive --pim=0 --protect-hidden=no /dev/${devName} ${mountPoint}";
-        "${aliasName}u" = "veracrypt -d ${mountPoint}";
-        "${aliasName}cd" = "cd ${mountPoint}";
+        "${aliasName}_mount" = "cat /run/secrets/${sopsPath} | sudo veracrypt --text --stdin --non-interactive --pim=0 --protect-hidden=no /dev/${devName} ${mountPoint}";
+        "${aliasName}_umount" = "sudo veracrypt -d ${mountPoint}";
+        "${aliasName}" = "cd ${mountPoint}";
       };
     };
     systemd.tmpfiles.rules = [
