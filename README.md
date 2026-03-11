@@ -80,6 +80,39 @@ whether it'll run `disko` module correctly. If not, partition disks with `disko`
 as in [Installation](#installation-with-disko) part, aftewards run the
 `nixos-install` command.
 
+## Keys
+
+During installation, you should provide keys to the system. I don't know whether
+you should provide `/etc/ssh/ssh_host_*` keys, but `~/.ssh` and
+`~/.config/sops/age/keys.txt` are essentially needed.
+
+### Generate keys from scratch
+
+- Generate ssh keys into default `~/.ssh` directory:
+
+```
+ssh-keygen
+```
+
+- Derive sops age key from your private ssh key:
+
+```
+nix-shell -p ssh-to-age --run "ssh-to-age -private-key -i ~/.ssh/id_ed25519 > ~/.config/sops/age/keys.txt"
+```
+
+- Get age public keys derived from ssh
+
+```
+ssh-to-age < ~/.ssh/id_ed25519.pub
+ssh-to-age < /etc/ssh/ssh_host_ed25519_key.pub
+```
+
+If you didn't derive age key from ssh, then do
+
+```
+age-keygen -y ~/.config/sops/age/keys.txt
+```
+
 # Hardware
 
 ## Gamepad
