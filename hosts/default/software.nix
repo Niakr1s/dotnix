@@ -37,6 +37,9 @@ in {
     ../../modules/shells/zsh/zsh.nix
     ../../modules/shells/fzf/fzf.nix
 
+    ### FIle managers
+    ../../modules/fm/yazi/yazi.nix
+
     # NVF
     # inputs.nvf.homeManagerModules.default # TODO
     ../../modules/editors/nvf/nvf.nix
