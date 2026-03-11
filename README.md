@@ -153,17 +153,15 @@ actually, I've learned a bit more about Linux.
 
 ## Iphone pairing
 
-It should work out of the box, just run:
+It should automount out of the box via `gvfs`, if it doesn't, try to run
+`idevicepair pair` first
+
+Manual connection:
 
 ```
 mkdir /mnt/iphone
 ifuse /mnt/iphone
 ```
-
-or use file manager to mount it.
-
-If you get cryptic `Failed to connect to lockdownd service on the device.`,
-you'll need to run `idevicepair pair` in the terminal to fix it.
 
 # Software
 
