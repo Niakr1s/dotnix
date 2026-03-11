@@ -17,6 +17,9 @@
     mvi = "mv -i";
     cpi = "cp -i";
     rmi = "rm -i";
+
+    # gvfs
+    gvcd = "/run/user/1000/gvfs";
   };
 
   home-manager.users.${username} = {
