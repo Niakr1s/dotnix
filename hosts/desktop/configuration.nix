@@ -42,15 +42,11 @@ in {
     ../../modules/gaming/mangohud/mangohud.nix
 
     ../../modules/video/handbrake/handbrake.nix
+    ../../modules/video/losslesscut/losslesscut.nix
   ];
 
   # ZFS need this
   networking.hostId = "82473af6";
 
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-
-  environment.systemPackages = with pkgs; [
-    ### Video editors
-    losslesscut-bin
-  ];
 }
