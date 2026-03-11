@@ -49,7 +49,9 @@ in {
 
   environment.systemPackages = with pkgs; [
     ### Video editors
-    handbrake
+    (handbrake.overrideAttrs (previous: {
+      nativeBuildInputs = (previous.nativeBuildInputs or []) ++ [pkgs.autoAddDriverRunpath];
+    }))
     losslesscut-bin
   ];
 }
