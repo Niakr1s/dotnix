@@ -151,6 +151,20 @@ So if your gamepad is already connected to dongle - don't try to disconnect or
 reset settings, because it will cost you a lot of time. But I don't regret
 actually, I've learned a bit more about Linux.
 
+## Iphone pairing
+
+It should work out of the box, just run:
+
+```
+mkdir /mnt/iphone
+ifuse /mnt/iphone
+```
+
+or use file manager to mount it.
+
+If you get cryptic `Failed to connect to lockdownd service on the device.`,
+you'll need to run `idevicepair pair` in the terminal to fix it.
+
 # Software
 
 ## v2raya
