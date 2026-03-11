@@ -45,7 +45,7 @@
           encryption = "on";
           keyformat = "passphrase";
           keylocation = "prompt";
-          compression = "zstd";
+          compression = "lz4";
           mountpoint = "none";
           xattr = "sa";
           acltype = "posixacl";
