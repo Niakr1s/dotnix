@@ -44,12 +44,20 @@
   fileSystems."/data/ssd" = {
     device = "/dev/disk/by-uuid/01DB61C186A0F740";
     fsType = "ntfs-3g";
-    options = ["rw" "uid=1000"];
+    options = [
+      "rw"
+      "uid=1000" # first users's uid
+      "gid=100" # users group
+    ];
   };
 
   fileSystems."/data/hdd1" = {
     device = "/dev/disk/by-uuid/01DAAB0556CD1D00";
     fsType = "ntfs-3g";
-    options = ["rw" "uid=1000"];
+    options = [
+      "rw"
+      "uid=1000" # first users's uid
+      "gid=100" # users group
+    ];
   };
 }
