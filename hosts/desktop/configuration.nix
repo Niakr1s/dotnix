@@ -24,6 +24,8 @@ in {
 
     ./wallpaper.nix
 
+    ./hdds.nix
+
     ../../modules/dconf/dconf.multiple.monitors.nix
     ../../modules/dconf/dconf.numlock.nix
 

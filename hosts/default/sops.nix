@@ -19,9 +19,6 @@ in {
       generateKey = true;
     };
     secrets = {
-      # This is the actual specification of the secrets.
-      example_key = {};
-      # "myservice/my_subdir/my_secret" = {};
     };
   };
 }
