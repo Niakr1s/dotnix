@@ -78,6 +78,7 @@ in {
     ripgrep
     usbutils
     neofetch # for sure
+    wine
 
     ### Archives
     zip
