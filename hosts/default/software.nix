@@ -43,6 +43,9 @@ in {
     # NVF
     # inputs.nvf.homeManagerModules.default # TODO
     ../../modules/editors/nvf/nvf.nix
+
+    ### Gstreamer
+    ../../modules/video/gstreamer/gstreamer.nix
   ];
 
   # System packages
