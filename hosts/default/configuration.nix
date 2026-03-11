@@ -15,6 +15,7 @@
     ./sops.nix
     ./ssh.nix
     ./iphone.nix
+    ./bookmarks.nix
   ];
 
   ### BLuetooth

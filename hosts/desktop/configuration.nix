@@ -23,6 +23,7 @@ in {
     # Don't change this ------- END
 
     ./wallpaper.nix
+    ./bookmarks.nix
 
     ./veracrypt_volumes.nix
 
