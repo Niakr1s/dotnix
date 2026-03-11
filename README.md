@@ -1,4 +1,4 @@
-# This is my nixos dotfiles for future me
+# Installation
 
 ## Installation with `disko`
 
@@ -80,9 +80,9 @@ whether it'll run `disko` module correctly. If not, partition disks with `disko`
 as in [Installation](#installation-with-disko) part, aftewards run the
 `nixos-install` command.
 
-## Hardware
+# Hardware
 
-### Gamepad
+## Gamepad
 
 I've encountered a strange behaviour with Flydigi Dune Fox gamepad. After I
 reset it, I couldn't actually connect it to it's dongle again. I've tried all
@@ -118,9 +118,9 @@ So if your gamepad is already connected to dongle - don't try to disconnect or
 reset settings, because it will cost you a lot of time. But I don't regret
 actually, I've learned a bit more about Linux.
 
-## Software
+# Software
 
-### v2raya
+## v2raya
 
 You'll need a certain version of `v2raya` package to work it with `xhttp`. It's
 already configured in this configuration via `nixos-unstable` overlay, so don't
@@ -143,14 +143,14 @@ default: proxy
 
 Add this configuration and run service.
 
-### qbittorrent
+## qbittorrent
 
 The service should work as a system service. The downloads will be placed in
 `/srv/torrents` by default. Directory `/srv/torrents/autoload` is being watched
 for new torrents, so users can put their files there and they will be downloaded
 automatically.
 
-### Lutris
+## Lutris
 
 If you don't want to waste brandwidth and disk space, be sure to disable auto
 updates or runtime and wine, because the source of it will be provided by nixos.
