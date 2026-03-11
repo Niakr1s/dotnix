@@ -13,6 +13,7 @@
     ./fonts.nix
     ./software.nix
     ./sops.nix
+    ./ssh.nix
   ];
 
   ### BLuetooth
@@ -74,9 +75,6 @@
     automatic = true;
     dates = "21:00";
   };
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
 
   # DE
 
