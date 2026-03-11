@@ -216,6 +216,9 @@ in {
           remove-old-temp-files = true;
           recent-files-max-age = 30;
         };
+        "org/gnome/desktop/peripherals/touchpad" = {
+          click-method = "areas";
+        };
         "org/gnome/Console" = {
           # last-window-size = mkTuple [1024 1024];
           # restore-window-size = true;
