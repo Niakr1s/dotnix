@@ -60,6 +60,7 @@ in {
     ssh-to-pgp
     sops
     authenticator
+    veracrypt
 
     vim
     wget
