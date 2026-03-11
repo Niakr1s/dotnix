@@ -20,13 +20,10 @@
 
   # Users
 
-  sops.secrets.nea_password.neededForUsers = true;
-  users.mutableUsers = false; # Required for password to be set via sops during system activation
-
   # Don't forget to set a password with ‘passwd’.
   users.users.${username} = {
     isNormalUser = true;
-    hashedPasswordFile = config.sops.secrets.nea_password.path;
+    hashedPassword = "$y$j9T$COxP910y84jokTHUN9FD0.$Boere7gydjwa9qqwinkeALiRJ0RkYH3dXc3804iMhX6";
     extraGroups = ["wheel" "video" "audio" "disk" "networkmanager"];
     uid = 1000;
     shell = pkgs.zsh;
