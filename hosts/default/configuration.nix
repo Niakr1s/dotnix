@@ -14,6 +14,7 @@
     ./software.nix
     ./sops.nix
     ./ssh.nix
+    ./iphone.nix
   ];
 
   ### BLuetooth
