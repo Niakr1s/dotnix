@@ -82,6 +82,7 @@ in {
     usbutils
     neofetch # for sure
     wine
+    winetricks
 
     ### Archives
     zip
