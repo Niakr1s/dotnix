@@ -46,6 +46,9 @@ in {
 
     ### Gstreamer
     ../../modules/video/gstreamer/gstreamer.nix
+
+    ### Security
+    ../../modules/security/cotp/cotp.nix
   ];
 
   # System packages
@@ -66,7 +69,6 @@ in {
     ssh-to-pgp
     sops
     veracrypt
-    cotp
 
     vim
     wget
