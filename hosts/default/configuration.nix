@@ -6,6 +6,7 @@
   hostname,
   unstablePkgs,
   username,
+  flakeDir,
   ...
 }: {
   imports = [
@@ -50,6 +51,7 @@
   environment.variables = {
     EDITOR = "vim";
     VISUAL = "vim";
+    COTP_DB_PATH = "${flakeDir}/secrets/db.cotp";
   };
 
   # Services

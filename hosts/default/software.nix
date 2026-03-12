@@ -65,8 +65,8 @@ in {
     ssh-to-age
     ssh-to-pgp
     sops
-    authenticator
     veracrypt
+    cotp
 
     vim
     wget
