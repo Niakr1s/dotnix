@@ -52,6 +52,9 @@ in {
 
     ### Mail
     # ../../modules/mail/mail.nix # IT downloads whole gmail, don't need it atm
+
+    ### Audio
+    ../../modules/audio/tauon/tauon.nix
   ];
 
   # System packages
@@ -89,7 +92,6 @@ in {
     wine
     winetricks
     libnotify
-    pkgs.unstable.tauon # music player
 
     ### Archives
     zip
