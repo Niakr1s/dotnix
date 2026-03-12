@@ -88,6 +88,7 @@ in {
     neofetch # for sure
     wine
     winetricks
+    libnotify
 
     ### Archives
     zip
