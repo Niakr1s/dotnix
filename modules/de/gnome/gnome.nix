@@ -28,7 +28,6 @@
     geary
     totem
     yelp
-    decibels
     snapshot
     showtime
   ];
