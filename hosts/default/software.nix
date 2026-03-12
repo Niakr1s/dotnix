@@ -90,7 +90,7 @@ in {
 
     ### DB
     dbeaver-bin
-    inputs.sqlit.packages.${pkgs.system}.default
+    inputs.sqlit.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     dconf-editor # you probably need it even in not gnome environment
 
