@@ -89,7 +89,7 @@ in {
     wine
     winetricks
     libnotify
-    tauon # music player
+    pkgs.unstable.tauon # music player
 
     ### Archives
     zip
