@@ -88,6 +88,10 @@ in {
     p7zip
     rar
 
+    ### DB
+    dbeaver-bin
+    inputs.sqlit.packages.${pkgs.system}.default
+
     dconf-editor # you probably need it even in not gnome environment
 
     imagemagick
