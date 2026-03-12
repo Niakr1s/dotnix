@@ -49,6 +49,9 @@ in {
 
     ### Security
     ../../modules/security/cotp/cotp.nix
+
+    ### Mail
+    # ../../modules/mail/mail.nix # IT downloads whole gmail, don't need it atm
   ];
 
   # System packages
@@ -119,7 +122,6 @@ in {
     fortune # Program that displays a pseudorandom message from a database of quotations
     cowsay
     lolcat # Rainbow version of cat
-    mutt # Small but very powerful text-based mail client
     rhash # Console utility and library for computing and verifying hash sums of files
     rclone # Command line program to sync files and directories to and from major cloud storage
     rsync # Fast incremental file transfer utility
