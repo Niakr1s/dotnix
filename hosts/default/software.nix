@@ -89,6 +89,7 @@ in {
     wine
     winetricks
     libnotify
+    tauon # music player
 
     ### Archives
     zip
