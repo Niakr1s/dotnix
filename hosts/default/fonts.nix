@@ -23,6 +23,7 @@
     mplus-outline-fonts.githubRelease
     dina-font
     proggyfonts
+    corefonts # Microsoft's TrueType core fonts for the Web
   ];
 
   fonts.fontconfig = {
