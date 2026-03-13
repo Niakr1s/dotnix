@@ -81,6 +81,7 @@ in {
 
     vim
     wget
+    uv
     curl
     git
     btop-cuda
