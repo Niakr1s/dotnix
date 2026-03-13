@@ -9,6 +9,10 @@
   ...
 }: let
 in {
+  imports = [
+    ./ryubing/ryubing.nix
+  ];
+
   # https://github.com/lutris/docs/blob/master/HowToEsync.md
   # The Lutris documentation shows how to make your system esync compatible. These steps can be achieved on NixOS with the config below
   # systemd.extraConfig = "DefaultLimitNOFILE=524288"; deprecated, using systemd.settings.Manager
@@ -25,7 +29,6 @@ in {
   ];
 
   environment.systemPackages = with pkgs; [
-    ryubing
     rpcs3
   ];
 }
