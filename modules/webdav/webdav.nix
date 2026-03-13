@@ -13,6 +13,10 @@ in {
   # https://blog.tiserbox.com/posts/2024-02-23-mounting-webdav-folder-in-nix-os.html
   # https://internet-lab.ru/cloud_mail_ru_webdaw_linux
 
+  environment.systemPackages = with pkgs; [
+    davfs2
+  ];
+
   services.davfs2 = {
     enable = true;
     settings = {
