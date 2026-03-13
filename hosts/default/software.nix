@@ -58,6 +58,9 @@ in {
 
     ### Text
     ../../modules/text/libreoffice/libreoffice.nix
+
+    ### WebDAV
+    ../../modules/webdav/webdav.nix
   ];
 
   # System packages
