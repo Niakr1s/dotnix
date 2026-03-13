@@ -55,6 +55,9 @@ in {
 
     ### Audio
     ../../modules/audio/tauon/tauon.nix
+
+    ### Text
+    ../../modules/text/libreoffice/libreoffice.nix
   ];
 
   # System packages
