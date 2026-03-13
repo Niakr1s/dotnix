@@ -23,4 +23,9 @@ in {
       value = "524288";
     }
   ];
+
+  environment.systemPackages = with pkgs; [
+    ryubing
+    rpcs3
+  ];
 }
