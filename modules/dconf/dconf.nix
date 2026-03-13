@@ -82,11 +82,20 @@ in {
           sort-directories-first = true;
           show-hidden = false;
         };
+
         "org/gnome/nautilus/preferences" = {
           default-folder-viewer = "list-view";
+          show-create-link = true;
+          show-delete-permanently = true;
+          date-time-format = "detailed";
         };
-        "org/gnome/nautilus/preferences/date-time-format" = {
-          date-time-format = "detauled";
+        "org/gnome/nautilus/list-view" = {
+          use-tree-view = true;
+        };
+        "org/gnome/nautilus/icon-view" = {
+          # captions = ["none" "none" "none"];
+          # captions = ["owner" "group" "permissions"];
+          captions = ["size" "date_modified" "none"];
         };
 
         "org/gnome/settings-daemon/plugins/media-keys" = {
