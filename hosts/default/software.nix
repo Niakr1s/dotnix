@@ -106,6 +106,7 @@ in {
     exiftool
     ueberzug
     chafa
+    wl-clipboard
 
     ### Archives
     zip
