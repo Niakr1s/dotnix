@@ -11,6 +11,9 @@
   home-manager.users.${username} = {config, ...}: {
     programs.zellij = {
       enable = true;
+      enableZshIntegration = true;
+      enableFishIntegration = true;
+      enableBashIntegration = true;
     };
 
     home.shellAliases = {
