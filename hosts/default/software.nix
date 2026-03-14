@@ -102,6 +102,10 @@ in {
     wine
     winetricks
     libnotify
+    mediainfo
+    exiftool
+    ueberzug
+    chafa
 
     ### Archives
     zip
