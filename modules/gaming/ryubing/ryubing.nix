@@ -14,4 +14,13 @@
     ryubing
     nsz
   ];
+
+  home-manager.users.${username} = {config, ...}: {
+    home.file.".config/Ryujinx/system/prod.keys" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.switch/prod.keys";
+    };
+    home.file.".switch/prod.keys" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.switch/prod.keys";
+    };
+  };
 }
