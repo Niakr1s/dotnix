@@ -157,8 +157,8 @@ in {
           move-to-monitor-right = lib.mkDefault [];
 
           # Move to workspaces
-          move-to-workspace-left = ["<Shift><Super>bracketleft"];
-          move-to-workspace-right = ["<Shift><Super>bracketright"];
+          move-to-workspace-left = ["<Shift><Super>bracketleft" "<Shift><Super>z"];
+          move-to-workspace-right = ["<Shift><Super>bracketright" "<Shift><Super>x"];
           move-to-workspace-last = [];
           move-to-workspace-1 = ["<Shift><Super>1"];
           move-to-workspace-2 = ["<Shift><Super>2"];
@@ -183,8 +183,8 @@ in {
           switch-to-workspace-3 = ["<Super>3"];
           switch-to-workspace-4 = ["<Super>4"];
           switch-to-workspace-last = [];
-          switch-to-workspace-left = ["<Super>bracketleft"];
-          switch-to-workspace-right = ["<Super>bracketright"];
+          switch-to-workspace-left = ["<Super>bracketleft" "<Super>z"];
+          switch-to-workspace-right = ["<Super>bracketright" "<Super>x"];
 
           # Switch windows
           switch-windows = [];
