@@ -18,7 +18,7 @@
   # home-manager.users.${username} = {lib, ...}: {
   #   home.activation.installLosslessCutConfig = lib.hm.dag.entryAfter ["writeBoundary"] ''
   #     mkdir -p /home/${username}/.config/LosslessCut
-  #     cp -f ${flakeDir}/config/LosslessCut/* /home/${username}/.config/LosslessCut/
+  #     cp -f ${flakeDir}/home/.config/LosslessCut/* /home/${username}/.config/LosslessCut/
   #   '';
   # };
 }

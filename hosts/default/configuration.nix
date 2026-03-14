@@ -128,7 +128,7 @@
 
   home-manager.users.${username} = {config, ...}: {
     xdg.configFile."mimeapps.list" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/config/mimeapps.list";
+      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/mimeapps.list";
     };
   };
 }
