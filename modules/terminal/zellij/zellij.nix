@@ -6,7 +6,10 @@
   flakeDir,
   ...
 }: {
-  environment.systemPackages = with pkgs; [zellij];
+  environment.systemPackages = with pkgs; [
+    zellij
+    kitty.terminfo
+  ];
 
   home-manager.users.${username} = {config, ...}: {
     programs.zellij = {
@@ -20,6 +23,16 @@
 
     home.shellAliases = {
       ze = "zellij -l welcome";
+    };
+
+    programs.zsh.siteFunctions = {
+      yazi = ''
+        if [ -n "$ZELLIJ" ]; then
+          TERM=xterm-kitty command yazi "$@"
+        else
+          command yazi "$@"
+        fi
+      '';
     };
 
     home.file.".config/zellij/config.kdl" = {
