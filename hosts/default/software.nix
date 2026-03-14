@@ -61,6 +61,9 @@ in {
 
     ### WebDAV
     ../../modules/webdav/webdav.nix
+
+    ### Terminal
+    ../../modules/terminal/zellij/zellij.nix
   ];
 
   # System packages
@@ -114,7 +117,6 @@ in {
     imagemagick
     gnupg
     elinks
-    zellij
     yt-dlp
     ytfzf # Posix script to find and watch youtube videos from the terminal
     jq # lightweight and flexible command-line JSON processor
