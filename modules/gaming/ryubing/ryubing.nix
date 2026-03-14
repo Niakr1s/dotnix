@@ -18,17 +18,16 @@ in {
   ];
 
   home-manager.users.${username} = {config, ...}: {
-    # ryujinx config
+    # for nsz
+    home.file.".switch/prod.keys" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/Ryujinx/system/${prodKeysFile}";
+    };
+
     home.file.".config/Ryujinx/system/prod.keys" = {
       source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/Ryujinx/system/${prodKeysFile}";
     };
     home.file.".config/Ryujinx/Config.json" = {
       source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/Ryujinx/Config.json";
-    };
-
-    # nsz config
-    home.file.".switch/prod.keys" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/Ryujinx/system/${prodKeysFile}";
     };
   };
 }
