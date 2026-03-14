@@ -2,6 +2,7 @@
   inputs,
   config,
   username,
+  pkgs,
   ...
 }: let
   webdavSopsPath = "common/webdav";
