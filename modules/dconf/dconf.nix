@@ -130,6 +130,10 @@ in {
           power-button-action = "nothing";
         };
 
+        "org/gnome/mutter" = {
+          check-alive-timeout = lib.hm.gvariant.mkUint32 60000; # in milliseconds
+        };
+
         "org/gnome/mutter/keybindings" = {
           toggle-tiled-left = ["<Shift><Super>h"];
           toggle-tiled-right = ["<Shift><Super>l"];
