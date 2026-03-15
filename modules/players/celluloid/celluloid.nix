@@ -13,7 +13,7 @@
 in {
   home-manager.users.${username} = {config, ...}: {
     xdg.configFile."celluloid" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/celluloid";
+      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/mpv";
       recursive = true;
     };
 
@@ -22,9 +22,9 @@ in {
     dconf.settings = {
       "io/github/celluloid-player/celluloid" = {
         mpv-input-config-enable = false; # it won't work with touchpad, so I don't need it
-        mpv-input-config-file = "file:///home/${username}/.config/celluloid/input.conf";
+        mpv-input-config-file = "file:///home/${username}/.config/mpv/input.conf";
         mpv-config-enable = true;
-        mpv-config-file = "file:///home/${username}/.config/celluloid/mpv.conf";
+        mpv-config-file = "file:///home/${username}/.config/mpv/mpv.conf";
         csd-enable = true;
       };
     };

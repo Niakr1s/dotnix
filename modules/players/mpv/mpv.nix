@@ -12,7 +12,7 @@
 in {
   home-manager.users.${username} = {config, ...}: {
     xdg.configFile."mpv" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/celluloid";
+      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/mpv";
       recursive = true;
     };
 

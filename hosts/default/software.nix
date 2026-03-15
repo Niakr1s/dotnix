@@ -26,7 +26,7 @@ in {
     ../../modules/browsers/firefox/firefox.nix
 
     ### Video players
-    ../../modules/players/celluloid/celluloid.nix
+    # ../../modules/players/celluloid/celluloid.nix # don't need it, mpv is good
     ../../modules/players/mpv/mpv.nix
 
     ### VCS
