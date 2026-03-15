@@ -40,7 +40,6 @@ in {
             "org.gnome.Console.desktop"
             "org.gnome.Nautilus.desktop"
             "firefox.desktop"
-            "startcenter.desktop"
             "org.telegram.desktop.desktop"
             "net.lutris.Lutris.desktop"
           ];
