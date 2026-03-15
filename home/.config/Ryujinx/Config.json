@@ -6,7 +6,7 @@
   "res_scale_custom": 1,
   "max_anisotropy": -1,
   "aspect_ratio": "Fixed16x9",
-  "anti_aliasing": "SmaaUltra",
+  "anti_aliasing": "Fxaa",
   "scaling_filter": "Fsr",
   "scaling_filter_level": 80,
   "graphics_shaders_dump_path": "",
@@ -24,7 +24,7 @@
   "system_language": "AmericanEnglish",
   "system_region": "USA",
   "system_time_zone": "Europe/Moscow",
-  "system_time_offset": -455,
+  "system_time_offset": -569,
   "match_system_time": true,
   "use_input_global_config": false,
   "docked_mode": true,
@@ -49,9 +49,9 @@
   "enable_color_space_passthrough": false,
   "enable_ptc": true,
   "enable_low_power_ptc": false,
-  "tick_scalar": 50,
+  "tick_scalar": 200,
   "enable_internet_access": false,
-  "enable_fs_integrity_checks": true,
+  "enable_fs_integrity_checks": false,
   "fs_global_access_log_mode": 0,
   "audio_backend": "OpenAl",
   "audio_volume": 1,
@@ -76,10 +76,12 @@
     "sort_ascending": false
   },
   "game_dirs": [
-    "/data/hdd1/Games/!Emulator/Switch"
+    "/data/hdd1/Games/!Emulator/Switch",
+    "/data/ssd/Games/!Emulator/Switch"
   ],
   "autoload_dirs": [
-    "/data/hdd1/Games/!Emulator/Switch"
+    "/data/hdd1/Games/!Emulator/Switch",
+    "/data/ssd/Games/!Emulator/Switch"
   ],
   "shown_file_types": {
     "nsp": true,
