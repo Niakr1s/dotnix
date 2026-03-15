@@ -147,6 +147,11 @@ in {
     trash-cli # trash management
   ];
 
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
+
   # Home packages
   home-manager.users.${username} = {
     home.packages = with pkgs; [
