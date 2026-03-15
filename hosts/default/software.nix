@@ -88,6 +88,7 @@ in {
     vim
     wget
     uv
+    deno
     curl
     git
     btop-cuda
