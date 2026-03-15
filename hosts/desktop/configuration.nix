@@ -31,7 +31,7 @@ in {
     ../../modules/dconf/dconf.multiple.monitors.nix
     ../../modules/dconf/dconf.numlock.nix
 
-    ../../modules/de/gnome/extensions/blur-my-shell.nix
+    # ../../modules/de/gnome/extensions/blur-my-shell.nix
     ../../modules/de/gnome/extensions/display-configuration-switcher.nix
 
     ../../modules/ai/ollama/ollama.nix
