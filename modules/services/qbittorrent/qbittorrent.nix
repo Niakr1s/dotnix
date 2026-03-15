@@ -71,7 +71,7 @@ in {
           # TorrentExportDirectory = "/srv/torrents/.torrents";
           AlternativeGlobalDLSpeedLimit = 6000;
           DisableAutoTMMByDefault = false;
-          GlobalMaxRatio = 1; # stop seeding after ratio 1
+          GlobalMaxRatio = 0; # stop seeding imediatly
           ShareLimitAction = "Stop";
           QueueingSystemEnabled = false;
           SubcategoriesEnabled = true;
