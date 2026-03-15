@@ -1,8 +1,10 @@
 [Default Applications]
 x-scheme-handler/tg=org.telegram.desktop.desktop
 x-scheme-handler/tonsite=org.telegram.desktop.desktop
+video/x-matroska=mpv.desktop
 
 [Added Associations]
 x-scheme-handler/tg=org.telegram.desktop.desktop;
 x-scheme-handler/tonsite=org.telegram.desktop.desktop;
 application/vnd.sqlite3=dbeaver.desktop;
+video/x-matroska=mpv.desktop;
