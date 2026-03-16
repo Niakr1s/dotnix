@@ -45,6 +45,7 @@
       xorg.libxshmfence
       xorg.libXxf86vm
       libelf
+      libwebp
 
       # Required
       glib
