@@ -100,6 +100,10 @@
     ];
   };
 
+  # Fix of "NixOS cannot run dynamically linked executables intended for generic Linux environments out of the box"
+  # https://wiki.nixos.org/wiki/Nix-ld
+  programs.nix-ld.enable = true;
+
   # Shells
 
   # A list of permissible login shells for user accounts. No need to mention /bin/sh here, it is placed into this list implicitly.
