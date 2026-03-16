@@ -111,6 +111,7 @@ in {
     ueberzug
     chafa
     wl-clipboard
+    uget # download manager
 
     ### Archives
     zip
