@@ -18,19 +18,19 @@ in {
       enableFishIntegration = true;
       tmux.enableShellIntegration = true;
 
-      defaultCommand = "fd --type f --hidden --exclude .git --exclude dosdevices --exclude drive_c";
+      defaultCommand = "fd --type f --hidden --exclude .git --exclude dosdevices --exclude drive_c --exclude .venv";
 
       # Command line options for the CTRL-T keybinding.
       # fileWidgetCommand = "";
       fileWidgetOptions = [
-        "--walker-skip '.git,node_modules,target,dosdevices,drive_c'"
+        "--walker-skip '.git,node_modules,target,dosdevices,drive_c,.venv'"
         "--preview 'bat -n --color=always {}'"
       ];
 
       # Command line options for the ALT-C keybinding.
       # changeDirWidgetCommand = "";
       changeDirWidgetOptions = [
-        "--walker-skip '.git,node_modules,target,dosdevices,drive_c'"
+        "--walker-skip '.git,node_modules,target,dosdevices,drive_c,.venv'"
         "--preview 'tree -C {}'"
       ];
 
