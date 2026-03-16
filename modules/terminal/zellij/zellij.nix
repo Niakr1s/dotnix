@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   home-manager,
   username,
   flakeDir,
@@ -11,7 +12,16 @@
     kitty.terminfo
   ];
 
-  home-manager.users.${username} = {config, ...}: {
+  home-manager.users.${username} = {config, ...}: let
+    mkLayout = layoutFileName: {
+      ".config/zellij/layouts/${layoutFileName}" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/zellij/layouts/${layoutFileName}";
+      };
+    };
+    layouts = [
+      (mkLayout "nix.kdl")
+    ];
+  in {
     programs.zellij = {
       enable = true;
 
@@ -35,11 +45,12 @@
       '';
     };
 
-    home.file.".config/zellij/config.kdl" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/zellij/config.kdl";
-    };
-    # home.file.".config/zellij/layouts" = {
-    #   source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/zellij/layouts";
-    # };
+    home.file =
+      (lib.foldl lib.recursiveUpdate {} layouts)
+      // {
+        ".config/zellij/config.kdl" = {
+          source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/zellij/config.kdl";
+        };
+      };
   };
 }
