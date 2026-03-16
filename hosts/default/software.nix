@@ -64,6 +64,9 @@ in {
 
     ### Terminal
     ../../modules/terminal/zellij/zellij.nix
+
+    ### nix-ld
+    ../../modules/nixld/nixld.nix
   ];
 
   # System packages
