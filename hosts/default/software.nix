@@ -112,6 +112,7 @@ in {
     chafa
     wl-clipboard
     uget # download manager
+    gprename # gui bulk rename tool
 
     ### Archives
     zip
