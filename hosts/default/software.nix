@@ -145,6 +145,7 @@ in {
     rclone # Command line program to sync files and directories to and from major cloud storage
     rsync # Fast incremental file transfer utility
     trash-cli # trash management
+    foliate # EPUB, Mobipocket, Kindle, FB2, CBZ, and PDF reader
   ];
 
   programs.appimage = {
