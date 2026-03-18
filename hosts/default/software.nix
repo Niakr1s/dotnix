@@ -114,6 +114,7 @@ in {
     uget # download manager
     aria2 # download program
     gprename # gui bulk rename tool
+    vimv # console bulk rename tool
 
     ### Archives
     zip
