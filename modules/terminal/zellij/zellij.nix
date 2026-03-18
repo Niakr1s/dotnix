@@ -25,10 +25,10 @@
     programs.zellij = {
       enable = true;
 
-      # this autostarts zellij on zsh start, I don't want it
-      # enableZshIntegration = true;
-      # enableFishIntegration = true;
-      # enableBashIntegration = true;
+      # this autostarts zellij on zsh start
+      enableZshIntegration = true;
+      enableFishIntegration = true;
+      enableBashIntegration = true;
     };
 
     home.shellAliases = {
