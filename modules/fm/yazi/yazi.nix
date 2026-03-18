@@ -7,34 +7,20 @@
   hostname,
   username,
   home-manager,
+  flakeDir,
   ...
 }: let
 in {
-  home-manager.users.${username} = {
+  home-manager.users.${username} = {config, ...}: {
+    home.file.".config/yazi/yazi.toml" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/yazi/yazi.toml";
+    };
+
     programs.yazi = {
       enable = true;
-      plugins = {};
-
-      settings = {
-        mgr = {
-          ratio = [
-            1
-            4
-            3
-          ];
-          sort_by = "natural";
-          sort_sensitive = true;
-          sort_reverse = false;
-          sort_dir_first = true;
-          linemode = "none";
-          show_hidden = true;
-          show_symlink = true;
-        };
+      plugins = {
+        inherit (pkgs.yaziPlugins) mediainfo;
       };
-
-      keymap = {};
-
-      theme = {};
     };
   };
 }
