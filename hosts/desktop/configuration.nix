@@ -25,6 +25,7 @@ in {
     ./wallpaper.nix
     ./bookmarks.nix
     ./aliases.nix
+    ./software.nix
 
     ./veracrypt_volumes.nix
 
