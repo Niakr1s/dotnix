@@ -116,6 +116,8 @@ in {
     gprename # gui bulk rename tool
     bulky # gui bulk rename tool
     vimv # console bulk rename tool
+    curlftpfs # ftp
+    lftp # ftp
 
     ### Archives
     zip
