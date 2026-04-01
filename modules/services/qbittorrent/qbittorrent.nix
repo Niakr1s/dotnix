@@ -60,6 +60,8 @@
 in {
   services.qbittorrent = {
     enable = true;
+    user = "${username}";
+    group = "users";
     openFirewall = true;
     torrentingPort = 6881;
     webuiPort = 8080;
@@ -92,11 +94,9 @@ in {
 
   # man tmpfiles.d
   systemd.tmpfiles.rules = [
-    "d /srv/torrents 2770 qbittorrent qbittorrent - -"
-    "d /srv/torrents/autoload 2770 qbittorrent qbittorrent - -"
-    "f+ /var/lib/qBittorrent/qBittorrent/config/categories.json 0644 qbittorrent qbittorrent - ${categories_json}"
-    "f+ /var/lib/qBittorrent/qBittorrent/config/watched_folders.json 0644 qbittorrent qbittorrent - ${watched_folders_json}"
+    "d /srv/torrents 2770 ${username} users - -"
+    "d /srv/torrents/autoload 2770 ${username} users - -"
+    "f+ /var/lib/qBittorrent/qBittorrent/config/categories.json 0644 ${username} users - ${categories_json}"
+    "f+ /var/lib/qBittorrent/qBittorrent/config/watched_folders.json 0644 ${username} users - ${watched_folders_json}"
   ];
-
-  users.users.${username}.extraGroups = ["qbittorrent"];
 }
