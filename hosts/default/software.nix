@@ -65,6 +65,9 @@ in {
     ### Terminal
     ../../modules/terminal/zellij/zellij.nix
 
+    ### IRC
+    ../../modules/irc/weechat/weechat.nix
+
     ### nix-ld
     ../../modules/nixld/nixld.nix
   ];
