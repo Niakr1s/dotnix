@@ -95,6 +95,7 @@ in {
     curl
     git
     btop-cuda
+    htop
     tree
     bat
     yazi
@@ -118,6 +119,12 @@ in {
     vimv # console bulk rename tool
     curlftpfs # ftp
     lftp # ftp
+    nps # cache nix package list and search in it by relevance
+
+    ### Image editors
+    gimp
+    inkscape
+    conjure
 
     ### Archives
     zip
