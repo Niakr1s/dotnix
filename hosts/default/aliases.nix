@@ -17,6 +17,7 @@
     mvi = "mv -i";
     cpi = "cp -i";
     rmi = "rm -i";
+    nps = "nps -e=true";
 
     # gvfs
     gvcd = "/run/user/1000/gvfs";
