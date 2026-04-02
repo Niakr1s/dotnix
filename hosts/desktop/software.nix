@@ -14,6 +14,10 @@
     config = config.nixpkgs.config;
   };
 in {
+  imports = [
+    ../../modules/editors/vscode/vscode.nix
+  ];
+
   # System packages
   environment.systemPackages = with pkgs; [
     kdePackages.kdenlive
