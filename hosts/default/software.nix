@@ -123,6 +123,8 @@ in {
     curlftpfs # ftp
     lftp # ftp
     nps # cache nix package list and search in it by relevance
+    meld # visual diff app
+    czkawka # find duplicates of files etc
 
     ### Image editors
     gimp
