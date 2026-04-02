@@ -125,6 +125,7 @@ in {
     nps # cache nix package list and search in it by relevance
     meld # visual diff app
     czkawka # find duplicates of files etc
+    bleachbit # clean disk
 
     ### Image editors
     gimp
