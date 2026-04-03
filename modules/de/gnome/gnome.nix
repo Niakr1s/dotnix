@@ -8,6 +8,10 @@
   username,
   ...
 }: {
+  imports = [
+    ./extensions/gsconnect.nix
+  ];
+
   services.desktopManager.gnome.enable = true;
 
   services.gnome.core-apps.enable = true;
