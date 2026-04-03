@@ -15,7 +15,7 @@
       gtk3 = {
         enable = true;
         bookmarks = [
-          "file:///srv/torrents torrents"
+          "file:///home/${username}/Torrents Torrents"
           "file:///home/${username}/Music Music"
           "file:///home/${username}/Videos Videos"
           "file:///home/${username}/Pictures Pictures"

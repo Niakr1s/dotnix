@@ -35,7 +35,7 @@
   '';
   watched_folders_json = lib.replaceStrings ["\n"] ["\\n"] ''
     {
-      "/srv/torrents/autoload": {
+      "/home/${username}/Downloads": {
         "add_torrent_params": {
           "category": "",
           "download_limit": -1,
@@ -68,9 +68,9 @@ in {
     serverConfig = {
       BitTorrent = {
         Session = {
-          DefaultSavePath = "/srv/torrents"; # systemd will create this directory for us
-          TempPath = "/srv/torrents/temp";
-          # TorrentExportDirectory = "/srv/torrents/.torrents";
+          DefaultSavePath = "/home/${username}/Torrents"; # systemd will create this directory for us
+          TempPath = "/home/${username}/Torrents/.tmp";
+          TorrentExportDirectory = "/home/${username}/Torrents/.torrents";
           AlternativeGlobalDLSpeedLimit = 6000;
           DisableAutoTMMByDefault = false;
           GlobalMaxRatio = 0; # stop seeding imediatly
@@ -94,8 +94,7 @@ in {
 
   # man tmpfiles.d
   systemd.tmpfiles.rules = [
-    "d /srv/torrents 2770 ${username} users - -"
-    "d /srv/torrents/autoload 2770 ${username} users - -"
+    "d /home/${username}/Torrents 2770 ${username} users - -"
     "f+ /var/lib/qBittorrent/qBittorrent/config/categories.json 0644 ${username} users - ${categories_json}"
     "f+ /var/lib/qBittorrent/qBittorrent/config/watched_folders.json 0644 ${username} users - ${watched_folders_json}"
   ];
