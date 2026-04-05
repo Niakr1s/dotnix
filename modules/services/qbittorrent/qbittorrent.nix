@@ -69,8 +69,8 @@ in {
       BitTorrent = {
         Session = {
           DefaultSavePath = "/home/${username}/Torrents"; # systemd will create this directory for us
-          # TempPath = "/home/${username}/Torrents/.tmp";
-          # TorrentExportDirectory = "/home/${username}/Torrents/.torrents";
+          TempPath = "/home/${username}/Torrents/.tmp";
+          TorrentExportDirectory = "/home/${username}/Torrents/.torrents";
           AlternativeGlobalDLSpeedLimit = 6000;
           DisableAutoTMMByDefault = false;
           GlobalMaxRatio = 0; # stop seeding imediatly
@@ -94,8 +94,10 @@ in {
 
   # man tmpfiles.d
   systemd.tmpfiles.rules = [
-    "d /home/${username}/Torrents 2770 ${username} users - -"
+    "d /home/${username}/Torrents 0755 ${username} users - -"
     "f+ /var/lib/qBittorrent/qBittorrent/config/categories.json 0644 ${username} users - ${categories_json}"
     "f+ /var/lib/qBittorrent/qBittorrent/config/watched_folders.json 0644 ${username} users - ${watched_folders_json}"
   ];
+
+  systemd.services.qbittorrent.serviceConfig.ProtectHome = lib.mkForce "read-write";
 }
