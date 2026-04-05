@@ -69,8 +69,8 @@ in {
       BitTorrent = {
         Session = {
           DefaultSavePath = "/home/${username}/Torrents"; # systemd will create this directory for us
-          TempPath = "/home/${username}/Torrents/.tmp";
-          TorrentExportDirectory = "/home/${username}/Torrents/.torrents";
+          # TempPath = "/home/${username}/Torrents/.tmp";
+          # TorrentExportDirectory = "/home/${username}/Torrents/.torrents";
           AlternativeGlobalDLSpeedLimit = 6000;
           DisableAutoTMMByDefault = false;
           GlobalMaxRatio = 0; # stop seeding imediatly
