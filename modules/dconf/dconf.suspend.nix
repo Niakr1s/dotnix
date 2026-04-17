@@ -16,6 +16,7 @@ in {
         "org/gnome/settings-daemon/plugins/power" = {
           sleep-inactive-ac-type = lib.mkForce "suspend";
           sleep-inactive-ac-timeout = lib.mkForce "900"; # in seconds
+          power-button-action = lib.mkForce "suspend";
         };
       };
     };
