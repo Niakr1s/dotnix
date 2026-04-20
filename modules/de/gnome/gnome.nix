@@ -10,6 +10,7 @@
 }: {
   imports = [
     ./extensions/gsconnect.nix
+    ./extensions/app-grid-wizard.nix
   ];
 
   services.desktopManager.gnome.enable = true;
