@@ -20,7 +20,6 @@ in {
     superTuxKart # mariokart like
     hedgewars # червячки
     chromium-bsu # top scroller space shooter
-    crawlTiles # roguelike
     luanti # minecraft
     openttd # clone of "Transport Tycoon Deluxe"
     freeciv # civilization

@@ -17,7 +17,7 @@
 
   services.gnome.core-apps.enable = true;
   services.gnome.core-developer-tools.enable = false;
-  services.gnome.games.enable = true;
+  services.gnome.games.enable = false;
   environment.gnome.excludePackages = with pkgs; [
     gnome-clocks
     #gnome-control-center
