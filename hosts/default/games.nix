@@ -15,16 +15,27 @@
   };
 in {
   environment.systemPackages = with pkgs; [
+    ## Chess
     gnome-chess # chess
     stockfish # AI for chess
+
+    ## Casual games
     ltris # tetris
     pokerth # poker
     pysolfc # soilitaire
     gnome-mines # minesweeper
     gnome-sudoku # sudoku
     gnome-2048 # 2048
-
+    superTux # mario like
+    superTuxKart # mariokart like
+    hedgewars # червячки
     brogue-ce # roguelike
-    crawl # roguelike
+
+    ## Strategies
+    endless-sky # space trader
+    openttd # clone of "Transport Tycoon Deluxe"
+    zeroad # 0ad
+    wesnoth # turn based strategy
+    widelands # settlers
   ];
 }

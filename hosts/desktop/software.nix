@@ -15,7 +15,6 @@
   };
 in {
   imports = [
-    ./games.nix
     ../../modules/editors/vscode/vscode.nix
   ];
 
