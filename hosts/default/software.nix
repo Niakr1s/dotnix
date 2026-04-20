@@ -16,8 +16,6 @@
 in {
   # Packages with settings
   imports = [
-    ./games.nix
-
     ../../modules/de/gnome/gnome.nix
     ../../modules/dconf/dconf.nix
 

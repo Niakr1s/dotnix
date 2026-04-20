@@ -13,6 +13,7 @@
     ./aliases.nix
     ./fonts.nix
     ./software.nix
+    ./games.nix
     ./sops.nix
     ./ssh.nix
     ./iphone.nix

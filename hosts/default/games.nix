@@ -30,12 +30,6 @@ in {
     superTuxKart # mariokart like
     hedgewars # червячки
     brogue-ce # roguelike
-
-    ## Strategies
     endless-sky # space trader
-    openttd # clone of "Transport Tycoon Deluxe"
-    zeroad # 0ad
-    wesnoth # turn based strategy
-    widelands # settlers
   ];
 }

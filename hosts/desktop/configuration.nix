@@ -26,6 +26,7 @@ in {
     ./bookmarks.nix
     ./aliases.nix
     ./software.nix
+    ./games.nix
 
     ./veracrypt_volumes.nix
 
