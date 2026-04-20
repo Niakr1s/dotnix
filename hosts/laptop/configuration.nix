@@ -23,7 +23,7 @@ in {
 
     ./wallpaper.nix # You can change wallpaper in this file
 
-    # ../../modules/dconf/dconf.suspend.nix # turn on suspend for laptop
+    ../../modules/dconf/dconf.suspend.nix # turn on suspend for laptop
 
     ../../modules/de/gnome/extensions/screen-rotate.nix
     ../../modules/de/gnome/extensions/gjs-osk.nix
