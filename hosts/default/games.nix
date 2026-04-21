@@ -31,5 +31,6 @@ in {
     hedgewars # червячки
     brogue-ce # roguelike
     endless-sky # space trader
+    xmoto # elastomania
   ];
 }
