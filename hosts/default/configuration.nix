@@ -78,10 +78,10 @@
   };
 
   # Garbage collection daily
-  nix.gc = {
-    automatic = true;
-    dates = "21:00";
-  };
+  # nix.gc = {
+  #   automatic = true;
+  #   dates = "21:00";
+  # };
 
   # DE
 
