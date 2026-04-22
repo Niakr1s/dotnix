@@ -70,6 +70,9 @@ in {
 
     ### nix-ld
     ../../modules/nixld/nixld.nix
+
+    ### Notes
+    ../../modules/notes/joplin/joplin.nix
   ];
 
   # System packages
