@@ -52,6 +52,8 @@
   environment.variables = {
     EDITOR = "vim";
     VISUAL = "vim";
+    MANPAGER = "vim +Man!";
+    BROWSER = "firefox";
   };
 
   # Services
