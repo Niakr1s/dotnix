@@ -39,9 +39,14 @@ in {
           favorite-apps = [
             "org.gnome.Console.desktop"
             "org.gnome.Nautilus.desktop"
+            "qalculate-gtk.desktop"
             "firefox.desktop"
             "org.telegram.desktop.desktop"
+            "code.desktop"
             "net.lutris.Lutris.desktop"
+            "Ryujinx.desktop"
+            "rpcs3.desktop"
+            "com.libretro.RetroArch.desktop"
           ];
         };
 
