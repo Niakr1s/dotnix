@@ -15,6 +15,8 @@
   };
 in {
   environment.systemPackages = with pkgs; [
+    retroarch-full # retroarch
+
     openttd # clone of "Transport Tycoon Deluxe"
     zeroad # 0ad
     wesnoth # turn based strategy
