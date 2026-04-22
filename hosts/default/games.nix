@@ -32,5 +32,12 @@ in {
     brogue-ce # roguelike
     endless-sky # space trader
     xmoto # elastomania
+
+    ## Dwarf fortress
+    (pkgs.dwarf-fortress-packages.dwarf-fortress-full.override {
+      theme = "cla"; # "phoebus" is default
+      enableIntro = false;
+      enableFPS = true;
+    })
   ];
 }
