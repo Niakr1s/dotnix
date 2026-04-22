@@ -40,6 +40,7 @@ in {
             "org.gnome.Console.desktop"
             "org.gnome.Nautilus.desktop"
             "qalculate-gtk.desktop"
+            "joplin.desktop"
             "firefox.desktop"
             "org.telegram.desktop.desktop"
             "code.desktop"
