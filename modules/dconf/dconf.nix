@@ -39,9 +39,9 @@ in {
           favorite-apps = [
             "org.gnome.Console.desktop"
             "org.gnome.Nautilus.desktop"
+            "firefox.desktop"
             "qalculate-gtk.desktop"
             "joplin.desktop"
-            "firefox.desktop"
             "org.telegram.desktop.desktop"
             "code.desktop"
             "net.lutris.Lutris.desktop"
