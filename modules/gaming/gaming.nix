@@ -11,6 +11,7 @@
 in {
   imports = [
     ./ryubing/ryubing.nix
+    ./rpcs3/rpcs3.nix
   ];
 
   # https://github.com/lutris/docs/blob/master/HowToEsync.md
@@ -26,9 +27,5 @@ in {
       item = "nofile";
       value = "524288";
     }
-  ];
-
-  environment.systemPackages = with pkgs; [
-    rpcs3
   ];
 }
