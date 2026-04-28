@@ -130,6 +130,7 @@ in {
     czkawka # find duplicates of files etc
     bleachbit # clean disk
     lm_sensors # system sensors
+    poppler-utils # pdftotext and other pdf tools
 
     ### Image editors
     gimp
