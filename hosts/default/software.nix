@@ -131,6 +131,11 @@ in {
     bleachbit # clean disk
     lm_sensors # system sensors
     poppler-utils # pdftotext and other pdf tools
+    ncdu # disk usage with ncurses interface
+    mtr # ping + traceroute
+    delta # diff between two files
+    parallel # speedup stuff
+    csvkit # query on csv files
 
     ### Image editors
     gimp
