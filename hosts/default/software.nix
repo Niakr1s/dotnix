@@ -129,6 +129,7 @@ in {
     meld # visual diff app
     czkawka # find duplicates of files etc
     bleachbit # clean disk
+    lm_sensors # system sensors
 
     ### Image editors
     gimp
