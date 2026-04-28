@@ -10,6 +10,7 @@
 }: {
   imports = [
     ./extensions/gsconnect.nix
+    ./extensions/vitals.nix
     ./extensions/app-grid-wizard.nix
   ];
 

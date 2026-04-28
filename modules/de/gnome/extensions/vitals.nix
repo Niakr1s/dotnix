@@ -1,0 +1,39 @@
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  nixpkgs-unstable,
+  hostname,
+  username,
+  home-manager,
+  ...
+}: let
+in {
+  home-manager.users.${username} = {
+    home.packages = with pkgs; [
+      gnomeExtensions.vitals
+    ];
+    dconf = {
+      settings = with lib.hm.gvariant; {
+        "org/gnome/shell" = {
+          enabled-extensions = [
+            pkgs.gnomeExtensions.vitals.extensionUuid
+          ];
+        };
+        # "org/gnome/shell/extensions/gjsosk" = {
+        #   enable-drag = true;
+        #   indicator-enabled = true;
+        #   play-sound = false;
+        #
+        #   # open upon clicking on text field
+        #   # 0 = never, 1 = only on touch, 2 = always
+        #   enable-tap-gesture = 0;
+        #
+        #   # default position: bottom corner
+        #   default-snap = 7;
+        # };
+      };
+    };
+  };
+}
