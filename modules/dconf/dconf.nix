@@ -237,6 +237,10 @@ in {
           secondary-color = "#000000";
           color-shading-type = "solid";
           picture-options = "zoom";
+
+          # lock screen after desktop turns off
+          lock-enabled = true;
+          lock-delay = lib.hm.gvariant.mkUint32 0;
         };
         "org/gnome/desktop/privacy" = {
           remove-old-trash-files = true;
