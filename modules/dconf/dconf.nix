@@ -133,6 +133,10 @@ in {
           power-button-action = "nothing";
         };
 
+        "org/gnome/desktop/lockdown" = {
+          disable-lock-screen = false;
+        };
+
         "org/gnome/desktop/session" = {
           idle-delay = lib.hm.gvariant.mkUint32 300; # in seconds
         };
