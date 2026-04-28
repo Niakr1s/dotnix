@@ -77,7 +77,7 @@ Video:
   Frame limit: Auto
   Second Frame Limit: 0
   MSAA: Auto
-  Shader Mode: Async Shader Recompiler
+  Shader Mode: Async with Shader Interpreter
   Shader Precision: High
   Write Color Buffers: true
   Write Depth Buffer: false
@@ -131,25 +131,25 @@ Video:
     Force FIFO present mode: false
     Force primitive restart flag: false
     Exclusive Fullscreen Mode: Automatic
-    Asynchronous Texture Streaming 2: false
+    Asynchronous Texture Streaming 2: true
     FidelityFX CAS Sharpening Intensity: 50
     Asynchronous Queue Scheduler: Safe
     VRAM allocation limit (MB): 65536
   Performance Overlay:
-    Enabled: false
+    Enabled: true
     Enable Framerate Graph: false
     Enable Frametime Graph: false
     Framerate datapoints: 50
     Frametime datapoints: 170
-    Detail level: Medium
+    Detail level: Minimal
     Framerate graph detail level: All
     Frametime graph detail level: All
     Metrics update interval (ms): 350
-    Font size (px): 10
+    Font size (px): 5
     Position: Top Left
     Font: n023055ms.ttf
-    Horizontal Margin (px): 50
-    Vertical Margin (px): 50
+    Horizontal Margin (px): 0
+    Vertical Margin (px): 0
     Center Horizontally: false
     Center Vertically: false
     Opacity (%): 70
@@ -238,12 +238,12 @@ Miscellaneous:
   Automatically start games after boot: true
   Exit RPCS3 when process finishes: false
   Pause emulation on RPCS3 focus loss: false
-  Start games in fullscreen mode: false
+  Start games in fullscreen mode: true
   Prevent display sleep while running games: true
   Show trophy popups: true
   Show RPCN popups: true
-  Show shader compilation hint: true
-  Show PPU compilation hint: true
+  Show shader compilation hint: false
+  Show PPU compilation hint: false
   Show autosave/autoload hint: false
   Show pressure intensity toggle hint: true
   Show analog limiter toggle hint: true

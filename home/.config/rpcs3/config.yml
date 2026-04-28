@@ -141,15 +141,15 @@ Video:
     Enable Frametime Graph: false
     Framerate datapoints: 50
     Frametime datapoints: 170
-    Detail level: Medium
+    Detail level: Minimal
     Framerate graph detail level: All
     Frametime graph detail level: All
     Metrics update interval (ms): 350
-    Font size (px): 10
+    Font size (px): 5
     Position: Top Left
     Font: n023055ms.ttf
-    Horizontal Margin (px): 50
-    Vertical Margin (px): 50
+    Horizontal Margin (px): 0
+    Vertical Margin (px): 0
     Center Horizontally: false
     Center Vertically: false
     Opacity (%): 70
