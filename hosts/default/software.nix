@@ -177,7 +177,7 @@ in {
     # stress testing
     stress-ng
     s-tui
-    phoronix-test-suite
+    furmark
   ];
 
   programs.appimage = {
