@@ -24,6 +24,7 @@ in {
 
     ../../modules/utilites/tldr/tldr.nix
     ../../modules/browsers/firefox/firefox.nix
+    ../../modules/browsers/w3m/w3m.nix
 
     ### Video players
     # ../../modules/players/celluloid/celluloid.nix # don't need it, mpv is good
