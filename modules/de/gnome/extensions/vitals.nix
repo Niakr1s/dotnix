@@ -21,18 +21,38 @@ in {
             pkgs.gnomeExtensions.vitals.extensionUuid
           ];
         };
-        # "org/gnome/shell/extensions/gjsosk" = {
-        #   enable-drag = true;
-        #   indicator-enabled = true;
-        #   play-sound = false;
-        #
-        #   # open upon clicking on text field
-        #   # 0 = never, 1 = only on touch, 2 = always
-        #   enable-tap-gesture = 0;
-        #
-        #   # default position: bottom corner
-        #   default-snap = 7;
-        # };
+        "org/gnome/shell/extensions/vitals" = {
+          update-time = 5;
+
+          hide-icons = false;
+          icon-style = 1;
+
+          hot-sensors = [
+            # cpu
+            "_processor_usage_"
+            "_memory_usage_"
+            "__temperature_avg__"
+
+            # gpu
+            "_gpu#1_utilization_"
+            "_gpu#1_memory_utilization_"
+            "_temperature_gpu_"
+
+            # network
+            "__network-rx_max__"
+          ];
+
+          show-battery = true;
+          show-fan = true;
+          show-gpu = true;
+          show-memory = true;
+          show-network = true;
+          show-processor = true;
+          show-storage = true;
+          show-system = true;
+          show-temperature = true;
+          show-voltage = true;
+        };
       };
     };
   };
