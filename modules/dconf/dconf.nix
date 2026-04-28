@@ -133,6 +133,10 @@ in {
           power-button-action = "nothing";
         };
 
+        "org/gnome/desktop/session" = {
+          idle-delay = lib.hm.gvariant.mkUint32 300; # in seconds
+        };
+
         "org/gnome/mutter" = {
           check-alive-timeout = lib.hm.gvariant.mkUint32 60000; # in milliseconds
         };
