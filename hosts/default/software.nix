@@ -172,6 +172,11 @@ in {
     rsync # Fast incremental file transfer utility
     trash-cli # trash management
     foliate # EPUB, Mobipocket, Kindle, FB2, CBZ, and PDF reader
+
+    # stress testing
+    stress-ng
+    s-tui
+    phoronix-test-suite
   ];
 
   programs.appimage = {
