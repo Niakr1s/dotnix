@@ -36,4 +36,20 @@ in {
   services.libinput.enable = true;
 
   hardware.sensor.iio.enable = true;
+
+  home-manager.users.${username}.dconf.settings = {
+    "org/gnome/shell/extensions/vitals" = {
+      update-time = lib.mkForce 10;
+
+      hot-sensors = lib.mkForce [
+        # cpu
+        "_processor_usage_"
+        "_memory_usage_"
+        "__temperature_avg__"
+
+        # network
+        "__network-rx_max__"
+      ];
+    };
+  };
 }
