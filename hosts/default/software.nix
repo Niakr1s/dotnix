@@ -137,6 +137,7 @@ in {
     delta # diff between two files
     parallel # speedup stuff
     csvkit # query on csv files
+    borgbackup # borg backup solution
 
     ### Image editors
     gimp
