@@ -61,14 +61,14 @@
           "local/root" = {
             type = "zfs_fs";
             mountpoint = "/";
-            options."com.sun:auto-snapshot" = "false";
+            options."com.sun:auto-snapshot" = "true";
             postCreateHook = "zfs list -t snapshot -H -o name | grep -E '^zroot/local/root@blank$' || zfs snapshot zroot/local/root@blank";
           };
           "local/home" = {
             type = "zfs_fs";
             mountpoint = "/home";
             # Used by services.zfs.autoSnapshot options.
-            options."com.sun:auto-snapshot" = "false";
+            options."com.sun:auto-snapshot" = "true";
           };
           "local/nix" = {
             type = "zfs_fs";
@@ -78,12 +78,12 @@
           "local/var" = {
             type = "zfs_fs";
             mountpoint = "/var";
-            options."com.sun:auto-snapshot" = "false";
+            options."com.sun:auto-snapshot" = "true";
           };
           "local/persist" = {
             type = "zfs_fs";
             mountpoint = "/persist";
-            options."com.sun:auto-snapshot" = "false";
+            options."com.sun:auto-snapshot" = "true";
           };
           "local/reserved" = {
             type = "zfs_fs";
