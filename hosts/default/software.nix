@@ -138,6 +138,7 @@ in {
     parallel # speedup stuff
     csvkit # query on csv files
     borgbackup # borg backup solution
+    httm # zfs snapshots restore
 
     ### Image editors
     gimp
