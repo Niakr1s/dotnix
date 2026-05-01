@@ -16,6 +16,7 @@
 in {
   imports = [
     ../../modules/gaming/retroarch/retroarch.nix
+    ../../modules/gaming/azahar/azahar.nix
   ];
 
   environment.systemPackages = with pkgs; [
