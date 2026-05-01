@@ -7,6 +7,7 @@
   hostname,
   username,
   home-manager,
+  flakeDir,
   ...
 }: let
   unstablePkgs = import nixpkgs-unstable {
@@ -188,6 +189,9 @@ in {
     stress-ng
     s-tui
     furmark
+
+    # rom tools
+    (pkgs.callPackage ../../pkgs/makerom {}) # convert cia to 3ds
   ];
 
   programs.appimage = {
