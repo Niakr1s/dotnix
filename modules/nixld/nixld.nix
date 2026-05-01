@@ -46,6 +46,9 @@
       xorg.libXxf86vm
       libelf
       libwebp
+      libevent
+      pcre
+      pcre2
 
       # Required
       glib
