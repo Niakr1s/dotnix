@@ -96,6 +96,9 @@ in {
     sops
     veracrypt
 
+    gnumake
+    cmake
+
     vim
     wget
     uv
