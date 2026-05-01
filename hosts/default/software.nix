@@ -147,6 +147,7 @@ in {
 
     ### Archives
     zip
+    unzip
     p7zip
     rar
 
