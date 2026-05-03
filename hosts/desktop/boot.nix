@@ -40,7 +40,7 @@
       ];
     };
 
-    kernelParams = ["zfs.zfs_arc_max=12884901888"]; # 12GB × (1024×1024×1024)
+    # kernelParams = ["zfs.zfs_arc_max=12884901888"]; # 12GB × (1024×1024×1024)
   };
 
   fileSystems."/data/ssd" = {
