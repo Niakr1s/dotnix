@@ -89,6 +89,9 @@ in {
       }).overrideAttrs
       (_: {doCheck = false;}))
 
+    gptfdisk # gdisk sgidsk cgdisk
+    smartmontools # smartctl
+
     ### Crypto
     age
     ssh-to-age
