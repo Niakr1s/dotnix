@@ -117,6 +117,7 @@ in {
     fzf
     fd
     ripgrep
+    fdupes # find diplicate files
     usbutils
     neofetch # for sure
     wine
