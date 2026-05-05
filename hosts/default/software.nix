@@ -98,6 +98,7 @@ in {
     ssh-to-pgp
     sops
     veracrypt
+    cryptsetup # luks
 
     gnumake
     cmake
