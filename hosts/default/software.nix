@@ -147,6 +147,7 @@ in {
     borgbackup # borg backup solution
     httm # zfs snapshots restore
     kiwix # offline wiki
+    lynx # console web browser
 
     ### Image editors
     gimp
