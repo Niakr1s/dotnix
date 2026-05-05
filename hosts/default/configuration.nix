@@ -81,11 +81,11 @@
 
   services.zfs.autoSnapshot = {
     enable = true;
-    frequent = 4; # Keep the last 4 snapshots taken every 15 minutes → 1 hour of granular undo
-    hourly = 24; # Keep the last 24 hourly snapshots → 1 day of history
-    daily = 14; # Keep the last 14 daily snapshots → 2 weeks
-    weekly = 4; # Keep the last 4 weekly snapshots → 1 month
-    monthly = 3; # Keep the last 3 monthly snapshots → 3 months (a quarter)
+    frequent = 4;
+    hourly = 24;
+    daily = 14;
+    weekly = 2;
+    monthly = 0;
   };
 
   # Garbage collection daily
