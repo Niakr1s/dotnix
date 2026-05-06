@@ -5,6 +5,8 @@
       enable = true;
 
       settings = {
+        highlight = true;
+
         model = "ollama:gemma3:12b"; # Default model config
         clients = [
           {
