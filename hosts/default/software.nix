@@ -148,7 +148,7 @@ in {
     csvkit # query on csv files
     borgbackup # borg backup solution
     httm # zfs snapshots restore
-    kiwix # offline wiki
+    kiwix-tools # offline wiki
     lynx # console web browser
 
     ### Image editors
