@@ -6,64 +6,64 @@
 }: {
   # Packages with settings
   imports = [
-    ../../modules/de/gnome/gnome.nix
-    ../../modules/dconf/dconf.nix
+    ../../modules/de/gnome
+    ../../modules/dconf
 
-    ../../modules/services/qbittorrent/qbittorrent.nix
-    ../../modules/services/v2raya/v2raya.nix
+    ../../modules/services/qbittorrent.nix
+    ../../modules/services/v2raya.nix
 
-    ../../modules/utilites/tldr/tldr.nix
-    ../../modules/browsers/firefox/firefox.nix
-    ../../modules/browsers/w3m/w3m.nix
+    ../../modules/utilites/tldr.nix
+    ../../modules/browsers/firefox.nix
+    ../../modules/browsers/w3m.nix
 
     ### Video players
-    # ../../modules/players/celluloid/celluloid.nix # don't need it, mpv is good
-    ../../modules/players/mpv/mpv.nix
+    # ../../modules/players/celluloid.nix # don't need it, mpv is good
+    ../../modules/players/mpv.nix
 
     ### VCS
-    ../../modules/vcs/git/git.nix
-    ../../modules/vcs/git/gh.nix
+    ../../modules/vcs/git.nix
+    ../../modules/vcs/git.nix
 
     ### Shells
-    ../../modules/shells/zsh/zsh.nix
-    ../../modules/shells/fzf/fzf.nix
+    ../../modules/shells/zsh.nix
+    ../../modules/shells/fzf.nix
 
     ### FIle managers
-    ../../modules/fm/yazi/yazi.nix
+    ../../modules/fm/yazi.nix
 
     # NVF
     # inputs.nvf.homeManagerModules.default # TODO
-    ../../modules/editors/nvf/nvf.nix
+    ../../modules/editors/nvf.nix
 
     ### Gstreamer
-    ../../modules/video/gstreamer/gstreamer.nix
+    ../../modules/video/gstreamer.nix
 
     ### Security
-    ../../modules/security/cotp/cotp.nix
+    ../../modules/security/cotp.nix
 
     ### Mail
-    # ../../modules/mail/mail.nix # IT downloads whole gmail, don't need it atm
+    # ../../modules/mail.nix # IT downloads whole gmail, don't need it atm
 
     ### Audio
-    ../../modules/audio/tauon/tauon.nix
+    ../../modules/audio/tauon.nix
 
     ### Text
-    ../../modules/text/libreoffice/libreoffice.nix
+    ../../modules/text/libreoffice.nix
 
     ### WebDAV
-    ../../modules/webdav/webdav.nix
+    ../../modules/webdav.nix
 
     ### Terminal
-    ../../modules/terminal/zellij/zellij.nix
+    ../../modules/terminal/zellij.nix
 
     ### IRC
-    ../../modules/irc/weechat/weechat.nix
+    ../../modules/irc/weechat.nix
 
     ### nix-ld
-    ../../modules/nixld/nixld.nix
+    ../../modules/nixld.nix
 
     ### Notes
-    ../../modules/notes/joplin/joplin.nix
+    ../../modules/notes/joplin.nix
   ];
 
   # System packages

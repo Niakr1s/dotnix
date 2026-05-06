@@ -8,7 +8,7 @@
     ../default/configuration.nix
     ./boot.nix
     ./disko-config.nix
-    ../../modules/hardware/nvidia/nvidia.nix
+    ../../modules/hardware/nvidia.nix
     # Don't change this ------- END
 
     ./wallpaper.nix
@@ -26,18 +26,13 @@
     # ../../modules/de/gnome/extensions/blur-my-shell.nix
     ../../modules/de/gnome/extensions/display-configuration-switcher.nix
 
-    ../../modules/ai/ollama/ollama.nix
-    ../../modules/ai/aichat/aichat.nix
+    ../../modules/ai/ollama.nix
+    ../../modules/ai/aichat.nix
 
-    ../../modules/gaming/gaming.nix
-    # ../../modules/hardware/gamepad/gamepad.nix
-    ../../modules/gaming/lutris/lutris.nix
-    ../../modules/gaming/mangohud/mangohud.nix
+    ../../modules/video/handbrake.nix
+    ../../modules/video/losslesscut.nix
 
-    ../../modules/video/handbrake/handbrake.nix
-    ../../modules/video/losslesscut/losslesscut.nix
-
-    ../../modules/services/kiwix/kiwix.nix
+    ../../modules/services/kiwix.nix
   ];
 
   # ZFS need this

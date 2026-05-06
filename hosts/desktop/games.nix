@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ../../modules/gaming/retroarch/retroarch.nix
-    ../../modules/gaming/azahar/azahar.nix
+    ../../modules/gaming
   ];
 
   environment.systemPackages = with pkgs; [

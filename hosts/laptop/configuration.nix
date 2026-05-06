@@ -8,7 +8,7 @@
     ../default/configuration.nix
     ./boot.nix
     ./disko-config.nix
-    ../../modules/hardware/intel/intel.nix
+    ../../modules/hardware/intel.nix
     # Don't change this ------- END
 
     ./wallpaper.nix # You can change wallpaper in this file

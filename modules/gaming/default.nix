@@ -1,7 +1,11 @@
 {username, ...}: {
   imports = [
-    ./ryubing/ryubing.nix
-    ./rpcs3/rpcs3.nix
+    ./azahar.nix
+    ./lutris.nix
+    ./mangohud.nix
+    ./retroarch.nix
+    ./ryubing.nix
+    ./rpcs3.nix
   ];
 
   # https://github.com/lutris/docs/blob/master/HowToEsync.md

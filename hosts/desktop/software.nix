@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [
-    ../../modules/editors/vscode/vscode.nix
+    ../../modules/editors/vscode.nix
   ];
 
   # System packages
