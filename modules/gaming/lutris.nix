@@ -20,7 +20,7 @@
     width = 1280
     height = 720
     maximized = False
-    selected_category = category:all
+    selected_category = category:favorite
     ignored_supported_lutris_verison = 0.5.22
   '';
 in {
