@@ -47,6 +47,8 @@ in {
 
     ../../modules/video/handbrake/handbrake.nix
     ../../modules/video/losslesscut/losslesscut.nix
+
+    ../../modules/services/kiwix/kiwix.nix
   ];
 
   # ZFS need this
