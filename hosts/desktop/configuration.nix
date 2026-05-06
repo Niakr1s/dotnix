@@ -20,8 +20,8 @@
 
     ./veracrypt_volumes.nix
 
-    ../../modules/dconf/dconf.multiple.monitors.nix
-    ../../modules/dconf/dconf.numlock.nix
+    ../../modules/dconf/monitors.nix
+    ../../modules/dconf/numlock.nix
 
     # ../../modules/de/gnome/extensions/blur-my-shell.nix
     ../../modules/de/gnome/extensions/display-configuration-switcher.nix
