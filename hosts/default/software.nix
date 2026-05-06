@@ -150,6 +150,7 @@
     unzip
     p7zip
     rar
+    unar # universal archive extractor (unar, lsar)
 
     ### DB
     dbeaver-bin
