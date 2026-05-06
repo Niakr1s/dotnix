@@ -1,15 +1,8 @@
 {
-  config,
-  lib,
   pkgs,
-  inputs,
-  home-manager,
-  nixpkgs-unstable,
-  hostname,
   username,
   ...
-}: let
-in {
+}: {
   home-manager.users.${username} = {
     # Wallpaper
     xdg.configFile.".wallpaper".source = pkgs.fetchurl {

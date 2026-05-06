@@ -1,13 +1,7 @@
 {
-  inputs,
   config,
   lib,
-  pkgs,
-  hostname,
-  unstablePkgs,
   username,
-  home-manager,
-  flakeDir,
   ...
 }: let
   mkHdd = {

@@ -1,15 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  inputs,
-  nixpkgs-unstable,
-  hostname,
-  username,
-  home-manager,
-  ...
-}: let
-in {
+{username, ...}: {
   home-manager.users.${username} = {
     # aichat
     programs.aichat = {

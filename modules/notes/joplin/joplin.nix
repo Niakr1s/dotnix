@@ -1,15 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  inputs,
-  nixpkgs-unstable,
-  hostname,
-  username,
-  home-manager,
-  flakeDir,
-  ...
-}: {
+{username, ...}: {
   home-manager.users.${username} = {config, ...}: {
     programs.joplin-desktop = {
       enable = true;

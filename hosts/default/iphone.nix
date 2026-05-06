@@ -1,13 +1,4 @@
-{
-  inputs,
-  config,
-  lib,
-  pkgs,
-  hostname,
-  unstablePkgs,
-  username,
-  ...
-}: {
+{pkgs, ...}: {
   # Note: probably you'll need to run first
   # $ idevicepair pair
 

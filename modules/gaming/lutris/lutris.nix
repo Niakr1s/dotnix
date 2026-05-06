@@ -1,12 +1,7 @@
 {
-  config,
   lib,
   pkgs,
-  inputs,
-  nixpkgs-unstable,
-  hostname,
   username,
-  home-manager,
   ...
 }: let
   lutris_conf = lib.replaceStrings ["\n"] ["\\n"] ''

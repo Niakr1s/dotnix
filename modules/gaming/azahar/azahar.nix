@@ -1,16 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  inputs,
-  nixpkgs-unstable,
-  hostname,
-  username,
-  home-manager,
-  flakeDir,
-  ...
-}: let
-in {
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     azahar
   ];

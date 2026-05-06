@@ -1,11 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  modulesPath,
-  system,
-  ...
-}: {
+{pkgs, ...}: {
   boot = {
     kernelPackages = pkgs.linuxPackages; # LTS
 

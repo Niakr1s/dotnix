@@ -1,20 +1,9 @@
 {
-  config,
-  lib,
   pkgs,
   inputs,
-  nixpkgs-unstable,
-  hostname,
   username,
-  home-manager,
-  flakeDir,
   ...
-}: let
-  unstablePkgs = import nixpkgs-unstable {
-    system = pkgs.system;
-    config = config.nixpkgs.config;
-  };
-in {
+}: {
   # Packages with settings
   imports = [
     ../../modules/de/gnome/gnome.nix

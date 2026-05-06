@@ -1,19 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  inputs,
-  nixpkgs-unstable,
-  hostname,
-  username,
-  home-manager,
-  ...
-}: let
-  unstablePkgs = import nixpkgs-unstable {
-    system = pkgs.system;
-    config = config.nixpkgs.config;
-  };
-in {
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     ## Chess
     gnome-chess # chess

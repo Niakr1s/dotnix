@@ -1,12 +1,6 @@
 {
-  config,
-  lib,
   pkgs,
-  inputs,
-  nixpkgs-unstable,
-  hostname,
   username,
-  home-manager,
   ...
 }: {
   # Fonts

@@ -1,14 +1,4 @@
-{
-  inputs,
-  config,
-  lib,
-  pkgs,
-  nixpkgs-unstable,
-  hostname,
-  username,
-  ...
-}: let
-in {
+{pkgs, ...}: {
   # Load intel driver for Xorg and Wayland
   services.xserver.videoDrivers = ["modesetting"];
 

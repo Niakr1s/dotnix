@@ -1,14 +1,4 @@
-{
-  inputs,
-  config,
-  lib,
-  pkgs,
-  nixpkgs-unstable,
-  hostname,
-  username,
-  ...
-}: let
-in {
+{pkgs, ...}: {
   services.ollama = {
     enable = true;
     package = pkgs.ollama-cuda;

@@ -1,16 +1,9 @@
 {
-  config,
-  lib,
   pkgs,
-  inputs,
-  nixpkgs-unstable,
-  hostname,
   username,
-  home-manager,
   flakeDir,
   ...
-}: let
-in {
+}: {
   home-manager.users.${username} = {config, ...}: {
     xdg.configFile."celluloid" = {
       source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/mpv";

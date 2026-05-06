@@ -1,18 +1,8 @@
 {
-  inputs,
-  config,
   lib,
-  pkgs,
-  nixpkgs-unstable,
-  hostname,
   username,
   ...
-}: let
-  unstablePkgs = import nixpkgs-unstable {
-    system = pkgs.system;
-    config = config.nixpkgs.config;
-  };
-in {
+}: {
   imports = [
     # Don't change this
     ../default/configuration.nix

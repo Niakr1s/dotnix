@@ -1,15 +1,4 @@
-{
-  inputs,
-  config,
-  lib,
-  pkgs,
-  nixpkgs-unstable,
-  disko,
-  hostname,
-  username,
-  flakeDir,
-  ...
-}: {
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     losslesscut-bin
   ];

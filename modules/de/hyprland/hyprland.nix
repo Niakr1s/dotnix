@@ -1,11 +1,6 @@
 {
   inputs,
-  config,
-  lib,
   pkgs,
-  hostname,
-  unstablePkgs,
-  username,
   ...
 }: {
   # Hyprland

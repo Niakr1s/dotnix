@@ -1,13 +1,4 @@
-{
-  inputs,
-  config,
-  lib,
-  pkgs,
-  nixpkgs-unstable,
-  hostname,
-  username,
-  ...
-}: let
+{...}: let
   # Here are
   vendor = "045e";
   product = "028e";

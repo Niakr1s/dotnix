@@ -1,14 +1,4 @@
-{
-  inputs,
-  config,
-  lib,
-  pkgs,
-  nixpkgs-unstable,
-  disko,
-  hostname,
-  username,
-  ...
-}: {
+{username, ...}: {
   home-manager.users.${username} = {
     gtk = {
       enable = true;

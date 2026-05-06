@@ -1,16 +1,9 @@
 ### This config should be included if a machine has multiple displays
 {
-  config,
   lib,
-  pkgs,
-  inputs,
-  nixpkgs-unstable,
-  hostname,
   username,
-  home-manager,
   ...
-}: let
-in {
+}: {
   home-manager.users.${username} = {
     dconf = {
       enable = true;

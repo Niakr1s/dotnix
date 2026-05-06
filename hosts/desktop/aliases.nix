@@ -1,15 +1,4 @@
-{
-  inputs,
-  config,
-  lib,
-  pkgs,
-  hostname,
-  unstablePkgs,
-  username,
-  home-manager,
-  flakeDir,
-  ...
-}: {
+{username, ...}: {
   home-manager.users.${username} = {
     home.shellAliases = {
       hdd1 = "cd /data/hdd1";

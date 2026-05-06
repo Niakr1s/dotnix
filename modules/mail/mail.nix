@@ -1,9 +1,7 @@
 {
-  inputs,
   config,
   pkgs,
   username,
-  flakeDir,
   ...
 }: let
   name = "Pavel";

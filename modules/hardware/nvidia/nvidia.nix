@@ -1,14 +1,4 @@
-{
-  inputs,
-  config,
-  lib,
-  pkgs,
-  nixpkgs-unstable,
-  hostname,
-  username,
-  ...
-}: let
-in {
+{config, ...}: {
   # Enable OpenGL
   hardware.graphics = {
     enable = true;

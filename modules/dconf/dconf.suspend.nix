@@ -1,15 +1,8 @@
 {
-  config,
   lib,
-  pkgs,
-  inputs,
-  nixpkgs-unstable,
-  hostname,
   username,
-  home-manager,
   ...
-}: let
-in {
+}: {
   home-manager.users.${username} = {
     dconf = {
       settings = with lib.hm.gvariant; {

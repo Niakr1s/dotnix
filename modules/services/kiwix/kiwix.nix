@@ -1,12 +1,4 @@
-{
-  inputs,
-  config,
-  lib,
-  pkgs,
-  hostname,
-  username,
-  ...
-}: let
+{inputs, ...}: let
   libraryPath = "/data/hdd1/kiwix/library.xml";
 in {
   # imports = ["${unstablePkgs}/nixos/modules/services/web-apps/kiwix-serve.nix"];

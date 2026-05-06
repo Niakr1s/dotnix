@@ -1,10 +1,6 @@
 {
-  inputs,
-  config,
-  lib,
   pkgs,
   hostname,
-  unstablePkgs,
   username,
   flakeDir,
   ...

@@ -1,10 +1,6 @@
 {
-  cofig,
   pkgs,
-  inputs,
-  lib,
   username,
-  home-manager,
   ...
 }: {
   environment.sessionVariables = {

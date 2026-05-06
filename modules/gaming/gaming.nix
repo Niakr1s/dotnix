@@ -1,14 +1,4 @@
-{
-  inputs,
-  config,
-  lib,
-  pkgs,
-  nixpkgs-unstable,
-  hostname,
-  username,
-  ...
-}: let
-in {
+{username, ...}: {
   imports = [
     ./ryubing/ryubing.nix
     ./rpcs3/rpcs3.nix

@@ -1,13 +1,4 @@
-{
-  inputs,
-  config,
-  lib,
-  pkgs,
-  hostname,
-  unstablePkgs,
-  username,
-  ...
-}: {
+{pkgs, ...}: {
   # VPN
   services.v2raya = {
     enable = true;

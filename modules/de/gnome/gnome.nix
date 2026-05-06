@@ -1,13 +1,4 @@
-{
-  inputs,
-  config,
-  lib,
-  pkgs,
-  hostname,
-  unstablePkgs,
-  username,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./extensions/gsconnect.nix
     ./extensions/vitals.nix

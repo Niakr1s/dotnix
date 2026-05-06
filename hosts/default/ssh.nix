@@ -1,13 +1,4 @@
-{
-  inputs,
-  config,
-  lib,
-  pkgs,
-  hostname,
-  unstablePkgs,
-  username,
-  ...
-}: {
+{username, ...}: {
   services.openssh = {
     enable = true;
     ports = [5432];
