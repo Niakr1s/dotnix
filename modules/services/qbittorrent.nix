@@ -72,6 +72,7 @@ in {
           ShareLimitAction = "Stop";
           QueueingSystemEnabled = false;
           SubcategoriesEnabled = true;
+          TorrentStopCondition = "MetadataReceived";
         };
       };
       Core = {
