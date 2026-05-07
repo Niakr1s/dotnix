@@ -107,7 +107,9 @@
     fd
     ripgrep
     fdupes # find diplicate files
+    lsof # show opened files
     usbutils
+    nsz # switch game converter
     neofetch # for sure
     wine
     winetricks
