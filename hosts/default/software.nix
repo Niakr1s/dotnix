@@ -141,6 +141,8 @@
     httm # zfs snapshots restore
     kiwix-tools # offline wiki
     lynx # console web browser
+    ntfs3g
+    ntfsprogs
 
     ### Image editors
     gimp
