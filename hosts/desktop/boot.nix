@@ -47,12 +47,11 @@
   };
 
   fileSystems."/data/hdd1" = {
-    device = "/dev/disk/by-uuid/01DAAB0556CD1D00";
-    fsType = "ntfs-3g";
+    device = "/dev/disk/by-uuid/0ea69abb-b36c-4e10-820d-597c2df3b13f";
+    fsType = "ext4";
     options = [
       "rw"
-      "uid=1000" # first users's uid
-      "gid=100" # users group
+      "noatime"
     ];
   };
 }
