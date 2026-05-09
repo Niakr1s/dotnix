@@ -37,12 +37,11 @@
   };
 
   fileSystems."/data/ssd" = {
-    device = "/dev/disk/by-uuid/01DB61C186A0F740";
-    fsType = "ntfs-3g";
+    device = "/dev/disk/by-uuid/bb377af3-0c22-45e1-8b0b-5a4e55a6789b";
+    fsType = "ext4";
     options = [
       "rw"
-      "uid=1000" # first users's uid
-      "gid=100" # users group
+      "noatime"
     ];
   };
 
