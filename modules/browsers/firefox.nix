@@ -157,6 +157,21 @@
             ];
             definedAliases = ["@yt"];
           };
+
+          "fitgirl" = {
+            urls = [
+              {
+                template = "https://fitgirl-repacks.site";
+                params = [
+                  {
+                    name = "s";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+            definedAliases = ["@fg"];
+          };
         };
       };
     };
