@@ -47,8 +47,8 @@ in {
           settings = {
             system = {
               env = {
-                PROTON_ENABLE_HDR = 1;
-                PROTON_ENABLE_WAYLAND = 1;
+                PROTON_ENABLE_HDR = "1";
+                PROTON_ENABLE_WAYLAND = "1";
               };
               gamescope = false;
               gamescope_hdr = false;
