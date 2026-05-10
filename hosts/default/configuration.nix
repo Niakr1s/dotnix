@@ -52,6 +52,8 @@
     BROWSER = "firefox";
   };
 
+  environment.localBinInPath = true;
+
   # Services
 
   # Firewall
@@ -137,6 +139,10 @@
   home-manager.users.${username} = {config, ...}: {
     xdg.configFile."mimeapps.list" = {
       source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/mimeapps.list";
+    };
+    home.file.".local/bin" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/scripts/${hostname}";
+      recursive = true;
     };
   };
 }
