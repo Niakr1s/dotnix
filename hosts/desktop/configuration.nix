@@ -18,8 +18,6 @@
     ./games.nix
     # ./ups.nix
 
-    ./veracrypt_volumes.nix
-
     ../../modules/dconf/monitors.nix
     ../../modules/dconf/numlock.nix
 
