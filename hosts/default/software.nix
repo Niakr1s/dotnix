@@ -26,6 +26,7 @@
 
     ### Shells
     ../../modules/shells/zsh.nix
+    ../../modules/shells/bash.nix
     ../../modules/shells/fzf.nix
 
     ### FIle managers
