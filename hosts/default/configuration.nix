@@ -48,7 +48,7 @@
   environment.variables = {
     EDITOR = "vim";
     VISUAL = "vim";
-    MANPAGER = "vim +Man!";
+    # MANPAGER = "vim +Man!";
     BROWSER = "firefox";
   };
 
@@ -144,5 +144,11 @@
       source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/scripts/${hostname}";
       recursive = true;
     };
+  };
+
+  documentation.man = {
+    mandoc.enable = true;
+    # Note: man-db must be disabled when using mandoc
+    man-db.enable = false;
   };
 }
