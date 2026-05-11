@@ -41,7 +41,7 @@
     fsType = "ext4";
     options = [
       "rw"
-      "noatime"
+      # "noatime"
     ];
   };
 
@@ -50,7 +50,7 @@
     fsType = "ext4";
     options = [
       "rw"
-      "noatime"
+      # "noatime"
     ];
   };
 }
