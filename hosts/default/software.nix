@@ -159,8 +159,9 @@
     unar # universal archive extractor (unar, lsar)
 
     ### DB
-    dbeaver-bin
     inputs.sqlit.packages.${pkgs.stdenv.hostPlatform.system}.default
+    sqlitestudio
+    sqlitestudio-plugins
 
     dconf-editor # you probably need it even in not gnome environment
 
