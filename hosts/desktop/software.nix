@@ -5,6 +5,7 @@
 }: {
   imports = [
     ../../modules/editors/vscode.nix
+    ../../modules/vm/virt-manager.nix
   ];
 
   # System packages
