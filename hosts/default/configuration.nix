@@ -144,6 +144,18 @@
       source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/scripts/${hostname}";
       recursive = true;
     };
+    home.pointerCursor = {
+      enable = true;
+      size = 24; # default: 32
+      gtk.enable = true;
+      x11.enable = true;
+
+      # package = pkgs.oreo-cursors-plus;
+      # name = "oreo_grey_cursors";
+
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Classic";
+    };
   };
 
   documentation.man = {
