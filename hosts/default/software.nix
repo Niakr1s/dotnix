@@ -87,6 +87,8 @@
     smartmontools # smartctl
     man-pages # man pages for builtins
 
+    tangram
+
     ### Crypto
     age
     ssh-to-age
