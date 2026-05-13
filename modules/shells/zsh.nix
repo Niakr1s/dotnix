@@ -16,7 +16,7 @@
 
       # Source the zsh-vi-mode plugin
       initContent = ''
-        source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+        # source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
       '';
 
       oh-my-zsh = {
