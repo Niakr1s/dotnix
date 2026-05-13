@@ -42,8 +42,8 @@
     ### Security
     ../../modules/security/cotp.nix
 
-    ### VM
-    ../../modules/vm/docker.nix
+    ### Docker
+    ../../modules/docker
 
     ### Mail
     # ../../modules/mail.nix # IT downloads whole gmail, don't need it atm
