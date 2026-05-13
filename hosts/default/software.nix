@@ -69,6 +69,8 @@
 
     ### Notes
     ../../modules/notes/joplin.nix
+
+    ../../modules/dict.nix
   ];
 
   # System packages
@@ -206,6 +208,12 @@
     # rom tools
     (pkgs.callPackage ../../pkgs/makerom {}) # convert cia to 3ds
   ];
+
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+  };
 
   programs.appimage = {
     enable = true;
