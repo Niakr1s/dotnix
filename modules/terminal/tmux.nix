@@ -13,7 +13,6 @@
     ];
 
     extraConfig = ''
-      # Vi-style copy mode (for scrolling/selecting text)
       setw -g mode-keys vi
 
       # Pane navigation with prefix + hjkl
@@ -21,6 +20,9 @@
       bind j select-pane -D
       bind k select-pane -U
       bind l select-pane -R
+
+      # restore on tmux server start
+      set -g @continuum-restore 'on'
     '';
   };
 }
