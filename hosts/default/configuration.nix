@@ -80,7 +80,7 @@
   services.zfs.autoSnapshot = {
     enable = true;
     frequent = 4;
-    hourly = 24;
+    hourly = 8;
     daily = 0;
     weekly = 0;
     monthly = 0;
