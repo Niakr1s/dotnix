@@ -26,6 +26,7 @@
 
     ../../modules/ai/ollama.nix
     ../../modules/ai/aichat.nix
+    ../../modules/ai/comfyui.nix
 
     ../../modules/video/handbrake.nix
     ../../modules/video/losslesscut.nix

@@ -37,6 +37,10 @@
       url = "github:Maxteabag/sqlit";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    nixified-ai = {
+      url = "github:nixified-ai/flake";
+    };
   };
 
   outputs = {
@@ -48,6 +52,7 @@
     sops-nix,
     nvf,
     sqlit,
+    nixified-ai,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -71,6 +76,7 @@
       ${hostname} = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
+          inherit system;
           inherit inputs;
           inherit hostname;
           inherit username;
@@ -82,6 +88,7 @@
           disko.nixosModules.disko
           home-manager.nixosModules.home-manager
           sops-nix.nixosModules.sops
+          nixified-ai.nixosModules.comfyui
 
           # Configurations
           ./hosts/${hostname}/configuration.nix # probably we can hardcode this
