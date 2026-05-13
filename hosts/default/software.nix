@@ -59,6 +59,7 @@
 
     ### Terminal
     ../../modules/terminal/zellij.nix
+    ../../modules/terminal/tmux.nix
 
     ### IRC
     ../../modules/irc/weechat.nix
