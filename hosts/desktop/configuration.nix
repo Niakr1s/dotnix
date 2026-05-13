@@ -30,6 +30,7 @@
 
     ../../modules/video/handbrake.nix
     ../../modules/video/losslesscut.nix
+    ../../modules/video/obs.nix
 
     ../../modules/services/kiwix.nix
   ];

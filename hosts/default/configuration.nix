@@ -86,6 +86,15 @@
     monthly = 0;
   };
 
+  services.smartd = {
+    enable = true;
+    devices = [
+      # {
+      # device = "/dev/disk/by-id/ata-WDC-XXXXXX-XXXXXX"; # FIXME: Change this to your actual disk
+      # }
+    ];
+  };
+
   # Garbage collection daily
   # nix.gc = {
   #   automatic = true;
