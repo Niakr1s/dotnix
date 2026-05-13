@@ -26,7 +26,7 @@
 
     ../../modules/ai/ollama.nix
     ../../modules/ai/aichat.nix
-    ../../modules/ai/comfyui.nix
+    # ../../modules/ai/comfyui.nix # building from src, too long
 
     ../../modules/video/handbrake.nix
     ../../modules/video/losslesscut.nix
