@@ -85,6 +85,8 @@
       }).overrideAttrs
       (_: {doCheck = false;}))
 
+    feh # image viewer
+
     gptfdisk # gdisk sgidsk cgdisk
     smartmontools # smartctl
     man-pages # man pages for builtins
