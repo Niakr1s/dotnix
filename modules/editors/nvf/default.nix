@@ -308,33 +308,6 @@
             fastaction.enable = true; # Whether to enable overriding vim.ui.select with fastaction.nvim.
           };
 
-          assistant = {
-            avante-nvim = {
-              enable = true;
-              setupOpts = {
-                provider = "ollama";
-                auto_suggestions_provider = "ollama";
-                behaviour = {
-                  auto_suggestions = false;
-                };
-                providers = {
-                  ollama = {
-                    endpoint = "http://127.0.0.1:11434";
-                    timeout = 30000; # Timeout in milliseconds
-                    model = "gemma3:12b";
-                    extra_request_body = {
-                      options = {
-                        temperature = 0.75;
-                        num_ctx = 20480;
-                        keep_alive = "5m";
-                      };
-                    };
-                  };
-                };
-              };
-            };
-          };
-
           # session = {
           #   nvim-session-manager.enable = false;
           # };
