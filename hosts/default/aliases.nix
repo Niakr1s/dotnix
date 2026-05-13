@@ -23,7 +23,7 @@
     home.shellAliases = {
       nixcd = "cd ${flakeDir}";
       nixedit = "cd ${flakeDir} && vim .";
-      nixupdate = "sudo nixos-rebuild switch --flake ${flakeDir}#${hostname}";
+      nixupdate = "systemd-inhibit sudo nixos-rebuild switch --flake ${flakeDir}#${hostname}";
     };
   };
 }
