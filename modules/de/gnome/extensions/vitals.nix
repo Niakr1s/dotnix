@@ -29,7 +29,8 @@
 
             # gpu
             "_gpu#1_utilization_"
-            "_gpu#1_memory_utilization_"
+            # "_gpu#1_memory_utilization_"
+            "_gpu#1_memory_usage_"
             "_temperature_gpu_"
 
             # network
