@@ -20,9 +20,25 @@
 
                 # ollama show _model_, under Capabilities section
                 supports_completion = true;
-                supports_function_calling = false;
                 supports_vision = true;
-                supports_reasoning = false;
+              }
+              {
+                # should correspond to ollama.nix
+                name = "qwen2.5-coder:7b";
+
+                # ollama show _model_, under Capabilities section
+                supports_completion = true;
+                supports_tools = true;
+                supports_insert = true;
+              }
+              {
+                # should correspond to ollama.nix
+                name = "qwen2.5-coder:14b";
+
+                # ollama show _model_, under Capabilities section
+                supports_completion = true;
+                supports_tools = true;
+                supports_insert = true;
               }
             ];
           }

@@ -20,7 +20,7 @@
                   ollama = {
                     endpoint = "http://127.0.0.1:11434";
                     timeout = 30000; # Timeout in milliseconds
-                    model = "gemma3:12b";
+                    model = "qwen2.5-coder:7b";
                     extra_request_body = {
                       options = {
                         temperature = 0.75;
