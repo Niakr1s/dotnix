@@ -17,6 +17,15 @@
           vimAlias = true;
           lineNumberMode = "number";
 
+          autocmds = [
+            {
+              enable = true;
+              event = ["BufEnter"];
+              pattern = ["*"];
+              command = "setlocal indentexpr=nvim_treesitter#indent()";
+            }
+          ];
+
           keymaps = [
             {
               key = "<leader>n";
@@ -306,11 +315,21 @@
               setupOpts = {
                 provider = "ollama";
                 # auto_suggestions_provider = "ollama";
+                behaviour = {
+                  auto_suggestions = true;
+                };
                 providers = {
                   ollama = {
-                    # api_key_name = "";
-                    # endpoint = "http://localhost:11434/v1";
+                    endpoint = "http://127.0.0.1:11434";
+                    timeout = 30000; # Timeout in milliseconds
                     model = "gemma3:12b";
+                    extra_request_body = {
+                      options = {
+                        temperature = 0.75;
+                        num_ctx = 20480;
+                        keep_alive = "5m";
+                      };
+                    };
                   };
                 };
               };
