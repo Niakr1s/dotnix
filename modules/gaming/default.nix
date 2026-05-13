@@ -22,4 +22,10 @@
       value = "524288";
     }
   ];
+
+  programs.gamemode.enable = true;
+
+  users.users.${username} = {
+    extraGroups = ["gamemode"];
+  };
 }
