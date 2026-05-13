@@ -18,6 +18,6 @@
     endless-sky # space trader
     xmoto # elastomania
 
-    dwarf-fortress-full
+    # dwarf-fortress-full
   ];
 }

@@ -138,7 +138,7 @@
             sql.enable = true;
             java.enable = true;
             kotlin.enable = true;
-            ts.enable = true;
+            typescript.enable = true;
             go.enable = true;
             lua.enable = true;
             zig.enable = true;
@@ -276,7 +276,7 @@
           notes = {
             neorg.enable = false;
             orgmode.enable = false;
-            mind-nvim.enable = false; # deprecated
+            # mind-nvim.enable = false; # deprecated
             todo-comments.enable = true; # highlight and search todo comments
           };
 
