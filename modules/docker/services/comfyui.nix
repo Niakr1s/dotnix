@@ -82,7 +82,9 @@ in {
   systemd.user.services.comfyui = {
     description = "ComfyUI Docker Container";
     after = ["docker.service"];
-    wantedBy = ["default.target"];
+
+    # I comment this out to not allow service to start after restart
+    # wantedBy = ["default.target"];
 
     serviceConfig = {
       Type = "oneshot";
