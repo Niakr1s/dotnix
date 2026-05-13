@@ -7,21 +7,13 @@
       settings = {
         highlight = true;
 
-        model = "ollama:gemma3:12b"; # Default model config
+        model = "qwen2.5-coder:7b"; # Default model config
         clients = [
           {
             type = "openai-compatible";
             name = "ollama";
             api_base = "http://localhost:11434/v1";
             models = [
-              {
-                # should correspond to ollama.nix
-                name = "gemma3:12b";
-
-                # ollama show _model_, under Capabilities section
-                supports_completion = true;
-                supports_vision = true;
-              }
               {
                 # should correspond to ollama.nix
                 name = "qwen2.5-coder:7b";
