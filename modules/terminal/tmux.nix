@@ -4,6 +4,7 @@
     clock24 = true;
     historyLimit = 10000;
     baseIndex = 1;
+    escapeTime = 0;
 
     plugins = with pkgs.tmuxPlugins; [
       resurrect
