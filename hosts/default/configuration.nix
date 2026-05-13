@@ -81,8 +81,8 @@
     enable = true;
     frequent = 4;
     hourly = 24;
-    daily = 14;
-    weekly = 2;
+    daily = 0;
+    weekly = 0;
     monthly = 0;
   };
 
