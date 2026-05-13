@@ -29,6 +29,7 @@
             "org.gnome.Console.desktop"
             "org.gnome.Nautilus.desktop"
             "firefox.desktop"
+            "re.sonny.Tangram.desktop"
             "qalculate-gtk.desktop"
             "joplin.desktop"
             "org.telegram.desktop.desktop"
