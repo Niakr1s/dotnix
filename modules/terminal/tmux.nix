@@ -7,7 +7,9 @@
 
     plugins = with pkgs.tmuxPlugins; [
       resurrect
+      continuum
       yank
+      open
     ];
 
     extraConfig = ''
