@@ -310,13 +310,12 @@
 
           assistant = {
             avante-nvim = {
-              # WARN: it breaks indentation somehow
               enable = true;
               setupOpts = {
                 provider = "ollama";
-                # auto_suggestions_provider = "ollama";
+                auto_suggestions_provider = "ollama";
                 behaviour = {
-                  auto_suggestions = true;
+                  auto_suggestions = false;
                 };
                 providers = {
                   ollama = {
