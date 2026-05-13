@@ -165,6 +165,7 @@
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Classic";
     };
+    programs.man.generateCaches = true;
   };
 
   documentation.man = {
