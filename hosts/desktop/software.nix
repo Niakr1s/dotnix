@@ -6,6 +6,9 @@
   imports = [
     ../../modules/editors/vscode.nix
     ../../modules/vm/virt-manager.nix
+
+    ### Docker services
+    ../../modules/docker/services/comfyui.nix
   ];
 
   # System packages
