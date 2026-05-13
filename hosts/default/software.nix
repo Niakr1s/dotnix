@@ -209,7 +209,11 @@
 
     # rom tools
     (pkgs.callPackage ../../pkgs/makerom {}) # convert cia to 3ds
+
+    gpu-screen-recorder-gtk # GUI app
   ];
+
+  programs.gpu-screen-recorder.enable = true; # For promptless recording on both CLI and GUI
 
   programs.direnv = {
     enable = true;
