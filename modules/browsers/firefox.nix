@@ -12,6 +12,9 @@
       profiles.default.extraConfig = ''
         // https://gist.github.com/lassekongo83/7026910c6a277d5d9cf37989d83e9f6d
 
+
+        user_pref("browser.download.dir", "/home/${username}/Downloads");
+
         // Don't close window with last tab
         user_pref("browser.tabs.closeWindowWithLastTab", false);
 

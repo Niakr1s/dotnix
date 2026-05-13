@@ -1,3 +1,4 @@
+# https://hub.docker.com/r/yanwk/comfyui-boot
 {
   pkgs,
   username,
