@@ -1,5 +1,8 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
+  environment.systemPackages = with pkgs; [
+    claude-code-bin
+  ];
+
   services.ollama = {
     enable = true;
     package = pkgs.ollama-cuda;
