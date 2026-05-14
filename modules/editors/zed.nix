@@ -2,9 +2,8 @@
   pkgs,
   username,
   ...
-}:
-{
-  home-manager.users.${username} = {
+}: {
+  home-manager.users.${username} = {lib, ...}: {
     programs.zed-editor = {
       enable = true;
 
@@ -19,8 +18,10 @@
       # useful for LSP servers (e.g., pkgs.nixd) or
       # optional tools (e.g., pkgs.shellcheck for the Basher LSP)
       extraPackages = with pkgs; [
+        direnv
         nixd
         nil
+        clang
       ];
 
       userKeymaps = [
@@ -37,13 +38,16 @@
 
       # Everything inside of these brackets are Zed options
       userSettings = {
+        # Tell Zed to use direnv and direnv can use a flake.nix environment
+        load_direnv = "shell_hook";
+
         show_edit_predictions = false;
         agent = {
           default_model = {
             provider = "ollama";
             model = "gemma4:e4b";
           };
-          model_parameters = [ ];
+          model_parameters = [];
         };
         colorize_brackets = true;
         gutter = {
@@ -67,6 +71,13 @@
           dark = "One Dark";
         };
         lsp = {
+          clangd = {
+            binary = {
+              path = lib.getExe pkgs.clang;
+              path_lookup = true;
+            };
+          };
+
           rust-analyzer = {
             binary = {
               # path = lib.getExe pkgs.rust-analyzer;
