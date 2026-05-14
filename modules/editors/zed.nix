@@ -1,8 +1,6 @@
 {
-  inputs,
   pkgs,
   username,
-  system,
   ...
 }: {
   home-manager.users.${username} = {lib, ...}: {
