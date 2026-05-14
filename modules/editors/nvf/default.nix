@@ -259,12 +259,12 @@
             diffview-nvim.enable = true; # Single tabpage interface for easily cycling through diffs for all modified files for any git rev.
             # direnv.enable = true; # A neovim wrapper around direnv, in pure lua.
             icon-picker.enable = true; # icon-picker.nvim is a Neovim plugin that helps you pick 𝑨𝕃𝚻 Font Characters, Symbols Σ, Nerd Font Icons  & Emojis ✨
-            motion = {
-              flash-nvim.enable = true; # lets you navigate your code with search labels, enhanced character motions, and Treesitter integration.
-            };
+            # motion = {
+            #   flash-nvim.enable = true; # lets you navigate your code with search labels, enhanced character motions, and Treesitter integration.
+            # };
             surround = {
               enable = true;
-              useVendoredKeybindings = true; # use alternative keybindings "gzz"
+              useVendoredKeybindings = false; # use alternative keybindings "gzz"
             };
             sleuth.enable = true; # indentation computation
             undotree.enable = true; # Edit history visualizer
