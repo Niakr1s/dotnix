@@ -2,11 +2,12 @@
   screen-keyboard-enable = pkgs.writeShellScript "screen-keyboard-enable" ''
     #!/usr/bin/env bash
 
-    dbus-monitor --session "type='signal',interface='org.gnome.ScreenSaver'" | \
+    sleep 5
+    ${pkgs.dbus}/bin/dbus-monitor --session "type='signal',interface='org.gnome.ScreenSaver'" | \
     while read -r line; do
         case "$line" in
             *"boolean true"*)
-                gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled true
+                ${pkgs.glib}/bin/gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled true
                 echo "Screen locked - on-screen keyboard finished with exit code $?"
                 ;;
         esac
