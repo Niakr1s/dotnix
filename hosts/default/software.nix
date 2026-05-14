@@ -215,6 +215,12 @@
 
   programs.gpu-screen-recorder.enable = true; # For promptless recording on both CLI and GUI
 
+  programs.nix-index = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+  };
+
   programs.direnv = {
     enable = true;
     enableBashIntegration = true;
