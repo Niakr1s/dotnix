@@ -14,6 +14,7 @@
     ./wallpaper.nix # You can change wallpaper in this file
 
     ../../modules/dconf/suspend.nix # turn on suspend for laptop
+    ../../modules/dconf/onscreen-keyboard-enabler.nix
 
     ../../modules/de/gnome/extensions/screen-rotate.nix
     ../../modules/de/gnome/extensions/gjs-osk.nix
@@ -28,10 +29,6 @@
   hardware.sensor.iio.enable = true;
 
   home-manager.users.${username}.dconf.settings = {
-    "org/gnome/desktop/a11y/applications" = {
-      screen-keyboard-enabled = true;
-    };
-
     "re/sonny/Tangram" = {
       instances = [
         "v2raya"
