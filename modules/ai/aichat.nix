@@ -7,7 +7,7 @@
       settings = {
         highlight = true;
 
-        model = "qwen2.5-coder:7b"; # Default model config
+        model = "ollama:qwen2.5-coder:7b"; # Default model config
         clients = [
           {
             type = "openai-compatible";
