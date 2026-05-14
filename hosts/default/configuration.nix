@@ -96,11 +96,11 @@
     ];
   };
 
-  # Garbage collection daily
-  # nix.gc = {
-  #   automatic = true;
-  #   dates = "21:00";
-  # };
+  # Garbage collection weekly
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+  };
 
   # DE
 
