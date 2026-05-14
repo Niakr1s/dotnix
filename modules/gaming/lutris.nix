@@ -39,8 +39,7 @@ in {
         proton-ge-bin
       ];
       winePackages = [
-        proton-ge-bin
-        # wineWow64Packages.waylandFull # native wayland support (unstable)
+        wineWow64Packages.waylandFull # native wayland support (unstable)
       ];
       runners = {
         wine = {
