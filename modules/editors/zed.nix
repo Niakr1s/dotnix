@@ -3,7 +3,7 @@
   username,
   ...
 }: {
-  home-manager.users.${username} = {lib, ...}: {
+  home-manager.users.${username} = {
     programs.zed-editor = {
       enable = true;
 
@@ -70,12 +70,6 @@
           dark = "One Dark";
         };
         lsp = {
-          clangd = {
-            binary = {
-              path_lookup = true;
-            };
-          };
-
           rust-analyzer = {
             binary = {
               # path = lib.getExe pkgs.rust-analyzer;
