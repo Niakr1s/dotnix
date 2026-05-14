@@ -8,8 +8,6 @@
     ../../modules/editors/zed.nix
     ../../modules/vm/virt-manager.nix
 
-    # ../../modules/editors/nvf/ai.nix # nvf ai mode
-
     ### Docker services
     ../../modules/docker/services/comfyui.nix
   ];

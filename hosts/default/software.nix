@@ -36,7 +36,7 @@
 
     # NVF
     # inputs.nvf.homeManagerModules.default # TODO
-    ../../modules/editors/nvf
+    ../../modules/editors/nvf.nix
 
     ### Gstreamer
     ../../modules/video/gstreamer.nix
