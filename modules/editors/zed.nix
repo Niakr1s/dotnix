@@ -2,101 +2,85 @@
   pkgs,
   username,
   ...
-}: {
-  home-manager.users.${username} = {lib, ...}: {
+}:
+{
+  home-manager.users.${username} = {
     programs.zed-editor = {
       enable = true;
 
       # This populates the userSettings "auto_install_extensions"
-      extensions = ["nix" "toml" "make"];
+      extensions = [
+        "nix"
+        "toml"
+        "make"
+      ];
+
+      # The extraPackages option includes additional Nixpkgs in the FHS environment,
+      # useful for LSP servers (e.g., pkgs.nixd) or
+      # optional tools (e.g., pkgs.shellcheck for the Basher LSP)
+      extraPackages = with pkgs; [
+        nixd
+        nil
+      ];
+
+      userKeymaps = [
+        {
+          context = "Terminal";
+          bindings = {
+            "ctrl-`" = "editor::ToggleFocus";
+          };
+        }
+        {
+          context = "Terminal";
+          bindings = {
+            "ctrl-w h" = "workspace::ActivatePaneLeft";
+          };
+        }
+        {
+          context = "Terminal";
+          bindings = {
+            "ctrl-w k" = "workspace::ActivatePaneUp";
+          };
+        }
+        {
+          context = "Terminal";
+          bindings = {
+            "ctrl-w l" = "workspace::ActivatePaneRight";
+          };
+        }
+      ];
 
       # Everything inside of these brackets are Zed options
       userSettings = {
+        show_edit_predictions = false;
         agent = {
-          version = "2";
           default_model = {
             provider = "ollama";
-            model = "qwen2.5-coder:7b";
-            mode = "agent";
+            model = "gemma4:e4b";
           };
-          default_profile = "write";
-          always_allow_tool_actions = true;
+          model_parameters = [ ];
         };
-
-        assistant = {
-          enabled = true;
-          version = "2";
-          default_open_ai_model = null;
-
-          # Provider options:
-          # - zed.dev models (claude-3-5-sonnet-latest) requires GitHub connected
-          # - anthropic models (claude-3-5-sonnet-latest, claude-3-haiku-latest, claude-3-opus-latest) requires API_KEY
-          # - copilot_chat models (gpt-4o, gpt-4, gpt-3.5-turbo, o1-preview) requires GitHub connected
-          default_model = {
-            provider = "ollama";
-            model = "qwen2.5-coder:7b";
-          };
-
-          # inline_alternatives = [
-          #   {
-          #     provider = "copilot_chat";
-          #     model = "gpt-3.5-turbo";
-          #   }
-          # ];
+        colorize_brackets = true;
+        gutter = {
+          line_numbers = true;
         };
-
-        language_models = {
-          ollama = {
-            api_url = "http://localhost:11434";
-          };
-          available_models = [
-            {
-              provider = "ollama";
-              name = "qwen2.5-coder:7b";
-              max_tokens = 8000;
-              supports_tools = true;
-            }
-          ];
-        };
-
-        node = {
-          path = lib.getExe pkgs.nodejs;
-          npm_path = lib.getExe' pkgs.nodejs "npm";
-        };
-
-        hour_format = "hour24";
+        vim_mode = true;
+        buffer_font_family = ".ZedMono";
         auto_update = false;
-
-        terminal = {
-          alternate_scroll = "off";
-          blinking = "off";
-          copy_on_select = false;
-          dock = "bottom";
-          detect_venv = {
-            on = {
-              directories = [".env" "env" ".venv" "venv"];
-              activate_script = "default";
-            };
-          };
-          env = {
-            # TERM = "alacritty";
-          };
-          font_family = "FiraCode Nerd Font";
-          font_features = null;
-          font_size = null;
-          line_height = "comfortable";
-          option_as_meta = false;
-          button = false;
-          shell = "system";
-          # shell = {
-          #   program = "zsh";
-          # };
-          toolbar = {
-            title = true;
-          };
-          working_directory = "current_project_directory";
+        telemetry = {
+          diagnostics = false;
+          metrics = false;
         };
-
+        session = {
+          trust_all_worktrees = true;
+        };
+        ui_font_size = 16.0;
+        buffer_font_size = 14.0;
+        theme = {
+          mode = "system";
+          light = "One Light";
+          dark = "One Dark";
+        };
         lsp = {
           rust-analyzer = {
             binary = {
@@ -111,25 +95,6 @@
             };
           };
         };
-
-        languages = {
-        };
-
-        vim_mode = true;
-
-        # Tell Zed to use direnv and direnv can use a flake.nix environment
-        load_direnv = "shell_hook";
-        base_keymap = "VSCode";
-
-        theme = {
-          mode = "system";
-          light = "One Light";
-          dark = "One Dark";
-        };
-
-        show_whitespaces = "all";
-        ui_font_size = 16;
-        buffer_font_size = 14;
       };
     };
   };
