@@ -3,6 +3,10 @@
     dconf = {
       enable = true;
       settings = with lib.hm.gvariant; {
+        "org.gnome.desktop.a11y.applications " = {
+          screen-keyboard-enabled = true;
+        };
+
         "org/gnome/desktop/interface" = {
           accent-color = "blue";
           color-scheme = "prefer-dark";
