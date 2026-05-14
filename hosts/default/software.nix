@@ -16,6 +16,7 @@
     ../../modules/utilites/tldr.nix
     ../../modules/browsers/firefox.nix
     ../../modules/browsers/w3m.nix
+    ../../modules/browsers/tangram.nix
 
     ### Video players
     # ../../modules/players/celluloid.nix # don't need it, mpv is good
@@ -91,8 +92,6 @@
     gptfdisk # gdisk sgidsk cgdisk
     smartmontools # smartctl
     man-pages # man pages for builtins
-
-    tangram
 
     ### Crypto
     age

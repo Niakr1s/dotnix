@@ -32,6 +32,13 @@
       screen-keyboard-enabled = true;
     };
 
+    "re/sonny/Tangram" = {
+      instances = [
+        "v2raya"
+        "qbittorrent"
+      ];
+    };
+
     "org/gnome/shell/extensions/vitals" = {
       update-time = lib.mkForce 10;
 
