@@ -3,6 +3,7 @@
     ./extensions/gsconnect.nix
     ./extensions/vitals.nix
     ./extensions/app-grid-wizard.nix
+    ./extensions/cronomix.nix
   ];
 
   services.desktopManager.gnome.enable = true;
