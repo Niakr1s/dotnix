@@ -12,6 +12,17 @@
 
       # Everything inside of these brackets are Zed options
       userSettings = {
+        agent = {
+          version = "2";
+          default_model = {
+            provider = "ollama";
+            model = "qwen2.5-coder:7b";
+            mode = "agent";
+          };
+          default_profile = "write";
+          always_allow_tool_actions = true;
+        };
+
         assistant = {
           enabled = true;
           version = "2";
@@ -38,6 +49,14 @@
           ollama = {
             api_url = "http://localhost:11434";
           };
+          available_models = [
+            {
+              provider = "ollama";
+              name = "qwen2.5-coder:7b";
+              max_tokens = 8000;
+              supports_tools = true;
+            }
+          ];
         };
 
         node = {
