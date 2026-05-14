@@ -19,7 +19,7 @@ in {
     enable = true;
     description = "Screen keyboard enable on startup";
     serviceConfig = {
-      Type = "simple"; # This makes it run once and exit
+      Type = "exec";
       ExecStart = "${screen-keyboard-enable}";
       Restart = "always";
       RestartSec = 5;
