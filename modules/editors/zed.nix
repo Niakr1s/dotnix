@@ -21,6 +21,7 @@
         direnv
         nixd
         nil
+        clang-tools
       ];
 
       userKeymaps = [
