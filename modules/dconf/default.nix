@@ -38,6 +38,7 @@
             "joplin.desktop"
             "org.telegram.desktop.desktop"
             "code.desktop"
+            "dev.zed.Zed.desktop"
             "net.lutris.Lutris.desktop"
             "Ryujinx.desktop"
             "rpcs3.desktop"
