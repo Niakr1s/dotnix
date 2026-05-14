@@ -29,7 +29,7 @@
 
   home-manager.users.${username}.dconf.settings = {
     "org/gnome/desktop/a11y/applications" = {
-      screen-keyboard-enabled = true;
+      screen-keyboard-enabled = lib.mkForce true;
     };
 
     "re/sonny/Tangram" = {
