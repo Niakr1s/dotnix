@@ -1,6 +1,8 @@
 {
+  inputs,
   pkgs,
   username,
+  system,
   ...
 }: {
   home-manager.users.${username} = {lib, ...}: {
@@ -8,7 +10,7 @@
       enable = true;
 
       # This populates the userSettings "auto_install_extensions"
-      extensions = ["nix" "toml" "elixir" "make"];
+      extensions = ["nix" "toml" "make"];
 
       # Everything inside of these brackets are Zed options
       userSettings = {
@@ -22,8 +24,8 @@
           # - anthropic models (claude-3-5-sonnet-latest, claude-3-haiku-latest, claude-3-opus-latest) requires API_KEY
           # - copilot_chat models (gpt-4o, gpt-4, gpt-3.5-turbo, o1-preview) requires GitHub connected
           default_model = {
-            provider = "zed.dev";
-            model = "claude-3-5-sonnet-latest";
+            provider = "ollama";
+            model = "qwen2.5-coder:7b";
           };
 
           # inline_alternatives = [
@@ -32,6 +34,12 @@
           #     model = "gpt-3.5-turbo";
           #   }
           # ];
+        };
+
+        language_models = {
+          ollama = {
+            api_url = "http://localhost:11434";
+          };
         };
 
         node = {
@@ -85,37 +93,9 @@
               path_lookup = true;
             };
           };
-
-          elixir-ls = {
-            binary = {
-              path_lookup = true;
-            };
-            settings = {
-              dialyzerEnabled = true;
-            };
-          };
         };
 
         languages = {
-          "Elixir" = {
-            language_servers = ["!lexical" "elixir-ls" "!next-ls"];
-            format_on_save = {
-              external = {
-                command = "mix";
-                arguments = ["format" "--stdin-filename" "{buffer_path}" "-"];
-              };
-            };
-          };
-
-          "HEEX" = {
-            language_servers = ["!lexical" "elixir-ls" "!next-ls"];
-            format_on_save = {
-              external = {
-                command = "mix";
-                arguments = ["format" "--stdin-filename" "{buffer_path}" "-"];
-              };
-            };
-          };
         };
 
         vim_mode = true;
@@ -131,8 +111,8 @@
         };
 
         show_whitespaces = "all";
-        ui_font_size = 16;
-        buffer_font_size = 16;
+        ui_font_size = 12;
+        buffer_font_size = 12;
       };
     };
   };
