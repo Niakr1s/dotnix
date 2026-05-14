@@ -109,8 +109,8 @@
         };
 
         show_whitespaces = "all";
-        ui_font_size = 12;
-        buffer_font_size = 12;
+        ui_font_size = 16;
+        buffer_font_size = 14;
       };
     };
   };
