@@ -11,6 +11,7 @@
 
     ../../modules/services/qbittorrent.nix
     ../../modules/services/v2raya.nix
+    ../../modules/services/syncthing.nix
 
     ../../modules/utilites/tldr.nix
     ../../modules/browsers/firefox.nix
