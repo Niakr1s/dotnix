@@ -28,6 +28,10 @@
   hardware.sensor.iio.enable = true;
 
   home-manager.users.${username}.dconf.settings = {
+    "org.gnome.desktop.a11y.applications " = {
+      screen-keyboard-enabled = true;
+    };
+
     "org/gnome/shell/extensions/vitals" = {
       update-time = lib.mkForce 10;
 
