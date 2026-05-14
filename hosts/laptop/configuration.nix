@@ -28,7 +28,7 @@
   hardware.sensor.iio.enable = true;
 
   home-manager.users.${username}.dconf.settings = {
-    "org.gnome.desktop.a11y.applications " = {
+    "org/gnome/desktop/a11y/applications" = {
       screen-keyboard-enabled = true;
     };
 

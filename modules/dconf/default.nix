@@ -3,7 +3,7 @@
     dconf = {
       enable = true;
       settings = with lib.hm.gvariant; {
-        "org.gnome.desktop.a11y.applications " = {
+        "org/gnome/desktop/a11y/applications" = {
           screen-keyboard-enabled = lib.mkDefault false;
         };
 
