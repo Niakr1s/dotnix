@@ -21,7 +21,6 @@
         direnv
         nixd
         nil
-        clang
       ];
 
       userKeymaps = [
@@ -73,7 +72,6 @@
         lsp = {
           clangd = {
             binary = {
-              path = lib.getExe pkgs.clang;
               path_lookup = true;
             };
           };
