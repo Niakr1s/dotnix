@@ -5,12 +5,12 @@
 }: {
   home-manager.users.${username} = {
     home.packages = with pkgs; [
-      gnomeExtensions.cronomix
+      gnomeExtensions.todotxt
     ];
     dconf.settings = {
       "org/gnome/shell" = {
         enabled-extensions = [
-          pkgs.gnomeExtensions.cronomix.extensionUuid
+          pkgs.gnomeExtensions.todotxt.extensionUuid
         ];
       };
     };
