@@ -156,6 +156,9 @@
     ntfs3g
     ntfsprogs
 
+    inotify-tools # File system events (files/directories being created, modified, deleted)
+    audit # provides auditctl (who accessed what file, when)
+
     ### Image editors
     gimp
     inkscape
