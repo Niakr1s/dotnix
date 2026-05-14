@@ -9,6 +9,7 @@
     ./aliases.nix
     ./fonts.nix
     ./software.nix
+    ./programming.nix
     ./games.nix
     ./sops.nix
     ./ssh.nix
