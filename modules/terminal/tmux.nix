@@ -16,6 +16,7 @@
 
     extraConfig = ''
       setw -g mode-keys vi
+      set -g mouse on
 
       # Pane navigation with prefix + hjkl
       bind h select-pane -L
