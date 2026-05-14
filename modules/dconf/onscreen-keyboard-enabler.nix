@@ -9,6 +9,7 @@
             *"boolean true"*)
                 ${pkgs.glib}/bin/gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled true
                 echo "Screen locked - on-screen keyboard finished with exit code $?"
+                exit "$?"
                 ;;
         esac
     done
@@ -21,6 +22,7 @@ in {
       Type = "simple"; # This makes it run once and exit
       ExecStart = "${screen-keyboard-enable}";
       Restart = "always";
+      RestartSec = 5;
       Environment = "DISPLAY=:0";
       StandardOutput = "journal";
       StandardError = "journal";
