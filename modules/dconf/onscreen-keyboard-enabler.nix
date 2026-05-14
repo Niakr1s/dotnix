@@ -1,17 +1,26 @@
 {pkgs, ...}: let
-  onscreen-keyboard-enable = pkgs.writeShellScript "screen-keyboard-enable" ''
+  screen-keyboard-enable = pkgs.writeShellScript "screen-keyboard-enable" ''
     #!/usr/bin/env bash
 
-    gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled true
-    echo "$(date): screen-keyboard-enabled: completed with exit-code $?"
+    dbus-monitor --session "type='signal',interface='org.gnome.ScreenSaver'" | \
+    while read -r line; do
+        case "$line" in
+            *"boolean true"*)
+                gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled true
+                echo "Screen locked - on-screen keyboard finished with exit code $?"
+                ;;
+        esac
+    done
   '';
 in {
-  systemd.user.services.my-cli-command = {
+  systemd.user.services.screen-keyboard-enable = {
     enable = true;
     description = "Screen keyboard enable on startup";
     serviceConfig = {
-      Type = "oneshot"; # This makes it run once and exit
-      ExecStart = "${onscreen-keyboard-enable}";
+      Type = "simple"; # This makes it run once and exit
+      ExecStart = "${screen-keyboard-enable}";
+      Restart = "always";
+      Environment = "DISPLAY=:0";
       StandardOutput = "journal";
       StandardError = "journal";
     };
