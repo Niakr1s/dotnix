@@ -28,23 +28,8 @@
           context = "Terminal";
           bindings = {
             "ctrl-`" = "editor::ToggleFocus";
-          };
-        }
-        {
-          context = "Terminal";
-          bindings = {
             "ctrl-w h" = "workspace::ActivatePaneLeft";
-          };
-        }
-        {
-          context = "Terminal";
-          bindings = {
             "ctrl-w k" = "workspace::ActivatePaneUp";
-          };
-        }
-        {
-          context = "Terminal";
-          bindings = {
             "ctrl-w l" = "workspace::ActivatePaneRight";
           };
         }
