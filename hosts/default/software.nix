@@ -172,7 +172,6 @@
     unar # universal archive extractor (unar, lsar)
 
     ### DB
-    inputs.sqlit.packages.${pkgs.stdenv.hostPlatform.system}.default
     sqlitestudio
     sqlitestudio-plugins
     sqlite

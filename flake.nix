@@ -32,11 +32,6 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-
-    sqlit = {
-      url = "github:Maxteabag/sqlit";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
   };
 
   outputs = {
@@ -47,7 +42,6 @@
     disko,
     sops-nix,
     nvf,
-    sqlit,
     ...
   } @ inputs: let
     system = "x86_64-linux";
