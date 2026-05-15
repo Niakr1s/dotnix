@@ -4,6 +4,20 @@
     programs.aichat = {
       enable = true;
 
+      # Example config
+      # model: ollama:gemma4:e4b
+      # clients:
+      # - type: openai-compatible
+      #   name: ollama
+      #   api_base: http://localhost:11434/v1
+      #   models:
+      #   - name: gemma4:e4b
+      #   - name: qwen3-embedding:8b
+      #     type: embedding
+      #     default_chunk_size: 1000
+      #     max_batch_size: 100
+      #   - name: qwen3.5:9b
+
       settings = {
         highlight = true;
 
@@ -17,29 +31,27 @@
               {
                 # should correspond to ollama.nix
                 name = "gemma4:e4b";
-
-                # ollama show _model_, under Capabilities section
                 supports_completion = true;
                 supports_vision = true;
                 supports_audio = true;
                 supports_tools = true;
                 supports_thinking = true;
                 supports_function_calling = true;
+                use_tools = true;
               }
               {
                 # should correspond to ollama.nix
                 name = "qwen3.5:9b";
-
-                # ollama show _model_, under Capabilities section
                 supports_completion = true;
                 supports_vision = true;
                 supports_tools = true;
                 supports_thinking = true;
                 supports_function_calling = true;
+                use_tools = true;
               }
               {
                 # should correspond to ollama.nix
-                name = "qwen3-enbedding:8b";
+                name = "qwen3-embedding:8b";
                 type = "embedding";
               }
             ];
