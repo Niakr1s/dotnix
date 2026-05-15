@@ -24,6 +24,7 @@
                 supports_audio = true;
                 supports_tools = true;
                 supports_thinking = true;
+                supports_function_calling = true;
               }
               {
                 # should correspond to ollama.nix
@@ -34,17 +35,18 @@
                 supports_vision = true;
                 supports_tools = true;
                 supports_thinking = true;
+                supports_function_calling = true;
               }
               {
                 # should correspond to ollama.nix
                 name = "qwen3-enbedding:8b";
-
-                # ollama show _model_, under Capabilities section
-                supports_enbedding = true;
+                type = "embedding";
               }
             ];
           }
         ];
+        rag_embedding_model = "ollama:qwen3-embedding:8b";
+        rag_top_k = 5; # Specifies the number of documents to retrieve for answering queries
       };
     };
   };
