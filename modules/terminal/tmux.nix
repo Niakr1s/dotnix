@@ -9,7 +9,7 @@
     plugins = with pkgs.tmuxPlugins; [
       sensible
       resurrect
-      continuum
+      # continuum
       yank
       open
     ];
