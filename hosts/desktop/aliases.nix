@@ -1,8 +1,36 @@
 {
+  pkgs,
   username,
+  hostname,
   lib,
   ...
 }: let
+  backupSystemScript = pkgs.writeShellScript "backup-system" ''
+    sudo borg create --progress --stats --one-file-system --compression=zstd \
+    --exclude '/home/*/.cache' \
+    --exclude '/home/*/.local/share/Trash' \
+    --exclude '/var/cache' \
+    --exclude '/var/log' \
+    --exclude '/var/tmp' \
+    --exclude '/var/lib/docker' \
+    --exclude '/var/lib/libvirt/images' \
+    --exclude '/nix/store' \
+    --exclude '/nix/var/nix/db' \
+    --exclude '/run' \
+    --exclude '/proc' \
+    --exclude '/sys' \
+    --exclude '/dev' \
+    --exclude '/tmp' \
+    --exclude '/swapfile' \
+    --exclude '*.tmp' \
+    --exclude '*.pyc' \
+    --exclude '/data' \
+    --exclude '/mnt' \
+    --exclude '/var/lib/systemd/coredump' \
+    /data/hdd24/borg::${hostname}-{now} \
+    /etc/nixos /home /root /var/lib
+  '';
+
   luksMount = uuid: label: {
     home-manager.users.${username}.home.shellAliases.${label} = "sudo cryptsetup luksOpen /dev/disk/by-uuid/${uuid} ${label} && sudo mount /dev/mapper/${label} /data/${label}";
   };
@@ -22,5 +50,7 @@
   ];
 in
   lib.foldl lib.recursiveUpdate
-  {}
+  {
+    home-manager.users.${username}.home.shellAliases."backup-system" = "${backupSystemScript}";
+  }
   (luksMounts ++ luksUmounts)
