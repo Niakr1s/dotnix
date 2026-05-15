@@ -43,6 +43,7 @@
         };
 
         "org/gnome/shell/keybindings" = {
+          activate-window-menu = [];
           toggle-message-tray = [];
           focus-active-notification = [];
           toggle-quick-settings = [];
