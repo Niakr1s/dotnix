@@ -28,6 +28,12 @@
 
       # restore on tmux server start
       set -g @continuum-restore 'on'
+
+      set -g status-right "%H:%M:%S %d/%m/%Y"
+      set -g status-interval 1
+
+      set -g set-titles on
+      set -g set-titles-string "#{pane_current_command}"
     '';
   };
 }
