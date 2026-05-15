@@ -175,6 +175,8 @@
     inputs.sqlit.packages.${pkgs.stdenv.hostPlatform.system}.default
     sqlitestudio
     sqlitestudio-plugins
+    sqlite
+    lazysql
 
     dconf-editor # you probably need it even in not gnome environment
 
