@@ -60,7 +60,7 @@
     ../../modules/webdav.nix
 
     ### Terminal
-    ../../modules/terminal/zellij.nix
+    # ../../modules/terminal/zellij.nix
     ../../modules/terminal/tmux.nix
 
     ### IRC
