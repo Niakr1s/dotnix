@@ -35,6 +35,13 @@
                 supports_tools = true;
                 supports_thinking = true;
               }
+              {
+                # should correspond to ollama.nix
+                name = "qwen3-enbedding:8b";
+
+                # ollama show _model_, under Capabilities section
+                supports_enbedding = true;
+              }
             ];
           }
         ];

@@ -10,6 +10,7 @@
     loadModels = [
       "gemma4:e4b"
       "qwen3.5:9b"
+      "qwen3-embedding:8b"
     ];
   };
 }
