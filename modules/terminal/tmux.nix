@@ -18,7 +18,7 @@
       setw -g mode-keys vi
       set -g mouse on
       unbind C-b
-      set -g prefix C-a
+      set -g prefix C-q
 
       # Pane navigation with prefix + hjkl
       bind h select-pane -L
