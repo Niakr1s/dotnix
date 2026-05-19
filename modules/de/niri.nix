@@ -9,6 +9,10 @@
     "desktop" = 600;
     "laptop" = 300;
   };
+  lockCommand =
+    if "${hostname}" == "laptop"
+    then "lockAndSuspend"
+    else "lock";
 in {
   imports = [
     ../wvkbd.nix
@@ -42,7 +46,11 @@ in {
       timeouts = [
         {
           timeout = swayTimeouts."${hostname}";
-          command = "${pkgs.unstable.noctalia-shell}/bin/noctalia-shell ipc call sessionMenu lockAndSuspend";
+          command = "${pkgs.unstable.noctalia-shell}/bin/noctalia-shell ipc call sessionMenu ${lockCommand}";
+        }
+        {
+          timeout = swayTimeouts."${hostname}" + 30;
+          command = "${pkgs.niri}/bin/niri msg action power-off-monitors";
         }
       ];
     };
