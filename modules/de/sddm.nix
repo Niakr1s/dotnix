@@ -7,6 +7,8 @@
     embeddedTheme = "purple_leaves";
   };
 in {
+  services.displayManager.defaultSession = "niri";
+
   environment.systemPackages = with pkgs.kdePackages; [
     custom-sddm-astronaut
     qtsvg
