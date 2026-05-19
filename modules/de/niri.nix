@@ -5,6 +5,10 @@
   flakeDir,
   ...
 }: {
+  imports = [
+    ../wvkbd.nix
+  ];
+
   programs.niri.enable = true;
 
   environment.systemPackages = with pkgs; [
@@ -17,6 +21,10 @@
     # swayidle
 
     unstable.noctalia-shell
+
+    (writeShellScriptBin "wvkbd-deskintl" ''
+      wvkbd-deskintl -l full,cyrillic --landscape-layers full,cyrillic
+    '')
   ];
 
   # security.polkit.enable = true; # polkit

@@ -223,6 +223,15 @@
                     "icon": "noctalia",
                     "id": "ControlCenter",
                     "useDistroLogo": false
+                },
+                {
+                    "defaultSettings": {
+                        "backend": "auto",
+                        "disableHoverIcon": false,
+                        "hideWhenUnavailable": false,
+                        "wvkbdBin": "wvkbd-mobintl"
+                    },
+                    "id": "plugin:osk-toggle"
                 }
             ]
         }
