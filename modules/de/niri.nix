@@ -36,6 +36,20 @@
   };
 
   home-manager.users.${username} = {config, ...}: {
+    services.swayidle = {
+      enable = true;
+      timeouts = [
+        {
+          timeout = 300;
+          command = "${pkgs.unstable.noctalia-shell}/bin/noctalia-shell ipc call lockScreen lock";
+        }
+        {
+          timeout = 360;
+          command = "${pkgs.niri}/bin/niri msg action power-off-monitors";
+        }
+      ];
+    };
+
     home.file.".config/niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/niri/config.kdl";
 
     home.file.".config/niri/noctalia.kdl" = {
