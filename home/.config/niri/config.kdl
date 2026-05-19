@@ -7,6 +7,9 @@
 // Find the full list of options on the wiki:
 // https://yalter.github.io/niri/Configuration:-Input
 input {
+    // for configure in logind
+    disable-power-key-handling
+
     keyboard {
         xkb {
             layout "us,ru"
@@ -355,8 +358,7 @@ binds {
     XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
 
-    XF86PowerOff { spawn-sh "notify-send poweroff"; }
-    XF86WakeUp { spawn-sh "notify-send wakeup"; }
+    XF86PowerOff { spawn-sh "noctalia-shell ipc call sessionMenu lockAndSuspend"; }
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
