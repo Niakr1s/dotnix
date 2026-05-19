@@ -230,13 +230,7 @@
                     "useDistroLogo": false
                 },
                 {
-                    "defaultSettings": {
-                        "backend": "auto",
-                        "disableHoverIcon": false,
-                        "hideWhenUnavailable": false,
-                        "wvkbdBin": "wvkbd-mobintl"
-                    },
-                    "id": "plugin:osk-toggle"
+                    "id": "plugin:2f19fc:osk-toggle"
                 }
             ]
         }
