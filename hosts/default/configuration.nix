@@ -145,6 +145,9 @@
       source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/scripts/${hostname}";
       recursive = true;
     };
+    home.file.".face" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/.face";
+    };
     home.pointerCursor = {
       enable = true;
       size = 24; # default: 32
