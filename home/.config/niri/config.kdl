@@ -668,5 +668,5 @@ gestures {
 }
 
 include "./noctalia.kdl"
-include "./custom/desktop.kdl"
-include "./custom/laptop.kdl"
+include "./host/desktop.kdl"
+include "./host/laptop.kdl"
