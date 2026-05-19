@@ -25,10 +25,19 @@
 
   security.polkit.enable = true; # polkit
   # services.gnome.gnome-keyring.enable = true; # secret service
-  # security.pam.services.swaylock = {};
+  security.pam.services.gtklock = {};
 
   xdg.portal.config.niri = {
     "org.freedesktop.impl.portal.FileChooser" = ["gtk"]; # or "kde"
+  };
+
+  programs.gtklock = {
+    enable = true;
+    modules = with pkgs; [
+      gtklock-virtkb-module
+      # gtklock-powerbar-module
+      gtklock-userinfo-module
+    ];
   };
 
   home-manager.users.${username} = {config, ...}: {

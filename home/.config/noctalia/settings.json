@@ -570,7 +570,7 @@
         "powerOptions": [
             {
                 "action": "lock",
-                "command": "",
+                "command": "gtklock -b \"$(jq -r 'first(.wallpapers[].dark) // .defaultWallpaper' ~/.cache/noctalia/wallpapers.json)\" -f",
                 "countdownEnabled": true,
                 "enabled": true,
                 "keybind": "1"
