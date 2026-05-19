@@ -74,7 +74,7 @@ output "GIGA-BYTE TECHNOLOGY CO., LTD. M32QC 24390B004015" {
     // for the resolution.
     // If the mode is omitted altogether or is invalid, niri will pick one automatically.
     // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    mode "2560x1440@165"
+    mode "2560x1440@165.001"
 
     // variable-refresh-rate
 
@@ -107,7 +107,7 @@ output "Xiaomi Corporation Mi Monitor 2920000136510" {
     // for the resolution.
     // If the mode is omitted altogether or is invalid, niri will pick one automatically.
     // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    mode "1920x1080@75"
+    mode "1920x1080@75.002"
 
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
     // scale 2
