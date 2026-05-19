@@ -115,10 +115,10 @@
                 {
                     "clockColor": "none",
                     "customFont": "",
-                    "formatHorizontal": "HH:mm ddd, MMM dd",
-                    "formatVertical": "HH mm - dd MM",
+                    "formatHorizontal": "HH:mm:ss, dd.MM.yyyy",
+                    "formatVertical": "HH mm ss - dd MM yy",
                     "id": "Clock",
-                    "tooltipFormat": "HH:mm ddd, MMM dd",
+                    "tooltipFormat": "HH:mm:ss, dd.MM.yyyy",
                     "useCustomFont": false
                 },
                 {
