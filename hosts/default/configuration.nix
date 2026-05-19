@@ -43,6 +43,7 @@
   # These variables will be set by PAM early in the login process.
   environment.sessionVariables = {
     MOZ_USE_XINPUT2 = "1"; # To enable one-to-one trackpad scrolling in Firefox
+    NIXOS_OZONE_WL = "1"; # To force wayland
   };
 
   # These variables will be set on shell initialisation (e.g. in /etc/profile).
