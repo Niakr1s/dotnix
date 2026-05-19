@@ -560,7 +560,7 @@
         "countdownDuration": 10000,
         "enableCountdown": true,
         "largeButtonsLayout": "single-row",
-        "largeButtonsStyle": false,
+        "largeButtonsStyle": true,
         "position": "center",
         "powerOptions": [
             {
