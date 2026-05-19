@@ -38,6 +38,11 @@
   home-manager.users.${username} = {config, ...}: {
     home.file.".config/niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/niri/config.kdl";
 
+    home.file.".config/niri/noctalia.kdl" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/niri/noctalia.kdl";
+      recursive = true;
+    };
+
     home.file.".config/noctalia" = {
       source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/noctalia";
       recursive = true;
