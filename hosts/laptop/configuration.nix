@@ -28,7 +28,7 @@
 
   services.logind = {
     settings.Login = {
-      HandlePowerKey = "lock";
+      HandlePowerKey = "ignore";
     };
   };
 
