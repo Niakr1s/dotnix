@@ -144,6 +144,27 @@
                     "usePadding": false
                 },
                 {
+                    "defaultSettings": {
+                        "byteThresholdActive": 5000,
+                        "columnSpacing": 0,
+                        "customFontBold": false,
+                        "customFontItalic": false,
+                        "fontSizeModifier": 0.75,
+                        "iconSizeModifier": 1,
+                        "iconType": "caret",
+                        "layout": "vertical",
+                        "paddingLeft": 5,
+                        "paddingRight": 0,
+                        "rowSpacing": -8,
+                        "slots": [
+                            "txSpeed",
+                            "txIcon",
+                            "rxSpeed",
+                            "rxIcon"
+                        ],
+                        "useCustomColors": false,
+                        "useCustomFont": false
+                    },
                     "id": "plugin:network-indicator"
                 },
                 {
