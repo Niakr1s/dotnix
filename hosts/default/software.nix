@@ -5,8 +5,9 @@
 }: {
   # Packages with settings
   imports = [
-    ../../modules/de/niri.nix
     ../../modules/de/gnome
+    ../../modules/de/niri.nix
+    ../../modules/de/sddm.nix
     ../../modules/dconf
 
     ../../modules/services/qbittorrent.nix

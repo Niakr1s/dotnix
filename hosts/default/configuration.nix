@@ -103,16 +103,6 @@
     dates = "weekly";
   };
 
-  # DE
-
-  # Some DE stuff
-  services.displayManager.gdm.enable = true;
-
-  services.displayManager.autoLogin = {
-    enable = false;
-    user = "${username}";
-  };
-
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
