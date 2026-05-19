@@ -11,17 +11,17 @@
     xwayland-satellite
 
     alacritty
-    fuzzel
-    swaylock
-    mako
-    swayidle
+    # fuzzel
+    # swaylock
+    # mako
+    # swayidle
+
+    unstable.noctalia-shell
   ];
 
-  security.polkit.enable = true; # polkit
-  services.gnome.gnome-keyring.enable = true; # secret service
-  security.pam.services.swaylock = {};
-
-  programs.waybar.enable = true; # top bar
+  # security.polkit.enable = true; # polkit
+  # services.gnome.gnome-keyring.enable = true; # secret service
+  # security.pam.services.swaylock = {};
 
   xdg.portal.config.niri = {
     "org.freedesktop.impl.portal.FileChooser" = ["gtk"]; # or "kde"
