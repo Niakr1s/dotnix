@@ -26,6 +26,12 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
+  services.logind = {
+    settings.Login = {
+      HandlePowerKey = "suspend";
+    };
+  };
+
   hardware.sensor.iio.enable = true;
 
   home-manager.users.${username}.dconf.settings = {
