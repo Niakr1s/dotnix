@@ -18,7 +18,12 @@
         "ignoreMouseInput": false,
         "overviewLayer": false,
         "pinnedApps": [
-            "firefox"
+            "Alacritty",
+            "org.gnome.Nautilus",
+            "qalculate-gtk",
+            "firefox",
+            "re.sonny.Tangram",
+            "dev.zed.Zed"
         ],
         "position": "center",
         "screenshotAnnotationTool": "",
@@ -26,7 +31,7 @@
         "showIconBackground": false,
         "sortByMostUsed": true,
         "terminalCommand": "alacritty -e",
-        "viewMode": "list"
+        "viewMode": "grid"
     },
     "audio": {
         "mprisBlacklist": [
