@@ -128,6 +128,11 @@ output "Xiaomi Corporation Mi Monitor 2920000136510" {
     position x=2560 y=280
 }
 
+cursor {
+    hide-after-inactive-ms 10000
+    hide-when-typing
+}
+
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Layout
