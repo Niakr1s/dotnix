@@ -50,4 +50,8 @@
       ];
     };
   };
+
+  services.iio-niri = {
+    enable = true;
+  };
 }
