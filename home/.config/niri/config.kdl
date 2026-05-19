@@ -292,6 +292,24 @@ layout {
 // spawn-at-startup "waybar"
 spawn-at-startup "noctalia-shell"
 
+workspace "web" {
+    open-on-output "HDMI-A-1"
+}
+
+spawn-sh-at-startup "firefox"
+window-rule {
+    match app-id="firefox"
+    open-maximized true
+    open-on-workspace "web"
+}
+
+window-rule {
+    match title="Tangram"
+    open-maximized true
+    open-on-workspace "web"
+}
+
+
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
