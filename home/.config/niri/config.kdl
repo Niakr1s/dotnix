@@ -12,9 +12,6 @@ input {
             layout "us,ru"
             options "grp:win_space_toggle"
         }
-
-        // Enable numlock on startup, omitting this setting disables it.
-        numlock
     }
 
     // Next sections include libinput settings.
@@ -671,4 +668,5 @@ gestures {
 }
 
 include "./noctalia.kdl"
-
+include "./custom/desktop.kdl"
+include "./custom/laptop.kdl"

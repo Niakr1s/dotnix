@@ -1,7 +1,7 @@
 {
-  config,
   pkgs,
   username,
+  hostname,
   flakeDir,
   ...
 }: {
@@ -45,6 +45,12 @@
 
     home.file.".config/noctalia" = {
       source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/noctalia";
+    };
+
+    home.file.".config/niri/custom" = {
+      # TODO: probably move to a separate module, too lazy atm
+      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/niri/${hostname}";
+      recursive = true;
     };
 
     home.file.".config/alacritty" = {
