@@ -12,6 +12,7 @@
         "nix"
         "toml"
         "make"
+        "lua"
       ];
 
       # The extraPackages option includes additional Nixpkgs in the FHS environment,
@@ -22,6 +23,7 @@
         nixd
         nil
         clang-tools
+        lua-language-server
       ];
 
       userKeymaps = [
