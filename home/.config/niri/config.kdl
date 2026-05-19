@@ -8,7 +8,7 @@
 // https://yalter.github.io/niri/Configuration:-Input
 input {
     // for configure in logind
-    disable-power-key-handling
+    // disable-power-key-handling
 
     keyboard {
         xkb {
