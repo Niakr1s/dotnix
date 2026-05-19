@@ -70,7 +70,7 @@ output "Xiaomi Corporation Mi Monitor 2920000136510" {
     position x=2560 y=280
 }
 
-spawn-sh-at-startup "firefox"
+spawn-sh-at-startup "sleep 5 && firefox"
 
 workspace "web" {
     open-on-output "HDMI-A-1"
