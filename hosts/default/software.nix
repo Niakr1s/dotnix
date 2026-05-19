@@ -5,6 +5,7 @@
 }: {
   # Packages with settings
   imports = [
+    ../../modules/de/niri.nix
     ../../modules/de/gnome
     ../../modules/dconf
 
