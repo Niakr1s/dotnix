@@ -42,7 +42,7 @@ in {
       timeouts = [
         {
           timeout = swayTimeouts."${hostname}";
-          command = "${pkgs.unstable.noctalia-shell}/bin/noctalia-shell ipc call lockScreen lockAndSuspend";
+          command = "${pkgs.unstable.noctalia-shell}/bin/noctalia-shell ipc call sessionMenu lockAndSuspend";
         }
       ];
     };
