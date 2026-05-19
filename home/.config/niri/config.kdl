@@ -668,3 +668,6 @@ gestures {
         // bottom-right
     }
 }
+
+include "./noctalia.kdl"
+
