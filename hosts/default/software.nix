@@ -101,6 +101,9 @@
     veracrypt
     cryptsetup # luks
 
+    lisgd # for touchscreen
+    libinput # for input hardware
+
     gnumake
     cmake
 
