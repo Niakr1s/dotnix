@@ -7,6 +7,7 @@
   imports = [
     ../../modules/de/gnome
     ../../modules/de/niri.nix
+    ../../modules/de/hyprland.nix
     ../../modules/de/sddm.nix
     ../../modules/dconf
 
