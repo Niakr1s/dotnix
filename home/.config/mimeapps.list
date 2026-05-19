@@ -3,6 +3,7 @@ x-scheme-handler/tg=org.telegram.desktop.desktop
 x-scheme-handler/tonsite=org.telegram.desktop.desktop
 video/x-matroska=mpv.desktop
 x-scheme-handler/discord-1345366770436800533=discord-1345366770436800533.desktop
+x-scheme-handler/joplin=joplin.desktop
 
 [Added Associations]
 x-scheme-handler/tg=org.telegram.desktop.desktop;
