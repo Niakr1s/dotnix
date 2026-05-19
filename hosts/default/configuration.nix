@@ -26,7 +26,7 @@
   users.users.${username} = {
     isNormalUser = true;
     hashedPassword = "$y$j9T$COxP910y84jokTHUN9FD0.$Boere7gydjwa9qqwinkeALiRJ0RkYH3dXc3804iMhX6";
-    extraGroups = ["wheel" "video" "audio" "disk" "networkmanager"];
+    extraGroups = ["wheel" "video" "audio" "disk" "networkmanager" "input"];
     uid = 1000;
     shell = pkgs.zsh;
     packages = with pkgs; [];
