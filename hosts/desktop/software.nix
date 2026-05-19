@@ -7,6 +7,7 @@
     # ../../modules/editors/vscode.nix
     ../../modules/editors/zed.nix
     ../../modules/vm/virt-manager.nix
+    ../../modules/de/niri.nix
 
     ### Docker services
     ../../modules/docker/services/comfyui.nix
