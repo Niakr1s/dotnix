@@ -34,5 +34,11 @@
       source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/noctalia";
       recursive = true;
     };
+
+    home.file.".config/alacritty" = {
+      # TODO: probably move to a separate module, too lazy atm
+      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/alacritty";
+      recursive = true;
+    };
   };
 }
