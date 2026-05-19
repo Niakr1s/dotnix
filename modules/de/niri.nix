@@ -4,16 +4,7 @@
   hostname,
   flakeDir,
   ...
-}: let
-  swayTimeouts = {
-    "desktop" = 600;
-    "laptop" = 300;
-  };
-  postLockCommand =
-    if "${hostname}" == "laptop"
-    then "systemctl suspend"
-    else "${pkgs.niri}/bin/niri msg action power-off-monitors";
-in {
+}: {
   imports = [
     ../wvkbd.nix
   ];
@@ -41,20 +32,6 @@ in {
   };
 
   home-manager.users.${username} = {config, ...}: {
-    services.swayidle = {
-      enable = true;
-      timeouts = [
-        {
-          timeout = swayTimeouts."${hostname}";
-          command = "${pkgs.unstable.noctalia-shell}/bin/noctalia-shell ipc call sessionMenu lock";
-        }
-        {
-          timeout = swayTimeouts."${hostname}" + 30;
-          command = "${postLockCommand}";
-        }
-      ];
-    };
-
     home.file.".config/niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/niri/config.kdl";
 
     home.file.".config/niri/noctalia.kdl" = {
