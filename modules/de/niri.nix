@@ -4,7 +4,26 @@
   hostname,
   flakeDir,
   ...
-}: {
+}: let
+  swayTimeouts = {
+    lock = {
+      "desktop" = 600;
+      "laptop" = 300;
+    };
+
+    # offset against lock
+    displayOffOffset = {
+      "desktop" = 60;
+      "laptop" = 30;
+    };
+
+    # offset against displayOff
+    suspendOffset = {
+      "desktop" = 60 * 60 * 24;
+      "laptop" = 30;
+    };
+  };
+in {
   imports = [
     ../wvkbd.nix
   ];
@@ -21,10 +40,6 @@
     # swayidle
 
     unstable.noctalia-shell
-
-    (writeShellScriptBin "wvkbd-deskintl" ''
-      wvkbd-deskintl -l full,cyrillic --landscape-layers full,cyrillic
-    '')
   ];
 
   security.polkit.enable = true; # polkit
@@ -40,12 +55,16 @@
       enable = true;
       timeouts = [
         {
-          timeout = 300;
+          timeout = swayTimeouts.lock."${hostname}";
           command = "${pkgs.unstable.noctalia-shell}/bin/noctalia-shell ipc call lockScreen lock";
         }
         {
-          timeout = 360;
+          timeout = swayTimeouts.lock."${hostname}" + swayTimeouts.displayOffOffset."${hostname}";
           command = "${pkgs.niri}/bin/niri msg action power-off-monitors";
+        }
+        {
+          timeout = swayTimeouts.lock."${hostname}" + swayTimeouts.displayOffOffset."${hostname}" + swayTimeouts.suspendOffset."${hostname}";
+          command = "systemctl suspend";
         }
       ];
     };
