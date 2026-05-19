@@ -1,12 +1,12 @@
 {
   pkgs,
-  inputs,
   username,
   ...
 }: {
   # Packages with settings
   imports = [
     ../../modules/de/gnome
+    ../../modules/de/niri.nix
     ../../modules/dconf
 
     ../../modules/services/qbittorrent.nix
