@@ -30,15 +30,15 @@
     "org.freedesktop.impl.portal.FileChooser" = ["gtk"]; # or "kde"
   };
 
-  security.pam.services.gtklock = {};
-  programs.gtklock = {
-    enable = true;
-    modules = with pkgs; [
-      gtklock-virtkb-module
-      # gtklock-powerbar-module
-      gtklock-userinfo-module
-    ];
-  };
+  # security.pam.services.gtklock = {};
+  # programs.gtklock = {
+  #   enable = true;
+  #   modules = with pkgs; [
+  #     gtklock-virtkb-module
+  #     # gtklock-powerbar-module
+  #     gtklock-userinfo-module
+  #   ];
+  # };
 
   home-manager.users.${username} = {config, ...}: {
     home.file.".config/niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/niri/config.kdl";
