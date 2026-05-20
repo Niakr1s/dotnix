@@ -34,5 +34,5 @@ bindings = [
   { key = "C", mods = "Control|Shift", action = "Copy" },
 ]
 
-[selection]
-save_to_clipboard = true
+[mouse]
+bindings = [{ mouse = "Right", action = "Copy" }]
