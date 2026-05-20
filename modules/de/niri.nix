@@ -30,6 +30,9 @@
     "org.freedesktop.impl.portal.FileChooser" = ["gtk"]; # or "kde"
   };
 
+  # example command
+  # gtklock -b \"$(jq -r 'first(.wallpapers[].dark) // .defaultWallpaper' ~/.cache/noctalia/wallpapers.json)\" -f
+
   # security.pam.services.gtklock = {};
   # programs.gtklock = {
   #   enable = true;
