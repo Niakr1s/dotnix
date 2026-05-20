@@ -22,6 +22,7 @@
     maximized = False
     selected_category = category:favorite
     ignored_supported_lutris_verison = 0.5.22
+    show_advanced_options = True
   '';
 in {
   home-manager.users.${username} = {
@@ -49,7 +50,7 @@ in {
             system = {
               env = {
                 PROTON_ENABLE_HDR = "1";
-                PROTON_ENABLE_WAYLAND = "1";
+                PROTON_ENABLE_WAYLAND = "0";
               };
               gamescope = false;
               gamescope_hdr = false;
