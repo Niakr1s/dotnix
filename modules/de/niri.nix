@@ -43,19 +43,32 @@
 
   home-manager.users.${username} = {config, ...}: {
     services.swayidle = let
-      # Lock command
       lock = "${pkgs.unstable.noctalia-shell}/bin/noctalia-shell ipc call sessionMenu lockAndSuspend";
       displayOff = "${pkgs.niri}/bin/niri msg action power-off-monitors";
+      lockTimeout =
+        if hostname == "laptop"
+        then 300
+        else 600;
+      displayOffTimeout = 20;
     in {
       enable = true;
       timeouts = [
+        # lock and suspend
         {
-          timeout = 20;
+          timeout = lockTimeout;
           command = lock;
         }
+
+        # turn off display after lock (for hosts where suspend disabled)
         {
-          timeout = 25;
+          timeout = lockTimeout + displayOffTimeout;
           command = displayOff;
+        }
+
+        # turn off display while idle on lockscreen
+        {
+          timeout = displayOffTimeout;
+          command = "${pkgs.procps}/bin/pgrep gtklock && { ${lock}; ${displayOff}; }";
         }
       ];
     };
