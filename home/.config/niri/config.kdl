@@ -365,7 +365,7 @@ binds {
     // or do a four-finger swipe up on a touchpad.
     Mod+Escape repeat=false { toggle-overview; }
 
-    Mod+Backspace repeat=false { close-window; }
+    Mod+Ctrl+Shift+Q repeat=false { close-window; }
 
     Mod+H     { focus-column-left; }
     // Mod+J     { focus-window-down; }
