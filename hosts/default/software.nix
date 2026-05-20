@@ -124,6 +124,7 @@
     fzf
     fd
     ripgrep
+    zenity # dialogs for scripts
     fdupes # find diplicate files
     lsof # show opened files
     usbutils
