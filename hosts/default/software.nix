@@ -5,9 +5,9 @@
 }: {
   # Packages with settings
   imports = [
-    ../../modules/de/gnome
+    # ../../modules/de/gnome
     ../../modules/de/niri.nix
-    ../../modules/de/hyprland.nix
+    # ../../modules/de/hyprland.nix
     ../../modules/de/sddm.nix
     ../../modules/dconf
 
@@ -160,6 +160,7 @@
     lynx # console web browser
     ntfs3g
     ntfsprogs
+    nautilus # file manager
 
     inotify-tools # File system events (files/directories being created, modified, deleted)
     audit # provides auditctl (who accessed what file, when)

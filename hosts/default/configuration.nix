@@ -160,6 +160,13 @@
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Classic";
     };
+    gtk = {
+      enable = true;
+      iconTheme = {
+        package = pkgs.adwaita-icon-theme;
+        name = "Adwaita";
+      };
+    };
     programs.man.generateCaches = true;
   };
 
