@@ -38,8 +38,6 @@
     enable = true;
     modules = with pkgs; [
       gtklock-virtkb-module
-      # gtklock-powerbar-module
-      gtklock-userinfo-module
     ];
   };
 
