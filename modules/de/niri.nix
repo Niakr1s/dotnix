@@ -25,12 +25,12 @@
 
   security.polkit.enable = true; # polkit
   # services.gnome.gnome-keyring.enable = true; # secret service
-  security.pam.services.gtklock = {};
 
   xdg.portal.config.niri = {
     "org.freedesktop.impl.portal.FileChooser" = ["gtk"]; # or "kde"
   };
 
+  security.pam.services.gtklock = {};
   programs.gtklock = {
     enable = true;
     modules = with pkgs; [
