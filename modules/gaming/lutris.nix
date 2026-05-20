@@ -51,7 +51,9 @@ in {
               env = {
                 PROTON_ENABLE_HDR = "1";
                 PROTON_ENABLE_WAYLAND = "0";
+                PROTON_DLSS_UPGRADE = "1";
               };
+              gamemode = false;
               gamescope = false;
               gamescope_hdr = false;
               mangohud = true;
