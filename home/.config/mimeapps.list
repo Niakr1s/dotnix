@@ -4,6 +4,7 @@ x-scheme-handler/tonsite=org.telegram.desktop.desktop
 video/x-matroska=mpv.desktop
 x-scheme-handler/discord-1345366770436800533=discord-1345366770436800533.desktop
 x-scheme-handler/joplin=joplin.desktop
+image/jpeg=org.gnome.gThumb.desktop
 
 [Added Associations]
 x-scheme-handler/tg=org.telegram.desktop.desktop;
@@ -12,3 +13,4 @@ application/vnd.sqlite3=dbeaver.desktop;
 video/x-matroska=mpv.desktop;
 x-scheme-handler/sms=org.gnome.Shell.Extensions.GSConnect.desktop;
 x-scheme-handler/tel=org.gnome.Shell.Extensions.GSConnect.desktop;
+image/jpeg=org.gnome.gThumb.desktop;

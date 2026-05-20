@@ -90,6 +90,7 @@
       (_: {doCheck = false;}))
 
     feh # image viewer
+    gthumb # better image viewer
 
     gptfdisk # gdisk sgidsk cgdisk
     smartmontools # smartctl
