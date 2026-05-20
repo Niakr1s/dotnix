@@ -33,17 +33,46 @@
   # example command
   # gtklock -b \"$(jq -r 'first(.wallpapers[].dark) // .defaultWallpaper' ~/.cache/noctalia/wallpapers.json)\" -f
 
-  # security.pam.services.gtklock = {};
-  # programs.gtklock = {
-  #   enable = true;
-  #   modules = with pkgs; [
-  #     gtklock-virtkb-module
-  #     # gtklock-powerbar-module
-  #     gtklock-userinfo-module
-  #   ];
-  # };
+  security.pam.services.gtklock = {};
+  programs.gtklock = {
+    enable = true;
+    modules = with pkgs; [
+      gtklock-virtkb-module
+      # gtklock-powerbar-module
+      gtklock-userinfo-module
+    ];
+  };
 
   home-manager.users.${username} = {config, ...}: {
+    services.swayidle = let
+      # Lock command
+      lock = "${pkgs.unstable.noctalia-shell}/bin/noctalia-shell ipc call sessionMenu lockAndSuspend";
+      displayOff = "${pkgs.niri}/bin/niri msg action power-off-monitors";
+    in {
+      enable = true;
+      timeouts = [
+        {
+          timeout = 20;
+          command = lock;
+        }
+        {
+          timeout = 25;
+          command = displayOff;
+        }
+      ];
+      events = [
+        {
+          event = "before-sleep";
+          # adding duplicated entries for the same event may not work
+          command = displayOff + "; " + lock;
+        }
+        {
+          event = "lock";
+          command = displayOff + "; " + lock;
+        }
+      ];
+    };
+
     home.file.".config/niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/niri/config.kdl";
 
     home.file.".config/niri/noctalia.kdl" = {
