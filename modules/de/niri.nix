@@ -60,17 +60,6 @@
           command = displayOff;
         }
       ];
-      events = [
-        {
-          event = "before-sleep";
-          # adding duplicated entries for the same event may not work
-          command = displayOff + "; " + lock;
-        }
-        {
-          event = "lock";
-          command = displayOff + "; " + lock;
-        }
-      ];
     };
 
     home.file.".config/niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/niri/config.kdl";
