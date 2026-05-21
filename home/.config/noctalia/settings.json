@@ -23,7 +23,8 @@
             "qalculate-gtk",
             "firefox",
             "re.sonny.Tangram",
-            "dev.zed.Zed"
+            "dev.zed.Zed",
+            "joplin"
         ],
         "position": "center",
         "screenshotAnnotationTool": "",
@@ -141,7 +142,7 @@
             "right": [
                 {
                     "compactMode": true,
-                    "diskPath": "/",
+                    "diskPath": "/home",
                     "iconColor": "none",
                     "id": "SystemMonitor",
                     "showCpuCores": false,
