@@ -98,13 +98,7 @@
                     "useCustomFont": false
                 },
                 {
-                    "defaultSettings": {
-                        "backend": "auto",
-                        "disableHoverIcon": false,
-                        "hideWhenUnavailable": false,
-                        "wvkbdBin": "wvkbd-mobintl"
-                    },
-                    "id": "plugin:2f19fc:osk-toggle"
+                    "id": "plugin:osk-toggle"
                 }
             ],
             "left": [

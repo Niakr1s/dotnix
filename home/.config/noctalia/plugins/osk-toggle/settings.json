@@ -1,6 +1,6 @@
 {
   "backend": "wvkbd",
   "hideWhenUnavailable": false,
-  "disableHoverIcon": true,
+  "disableHoverIcon": false,
   "wvkbdBin": "wvkbd-deskintl -l full,cyrillic --landscape-layers full,cyrillic"
 }

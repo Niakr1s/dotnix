@@ -12,9 +12,9 @@
         }
     ],
     "states": {
-        "2f19fc:osk-toggle": {
+        "osk-toggle": {
             "enabled": true,
-            "sourceUrl": "https://github.com/Niakr1s/noctalia-plugins"
+            "sourceUrl": "https://github.com/noctalia-dev/noctalia-plugins"
         },
         "timer": {
             "enabled": true,
