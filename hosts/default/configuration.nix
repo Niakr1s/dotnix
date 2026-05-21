@@ -97,6 +97,8 @@
     ];
   };
 
+  services.displayManager.defaultSession = "niri";
+
   # Garbage collection weekly
   nix.gc = {
     automatic = true;

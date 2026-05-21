@@ -7,8 +7,6 @@
     embeddedTheme = "purple_leaves";
   };
 in {
-  services.displayManager.defaultSession = "niri";
-
   environment.systemPackages = with pkgs.kdePackages; [
     custom-sddm-astronaut
     qtsvg
@@ -35,10 +33,5 @@ in {
         InputMethod = "qtvirtualkeyboard"; # Tells SDDM to use Qt's virtual keyboard
       };
     };
-  };
-
-  services.displayManager.autoLogin = {
-    enable = false;
-    user = "${username}";
   };
 }
