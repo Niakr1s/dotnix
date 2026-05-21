@@ -6,7 +6,7 @@
             "url": "https://github.com/noctalia-dev/noctalia-plugins"
         },
         {
-            "enabled": true,
+            "enabled": false,
             "name": "my fork",
             "url": "https://github.com/Niakr1s/noctalia-plugins"
         }
@@ -15,6 +15,10 @@
         "2f19fc:osk-toggle": {
             "enabled": true,
             "sourceUrl": "https://github.com/Niakr1s/noctalia-plugins"
+        },
+        "timer": {
+            "enabled": true,
+            "sourceUrl": "https://github.com/noctalia-dev/noctalia-plugins"
         }
     },
     "version": 2

@@ -86,6 +86,9 @@
         "widgets": {
             "center": [
                 {
+                    "id": "plugin:timer"
+                },
+                {
                     "clockColor": "none",
                     "customFont": "",
                     "formatHorizontal": "HH:mm:ss, dd.MM.yyyy",
@@ -93,6 +96,15 @@
                     "id": "Clock",
                     "tooltipFormat": "HH:mm:ss, dd.MM.yyyy",
                     "useCustomFont": false
+                },
+                {
+                    "defaultSettings": {
+                        "backend": "auto",
+                        "disableHoverIcon": false,
+                        "hideWhenUnavailable": false,
+                        "wvkbdBin": "wvkbd-mobintl"
+                    },
+                    "id": "plugin:2f19fc:osk-toggle"
                 }
             ],
             "left": [
@@ -163,14 +175,6 @@
                     "usePadding": false
                 },
                 {
-                    "hideWhenZero": false,
-                    "hideWhenZeroUnread": false,
-                    "iconColor": "none",
-                    "id": "NotificationHistory",
-                    "showUnreadBadge": true,
-                    "unreadBadgeColor": "primary"
-                },
-                {
                     "deviceNativePath": "__default__",
                     "displayMode": "graphic-clean",
                     "hideIfIdle": false,
@@ -178,18 +182,6 @@
                     "id": "Battery",
                     "showNoctaliaPerformance": false,
                     "showPowerProfiles": false
-                },
-                {
-                    "displayMode": "onhover",
-                    "iconColor": "none",
-                    "id": "Network",
-                    "textColor": "none"
-                },
-                {
-                    "displayMode": "onhover",
-                    "iconColor": "none",
-                    "id": "Bluetooth",
-                    "textColor": "none"
                 },
                 {
                     "displayMode": "onhover",
@@ -214,22 +206,6 @@
                     "icon": "noctalia",
                     "id": "ControlCenter",
                     "useDistroLogo": false
-                },
-                {
-                    "displayMode": "forceOpen",
-                    "iconColor": "none",
-                    "id": "KeyboardLayout",
-                    "showIcon": false,
-                    "textColor": "none"
-                },
-                {
-                    "defaultSettings": {
-                        "backend": "auto",
-                        "disableHoverIcon": false,
-                        "hideWhenUnavailable": false,
-                        "wvkbdBin": "wvkbd-mobintl"
-                    },
-                    "id": "plugin:2f19fc:osk-toggle"
                 }
             ]
         }
@@ -279,7 +255,7 @@
                 "id": "shortcuts-card"
             },
             {
-                "enabled": true,
+                "enabled": false,
                 "id": "audio-card"
             },
             {
@@ -287,7 +263,7 @@
                 "id": "brightness-card"
             },
             {
-                "enabled": true,
+                "enabled": false,
                 "id": "weather-card"
             },
             {
@@ -295,21 +271,18 @@
                 "id": "media-sysmon-card"
             }
         ],
-        "diskPath": "/",
+        "diskPath": "/home",
         "position": "close_to_bar_button",
         "shortcuts": {
             "left": [
                 {
-                    "id": "Network"
+                    "id": "WiFi"
                 },
                 {
                     "id": "Bluetooth"
                 },
                 {
                     "id": "WallpaperSelector"
-                },
-                {
-                    "id": "NoctaliaPerformance"
                 }
             ],
             "right": [
@@ -321,9 +294,6 @@
                 },
                 {
                     "id": "KeepAwake"
-                },
-                {
-                    "id": "NightLight"
                 }
             ]
         }
