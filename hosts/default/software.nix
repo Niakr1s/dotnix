@@ -108,6 +108,8 @@
     lisgd # for touchscreen
     libinput # for input hardware
 
+    fastfetch
+
     gnumake
     cmake
 
