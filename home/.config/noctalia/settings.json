@@ -86,6 +86,12 @@
         "widgets": {
             "center": [
                 {
+                    "defaultSettings": {
+                        "compactMode": false,
+                        "defaultDuration": 0,
+                        "iconColor": "none",
+                        "textColor": "none"
+                    },
                     "id": "plugin:timer"
                 },
                 {
@@ -98,6 +104,12 @@
                     "useCustomFont": false
                 },
                 {
+                    "defaultSettings": {
+                        "backend": "auto",
+                        "disableHoverIcon": false,
+                        "hideWhenUnavailable": false,
+                        "wvkbdBin": "wvkbd-mobintl"
+                    },
                     "id": "plugin:osk-toggle"
                 }
             ],
