@@ -56,3 +56,6 @@ prepend_previewers = [
 [tasks]
 image_alloc = 1073741824 # = 1024*1024*1024 = 1024MB
 suppress_preload = true
+
+[preview]
+cache_dir = "~/.cache/yazi"
