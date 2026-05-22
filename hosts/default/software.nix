@@ -109,6 +109,7 @@
     libinput # for input hardware
 
     fastfetch
+    cmatrix
 
     gnumake
     cmake
