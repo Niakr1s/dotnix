@@ -33,7 +33,10 @@
       ];
     };
 
-    # kernelParams = ["zfs.zfs_arc_max=12884901888"]; # 12GB × (1024×1024×1024)
+    kernelParams = [
+      # "zfs.zfs_arc_max=12884901888" # 12GB × (1024×1024×1024)
+      "clearcpuid=514" # probable fix for errors in proton (umip: For now, expensive software emulation returns the result)
+    ];
   };
 
   fileSystems."/data/ssd" = {
