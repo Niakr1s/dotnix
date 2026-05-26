@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  flakeDir,
+  username,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
     # --- Language Toolchains & Compilers (original) ---
     gcc # GNU C/C++ compiler
@@ -64,4 +69,14 @@
     # --- Package Managers & Version Managers (extra) ---
     uv
   ];
+
+  home-manager.users.${username} = {config, ...}: {
+    home.file.".npmrc" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.npmrc";
+    };
+
+    home.sessionPath = [
+      "/home/${username}/.local/npm/bin"
+    ];
+  };
 }
