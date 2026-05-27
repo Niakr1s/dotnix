@@ -75,41 +75,6 @@ vim.opt.completeopt = { "menu", "menuone", "noselect", "noinsert" }
 -- noselect: Don't auto-select the first item
 -- noinsert: Don't auto-insert text
 
--- Custom keybindings for omnibox
-vim.keymap.set("i", "<Tab>", function()
-	if vim.fn.pumvisible() == 1 then
-		return "<C-n>" -- Move to next item when menu is visible
-	else
-		return "<Tab>" -- Normal tab behavior
-	end
-end, { expr = true })
-
-vim.keymap.set("i", "<S-Tab>", function()
-	if vim.fn.pumvisible() == 1 then
-		return "<C-p>" -- Move to previous item when menu is visible
-	else
-		return "<S-Tab>" -- Normal shift+tab behavior
-	end
-end, { expr = true })
-
--- Enter to confirm selection
-vim.keymap.set("i", "<CR>", function()
-	if vim.fn.pumvisible() == 1 then
-		return "<C-y>" -- Confirm/select the highlighted item
-	else
-		return "<CR>" -- Normal enter behavior (new line)
-	end
-end, { expr = true })
-
--- Esc to cancel without changing anything
-vim.keymap.set("i", "<Esc>", function()
-	if vim.fn.pumvisible() == 1 then
-		return "<C-e>"
-	else
-		return "<Esc>" -- Normal escape behavior
-	end
-end, { expr = true })
-
 -- Ctrl+Space to manually trigger omnifunc completion
 vim.keymap.set("i", "<C-Space>", "<C-x><C-o>", { noremap = true })
 
@@ -214,3 +179,6 @@ require("yazi").setup({
 vim.keymap.set("n", "<leader>-", function()
     require("yazi").yazi()
 end, { desc = "Open yazi at the current file" })
+
+-- [[ Blink.cmp
+require("blink.cmp").setup()

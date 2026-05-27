@@ -25,7 +25,7 @@
         comment-nvim
         nvim-surround
         yazi-nvim
-        # blink-cmp
+        blink-cmp
         # todo-comments-nvim
         # trouble-nvim
         # undotree
