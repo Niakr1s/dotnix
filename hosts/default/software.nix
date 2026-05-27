@@ -183,6 +183,7 @@
     zip
     unzip
     p7zip
+    _7zz
     rar
     unar # universal archive extractor (unar, lsar)
 
