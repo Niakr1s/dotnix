@@ -23,7 +23,6 @@
         nvim-treesitter.withAllGrammars
         telescope-nvim
         comment-nvim
-        conform-nvim
         # nvim-autopairs
         # lualine-nvim
         # blink-cmp
