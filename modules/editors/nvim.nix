@@ -28,6 +28,7 @@
         blink-cmp
         gitsigns-nvim
         which-key-nvim
+        codecompanion-nvim
 
         # themes
         tokyonight-nvim
@@ -54,6 +55,10 @@
         yaml-language-server
         marksman
         phpactor
+
+        file
+        ripgrep
+        curl
       ];
     };
 

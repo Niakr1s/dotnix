@@ -232,3 +232,32 @@ require('gitsigns').setup{
     map('n', '<leader>hi', gitsigns.preview_hunk_inline, { desc = "Git: Preview hunk inline" })
   end
 }
+
+require("codecompanion").setup({
+  strategies = {
+      -- Configures the default model for running custom prompts.
+      cmd = {
+        adapter = "ollama",
+        model = "gemma4:e4b",
+      },
+
+      -- Configures the model for the interactive chat window (:CompanionChat).
+      chat = {
+        adapter = "ollama",
+        model = "gemma4:e4b",
+      },
+
+      -- Configures the model for any action that modifies code directly in your buffer
+      -- using the 'inline' strategy.
+      inline = {
+        adapter = "ollama",
+        model = "gemma4:e4b",
+      },
+    },
+})
+
+vim.keymap.set({ "n", "v" }, "<LocalLeader>ac", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
+vim.keymap.set("v", "<LocalLeader>aa", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
+
+-- Expand 'cc' into 'CodeCompanion' in the command line
+vim.cmd([[cab cc CodeCompanion]])
