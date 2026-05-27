@@ -199,36 +199,36 @@ require('gitsigns').setup{
     -- Navigation
     map('n', ']h', function()
       if vim.wo.diff then
-        vim.cmd.normal({']c', bang = true})
+        vim.cmd.normal({']h', bang = true})
       else
         gitsigns.nav_hunk('next')
       end
-    end)
+    end, { desc = "Git: Next hunk" })
 
     map('n', '[h', function()
       if vim.wo.diff then
-        vim.cmd.normal({'[c', bang = true})
+        vim.cmd.normal({'[h', bang = true})
       else
         gitsigns.nav_hunk('prev')
       end
-    end)
+    end, { desc = "Git: Previous hunk" })
 
     -- Actions
-    map('n', '<leader>hs', gitsigns.stage_hunk)
-    map('n', '<leader>hr', gitsigns.reset_hunk)
+    map('n', '<leader>hs', gitsigns.stage_hunk, { desc = "Git: Stage hunk" })
+    map('n', '<leader>hr', gitsigns.reset_hunk, { desc = "Git: Reset hunk" })
 
     map('v', '<leader>hs', function()
       gitsigns.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') })
-    end)
+    end, { desc = "Git: Stage hunk" })
 
     map('v', '<leader>hr', function()
       gitsigns.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
-    end)
+    end, { desc = "Git: Reset hunk" })
 
-    map('n', '<leader>hS', gitsigns.stage_buffer)
-    map('n', '<leader>hR', gitsigns.reset_buffer)
+    map('n', '<leader>hS', gitsigns.stage_buffer, { desc = "Git: Stage buffer" })
+    map('n', '<leader>hR', gitsigns.reset_buffer, { desc = "Git: Reset buffer" })
 
-    map('n', '<leader>hp', gitsigns.preview_hunk)
-    map('n', '<leader>hi', gitsigns.preview_hunk_inline)
+    map('n', '<leader>hp', gitsigns.preview_hunk, { desc = "Git: Preview hunk" })
+    map('n', '<leader>hi', gitsigns.preview_hunk_inline, { desc = "Git: Preview hunk inline" })
   end
 }
