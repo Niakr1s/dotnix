@@ -5,7 +5,7 @@
 }: {
   imports = [
     # ../../modules/editors/vscode.nix
-    ../../modules/editors/zed.nix
+    # ../../modules/editors/zed.nix
     ../../modules/vm/virt-manager.nix
 
     ### Docker services
