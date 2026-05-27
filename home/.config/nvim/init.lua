@@ -60,6 +60,51 @@ vim.keymap.set("n", "<leader>fg", telescope_builtin.live_grep, { desc = "Telesco
 vim.keymap.set("n", "<leader>fb", telescope_builtin.buffers, { desc = "Telescope buffers" })
 vim.keymap.set("n", "<leader>fh", telescope_builtin.help_tags, { desc = "Telescope help tags" })
 
+-- Configure completion behavior
+vim.opt.completeopt = { "menu", "menuone", "noselect", "noinsert" }
+-- menu: Show popup menu
+-- menuone: Show menu even with one item
+-- noselect: Don't auto-select the first item
+-- noinsert: Don't auto-insert text
+
+-- Custom keybindings for omnibox
+vim.keymap.set("i", "<Tab>", function()
+	if vim.fn.pumvisible() == 1 then
+		return "<C-n>" -- Move to next item when menu is visible
+	else
+		return "<Tab>" -- Normal tab behavior
+	end
+end, { expr = true })
+
+vim.keymap.set("i", "<S-Tab>", function()
+	if vim.fn.pumvisible() == 1 then
+		return "<C-p>" -- Move to previous item when menu is visible
+	else
+		return "<S-Tab>" -- Normal shift+tab behavior
+	end
+end, { expr = true })
+
+-- Enter to confirm selection
+vim.keymap.set("i", "<CR>", function()
+	if vim.fn.pumvisible() == 1 then
+		return "<C-y>" -- Confirm/select the highlighted item
+	else
+		return "<CR>" -- Normal enter behavior (new line)
+	end
+end, { expr = true })
+
+-- Esc to cancel without changing anything
+vim.keymap.set("i", "<Esc>", function()
+	if vim.fn.pumvisible() == 1 then
+		return "<C-e>"
+	else
+		return "<Esc>" -- Normal escape behavior
+	end
+end, { expr = true })
+
+-- Ctrl+Space to manually trigger omnifunc completion
+vim.keymap.set("i", "<C-Space>", "<C-x><C-o>", { noremap = true })
+
 -- [[ Lsp ]]
 
 -- Python
@@ -111,7 +156,7 @@ vim.lsp.enable("phpactor")
 -- "gO" is mapped to vim.lsp.buf.document_symbol()
 -- CTRL-S (Insert mode) is mapped to vim.lsp.buf.signature_help()
 -- v_an and v_in fall back to LSP vim.lsp.buf.selection_range() if treesitter is not active.
--- gx handles textDocument/documentLink. 
+-- gx handles textDocument/documentLink.
 --
 -- BUFFER-LOCAL DEFAULTS:
 -- 'omnifunc' is set to vim.lsp.omnifunc(), use i_CTRL-X_CTRL-O to trigger completion.
@@ -120,9 +165,17 @@ vim.lsp.enable("phpactor")
 -- To opt out of this use gw instead of gq, or clear 'formatexpr' on LspAttach.
 -- K is mapped to vim.lsp.buf.hover() unless 'keywordprg' is customized or a custom keymap for K exists.
 
-vim.keymap.set('n', 'grd', vim.diagnostic.open_float, 
-    { desc = 'Show diagnostic in floating window' })
+vim.keymap.set("n", "H", vim.diagnostic.open_float, { desc = "Show diagnostic in floating window" })
+
+-- Go to definition
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
+
+-- Go to declaration (often similar to definition)
+vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
 
 vim.api.nvim_create_user_command("Format", function()
 	vim.lsp.buf.format({ async = true, lsp_fallback = true })
 end, { desc = "Format current buffer" })
+
+-- [[ Surround
+require("nvim-surround").setup()
