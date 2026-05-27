@@ -87,9 +87,8 @@
       source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/noctalia";
     };
 
-    home.file.".config/niri/host" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/niri/hosts/${hostname}";
-      recursive = true;
+    home.file.".config/niri/${hostname}.kdl" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/niri/${hostname}.kdl";
     };
 
     home.file.".config/alacritty" = {

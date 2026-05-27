@@ -626,5 +626,5 @@ switch-events {
 }
 
 include "./noctalia.kdl"
-include "./host/desktop.kdl"
-include "./host/laptop.kdl"
+include optional=true "./desktop.kdl"
+include optional=true "./laptop.kdl"
