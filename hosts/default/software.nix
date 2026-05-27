@@ -5,7 +5,7 @@
 }: {
   # Packages with settings
   imports = [
-    # ../../modules/de/gnome
+    ../../modules/de/gnome
     ../../modules/de/niri.nix
     # ../../modules/de/hyprland.nix
     # ../../modules/de/sddm.nix
