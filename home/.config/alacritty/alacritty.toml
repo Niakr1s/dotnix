@@ -10,16 +10,18 @@ opacity = 0.90
 size = 10.0
 
 [font.normal]
-family = "JetBrainsMono Nerd Font"
+family = "Hack Nerd Font Mono"
+# family = "Noto Sans Mono"
+# family = "JetBrainsMono Nerd Font"
 
-[font.bold]
-family = "JetBrainsMono Nerd Font"
-
-[font.italic]
-family = "JetBrainsMono Nerd Font"
-
-[font.bold_italic]
-family = "JetBrainsMono Nerd Font"
+# [font.bold]
+# family = "JetBrainsMono Nerd Font"
+#
+# [font.italic]
+# family = "JetBrainsMono Nerd Font"
+#
+# [font.bold_italic]
+# family = "JetBrainsMono Nerd Font"
 
 [scrolling]
 history = 100000

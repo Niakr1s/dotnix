@@ -11,6 +11,7 @@
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-color-emoji
+    nerd-fonts.hack
     liberation_ttf
     fira-code
     fira-code-symbols
