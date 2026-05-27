@@ -16,10 +16,14 @@ vim.opt.splitbelow = true         -- New splits open below
 vim.opt.list = true               -- Show invisible characters
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 vim.opt.inccommand = "split"      -- Preview substitutions live
-vim.opt.cursorline = true         -- Highlight current line
+vim.opt.cursorline = false         -- Highlight current line
 vim.opt.scrolloff = 10            -- Keep 10 lines below/above cursor
 vim.opt.sidescrolloff = 8         -- Keep 8 columns side scrolling
 vim.opt.termguicolors = true
+
+require("tokyonight").setup({
+  transparent = true,
+})
 vim.cmd.colorscheme("tokyonight-night")
 
 -- [[ Tab Settings: 2 spaces ]]
