@@ -29,6 +29,7 @@
         gitsigns-nvim
 
         # themes
+        tokyonight-nvim
         catppuccin-nvim
         nord-nvim
         gruvbox-material-nvim

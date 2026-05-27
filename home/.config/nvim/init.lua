@@ -20,7 +20,7 @@ vim.opt.cursorline = true -- Highlight current line
 vim.opt.scrolloff = 10 -- Keep 10 lines below/above cursor
 vim.opt.sidescrolloff = 8 -- Keep 8 columns side scrolling
 vim.opt.termguicolors = true
-vim.cmd.colorscheme("gruvbox-material")
+vim.cmd.colorscheme("tokyonight-night")
 
 -- [[ Tab Settings: 2 spaces ]]
 vim.opt.tabstop = 2 -- Number of spaces a tab counts for
