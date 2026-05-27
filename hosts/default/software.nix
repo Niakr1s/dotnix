@@ -6,6 +6,8 @@
 }: {
   # Packages with settings
   imports = [
+    ../../modules/nixpkgs-manual.nix
+
     ../../modules/de/gnome
     ../../modules/de/niri.nix
     # ../../modules/de/hyprland.nix
