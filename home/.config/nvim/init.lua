@@ -192,3 +192,19 @@ require("nvim-treesitter.configs").setup({
 	textobjects = { enable = true },
   indent = { enable = true }
 })
+
+
+-- [[ Yazi
+vim.g.loaded_netrwPlugin = 1 -- disable deafult explorer (netrw) when open with 'vim .'
+require("yazi").setup({
+    -- Set the floating window border to 'none' to remove borders
+    yazi_floating_window_border = 'none',
+    -- Optional: other common settings you might want to include
+    open_for_directories = true, -- Set to true if you want yazi to replace netrw
+    floating_window_scaling_factor = 0.8, -- Control window size (0.9 = 90%)
+    yazi_floating_window_winblend = 0, -- Transparency (0 = opaque)
+})
+
+vim.keymap.set("n", "<leader>-", function()
+    require("yazi").yazi()
+end, { desc = "Open yazi at the current file" })
