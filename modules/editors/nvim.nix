@@ -27,6 +27,7 @@
         yazi-nvim
         blink-cmp
         gitsigns-nvim
+        which-key-nvim
 
         # themes
         tokyonight-nvim
