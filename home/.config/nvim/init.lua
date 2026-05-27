@@ -190,6 +190,5 @@ require("nvim-treesitter.configs").setup({
 	highlight = { enable = true },
 	incremental_selection = { enable = true },
 	textobjects = { enable = true },
+  indent = { enable = true }
 })
-
-vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
