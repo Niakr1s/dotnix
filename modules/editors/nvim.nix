@@ -29,6 +29,7 @@
         gitsigns-nvim
         which-key-nvim
         codecompanion-nvim
+        plenary-nvim # lua functions you don't want to write
 
         # themes
         tokyonight-nvim
