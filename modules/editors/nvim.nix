@@ -29,6 +29,12 @@
         # todo-comments-nvim
         # trouble-nvim
         # undotree
+
+        # themes
+        catppuccin-nvim
+        nord-nvim
+        gruvbox-material-nvim
+        oxocarbon-nvim
       ];
 
       extraPackages = with pkgs; [
