@@ -24,8 +24,6 @@
         telescope-nvim
         comment-nvim
         nvim-surround
-        # nvim-autopairs
-        # lualine-nvim
         # blink-cmp
         # todo-comments-nvim
         # trouble-nvim

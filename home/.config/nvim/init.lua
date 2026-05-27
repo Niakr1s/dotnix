@@ -19,6 +19,8 @@ vim.opt.inccommand = "split" -- Preview substitutions live
 vim.opt.cursorline = true -- Highlight current line
 vim.opt.scrolloff = 10 -- Keep 10 lines below/above cursor
 vim.opt.sidescrolloff = 8 -- Keep 8 columns side scrolling
+vim.opt.termguicolors = true
+vim.cmd.colorscheme("slate")
 
 -- [[ Tab Settings: 2 spaces ]]
 vim.opt.tabstop = 2 -- Number of spaces a tab counts for
@@ -179,3 +181,15 @@ end, { desc = "Format current buffer" })
 
 -- [[ Surround
 require("nvim-surround").setup()
+
+-- [[ Treesitter
+-- vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+-- vim.wo[0][0].foldmethod = "expr"
+
+require("nvim-treesitter.configs").setup({
+	highlight = { enable = true },
+	incremental_selection = { enable = true },
+	textobjects = { enable = true },
+})
+
+vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
