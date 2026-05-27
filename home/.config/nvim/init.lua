@@ -54,8 +54,25 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half page up, center cursor" }
 vim.keymap.set("n", "n", "nzzzv", { desc = "Next search result, center" })
 vim.keymap.set("n", "N", "Nzzzv", { desc = "Previous search result, center" })
 
-local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
-vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
-vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
+local telescope_builtin = require("telescope.builtin")
+vim.keymap.set("n", "<leader>ff", telescope_builtin.find_files, { desc = "Telescope find files" })
+vim.keymap.set("n", "<leader>fg", telescope_builtin.live_grep, { desc = "Telescope live grep" })
+vim.keymap.set("n", "<leader>fb", telescope_builtin.buffers, { desc = "Telescope buffers" })
+vim.keymap.set("n", "<leader>fh", telescope_builtin.help_tags, { desc = "Telescope help tags" })
+
+-- [[ Conform ]]
+require("conform").setup({
+	formatters_by_ft = {
+		lua = { "stylua" },
+		-- Conform will run multiple formatters sequentially
+		python = { "ruff" },
+		-- You can customize some of the format options for the filetype (:help conform.format)
+		-- rust = { "rustfmt", lsp_format = "fallback" },
+		-- Conform will run the first available formatter
+		-- javascript = { "prettierd", "prettier", stop_after_first = true },
+	},
+})
+
+vim.api.nvim_create_user_command("Format", function()
+	require("conform").format({ async = true, lsp_fallback = true })
+end, { desc = "Format current buffer with conform" })
