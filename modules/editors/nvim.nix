@@ -30,6 +30,7 @@
         which-key-nvim
         codecompanion-nvim
         plenary-nvim # lua functions you don't want to write
+        nvim-web-devicons # nerd font icons
 
         # themes
         tokyonight-nvim
