@@ -24,6 +24,7 @@
         telescope-nvim
         comment-nvim
         nvim-surround
+        yazi-nvim
         # blink-cmp
         # todo-comments-nvim
         # trouble-nvim
@@ -31,6 +32,7 @@
       ];
 
       extraPackages = with pkgs; [
+        yazi
         ruff
         ruby-lsp
         bash-language-server
