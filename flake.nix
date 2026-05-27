@@ -26,11 +26,6 @@
       flake = false;
     };
 
-    nvf = {
-      url = "github:notashelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-
     cia-unix = {
       url = "github:Niakr1s/cia-unix-full";
     };
@@ -43,7 +38,6 @@
     home-manager,
     disko,
     sops-nix,
-    nvf,
     cia-unix,
     ...
   } @ inputs: let

@@ -3,6 +3,12 @@
   username,
   ...
 }: {
+  # Add this in flake.nix
+  # nvf = {
+  #   url = "github:notashelf/nvf";
+  #   inputs.nixpkgs.follows = "nixpkgs-unstable";
+  # };
+
   home-manager.users.${username} = {
     imports = [
       inputs.nvf.homeManagerModules.default # TODO
