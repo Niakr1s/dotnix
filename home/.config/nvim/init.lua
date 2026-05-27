@@ -235,24 +235,27 @@ require('gitsigns').setup {
 
 require("codecompanion").setup({
   strategies = {
-    -- Configures the default model for running custom prompts.
-    cmd = {
-      adapter = "ollama",
-      model = "gemma4:e4b",
-    },
-
-    -- Configures the model for the interactive chat window (:CompanionChat).
-    chat = {
-      adapter = "ollama",
-      model = "gemma4:e4b",
-    },
-
-    -- Configures the model for any action that modifies code directly in your buffer
-    -- using the 'inline' strategy.
-    inline = {
-      adapter = "ollama",
-      model = "gemma4:e4b",
-    },
+    -- Configure ollama for all strategies
+    chat = { adapter = "ollama" },
+    inline = { adapter = "ollama" },
+    agent = { adapter = "ollama" },
+  },
+  adapters = {
+    http = {
+    -- Optional: Customize ollama adapter with your settings
+    ollama = function()
+      return require("codecompanion.adapters").extend("ollama", {
+        schema = {
+          model = {
+            default = "gemma4:e4b",  -- or your preferred model
+          },
+          num_ctx = {
+            default = 16384,  -- Context window size
+          },
+        },
+      })
+    end,
+    }
   },
 })
 
