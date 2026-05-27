@@ -30,6 +30,10 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    cia-unix = {
+      url = "github:Niakr1s/cia-unix-full";
+    };
   };
 
   outputs = {
@@ -40,6 +44,7 @@
     disko,
     sops-nix,
     nvf,
+    cia-unix,
     ...
   } @ inputs: let
     system = "x86_64-linux";

@@ -1,5 +1,6 @@
 {
   pkgs,
+  inputs,
   username,
   ...
 }: {
@@ -228,7 +229,7 @@
     furmark
 
     # rom tools
-    (pkgs.callPackage ../../pkgs/makerom {}) # convert cia to 3ds
+    inputs.cia-unix.packages.${pkgs.system}.default
 
     gpu-screen-recorder-gtk # GUI app
   ];
