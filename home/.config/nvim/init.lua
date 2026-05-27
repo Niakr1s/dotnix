@@ -1,31 +1,31 @@
 -- [[ Basic Settings ]]
-vim.opt.number = true -- Show line numbers
-vim.opt.relativenumber = false -- Relative line numbers
-vim.opt.mouse = "a" -- Enable mouse support
-vim.opt.showmode = false -- We'll use statusline instead
+vim.opt.number = true             -- Show line numbers
+vim.opt.relativenumber = false    -- Relative line numbers
+vim.opt.mouse = "a"               -- Enable mouse support
+vim.opt.showmode = false          -- We'll use statusline instead
 vim.opt.clipboard = "unnamedplus" -- Use system clipboard
-vim.opt.breakindent = true -- Better indentation for wrapped lines
-vim.opt.undofile = true -- Save undo history
-vim.opt.ignorecase = true -- Case-insensitive searching
-vim.opt.smartcase = true -- But be smart about it
-vim.opt.signcolumn = "yes" -- Keep sign column always visible
-vim.opt.updatetime = 250 -- Faster update time
-vim.opt.timeoutlen = 300 -- Faster key sequence timeout
-vim.opt.splitright = true -- New splits open to the right
-vim.opt.splitbelow = true -- New splits open below
-vim.opt.list = true -- Show invisible characters
+vim.opt.breakindent = true        -- Better indentation for wrapped lines
+vim.opt.undofile = true           -- Save undo history
+vim.opt.ignorecase = true         -- Case-insensitive searching
+vim.opt.smartcase = true          -- But be smart about it
+vim.opt.signcolumn = "yes"        -- Keep sign column always visible
+vim.opt.updatetime = 250          -- Faster update time
+vim.opt.timeoutlen = 300          -- Faster key sequence timeout
+vim.opt.splitright = true         -- New splits open to the right
+vim.opt.splitbelow = true         -- New splits open below
+vim.opt.list = true               -- Show invisible characters
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
-vim.opt.inccommand = "split" -- Preview substitutions live
-vim.opt.cursorline = true -- Highlight current line
-vim.opt.scrolloff = 10 -- Keep 10 lines below/above cursor
-vim.opt.sidescrolloff = 8 -- Keep 8 columns side scrolling
+vim.opt.inccommand = "split"      -- Preview substitutions live
+vim.opt.cursorline = true         -- Highlight current line
+vim.opt.scrolloff = 10            -- Keep 10 lines below/above cursor
+vim.opt.sidescrolloff = 8         -- Keep 8 columns side scrolling
 vim.opt.termguicolors = true
 vim.cmd.colorscheme("tokyonight-night")
 
 -- [[ Tab Settings: 2 spaces ]]
-vim.opt.tabstop = 2 -- Number of spaces a tab counts for
-vim.opt.softtabstop = 2 -- Number of spaces for editing (backspace)
-vim.opt.shiftwidth = 2 -- Number of spaces for auto-indent
+vim.opt.tabstop = 2      -- Number of spaces a tab counts for
+vim.opt.softtabstop = 2  -- Number of spaces for editing (backspace)
+vim.opt.shiftwidth = 2   -- Number of spaces for auto-indent
 vim.opt.expandtab = true -- Convert tabs to spaces
 
 -- [[ Enable .nvim.lua files]]
@@ -147,7 +147,7 @@ vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
 vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
 
 vim.api.nvim_create_user_command("Format", function()
-	vim.lsp.buf.format({ async = true, lsp_fallback = true })
+  vim.lsp.buf.format({ async = true, lsp_fallback = true })
 end, { desc = "Format current buffer" })
 
 -- [[ Surround
@@ -158,9 +158,9 @@ require("nvim-surround").setup()
 -- vim.wo[0][0].foldmethod = "expr"
 
 require("nvim-treesitter.configs").setup({
-	highlight = { enable = true },
-	incremental_selection = { enable = true },
-	textobjects = { enable = true },
+  highlight = { enable = true },
+  incremental_selection = { enable = true },
+  textobjects = { enable = true },
   indent = { enable = true }
 })
 
@@ -168,23 +168,23 @@ require("nvim-treesitter.configs").setup({
 -- [[ Yazi
 vim.g.loaded_netrwPlugin = 1 -- disable deafult explorer (netrw) when open with 'vim .'
 require("yazi").setup({
-    -- Set the floating window border to 'none' to remove borders
-    yazi_floating_window_border = 'none',
-    -- Optional: other common settings you might want to include
-    open_for_directories = true, -- Set to true if you want yazi to replace netrw
-    floating_window_scaling_factor = 0.8, -- Control window size (0.9 = 90%)
-    yazi_floating_window_winblend = 0, -- Transparency (0 = opaque)
+  -- Set the floating window border to 'none' to remove borders
+  yazi_floating_window_border = 'none',
+  -- Optional: other common settings you might want to include
+  open_for_directories = true,            -- Set to true if you want yazi to replace netrw
+  floating_window_scaling_factor = 0.8,   -- Control window size (0.9 = 90%)
+  yazi_floating_window_winblend = 0,      -- Transparency (0 = opaque)
 })
 
 vim.keymap.set("n", "<leader>-", function()
-    require("yazi").yazi()
+  require("yazi").yazi()
 end, { desc = "Open yazi at the current file" })
 
 -- [[ Blink.cmp
 require("blink.cmp").setup()
 
 -- [[ Gitsigns
-require('gitsigns').setup{
+require('gitsigns').setup {
   current_line_blame = true,
 
   on_attach = function(bufnr)
@@ -199,7 +199,7 @@ require('gitsigns').setup{
     -- Navigation
     map('n', ']h', function()
       if vim.wo.diff then
-        vim.cmd.normal({']h', bang = true})
+        vim.cmd.normal({ ']h', bang = true })
       else
         gitsigns.nav_hunk('next')
       end
@@ -207,7 +207,7 @@ require('gitsigns').setup{
 
     map('n', '[h', function()
       if vim.wo.diff then
-        vim.cmd.normal({'[h', bang = true})
+        vim.cmd.normal({ '[h', bang = true })
       else
         gitsigns.nav_hunk('prev')
       end
@@ -235,25 +235,25 @@ require('gitsigns').setup{
 
 require("codecompanion").setup({
   strategies = {
-      -- Configures the default model for running custom prompts.
-      cmd = {
-        adapter = "ollama",
-        model = "gemma4:e4b",
-      },
-
-      -- Configures the model for the interactive chat window (:CompanionChat).
-      chat = {
-        adapter = "ollama",
-        model = "gemma4:e4b",
-      },
-
-      -- Configures the model for any action that modifies code directly in your buffer
-      -- using the 'inline' strategy.
-      inline = {
-        adapter = "ollama",
-        model = "gemma4:e4b",
-      },
+    -- Configures the default model for running custom prompts.
+    cmd = {
+      adapter = "ollama",
+      model = "gemma4:e4b",
     },
+
+    -- Configures the model for the interactive chat window (:CompanionChat).
+    chat = {
+      adapter = "ollama",
+      model = "gemma4:e4b",
+    },
+
+    -- Configures the model for any action that modifies code directly in your buffer
+    -- using the 'inline' strategy.
+    inline = {
+      adapter = "ollama",
+      model = "gemma4:e4b",
+    },
+  },
 })
 
 vim.keymap.set({ "n", "v" }, "<LocalLeader>ac", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
