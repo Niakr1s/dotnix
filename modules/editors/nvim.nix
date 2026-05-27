@@ -26,9 +26,7 @@
         nvim-surround
         yazi-nvim
         blink-cmp
-        # todo-comments-nvim
-        # trouble-nvim
-        # undotree
+        gitsigns-nvim
 
         # themes
         catppuccin-nvim
