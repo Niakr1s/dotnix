@@ -22,27 +22,32 @@
         nvim-lspconfig
         nvim-treesitter.withAllGrammars
         telescope-nvim
-        catppuccin-nvim
-        conform-nvim
-        nvim-autopairs
         comment-nvim
-        lualine-nvim
-        blink-cmp
-        todo-comments-nvim
-        trouble-nvim
-        undotree
+        conform-nvim
+        # nvim-autopairs
+        # lualine-nvim
+        # blink-cmp
+        # todo-comments-nvim
+        # trouble-nvim
+        # undotree
       ];
 
       extraPackages = with pkgs; [
-        # formatters
         ruff
-        stylua
-        alejandra
-
-        # language servers
-        pyright
-        lua-language-server
+        ruby-lsp
+        bash-language-server
+        rust-analyzer
+        gopls
+        clang-tools
+        csharp-ls
         nil
+        lua-language-server
+        vscode-langservers-extracted
+        vtsls
+        zls
+        yaml-language-server
+        marksman
+        phpactor
       ];
     };
 

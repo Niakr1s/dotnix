@@ -60,19 +60,69 @@ vim.keymap.set("n", "<leader>fg", telescope_builtin.live_grep, { desc = "Telesco
 vim.keymap.set("n", "<leader>fb", telescope_builtin.buffers, { desc = "Telescope buffers" })
 vim.keymap.set("n", "<leader>fh", telescope_builtin.help_tags, { desc = "Telescope help tags" })
 
--- [[ Conform ]]
-require("conform").setup({
-	formatters_by_ft = {
-		lua = { "stylua" },
-		-- Conform will run multiple formatters sequentially
-		python = { "ruff" },
-		-- You can customize some of the format options for the filetype (:help conform.format)
-		-- rust = { "rustfmt", lsp_format = "fallback" },
-		-- Conform will run the first available formatter
-		-- javascript = { "prettierd", "prettier", stop_after_first = true },
-	},
-})
+-- [[ Lsp ]]
+
+-- Python
+vim.lsp.enable("ruff")
+-- Ruby
+vim.lsp.enable("ruby_lsp")
+-- Bash
+vim.lsp.enable("bashls")
+-- Rust
+vim.lsp.enable("rust_analyzer")
+-- Go (Golang)
+vim.lsp.enable("gopls")
+-- C / C++
+vim.lsp.enable("clangd")
+-- C#
+vim.lsp.enable("csharp_ls")
+-- Nix
+vim.lsp.enable("nil_ls")
+-- Lua
+vim.lsp.enable("lua_ls")
+-- JSON
+vim.lsp.enable("jsonls")
+-- HTML
+vim.lsp.enable("html")
+-- CSS
+vim.lsp.enable("cssls")
+-- TypeScript / JavaScript
+vim.lsp.enable("vtsls")
+-- Java
+vim.lsp.enable("jdtls")
+-- Zig
+vim.lsp.enable("zls")
+-- YAML
+vim.lsp.enable("yamlls")
+-- Markdown
+vim.lsp.enable("marksman")
+-- PHP
+vim.lsp.enable("phpactor")
+
+-- [[ Lsp hotkeys ]]
+--
+-- GLOBAL DEFAULTS:
+-- "gra" (Normal and Visual mode) is mapped to vim.lsp.buf.code_action()
+-- "gri" is mapped to vim.lsp.buf.implementation()
+-- "grn" is mapped to vim.lsp.buf.rename()
+-- "grr" is mapped to vim.lsp.buf.references()
+-- "grt" is mapped to vim.lsp.buf.type_definition()
+-- "grx" is mapped to vim.lsp.codelens.run()
+-- "gO" is mapped to vim.lsp.buf.document_symbol()
+-- CTRL-S (Insert mode) is mapped to vim.lsp.buf.signature_help()
+-- v_an and v_in fall back to LSP vim.lsp.buf.selection_range() if treesitter is not active.
+-- gx handles textDocument/documentLink. 
+--
+-- BUFFER-LOCAL DEFAULTS:
+-- 'omnifunc' is set to vim.lsp.omnifunc(), use i_CTRL-X_CTRL-O to trigger completion.
+-- 'tagfunc' is set to vim.lsp.tagfunc(). This enables features like go-to-definition, :tjump, and keymaps like CTRL-], CTRL-W_], CTRL-W_} to utilize the language server.
+-- 'formatexpr' is set to vim.lsp.formatexpr(), so you can format lines via gq if the language server supports it.
+-- To opt out of this use gw instead of gq, or clear 'formatexpr' on LspAttach.
+-- K is mapped to vim.lsp.buf.hover() unless 'keywordprg' is customized or a custom keymap for K exists.
+
+vim.keymap.set('n', 'grd', vim.diagnostic.open_float, 
+    { desc = 'Show diagnostic in floating window' })
 
 vim.api.nvim_create_user_command("Format", function()
-	require("conform").format({ async = true, lsp_fallback = true })
-end, { desc = "Format current buffer with conform" })
+	vim.lsp.buf.format({ async = true, lsp_fallback = true })
+end, { desc = "Format current buffer" })
