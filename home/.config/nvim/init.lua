@@ -62,6 +62,12 @@ vim.keymap.set("n", "<leader>fg", telescope_builtin.live_grep, { desc = "Telesco
 vim.keymap.set("n", "<leader>fb", telescope_builtin.buffers, { desc = "Telescope buffers" })
 vim.keymap.set("n", "<leader>fh", telescope_builtin.help_tags, { desc = "Telescope help tags" })
 
+vim.api.nvim_create_user_command("Source", function()
+  vim.cmd('source ~/.config/nvim/init.lua')
+  print('Configuration reloaded!')
+end, { desc = "Reload configuration" })
+
+
 -- Configure completion behavior
 vim.opt.completeopt = { "menu", "menuone", "noselect", "noinsert" }
 -- menu: Show popup menu
