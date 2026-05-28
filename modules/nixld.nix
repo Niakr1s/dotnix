@@ -49,6 +49,7 @@
       libpulseaudio
       wayland
       expat
+      libxscrnsaver
 
       # Required
       glib
