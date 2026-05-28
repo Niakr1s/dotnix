@@ -66,6 +66,13 @@
     allowPing = true;
   };
 
+  services.resolved = {
+    enable = true;
+    extraConfig = ''
+      MulticastDNS=yes
+    '';
+  };
+
   # Enable MTP (Media Transfer Protocol)
   services.gvfs.enable = true;
 
