@@ -48,6 +48,7 @@
       # Some native games need it
       libpulseaudio
       wayland
+      expat
 
       # Required
       glib
