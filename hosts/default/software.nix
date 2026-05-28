@@ -232,7 +232,7 @@
     furmark
 
     # rom tools
-    inputs.cia-unix.packages.${pkgs.system}.default
+    inputs.cia.packages.${pkgs.system}.default
 
     gpu-screen-recorder-gtk # GUI app
   ];

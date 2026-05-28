@@ -26,7 +26,7 @@
       flake = false;
     };
 
-    cia-unix = {
+    cia = {
       url = "github:Niakr1s/cia-unix-full";
     };
   };
@@ -38,7 +38,6 @@
     home-manager,
     disko,
     sops-nix,
-    cia-unix,
     ...
   } @ inputs: let
     system = "x86_64-linux";
