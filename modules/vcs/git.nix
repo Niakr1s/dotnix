@@ -8,6 +8,7 @@
           email = "pavel2188@gmail.com";
         };
         init.defaultBranch = "main";
+        pull.rebase = false;
       };
     };
   };
