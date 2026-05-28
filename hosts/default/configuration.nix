@@ -100,10 +100,10 @@
   services.displayManager.defaultSession = "niri";
 
   # Garbage collection weekly
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-  };
+  # nix.gc = {
+  #   automatic = true;
+  #   dates = "weekly";
+  # };
 
   xdg.portal = {
     enable = true;
