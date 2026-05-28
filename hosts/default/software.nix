@@ -173,6 +173,7 @@
     nautilus # file manager
     wev # show pressed key
     umu-launcher # universal proton launcher
+    yad # tool to show windows
 
     inotify-tools # File system events (files/directories being created, modified, deleted)
     audit # provides auditctl (who accessed what file, when)
