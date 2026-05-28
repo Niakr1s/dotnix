@@ -17,6 +17,8 @@
     gvcd = "/run/user/1000/gvfs";
 
     nix-shell = "nix-shell --run zsh";
+
+    atop = "atop -Kk";
   };
 
   home-manager.users.${username} = {
