@@ -45,6 +45,14 @@ in {
         wineWow64Packages.waylandFull # native wayland support (unstable)
       ];
       runners = {
+        linux = {
+          settings = {
+            system = {
+              gamemode = false;
+              mangohud = true;
+            };
+          };
+        };
         wine = {
           settings = {
             system = {
