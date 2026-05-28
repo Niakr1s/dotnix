@@ -4,7 +4,8 @@
   username,
   flakeDir,
   ...
-}: {
+}:
+{
   imports = [
     ./aliases.nix
     ./fonts.nix
@@ -26,10 +27,17 @@
   users.users.${username} = {
     isNormalUser = true;
     hashedPassword = "$y$j9T$COxP910y84jokTHUN9FD0.$Boere7gydjwa9qqwinkeALiRJ0RkYH3dXc3804iMhX6";
-    extraGroups = ["wheel" "video" "audio" "disk" "networkmanager" "input"];
+    extraGroups = [
+      "wheel"
+      "video"
+      "audio"
+      "disk"
+      "networkmanager"
+      "input"
+    ];
     uid = 1000;
     shell = pkgs.zsh;
-    packages = with pkgs; [];
+    packages = with pkgs; [ ];
   };
 
   # Environment
@@ -61,8 +69,8 @@
   # Firewall
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [];
-    allowedUDPPorts = [];
+    allowedTCPPorts = [ ];
+    allowedUDPPorts = [ ];
     allowPing = true;
   };
 
@@ -125,7 +133,7 @@
 
   # A list of permissible login shells for user accounts. No need to mention /bin/sh here, it is placed into this list implicitly.
   # It fixes whether GDM doesn't show user if user's default shell is zsh
-  environment.shells = with pkgs; [zsh];
+  environment.shells = with pkgs; [ zsh ];
   programs.zsh.enable = true; # in order to home config to work
 
   # this not needed anymore, because we'll manage zsh with home-manager
@@ -147,38 +155,40 @@
   #   enableSSHSupport = true;
   # };
 
-  home-manager.users.${username} = {config, ...}: {
-    xdg.configFile."mimeapps.list" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/mimeapps.list";
-    };
-    home.file.".local/bin" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/scripts/${hostname}";
-      recursive = true;
-    };
-    home.file.".face" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/.face";
-    };
-    home.pointerCursor = {
-      enable = true;
-      size = 24; # default: 32
-      gtk.enable = true;
-      x11.enable = true;
-
-      # package = pkgs.oreo-cursors-plus;
-      # name = "oreo_grey_cursors";
-
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Classic";
-    };
-    gtk = {
-      enable = true;
-      iconTheme = {
-        package = pkgs.adwaita-icon-theme;
-        name = "Adwaita";
+  home-manager.users.${username} =
+    { config, ... }:
+    {
+      xdg.configFile."mimeapps.list" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/mimeapps.list";
       };
+      home.file.".local/bin" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/scripts/${hostname}";
+        recursive = true;
+      };
+      home.file.".face" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/.face";
+      };
+      home.pointerCursor = {
+        enable = true;
+        size = 24; # default: 32
+        gtk.enable = true;
+        x11.enable = true;
+
+        # package = pkgs.oreo-cursors-plus;
+        # name = "oreo_grey_cursors";
+
+        package = pkgs.bibata-cursors;
+        name = "Bibata-Modern-Classic";
+      };
+      gtk = {
+        enable = true;
+        iconTheme = {
+          package = pkgs.adwaita-icon-theme;
+          name = "Adwaita";
+        };
+      };
+      programs.man.generateCaches = true;
     };
-    programs.man.generateCaches = true;
-  };
 
   documentation.man = {
     mandoc.enable = true;
