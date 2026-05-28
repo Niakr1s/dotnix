@@ -45,6 +45,10 @@
       pcre
       pcre2
 
+      # Some native games need it
+      libpulseaudio
+      wayland
+
       # Required
       glib
       gtk2
