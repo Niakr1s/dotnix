@@ -181,6 +181,7 @@
     umu-launcher # universal proton launcher
     yad # tool to show windows
     alsa-tools # speaker-test
+    nmap # check open ports
 
     inotify-tools # File system events (files/directories being created, modified, deleted)
     audit # provides auditctl (who accessed what file, when)
