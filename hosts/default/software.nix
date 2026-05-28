@@ -3,7 +3,8 @@
   inputs,
   username,
   ...
-}: {
+}:
+{
   # Packages with settings
   imports = [
     ../../modules/nixpkgs-manual.nix
@@ -84,7 +85,8 @@
 
   # System packages
   environment.systemPackages = with pkgs; [
-    ((pkgs.ffmpeg-full.override {
+    (
+      (pkgs.ffmpeg-full.override {
         withUnfree = true; # Allow unfree dependencies (for Nvidia features notably)
         withMetal = false; # Use Metal API on Mac. Unfree and requires manual downloading of files
         withMfx = false; # Hardware acceleration via the deprecated intel-media-sdk/libmfx. Use oneVPL instead (enabled by default) from Intel's oneAPI.
@@ -92,7 +94,10 @@
         withSmallBuild = true; # Prefer binary size to performance.
         withDebug = false; # Build using debug options
       }).overrideAttrs
-      (_: {doCheck = false;}))
+      (_: {
+        doCheck = false;
+      })
+    )
 
     feh # image viewer
     gthumb # better image viewer
@@ -124,8 +129,8 @@
     deno
     curl
     git
-    btop-cuda
     htop
+    pstree
     tree
     bat
     yazi
@@ -254,6 +259,12 @@
   programs.appimage = {
     enable = true;
     binfmt = true;
+  };
+
+  programs.atop = {
+    enable = true;
+    atopgpu.enable = true;
+    setuidWrapper.enable = true;
   };
 
   # Home packages
