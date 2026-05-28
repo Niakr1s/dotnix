@@ -2,6 +2,7 @@
   services.openssh = {
     enable = true;
     ports = [5432];
+    openFirewall = true;
     settings = {
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
@@ -16,11 +17,11 @@
         IdentitiesOnly yes
         IdentityFile ~/.ssh/id_ed25519
       Host desktop
-        Hostname 192.168.1.11
+        Hostname desktop.local
         Port 5432
         User ${username}
       Host laptop
-        Hostname 192.168.1.12
+        Hostname desktop.local
         Port 5432
         User ${username}
     '';
