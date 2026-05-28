@@ -182,6 +182,7 @@
     yad # tool to show windows
     alsa-tools # speaker-test
     nmap # check open ports
+    net-tools # netstat and maybe others
 
     inotify-tools # File system events (files/directories being created, modified, deleted)
     audit # provides auditctl (who accessed what file, when)
