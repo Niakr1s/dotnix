@@ -63,6 +63,7 @@
     enable = true;
     allowedTCPPorts = [];
     allowedUDPPorts = [];
+    allowPing = true;
   };
 
   # Enable MTP (Media Transfer Protocol)
