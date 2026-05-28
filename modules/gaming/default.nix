@@ -1,4 +1,9 @@
-{username, ...}: {
+{
+  pkgs,
+  username,
+  ...
+}:
+{
   imports = [
     ./azahar.nix
     ./lutris.nix
@@ -24,8 +29,13 @@
   ];
 
   programs.gamemode.enable = true;
+  programs.gamescope.enable = true;
 
   users.users.${username} = {
-    extraGroups = ["gamemode"];
+    extraGroups = [ "gamemode" ];
   };
+
+  environment.systemPackages = with pkgs; [
+    steam-run
+  ];
 }
