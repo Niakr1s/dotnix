@@ -10,6 +10,7 @@
 
     ### Docker services
     ../../modules/docker/services/comfyui.nix
+    ../../modules/docker/services/flibusta.nix
   ];
 
   # System packages
