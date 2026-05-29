@@ -45,4 +45,10 @@ in {
       ExecStopPost = "${pkgs.docker}/bin/docker rm ${containerName}";
     };
   };
+
+  networking.firewall = {
+    allowedTCPPorts = [
+      port
+    ];
+  };
 }
