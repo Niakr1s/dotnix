@@ -8,4 +8,19 @@ in {
     port = 7777;
     libraryPath = "${libraryPath}";
   };
+
+  services.caddy = {
+    enable = true;
+    virtualHosts."http://kiwix.local" = {
+      extraConfig = ''
+        reverse_proxy localhost:7777
+      '';
+    };
+  };
+
+  networking.hosts = {
+    "127.0.0.1" = [
+      "kiwix.local"
+    ];
+  };
 }
