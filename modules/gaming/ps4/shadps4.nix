@@ -13,7 +13,7 @@ let
   };
 
   # Launcher
-  shadps4-qtlauncher = pkgs.callPackage (
+  shadps4-qtlauncher-base = pkgs.callPackage (
     { appimageTools, fetchzip }:
     let
       pname = "shadps4-qtlauncher";
@@ -31,7 +31,7 @@ let
 
   shadps4-qtlauncher-desktop = pkgs.makeDesktopItem {
     name = "shadps4-qtlauncher";
-    exec = "${shadps4-qtlauncher}/bin/shadps4-qtlauncher";
+    exec = "${shadps4-qtlauncher-base}/bin/shadps4-qtlauncher";
     icon = "${shadps4-no-desktop}/share/icons/hicolor/512x512/apps/net.shadps4.shadPS4.png"; # Adjust path if icon exists
     desktopName = "shadPS4 Qt Launcher";
     comment = "Qt Launcher for shadPS4 Emulator";
@@ -43,10 +43,11 @@ let
     startupNotify = true;
   };
 in
-{
-  environment.systemPackages = with pkgs; [
-    # shadps4-no-desktop # turned off because it doesn't work and it's better to use qtlauncher to download latest version
-    shadps4-qtlauncher
-    shadps4-qtlauncher-desktop
-  ];
-}
+  pkgs.symlinkJoin {
+    name = "shadps4";
+    paths = [
+      shadps4-no-desktop
+      shadps4-qtlauncher-base
+      shadps4-qtlauncher-desktop
+    ];
+  }
