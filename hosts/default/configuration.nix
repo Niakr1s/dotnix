@@ -69,7 +69,11 @@
   # Firewall
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ ];
+    allowedTCPPorts = [
+      # caddy
+      80
+      443
+    ];
     allowedUDPPorts = [ ];
     allowPing = true;
   };

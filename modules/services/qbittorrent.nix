@@ -2,8 +2,9 @@
   lib,
   username,
   ...
-}: let
-  categories_json = lib.replaceStrings ["\n"] ["\\n"] ''
+}:
+let
+  categories_json = lib.replaceStrings [ "\n" ] [ "\\n" ] ''
     {
         "Books": {
             "save_path": ""
@@ -28,7 +29,7 @@
         }
     }
   '';
-  watched_folders_json = lib.replaceStrings ["\n"] ["\\n"] ''
+  watched_folders_json = lib.replaceStrings [ "\n" ] [ "\\n" ] ''
     {
       "/home/${username}/Downloads": {
         "add_torrent_params": {
@@ -52,7 +53,8 @@
       }
     }
   '';
-in {
+in
+{
   services.qbittorrent = {
     enable = true;
     user = "${username}";
@@ -96,4 +98,20 @@ in {
   ];
 
   systemd.services.qbittorrent.serviceConfig.ProtectHome = lib.mkForce "read-write";
+
+  services.caddy = {
+    enable = true;
+    virtualHosts."http://qbittorrent.local" = {
+      extraConfig = ''
+        reverse_proxy localhost:8080
+      '';
+    };
+  };
+
+  networking.hosts = {
+    "127.0.0.1" = [
+      "qbittorrent.local"
+    ];
+  };
+
 }
