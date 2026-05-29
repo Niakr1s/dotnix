@@ -1,5 +1,7 @@
 {
   lib,
+  config,
+  flakeLib,
   username,
   ...
 }:
@@ -55,6 +57,10 @@ let
   '';
 in
 {
+  imports = [
+    (flakeLib.localhostReverseProxy "qbittorrent" config.services.qbittorrent.webuiPort)
+  ];
+
   services.qbittorrent = {
     enable = true;
     user = "${username}";
@@ -98,19 +104,4 @@ in
   ];
 
   systemd.services.qbittorrent.serviceConfig.ProtectHome = lib.mkForce "read-write";
-
-  services.caddy = {
-    enable = true;
-    virtualHosts."http://qbittorrent.local" = {
-      extraConfig = ''
-        reverse_proxy localhost:8080
-      '';
-    };
-  };
-
-  networking.hosts = {
-    "127.0.0.1" = [
-      "qbittorrent.local"
-    ];
-  };
 }
