@@ -41,7 +41,7 @@ in {
 
   services.caddy = {
     enable = true;
-    virtualHosts."http://syncthing.local" = {
+    virtualHosts."http://syncthing.localhost" = {
       extraConfig = ''
         reverse_proxy localhost:8384
       '';
@@ -50,7 +50,7 @@ in {
 
   networking.hosts = {
     "127.0.0.1" = [
-      "syncthing.local"
+      "syncthing.localhost"
     ];
   };
 }
