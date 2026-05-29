@@ -1,6 +1,7 @@
 # https://hub.docker.com/r/yanwk/comfyui-boot
 {
   pkgs,
+  flakeLib,
   username,
   ...
 }: let
@@ -69,16 +70,22 @@
   # Create volume flags for docker
   volumeFlags = builtins.concatStringsSep " " (map (m: "-v ${m.host}:${m.container}") mappings);
 
+  port = 8188;
+
   dockerRun = ''
     ${pkgs.docker}/bin/docker run -d \
       --name ${containerName} \
       --device nvidia.com/gpu=all \
-      -p 8188:8188 \
+      -p ${toString port}:${toString port} \
       ${volumeFlags} \
       -e CLI_ARGS="" \
       ${dockerImage}
   '';
 in {
+  imports = [
+    (flakeLib.localhostReverseProxy "comfyui" port)
+  ];
+
   systemd.user.services.comfyui = {
     description = "ComfyUI Docker Container";
     after = ["docker.service"];
