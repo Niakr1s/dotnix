@@ -53,6 +53,16 @@ let
       stripRoot = false;
     };
 
+    # Add Qt library and wrapping hook
+    buildInputs = [
+      pkgs.qt6.qtbase
+    ];
+
+    nativeBuildInputs = [
+      pkgs.autoPatchelfHook # Fixes library paths for prebuilt binaries
+      pkgs.qt6.wrapQtAppsHook # Wraps Qt apps with correct environment
+    ];
+
     installPhase = ''
       mkdir -p $out/bin
       cp -r * $out/bin/
