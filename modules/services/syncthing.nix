@@ -7,6 +7,10 @@
 let
   sopsPath = "common/syncthing";
 
+  port = lib.strings.toInt (
+    lib.last (lib.strings.splitString ":" config.services.syncthing.guiAddress)
+  );
+
   localhostReverseProxy = name: port: {
     services.caddy = {
       enable = true;
@@ -25,7 +29,7 @@ let
   };
 in
 lib.mkMerge [
-  (localhostReverseProxy "syncthing" 8384)
+  (localhostReverseProxy "syncthing" port)
   {
     sops.secrets = {
       # This is the actual specification of the secrets.
