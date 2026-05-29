@@ -48,7 +48,5 @@ in
     # shadps4-no-desktop # turned off because it doesn't work and it's better to use qtlauncher to download latest version
     shadps4-qtlauncher
     shadps4-qtlauncher-desktop
-    (pkgs.callPackage ./ps4-pkg-tool.nix { })
-    (pkgs.callPackage ./PKGInstall.nix { })
   ];
 }
