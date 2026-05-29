@@ -42,40 +42,13 @@ let
     terminal = false;
     startupNotify = true;
   };
-
-  # pkg extract tool
-  ps4-pkg-tool = pkgs.stdenv.mkDerivation rec {
-    pname = "ps4-pkg-tool";
-    version = "20250825-123142-e7c40358";
-
-    src = pkgs.fetchzip {
-      url = "https://github.com/xXJSONDeruloXx/ps4-pkg-tools/releases/download/v${version}/ps4-pkg-tools-Linux.tar.gz";
-      hash = "sha256-DV+3a2QdBJhEhV6YKd4oPIynjrZ1Evu88Wu+e2W4A+s=";
-      stripRoot = false;
-    };
-
-    # Add Qt library and wrapping hook
-    buildInputs = [
-      pkgs.qt6.qtbase
-    ];
-
-    nativeBuildInputs = [
-      pkgs.autoPatchelfHook # Fixes library paths for prebuilt binaries
-      pkgs.qt6.wrapQtAppsHook # Wraps Qt apps with correct environment
-    ];
-
-    installPhase = ''
-      mkdir -p $out/bin
-      cp -r * $out/bin/
-    '';
-  };
 in
 {
   environment.systemPackages = with pkgs; [
     # shadps4-no-desktop # turned off because it doesn't work and it's better to use qtlauncher to download latest version
     shadps4-qtlauncher
     shadps4-qtlauncher-desktop
-    ps4-pkg-tool
+    (pkgs.callPackage ./ps4-pkg-tool.nix { })
     (pkgs.callPackage ./PKGInstall.nix { })
   ];
 }
