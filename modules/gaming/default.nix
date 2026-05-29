@@ -11,7 +11,7 @@
     ./retroarch.nix
     ./ryubing.nix
     ./rpcs3.nix
-    ./shadps4.nix
+    ./ps4
   ];
 
   # https://github.com/lutris/docs/blob/master/HowToEsync.md
