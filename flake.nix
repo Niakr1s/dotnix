@@ -31,77 +31,82 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    nixpkgs-unstable,
-    home-manager,
-    disko,
-    sops-nix,
-    ...
-  } @ inputs: let
-    system = "x86_64-linux";
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixpkgs-unstable,
+      home-manager,
+      disko,
+      sops-nix,
+      ...
+    }@inputs:
+    let
+      system = "x86_64-linux";
 
-    # so we can write "pkgs.unstable"
-    unstable-overlays = {
-      nixpkgs.overlays = [
-        (final: prev: {
-          unstable = import nixpkgs-unstable {
-            inherit system;
-            config.allowUnfree = true;
-          };
-        })
-      ];
-    };
-
-    username = "nea"; # will be common among my hosts
-    flakeDir = "/etc/nixos"; # root of this flake
-
-    mkHostConfig = hostname: stateVersion: {
-      ${hostname} = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {
-          inherit system;
-          inherit inputs;
-          inherit hostname;
-          inherit username;
-          inherit flakeDir;
-        };
-        modules = [
-          unstable-overlays
-
-          disko.nixosModules.disko
-          home-manager.nixosModules.home-manager
-          sops-nix.nixosModules.sops
-
-          # Configurations
-          ./hosts/${hostname}/configuration.nix # probably we can hardcode this
-          {
-            system.stateVersion = "${stateVersion}"; # Set this to first installed version, and then don't change it
-            nixpkgs.config.allowUnfree = true;
-            nix.settings.experimental-features = ["nix-command" "flakes"];
-            home-manager.extraSpecialArgs = {
-              inherit inputs;
-              inherit hostname;
-              inherit username;
-              inherit flakeDir;
+      # so we can write "pkgs.unstable"
+      unstable-overlays = {
+        nixpkgs.overlays = [
+          (final: prev: {
+            unstable = import nixpkgs-unstable {
+              inherit system;
+              config.allowUnfree = true;
             };
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.${username} = {
-              home.stateVersion = "${stateVersion}"; # Set this to first installed version, and then don't change it
-              home.username = "${username}";
-              home.homeDirectory = "/home/${username}";
-            };
-          }
+          })
         ];
       };
-    };
-  in {
-    nixpkgs.hostPlatform = "${system}";
 
-    nixosConfigurations =
-      (mkHostConfig "desktop" "25.11")
-      // (mkHostConfig "laptop" "25.11");
-  };
+      username = "nea"; # will be common among my hosts
+      flakeDir = "/etc/nixos"; # root of this flake
+
+      mkHostConfig = hostname: stateVersion: {
+        ${hostname} = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            inherit system;
+            inherit inputs;
+            inherit hostname;
+            inherit username;
+            inherit flakeDir;
+            flakeLib = nixpkgs.legacyPackages.${system}.callPackage ./flakeLib.nix { };
+          };
+          modules = [
+            unstable-overlays
+
+            disko.nixosModules.disko
+            home-manager.nixosModules.home-manager
+            sops-nix.nixosModules.sops
+
+            # Configurations
+            ./hosts/${hostname}/configuration.nix # probably we can hardcode this
+            {
+              system.stateVersion = "${stateVersion}"; # Set this to first installed version, and then don't change it
+              nixpkgs.config.allowUnfree = true;
+              nix.settings.experimental-features = [
+                "nix-command"
+                "flakes"
+              ];
+              home-manager.extraSpecialArgs = {
+                inherit inputs;
+                inherit hostname;
+                inherit username;
+                inherit flakeDir;
+              };
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.${username} = {
+                home.stateVersion = "${stateVersion}"; # Set this to first installed version, and then don't change it
+                home.username = "${username}";
+                home.homeDirectory = "/home/${username}";
+              };
+            }
+          ];
+        };
+      };
+    in
+    {
+      nixpkgs.hostPlatform = "${system}";
+
+      nixosConfigurations = (mkHostConfig "desktop" "25.11") // (mkHostConfig "laptop" "25.11");
+    };
 }

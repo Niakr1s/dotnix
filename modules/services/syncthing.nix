@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  flakeLib,
   username,
   ...
 }:
@@ -10,26 +11,9 @@ let
   port = lib.strings.toInt (
     lib.last (lib.strings.splitString ":" config.services.syncthing.guiAddress)
   );
-
-  localhostReverseProxy = name: port: {
-    services.caddy = {
-      enable = true;
-      virtualHosts."http://${name}.localhost" = {
-        extraConfig = ''
-          reverse_proxy localhost:${toString port}
-        '';
-      };
-    };
-
-    networking.hosts = {
-      "127.0.0.1" = [
-        "${name}.localhost"
-      ];
-    };
-  };
 in
 lib.mkMerge [
-  (localhostReverseProxy "syncthing" port)
+  (flakeLib.localhostReverseProxy "syncthing" port)
   {
     sops.secrets = {
       # This is the actual specification of the secrets.
