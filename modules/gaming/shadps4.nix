@@ -3,16 +3,16 @@
   ...
 }:
 let
-  shadps4 = pkgs.unstable.shadps4;
-
   shadps4-no-desktop = pkgs.symlinkJoin {
     name = "shadps4-no-desktop";
-    paths = [ shadps4 ];
+    paths = [ pkgs.unstable.shadps4 ];
     buildInputs = [ pkgs.coreutils ];
     postBuild = ''
       rm -f $out/share/applications/net.shadps4.shadPS4.desktop
     '';
   };
+
+  # Launcher
   shadps4-qtlauncher = pkgs.callPackage (
     { appimageTools, fetchzip }:
     let
@@ -32,7 +32,7 @@ let
   shadps4-qtlauncher-desktop = pkgs.makeDesktopItem {
     name = "shadps4-qtlauncher";
     exec = "${shadps4-qtlauncher}/bin/shadps4-qtlauncher";
-    icon = "${shadps4}/share/icons/hicolor/512x512/apps/net.shadps4.shadPS4.png"; # Adjust path if icon exists
+    icon = "${shadps4-no-desktop}/share/icons/hicolor/512x512/apps/net.shadps4.shadPS4.png"; # Adjust path if icon exists
     desktopName = "shadPS4 Qt Launcher";
     comment = "Qt Launcher for shadPS4 Emulator";
     categories = [
@@ -43,6 +43,7 @@ let
     startupNotify = true;
   };
 
+  # pkg extract tool
   ps4-pkg-tool = pkgs.stdenv.mkDerivation rec {
     pname = "ps4-pkg-tool";
     version = "20250825-123142-e7c40358";
@@ -71,7 +72,7 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
-    shadps4-no-desktop
+    # shadps4-no-desktop # turned off because it doesn't work and it's better to use qtlauncher to download latest version
     shadps4-qtlauncher
     shadps4-qtlauncher-desktop
     ps4-pkg-tool
