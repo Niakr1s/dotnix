@@ -235,6 +235,7 @@
     rsync # Fast incremental file transfer utility
     trash-cli # trash management
     foliate # EPUB, Mobipocket, Kindle, FB2, CBZ, and PDF reader
+    librecad # autocad for poor
 
     # stress testing
     stress-ng
