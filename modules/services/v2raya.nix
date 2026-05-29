@@ -1,6 +1,5 @@
 {
   flakeLib,
-  config,
   pkgs,
   ...
 }:
