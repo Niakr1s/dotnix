@@ -11,7 +11,7 @@
   # Create a modified version with the new Exec line
   modifiedDesktopFile = pkgs.runCommand "modified-ryujinx-desktop" {} ''
     echo "${originalDesktopFile}" > $out
-    sed -i 's|^Exec=\(.*\)|Exec=gnome-session-inhibit --reason=Ryujinx --app-id=ryujinx \1|' $out
+    sed -i 's|^Exec=\(.*\)|Exec=systemd-inhibit \1|' $out
   '';
 in {
   environment.systemPackages = with pkgs; [
