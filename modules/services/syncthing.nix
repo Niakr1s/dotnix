@@ -38,4 +38,19 @@ in {
       # };
     };
   };
+
+  services.caddy = {
+    enable = true;
+    virtualHosts."http://syncthing.local" = {
+      extraConfig = ''
+        reverse_proxy localhost:8384
+      '';
+    };
+  };
+
+  networking.hosts = {
+    "127.0.0.1" = [
+      "syncthing.local"
+    ];
+  };
 }
