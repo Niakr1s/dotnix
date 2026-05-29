@@ -113,5 +113,4 @@ in
       "qbittorrent.local"
     ];
   };
-
 }
