@@ -42,11 +42,28 @@ let
     terminal = false;
     startupNotify = true;
   };
+
+  ps4-pkg-tool = pkgs.stdenv.mkDerivation rec {
+    pname = "ps4-pkg-tool";
+    version = "20250825-123142-e7c40358";
+
+    src = pkgs.fetchzip {
+      url = "https://github.com/xXJSONDeruloXx/ps4-pkg-tools/releases/download/v${version}/ps4-pkg-tools-Linux.tar.gz";
+      hash = "sha256-DV+3a2QdBJhEhV6YKd4oPIynjrZ1Evu88Wu+e2W4A+s=";
+      stripRoot = false;
+    };
+
+    installPhase = ''
+      mkdir -p $out/bin
+      cp -r * $out/bin/
+    '';
+  };
 in
 {
   environment.systemPackages = with pkgs; [
     shadps4-no-desktop
     shadps4-qtlauncher
     shadps4-qtlauncher-desktop
+    ps4-pkg-tool
   ];
 }

@@ -50,6 +50,9 @@
       wayland
       expat
 
+      # kde
+      kdePackages.qtbase
+
       # Required
       glib
       gtk2
