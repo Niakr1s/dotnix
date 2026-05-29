@@ -24,7 +24,7 @@
     ../../modules/utilites/tldr.nix
     ../../modules/browsers/firefox.nix
     ../../modules/browsers/w3m.nix
-    ../../modules/browsers/tangram.nix
+    # ../../modules/browsers/tangram.nix
 
     ### Video players
     # ../../modules/players/celluloid.nix # don't need it, mpv is good
