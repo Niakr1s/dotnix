@@ -1,6 +1,6 @@
 {
   pkgs,
-  config,
+  flakeDir,
   username,
   ...
 }:
@@ -10,14 +10,20 @@
       config,
       ...
     }:
+    let
+      configPath = ".config/mozilla/firefox";
+    in
     {
       programs.firefox = {
         enable = true;
 
-        configPath = "${config.xdg.configHome}/mozilla/firefox";
+        configPath = "/home/${username}/${configPath}";
 
         languagePacks = [ "en-US" ];
         profiles.default = {
+          id = 0;
+          path = "default";
+          isDefault = true;
 
           extraConfig = ''
             // https://gist.github.com/lassekongo83/7026910c6a277d5d9cf37989d83e9f6d
