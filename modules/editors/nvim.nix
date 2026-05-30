@@ -18,7 +18,7 @@
       withPython3 = true;
       withRuby = true;
 
-      initLua = builtins.readFIle "${flakeDir}/home/.config/nvim/init.lua";
+      # initLua = builtins.readFile "${flakeDir}/home/.config/nvim/init.lua";
 
       plugins = with pkgs.vimPlugins; [
         nvim-lspconfig
