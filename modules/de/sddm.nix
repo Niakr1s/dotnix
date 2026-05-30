@@ -2,11 +2,13 @@
   pkgs,
   username,
   ...
-}: let
+}:
+let
   custom-sddm-astronaut = pkgs.sddm-astronaut.override {
     embeddedTheme = "purple_leaves";
   };
-in {
+in
+{
   environment.systemPackages = with pkgs.kdePackages; [
     custom-sddm-astronaut
     qtsvg
@@ -16,7 +18,10 @@ in {
 
   services.displayManager.sddm = {
     enable = true;
-    wayland.enable = true;
+    wayland = {
+      enable = true;
+      compositor = "kwin";
+    };
 
     theme = "sddm-astronaut-theme";
 
