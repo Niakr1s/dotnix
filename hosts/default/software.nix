@@ -7,7 +7,7 @@
 {
   # Packages with settings
   imports = [
-    ../../modules/nixpkgs-manual.nix
+    ../../modules/documentation.nix
 
     # ../../modules/de/gnome
     ../../modules/de/niri.nix
@@ -105,10 +105,6 @@
 
     gptfdisk # gdisk sgidsk cgdisk
     smartmontools # smartctl
-
-    # man pages for builtins
-    man-pages
-    man-pages-posix
 
     ### Crypto
     age
