@@ -4,6 +4,6 @@
   ];
 
   environment.shellAliases = {
-    nixpkgs-manual = "xdg-open ${pkgs.nixpkgs-manual}/share/doc/nixpkgs/index.html";
+    nixpkgs-help = "xdg-open ${pkgs.nixpkgs-manual}/share/doc/nixpkgs/index.html";
   };
 }
