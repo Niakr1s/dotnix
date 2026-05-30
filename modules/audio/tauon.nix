@@ -5,7 +5,7 @@
   ...
 }: {
   environment.systemPackages = [
-    pkgs.unstable.tauon # music player
+    pkgs.tauon # music player
   ];
 
   home-manager.users.${username} = {config, ...}: {
