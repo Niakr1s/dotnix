@@ -11,7 +11,7 @@
 
   programs.niri = {
     enable = true;
-    package = pkgs.unstable.niri;
+    # package = pkgs.unstable.niri;
   };
 
   environment.systemPackages = with pkgs; [
@@ -23,7 +23,7 @@
     # mako
     # swayidle
 
-    unstable.noctalia-shell
+    noctalia-shell
   ];
 
   security.polkit.enable = true; # polkit
