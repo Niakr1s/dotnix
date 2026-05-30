@@ -5,7 +5,7 @@
       enable = true;
       settings = {
         fps_limit = [165 30 60];
-        vsync = 0; # 0 = adaptive; 1 = off; 2 = mailbox; 3 = on
+        vsync = 3; # 0 = adaptive; 1 = off; 2 = mailbox; 3 = on
         time = true;
         time_no_label = true;
         time_format = "%F %T";
