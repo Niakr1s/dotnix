@@ -27,12 +27,12 @@
 
       # x11
       libxinerama
-      ibxcursor
-      ibxrender
-      ibxscrnsaver
-      ibxi
-      ibsm
-      ibice
+      libxcursor
+      libxrender
+      libxscrnsaver
+      libxi
+      libsm
+      libice
       libxcomposite
       libxtst
       libxrandr
