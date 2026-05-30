@@ -25,20 +25,29 @@
       xz
       systemd
 
+      # x11
+      libxinerama
+      ibxcursor
+      ibxrender
+      ibxscrnsaver
+      ibxi
+      ibsm
+      ibice
+      libxcomposite
+      libxtst
+      libxrandr
+      libxext
+      libx11
+      libxfixes
+      libxcb
+      libxdamage
+      libxshmfence
+      libxxf86vm
+
       # My own additions
-      xorg.libXcomposite
-      xorg.libXtst
-      xorg.libXrandr
-      xorg.libXext
-      xorg.libX11
-      xorg.libXfixes
       libGL
       libva
       pipewire
-      xorg.libxcb
-      xorg.libXdamage
-      xorg.libxshmfence
-      xorg.libXxf86vm
       libelf
       libwebp
       libevent
@@ -70,13 +79,6 @@
       # glibc_multi.bin # Seems to cause issue in ARM
 
       # # Without these it silently fails
-      xorg.libXinerama
-      xorg.libXcursor
-      xorg.libXrender
-      xorg.libXScrnSaver
-      xorg.libXi
-      xorg.libSM
-      xorg.libICE
       gnome2.GConf
       nspr
       nss
