@@ -80,9 +80,12 @@
 
   services.resolved = {
     enable = true;
-    extraConfig = ''
-      MulticastDNS=yes
-    '';
+
+    settings = {
+      Resolve = {
+        MulticastDNS = "yes";
+      };
+    };
   };
 
   # Enable MTP (Media Transfer Protocol)
