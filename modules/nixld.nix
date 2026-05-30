@@ -43,6 +43,9 @@
       libxdamage
       libxshmfence
       libxxf86vm
+      libxt
+      libxmu
+      libxft
 
       # My own additions
       libGL
@@ -104,8 +107,6 @@
       # other issue: (Unity:377230): GLib-GIO-CRITICAL **: 21:09:04.706: g_dbus_proxy_call_sync_internal: assertion 'G_IS_DBUS_PROXY (proxy)' failed
 
       # Verified games requirements
-      xorg.libXt
-      xorg.libXmu
       libogg
       libvorbis
       SDL
@@ -139,7 +140,6 @@
       libgcrypt
       libvpx
       librsvg
-      xorg.libXft
       libvdpau
       # ...
       # Some more libraries that I needed to run programs
