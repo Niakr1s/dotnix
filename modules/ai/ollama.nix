@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    claude-code-bin
+    claude-code
     opencode
   ];
 
