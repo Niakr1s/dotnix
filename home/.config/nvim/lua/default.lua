@@ -61,10 +61,27 @@ vim.keymap.set("n", "n", "nzzzv", { desc = "Next search result, center" })
 vim.keymap.set("n", "N", "Nzzzv", { desc = "Previous search result, center" })
 
 local telescope_builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>ff", telescope_builtin.find_files, { desc = "Telescope find files" })
-vim.keymap.set("n", "<leader>fg", telescope_builtin.live_grep, { desc = "Telescope live grep" })
+
+local function telescope_find_files()
+  -- if not pcall(telescope_builtin.git_files) then
+  telescope_builtin.find_files({
+    hidden = true,
+  })
+  -- end
+end
+
+local function telescope_live_grep()
+  require("telescope.builtin").live_grep({
+    additional_args = { "--hidden" }
+  })
+end
+
+vim.keymap.set("n", "<leader>ff", telescope_find_files, { desc = "Telescope find files" })
+vim.keymap.set("n", "<leader>fg", telescope_live_grep, { desc = "Telescope live grep" })
 vim.keymap.set("n", "<leader>fb", telescope_builtin.buffers, { desc = "Telescope buffers" })
 vim.keymap.set("n", "<leader>fh", telescope_builtin.help_tags, { desc = "Telescope help tags" })
+vim.keymap.set("n", "<leader>ft", telescope_builtin.treesitter, { desc = "Telescope treesitter" })
+vim.keymap.set("n", "<leader>fs", telescope_builtin.current_buffer_fuzzy_find, { desc = "Telescope current buffer fuzzy find" })
 
 vim.api.nvim_create_user_command("Source", function()
   vim.cmd('source ~/.config/nvim/init.lua')
@@ -167,7 +184,6 @@ require("nvim-treesitter").setup({
   textobjects = { enable = true },
   indent = { enable = true }
 })
-
 
 -- [[ Yazi
 vim.g.loaded_netrwPlugin = 1 -- disable deafult explorer (netrw) when open with 'vim .'
