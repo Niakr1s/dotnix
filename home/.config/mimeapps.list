@@ -6,6 +6,7 @@ x-scheme-handler/discord-1345366770436800533=discord-1345366770436800533.desktop
 x-scheme-handler/joplin=joplin.desktop
 image/jpeg=org.gnome.gThumb.desktop
 image/png=org.gnome.gThumb.desktop
+video/mp4=mpv.desktop
 
 [Added Associations]
 x-scheme-handler/tg=org.telegram.desktop.desktop;
@@ -16,3 +17,4 @@ x-scheme-handler/sms=org.gnome.Shell.Extensions.GSConnect.desktop;
 x-scheme-handler/tel=org.gnome.Shell.Extensions.GSConnect.desktop;
 image/jpeg=org.gnome.gThumb.desktop;
 image/png=org.gnome.gThumb.desktop;
+video/mp4=mpv.desktop;
