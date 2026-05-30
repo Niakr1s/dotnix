@@ -7,6 +7,7 @@
 }:
 {
   imports = [
+    ./boot.nix
     ./aliases.nix
     ./fonts.nix
     ./software.nix
