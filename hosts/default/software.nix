@@ -105,7 +105,10 @@
 
     gptfdisk # gdisk sgidsk cgdisk
     smartmontools # smartctl
-    man-pages # man pages for builtins
+
+    # man pages for builtins
+    man-pages
+    man-pages-posix
 
     ### Crypto
     age
