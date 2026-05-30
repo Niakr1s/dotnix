@@ -18,6 +18,8 @@
       withPython3 = true;
       withRuby = true;
 
+      initLua = builtins.readFIle "${flakeDir}/home/.config/nvim/init.lua";
+
       plugins = with pkgs.vimPlugins; [
         nvim-lspconfig
         nvim-treesitter.withAllGrammars
