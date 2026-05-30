@@ -12,8 +12,8 @@
     # ../../modules/de/gnome
     ../../modules/de/niri.nix
     # ../../modules/de/hyprland.nix
-    # ../../modules/de/sddm.nix
-    ../../modules/de/gdm.nix
+    ../../modules/de/sddm.nix
+    # ../../modules/de/gdm.nix
     ../../modules/dconf
 
     ../../modules/services/qbittorrent.nix
