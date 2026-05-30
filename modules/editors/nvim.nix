@@ -18,6 +18,8 @@
       withPython3 = true;
       withRuby = true;
 
+      initLua = "require('default')";
+
       plugins = with pkgs.vimPlugins; [
         nvim-lspconfig
         nvim-treesitter.withAllGrammars
@@ -64,8 +66,9 @@
       ];
     };
 
-    home.file.".config/nvim/init.lua" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/nvim/init.lua";
+    home.file.".config/nvim/lua" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/nvim/lua";
+      recursive = true;
     };
   };
 }

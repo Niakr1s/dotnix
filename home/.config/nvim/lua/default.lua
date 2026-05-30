@@ -161,7 +161,7 @@ require("nvim-surround").setup()
 -- vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
 -- vim.wo[0][0].foldmethod = "expr"
 
-require("nvim-treesitter.configs").setup({
+require("nvim-treesitter").setup({
   highlight = { enable = true },
   incremental_selection = { enable = true },
   textobjects = { enable = true },

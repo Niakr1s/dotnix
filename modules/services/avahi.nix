@@ -4,7 +4,7 @@
     enable = true;
     nssmdns4 = true; # Integrates .local resolution with your system's DNS
     openFirewall = true;
-    wideArea = true;
+    wideArea = false; # Enabling `services.avahi.wideArea` exposes this system to `CVE-2024-52615`
     denyInterfaces = [
       "virbr0"
       "docker0"

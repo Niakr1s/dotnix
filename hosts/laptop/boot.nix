@@ -19,19 +19,5 @@
 
       # kernelParams = ["zfs.zfs_arc_max=2147483648"]; # 2GB × (1024×1024×1024)
     };
-
-    loader.grub = {
-      enable = true;
-      efiSupport = true;
-      efiInstallAsRemovable = true;
-
-      # ZFS needs this
-      mirroredBoots = [
-        {
-          devices = ["nodev"];
-          path = "/boot";
-        }
-      ];
-    };
   };
 }

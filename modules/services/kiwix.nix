@@ -10,7 +10,6 @@ let
 in
 {
   imports = [
-    "${inputs.nixpkgs-unstable}/nixos/modules/services/misc/kiwix-serve.nix"
     (flakeLib.localhostReverseProxy "kiwix" config.services.kiwix-serve.port)
   ];
 

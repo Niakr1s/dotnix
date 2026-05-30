@@ -7,6 +7,7 @@
 }:
 {
   imports = [
+    ./boot.nix
     ./aliases.nix
     ./fonts.nix
     ./software.nix
@@ -80,9 +81,12 @@
 
   services.resolved = {
     enable = true;
-    extraConfig = ''
-      MulticastDNS=yes
-    '';
+
+    settings = {
+      Resolve = {
+        MulticastDNS = "yes";
+      };
+    };
   };
 
   # Enable MTP (Media Transfer Protocol)

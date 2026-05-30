@@ -1,6 +1,7 @@
-{config, ...}: {
+{ config, ... }:
+{
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware = {
     # Enable OpenGL
@@ -13,18 +14,14 @@
 
     nvidia = {
       # You probably want stable or beta.
-      package = config.boot.kernelPackages.nvidiaPackages.stable; # Same as production
-      # package = config.boot.kernelPackages.nvidiaPackages.production; # Latest production driver
-      # package = config.boot.kernelPackages.nvidiaPackages.beta;   # Latest beta driver
-      # package = config.boot.kernelPackages.nvidiaPackages.latest; # Same as production
-      # package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
-      # package = config.boot.kernelPackages.nvidiaPackages.legacy_535; # Older versions
-      # package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
-      # package = config.boot.kernelPackages.nvidiaPackages.legacy_390;
-      # package = config.boot.kernelPackages.nvidiaPackages.legacy_340;
-      # package = config.boot.kernelPackages.nvidiaPackages.dc; # Datacenter drivers
-      # package = config.boot.kernelPackages.nvidiaPackages.dc_565;
-      # package = config.boot.kernelPackages.nvidiaPackages.dc_535;
+      # Commonly interesting branches for end users:
+      #     production, new_feature, beta: NVIDIA's official production / new feature / beta release branches.
+      #     stable: The default; the highest stable version.
+      #     latest: Whichever is newer of production and new_feature.
+      #     bleeding_edge: Whichever is newer of latest and beta.
+      #     legacy_580: The long-lived 580 series (LTSB), for GPUs that newer driver branches no longer support (often Maxwell through Volta; roughly GeForce GTX 9xx through 10xx, plus rare Volta cards like TITAN V).
+      #     vulkan_beta: The Vulkan developer beta driver, for users interested in testing new Vulkan features.
+      branch = "stable";
 
       # Modesetting is required.
       modesetting.enable = true;

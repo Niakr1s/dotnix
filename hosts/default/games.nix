@@ -11,8 +11,8 @@
     gnome-mines # minesweeper
     gnome-sudoku # sudoku
     gnome-2048 # 2048
-    superTux # mario like
-    superTuxKart # mariokart like
+    supertux # mario like
+    supertuxkart # mariokart like
     hedgewars # червячки
     brogue-ce # roguelike
     endless-sky # space trader

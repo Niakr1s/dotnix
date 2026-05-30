@@ -12,8 +12,8 @@
     # ../../modules/de/gnome
     ../../modules/de/niri.nix
     # ../../modules/de/hyprland.nix
-    # ../../modules/de/sddm.nix
-    ../../modules/de/gdm.nix
+    ../../modules/de/sddm.nix
+    # ../../modules/de/gdm.nix
     ../../modules/dconf
 
     ../../modules/services/qbittorrent.nix
@@ -142,7 +142,6 @@
     lsof # show opened files
     usbutils
     nsz # switch game converter
-    neofetch # for sure
     wine
     winetricks
     libnotify
