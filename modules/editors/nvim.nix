@@ -64,8 +64,9 @@
       ];
     };
 
-    home.file.".config/nvim/init.lua" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/nvim/init.lua";
-    };
+    # TODO: fix this
+    # home.file.".config/nvim/init.lua" = {
+    #   source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/nvim/init.lua";
+    # };
   };
 }
