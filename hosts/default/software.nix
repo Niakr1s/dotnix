@@ -286,6 +286,9 @@ in
     wget # Download utility
     speedtest-cli # Internet speed test
 
+    ### Messaging
+    telegram-desktop # Messaging app
+
     ### ========== UTILITIES & PRODUCTIVITY ==========
     ### Document Processing
     poppler-utils # PDF utilities (pdftotext)
@@ -365,10 +368,6 @@ in
 
   # Home packages
   home-manager.users.${username} = {
-    home.packages = with pkgs; [
-      telegram-desktop
-    ];
-
     # CLI process scheduler and manager.
     services.pueue = {
       enable = true;
