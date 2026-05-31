@@ -129,6 +129,12 @@
   #   dates = "weekly";
   # };
 
+  # Optimize /nix/store via hardlinking store files
+  nix.optimise = {
+    automatic = true;
+    dates = "daily";
+  };
+
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
