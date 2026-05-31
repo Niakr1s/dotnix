@@ -221,7 +221,6 @@
     lazygit # Simple terminal UI for git commands
     miller # Like awk, sed, cut, join, and sort for data formats such as CSV, TSV, JSON, JSON Lines, and positionally-indexed
     visidata # Interactive terminal multitool for tabular data
-    delta # Syntax-highlighting pager for git
     parallel # Shell tool for executing jobs in parallel
     duf # Disk Usage/Free Utility
     ncdu # Disk usage analyzer with an ncurses interface
