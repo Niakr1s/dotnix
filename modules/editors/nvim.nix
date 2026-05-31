@@ -18,7 +18,7 @@
       withPython3 = true;
       withRuby = true;
 
-      initLua = "require('default')";
+      initLua = "require('nvim')";
 
       plugins = with pkgs.vimPlugins; [
         nvim-lspconfig
