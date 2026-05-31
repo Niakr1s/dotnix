@@ -18,7 +18,7 @@
     ../../modules/02-desktop/input/dotool.nix
     ../../modules/02-desktop/input/wvkbd.nix
     ../../modules/02-desktop/window-managers/niri.nix
-    ../../modules/02-desktop/window-managers/gnome/dconf/default.nix
+    ../../modules/02-desktop/window-managers/gnome/config/default.nix
 
     ### 03-software
     ../../modules/03-software/development/editors/nvim.nix
