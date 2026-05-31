@@ -4,8 +4,11 @@
   ...
 }: {
   imports = [
+    ### Text Editors
     # ../../modules/editors/vscode.nix
     # ../../modules/editors/zed.nix
+
+    ### Virtualization
     ../../modules/vm/virt-manager.nix
 
     ### Docker services
