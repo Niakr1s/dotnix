@@ -193,10 +193,6 @@ in
     poppler-utils # PDF utilities (pdftotext)
     pandoc # (not in list - document conversion)
 
-    ### File Managers
-    nautilus # GNOME file manager
-    yazi # Terminal file manager (blazing fast)
-
     ### Renaming Tools
     gprename # GUI bulk rename tool
     bulky # GUI bulk rename tool

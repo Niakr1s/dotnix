@@ -18,7 +18,6 @@
     ../../modules/02-desktop/input/dotool.nix
     ../../modules/02-desktop/input/wvkbd.nix
     ../../modules/02-desktop/window-managers/niri.nix
-    ../../modules/02-desktop/window-managers/gnome/config/default.nix
 
     ### 03-software
     ../../modules/03-software/development/editors/nvim.nix
@@ -39,7 +38,8 @@
     ../../modules/03-software/multimedia/video/frameworks/gstreamer.nix
     ../../modules/03-software/multimedia/video/players/mpv.nix
     ../../modules/03-software/multimedia/video/streaming/obs.nix
-    ../../modules/03-software/terminal/file-managers/yazi.nix
+    ../../modules/03-software/file-managers/yazi.nix
+    ../../modules/03-software/file-managers/nautilus.nix
     ../../modules/03-software/terminal/multiplexers/tmux.nix
     ../../modules/03-software/terminal/shells/bash.nix
     ../../modules/03-software/terminal/shells/zsh.nix
