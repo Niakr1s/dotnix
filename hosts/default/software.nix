@@ -17,90 +17,108 @@ let
       (_: {
         doCheck = false;
       });
-    cia = inputs.cia.packages.${pkgs.system}.default;
+  cia = inputs.cia.packages.${pkgs.system}.default;
 in
 {
-  # Packages with settings
+  # Modules
   imports = [
-    ../../modules/documentation.nix
+    ### ========== SYSTEM UTILITIES ==========
+    ### System Monitoring & Diagnostics
+    # (no module imports for these - usually just packages)
 
-    # ../../modules/de/gnome
-    ../../modules/de/niri.nix
-    # ../../modules/de/hyprland.nix
-    ../../modules/de/sddm.nix
-    # ../../modules/de/gdm.nix
-    ../../modules/dconf
+    ### Disk Management & Analysis
+    # (no module imports for these)
 
-    ../../modules/services/qbittorrent.nix
-    ../../modules/services/v2raya.nix
-    ../../modules/services/syncthing.nix
-    ../../modules/services/avahi.nix
+    ### File Operations & Syncing
+    ../../modules/services/syncthing.nix # File sync
+    ../../modules/webdav.nix # WebDAV server/client
 
-    ../../modules/utilites/tldr.nix
-    ../../modules/browsers/firefox.nix
-    ../../modules/browsers/w3m.nix
-    # ../../modules/browsers/tangram.nix
+    ### File managers
+    ../../modules/fm/yazi.nix # Terminal file manager
 
-    ### Video players
-    # ../../modules/players/celluloid.nix # don't need it, mpv is good
-    ../../modules/players/mpv.nix
+    ### ========== DEVELOPMENT TOOLS ==========
+    ### Version Control
+    ../../modules/vcs/git.nix # Git configuration
 
-    ### VCS
-    ../../modules/vcs/git.nix
-    ../../modules/vcs/git.nix
+    ### Container & Virtualization
+    ../../modules/docker # Docker container runtime
+
+    ### ========== TEXT EDITORS & TERMINAL ==========
+    ### Text Editors
+    ../../modules/editors/nvim.nix # Neovim editor
+    # ../../modules/editors/nvf.nix              # NVF (commented out)
+
+    ### Terminals
+    ../../modules/terminal/tmux.nix # Tmux terminal multiplexer
+    # ../../modules/terminal/zellij.nix          # Zellij (commented out)
 
     ### Shells
-    ../../modules/shells/zsh.nix
-    ../../modules/shells/bash.nix
-    ../../modules/shells/fzf.nix
-    ../../modules/shells/zoxide.nix
-    ../../modules/shells/bat.nix
+    ../../modules/shells/zsh.nix # ZSH shell
+    ../../modules/shells/bash.nix # Bash shell
+    ../../modules/shells/fzf.nix # Fuzzy finder shell integration
+    ../../modules/shells/zoxide.nix # Smarter cd command
+    ../../modules/shells/bat.nix # Better cat with highlighting
 
-    ### FIle managers
-    ../../modules/fm/yazi.nix
+    ### Terminal Utilities
+    ../../modules/utilites/tldr.nix # TLDR cheatsheets
 
-    # NVF
-    # inputs.nvf.homeManagerModules.default # TODO
-    # ../../modules/editors/nvf.nix
-    ../../modules/editors/nvim.nix
+    ### ========== DESKTOP ENVIRONMENT & DISPLAY ==========
+    ### Display Managers
+    ../../modules/de/sddm.nix # SDDM display manager
+    # ../../modules/de/gdm.nix                   # GDM (commented out)
 
-    ### Gstreamer
-    ../../modules/video/gstreamer.nix
+    ### Window Managers / Compositors
+    ../../modules/de/niri.nix # Niri compositor
+    # ../../modules/de/hyprland.nix              # Hyprland (commented out)
+    # ../../modules/de/gnome                     # GNOME (commented out)
 
-    ### Security
-    ../../modules/security/cotp.nix
+    ### Desktop Configuration
+    ../../modules/dconf # dconf settings (GSettings)
+    ../../modules/dotool.nix # Dotool (automation/macro tool)
 
-    ### Docker
-    ../../modules/docker
+    ### ========== MULTIMEDIA & GRAPHICS ==========
+    ### Video Players
+    ../../modules/players/mpv.nix # MPV video player
+    # ../../modules/players/celluloid.nix        # Celluloid (commented out - GTK mpv frontend)
 
-    ### Mail
-    # ../../modules/mail.nix # IT downloads whole gmail, don't need it atm
+    ### Audio Players
+    ../../modules/audio/tauon.nix # Tauon music player
 
-    ### Audio
-    ../../modules/audio/tauon.nix
+    ### Video/Audio Frameworks
+    ../../modules/video/gstreamer.nix # GStreamer multimedia framework
 
-    ### Text
-    ../../modules/text/libreoffice.nix
+    ### ========== NETWORK & INTERNET ==========
+    ### Browsers
+    ../../modules/browsers/firefox.nix # Firefox browser
+    ../../modules/browsers/w3m.nix # w3m terminal browser
+    # ../../modules/browsers/tangram.nix         # Tangram (commented out)
 
-    ### WebDAV
-    ../../modules/webdav.nix
+    ### File Sharing & Download
+    ../../modules/services/qbittorrent.nix # qBittorrent (note: typo in your path? "qbittorrent.nix")
+    ../../modules/services/v2raya.nix # V2RayA proxy client
 
-    ### Terminal
-    # ../../modules/terminal/zellij.nix
-    ../../modules/terminal/tmux.nix
+    ### Network Services
+    ../../modules/services/avahi.nix # Avahi (Zeroconf/Bonjour)
 
-    ### IRC
-    ../../modules/irc/weechat.nix
+    ### IRC & Chat
+    ../../modules/irc/weechat.nix # Weechat IRC client
 
-    ### nix-ld
-    ../../modules/nixld.nix
+    ### ========== DOCUMENTATION & NOTES ==========
+    ../../modules/documentation.nix # Documentation tools
+    ../../modules/notes/joplin.nix # Joplin note taking
+    ../../modules/dict.nix # Dictionary tools
 
-    ### Notes
-    ../../modules/notes/joplin.nix
+    ### ========== OFFICE & TEXT ==========
+    ../../modules/text/libreoffice.nix # LibreOffice suite
 
-    ../../modules/dict.nix
+    ### ========== SECURITY & ENCRYPTION ==========
+    ../../modules/security/cotp.nix # COTP (what is this? OTP?)
 
-    ../../modules/dotool.nix
+    ### ========== COMPATIBILITY LAYERS ==========
+    ../../modules/nixld.nix # nix-ld (run non-Nix binaries)
+
+    ### ========== CUSTOM/MISC ==========
+    # ../../modules/mail.nix                     # Mail (commented out - downloads entire Gmail)
   ];
 
   # System packages
@@ -217,7 +235,6 @@ in
     audacity # Audio editing
     gpu-screen-recorder-gtk # GPU-accelerated screen recording GUI
     kdePackages.kdenlive # Video editing
-
 
     ### Image Processing & Viewing
     gimp # Professional image editor
