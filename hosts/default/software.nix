@@ -189,6 +189,9 @@
     playerctl # music play/pause
     nix-serve # serve nix store
     zeal # offline documentation
+    speedtest-cli # speedtest in a terminal
+    wiki-tui # wiki in a terminal
+    ddgr # duckduckgo from terminal
 
     inotify-tools # File system events (files/directories being created, modified, deleted)
     audit # provides auditctl (who accessed what file, when)
@@ -218,6 +221,7 @@
     gnupg
     elinks
     yt-dlp
+    gallery-dl # download image galleries / collections from may sites
     ytfzf # Posix script to find and watch youtube videos from the terminal
     jq # lightweight and flexible command-line JSON processor
     eza # Modern, maintained replacement for ls
