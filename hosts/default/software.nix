@@ -38,6 +38,7 @@
     ../../modules/shells/zsh.nix
     ../../modules/shells/bash.nix
     ../../modules/shells/fzf.nix
+    ../../modules/shells/zoxide.nix
 
     ### FIle managers
     ../../modules/fm/yazi.nix
