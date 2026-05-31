@@ -82,6 +82,8 @@
     ../../modules/notes/joplin.nix
 
     ../../modules/dict.nix
+
+    ../../modules/dotool.nix
   ];
 
   # System packages
