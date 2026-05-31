@@ -138,7 +138,8 @@
     yazi
     fzf
     fd
-    ripgrep
+    ripgrep # rg
+    ripgrep-all # rga
     zenity # dialogs for scripts
     fdupes # find diplicate files
     lsof # show opened files
