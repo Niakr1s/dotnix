@@ -191,6 +191,21 @@
                 ];
                 definedAliases = [ "@fg" ];
               };
+
+              "searchix" = {
+                urls = [
+                  {
+                    template = "https://searchix.ovh";
+                    params = [
+                      {
+                        name = "query";
+                        value = "{searchTerms}";
+                      }
+                    ];
+                  }
+                ];
+                definedAliases = [ "@ns" ];
+              };
             };
           };
         };
