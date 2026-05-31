@@ -4,6 +4,7 @@
     ./extensions/vitals.nix
     ./extensions/app-grid-wizard.nix
     ./extensions/todotxt.nix
+    ./config/default.nix
   ];
 
   services.desktopManager.gnome.enable = true;
