@@ -74,6 +74,9 @@
       # caddy
       80
       443
+
+      # nix-serve
+      5000
     ];
     allowedUDPPorts = [ ];
     allowPing = true;
