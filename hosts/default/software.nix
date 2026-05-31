@@ -249,6 +249,12 @@
 
     gpu-screen-recorder-gtk # GUI app
     audacity
+    bottom # Cross-platform graphical process/system monitor with a customizable interface
+    watchexec # execute commands when files change.
+    rmlint # find duplicate and obsolete files, with shell script output
+    fclones-gui # find duplicates gui
+    hyperfine # benchmark any command line tool.
+    procs # modern ps
   ];
 
   programs.gpu-screen-recorder.enable = true; # For promptless recording on both CLI and GUI
@@ -282,5 +288,10 @@
     home.packages = with pkgs; [
       telegram-desktop
     ];
+
+    # CLI process scheduler and manager.
+    services.pueue = {
+      enable = true;
+    };
   };
 }
