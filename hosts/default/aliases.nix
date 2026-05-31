@@ -17,6 +17,7 @@
     gvcd = "/run/user/1000/gvfs";
 
     nix-shell = "nix-shell --run zsh";
+    nix-source = "(cd $(nix-instantiate --eval -E '<nixpkgs>') && $SHELL)";
 
     atop = "atop -Kk";
   };
