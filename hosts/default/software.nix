@@ -209,6 +209,7 @@
     _7zz
     rar
     unar # universal archive extractor (unar, lsar)
+    cheat # tldr alternative
 
     ### DB
     sqlitestudio
