@@ -135,6 +135,7 @@
     pstree
     tree
     bat
+    mdcat # show markdown
     yazi
     fzf
     fd
@@ -169,6 +170,7 @@
     gdu # disk usage with ncurses interface
     mtr # ping + traceroute
     delta # diff between two files
+    diff-so-fancy # makes your diffs human readable instead of machine readable
     parallel # speedup stuff
     csvkit # query on csv files
     borgbackup # borg backup solution

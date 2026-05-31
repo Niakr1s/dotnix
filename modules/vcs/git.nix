@@ -11,10 +11,5 @@
         pull.rebase = false;
       };
     };
-
-    programs.delta = {
-      enable = true;
-      enableGitIntegration = true;
-    };
   };
 }
