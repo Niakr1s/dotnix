@@ -4,11 +4,6 @@ vim.opt.relativenumber = false -- Relative line numbers
 vim.opt.mouse = "a"            -- Enable mouse support
 vim.opt.showmode = false       -- We'll use statusline instead
 -- vim.opt.clipboard = "unnamedplus" -- Use system clipboard
-vim.opt.breakindent = true     -- Better indentation for wrapped lines
-vim.opt.autoindent = true      -- Copy indent from furrent line when starting a new line
-vim.opt.smartindent = true     -- Do smart autoindenting when starting a new line
-vim.opt.cindent = false        -- Indent fo C progs
-vim.opt.copyindent = true      -- Copy the structure of the existing lines indent when autoindenting a new line.
 vim.opt.undofile = true        -- Save undo history
 vim.opt.ignorecase = true      -- Case-insensitive searching
 vim.opt.smartcase = true       -- But be smart about it
@@ -24,6 +19,13 @@ vim.opt.cursorline = false     -- Highlight current line
 vim.opt.scrolloff = 10         -- Keep 10 lines below/above cursor
 vim.opt.sidescrolloff = 8      -- Keep 8 columns side scrolling
 vim.opt.termguicolors = true
+--
+-- Indent options
+vim.opt.breakindent = true     -- Better indentation for wrapped lines
+vim.opt.autoindent = true      -- Copy indent from furrent line when starting a new line
+vim.opt.smartindent = false     -- Do smart autoindenting when starting a new line
+vim.opt.cindent = false        -- Indent fo C progs
+vim.opt.copyindent = true      -- Copy the structure of the existing lines indent when autoindenting a new line.
 
 require("tokyonight").setup({
   transparent = true,
