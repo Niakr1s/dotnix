@@ -54,6 +54,12 @@
     NIXOS_OZONE_WL = "1"; # To force wayland
   };
 
+  environment.variables = {
+    EDITOR = "vim";
+    VISUAL = "vim";
+    BROWSER = "firefox";
+  };
+
   environment.localBinInPath = true;
 
   # Services
@@ -169,9 +175,6 @@
     {
       home.sessionVariables = {
         TERMINAL = "alacritty";
-        EDITOR = "vim";
-        VISUAL = "vim";
-        BROWSER = "firefox";
       };
 
       xdg.configFile."mimeapps.list" = {
