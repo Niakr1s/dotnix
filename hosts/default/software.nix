@@ -17,6 +17,7 @@ let
       (_: {
         doCheck = false;
       });
+    cia = inputs.cia.packages.${pkgs.system}.default;
 in
 {
   # Packages with settings
@@ -104,167 +105,219 @@ in
 
   # System packages
   environment.systemPackages = with pkgs; [
-    ffmpeg-full-custom
+    ### ========== SYSTEM UTILITIES ==========
+    ### System Monitoring & Diagnostics
+    htop # Interactive process viewer
+    bottom # Cross-platform graphical process/system monitor (btm)
+    procs # Modern ps replacement
+    pstree # Display processes as a tree
+    lm_sensors # Hardware temperature/voltage monitoring
+    smartmontools # S.M.A.R.T. disk health monitoring (smartctl)
+    lsof # List open files and processes
+    usbutils # USB device utilities (lsusb)
+    inotify-tools # Monitor filesystem events
+    audit # System call auditing (auditctl)
+    nmap # Network discovery and port scanning
+    net-tools # Legacy network tools (netstat, ifconfig)
+    mtr # Combined ping + traceroute
 
-    gthumb # better image viewer
+    ### Disk Management & Analysis
+    gptfdisk # GPT partitioning tools (gdisk, sgdisk, cgdisk)
+    ntfs3g # NTFS read/write driver
+    ntfsprogs # NTFS utilities
+    duf # Disk usage/free utility (pretty tables)
+    gdu # Disk usage with interactive ncurses interface
+    fdupes # Find duplicate files (CLI)
+    czkawka # Duplicate finder (GUI + CLI)
+    rmlint # Find duplicate/obsolete files with shell script output
+    fclones-gui # Duplicate finder GUI
+    bleachbit # System cleaner
+    trash-cli # Trash management from command line
 
-    gptfdisk # gdisk sgidsk cgdisk
-    smartmontools # smartctl
+    ### File Operations & Syncing
+    rsync # Fast incremental file transfer
+    rclone # Cloud storage sync (Google Drive, S3, etc.)
+    curlftpfs # Mount FTP as filesystem
+    lftp # Sophisticated FTP/HTTP client
+    aria2 # Download utility with multi-connection
+    uget # Download manager GUI
+    parallel # Execute jobs in parallel
+    watchexec # Execute commands when files change
 
-    ### Crypto
-    age
-    ssh-to-age
-    ssh-to-pgp
-    sops
-    veracrypt
-    cryptsetup # luks
+    ### ========== TEXT EDITORS ===============
+    vim # vim text editor
 
-    lisgd # for touchscreen
-    libinput # for input hardware
+    ### ========== DEVELOPMENT TOOLS ==========
+    ### Build Systems
+    gnumake # Make build system
+    cmake # Cross-platform build system
 
-    fastfetch
-    cmatrix
+    ### Version Control
+    git # Distributed version control system
+    lazygit # Terminal UI for git commands
+    delta # Syntax-highlighting pager for git
+    diff-so-fancy # Human-readable diffs
+    meld # Visual diff and merge tool (GUI)
 
-    gnumake
-    cmake
+    ### Programming Languages & Runtimes
+    uv # Fast Python package installer
+    deno # JavaScript/TypeScript runtime
+    nodejs # (if needed - not in your list but common)
 
-    vim
-    wget
-    uv
-    deno
-    curl
-    git
-    htop
-    pstree
-    tree
-    mdcat # show markdown
-    yazi
-    fzf
-    fd
-    ripgrep # rg
-    ripgrep-all # rga
-    zenity # dialogs for scripts
-    fdupes # find diplicate files
-    lsof # show opened files
-    usbutils
-    nsz # switch game converter
-    wine
-    winetricks
-    libnotify
-    mediainfo
-    exiftool
-    ueberzug
-    chafa
-    wl-clipboard
-    uget # download manager
-    aria2 # download program
-    gprename # gui bulk rename tool
-    bulky # gui bulk rename tool
-    vimv # console bulk rename tool
-    curlftpfs # ftp
-    lftp # ftp
-    nps # cache nix package list and search in it by relevance
-    meld # visual diff app
-    czkawka # find duplicates of files etc
-    bleachbit # clean disk
-    lm_sensors # system sensors
-    poppler-utils # pdftotext and other pdf tools
-    gdu # disk usage with ncurses interface
-    mtr # ping + traceroute
-    delta # diff between two files
-    diff-so-fancy # makes your diffs human readable instead of machine readable
-    parallel # speedup stuff
-    csvkit # query on csv files
-    borgbackup # borg backup solution
-    httm # zfs snapshots restore
-    kiwix-tools # offline wiki
-    lynx # console web browser
-    ntfs3g
-    ntfsprogs
-    nautilus # file manager
-    wev # show pressed key
-    umu-launcher # universal proton launcher
-    yad # tool to show windows
-    alsa-tools # speaker-test
-    nmap # check open ports
-    net-tools # netstat and maybe others
-    playerctl # music play/pause
-    nix-serve # serve nix store
-    zeal # offline documentation
-    speedtest-cli # speedtest in a terminal
-    wiki-tui # wiki in a terminal
-    ddgr # duckduckgo from terminal
+    ### Data Processing & Query
+    jq # JSON processor
+    miller # CSV/JSON/TSV processing (like awk for structured data)
+    csvkit # CSV file querying and conversion
+    visidata # Terminal multitool for tabular data
+    sqlite # Lightweight database engine
+    sqlitestudio # SQLite GUI
+    lazysql # Simple database GUI
 
-    inotify-tools # File system events (files/directories being created, modified, deleted)
-    audit # provides auditctl (who accessed what file, when)
+    ### Text & Search Utilities
+    ripgrep # (rg) Fast recursive grep
+    ripgrep-all # (rga) Search in PDFs, ZIPs, images, etc.
+    fd # Simple, fast find alternative
+    fzf # Fuzzy finder
+    grex # Generate regex from examples
+    csvkit # CSV utilities
 
-    ### Image editors
-    gimp
-    inkscape
-    conjure
+    ### ========== TERMINAL ENHANCEMENTS ==========
+    ### Shell Replacements & Improvements
+    eza # Modern ls replacement (exa fork)
+    zoxide # Smarter cd command
+    bottom # System monitor
+    procs # Modern ps
+    mdcat # Markdown rendering in terminal
+    vimv # Batch rename files using vim
+    bat # (not in list - cat with syntax highlighting)
 
-    ### Archives
-    zip
-    unzip
-    p7zip
-    _7zz
-    rar
-    unar # universal archive extractor (unar, lsar)
-    cheat # tldr alternative
+    ### Shell Utilities
+    ripgrep # Better grep
+    fd # Better find
+    fzf # Fuzzy finder for shell
+    tree # Directory listing as tree
+    cheat # Cheatsheets for commands
+    wiki-tui # Wikipedia in terminal
+    ddgr # DuckDuckGo from terminal
 
-    ### DB
-    sqlitestudio
-    sqlitestudio-plugins
-    sqlite
-    lazysql
+    ### Fun utilites
+    fastfetch # System info
+    cmatrix # matrix in terminal
+    fortune # Random quotes
+    cowsay # ASCII art cows
+    lolcat # Rainbow text coloring
 
-    dconf-editor # you probably need it even in not gnome environment
+    ### ========== MULTIMEDIA & GRAPHICS ==========
+    ### Video/Audio Processing
+    ffmpeg-full-custom # Complete video/audio conversion (your custom build)
+    yt-dlp # YouTube/downloader (supports 1000+ sites)
+    gallery-dl # Download image galleries from websites
+    ytfzf # Terminal YouTube search and player
+    mediainfo # Display media file metadata
+    audacity # Audio editing
+    gpu-screen-recorder-gtk # GPU-accelerated screen recording GUI
+    kdePackages.kdenlive # Video editing
 
-    imagemagick
-    gnupg
-    elinks
-    yt-dlp
-    gallery-dl # download image galleries / collections from may sites
-    ytfzf # Posix script to find and watch youtube videos from the terminal
-    jq # lightweight and flexible command-line JSON processor
-    eza # Modern, maintained replacement for ls
-    lazygit # Simple terminal UI for git commands
-    miller # Like awk, sed, cut, join, and sort for data formats such as CSV, TSV, JSON, JSON Lines, and positionally-indexed
-    visidata # Interactive terminal multitool for tabular data
-    parallel # Shell tool for executing jobs in parallel
-    duf # Disk Usage/Free Utility
-    ncdu # Disk usage analyzer with an ncurses interface
-    dua # Tool to conveniently learn about the disk usage of directories
-    qalculate-gtk # calculator
+
+    ### Image Processing & Viewing
+    gimp # Professional image editor
+    inkscape # Vector graphics editor
+    conjure # ImageMagick GUI
+    imagemagick # Command-line image manipulation
+    gthumb # Image viewer/organizer
+    chafa # Image-to-text converter for terminal
+    ueberzug # Terminal image rendering library
+
+    ### E-book Readers
+    foliate # EPUB, PDF, Mobi, CBZ reader (GTK)
+
+    ### ========== HARDWARE & PERIPHERALS ==========
+    ### Touchscreen/Input
+    lisgd # Touchscreen gesture daemon
+    libinput # Input device handling
+    wev # Show pressed keys/events (Wayland)
+
+    ### System Tools
+    cryptsetup # LUKS disk encryption
+    veracrypt # Cross-platform disk encryption
+    age # Simple modern encryption
+    ssh-to-age # Convert SSH keys to age
+    ssh-to-pgp # Convert SSH keys to PGP
+    sops # Secrets management (encrypted YAML/JSON)
+    gnupg # GPG encryption
+    rhash # Hash calculation utility
+
+    ### Audio
+    alsa-tools # ALSA utilities (speaker-test, etc.)
+    playerctl # Media player controls (play/pause/next)
+
+    ### Emulation & Compatibility
+    wine # Windows compatibility layer
+    winetricks # Wine helper script
+    umu-launcher # Universal Proton launcher
+    nsz # Nintendo Switch game converter
+    cia # Nintendo 3ds games decryptor and converter
+
+    ### ========== NETWORK & INTERNET ==========
+    ### Browsers & Viewers
+    lynx # Terminal web browser
+    elinks # Advanced terminal browser
+    kiwix-tools # Offline Wikipedia reader
+
+    ### Network Tools
+    curl # HTTP/FTP client
+    wget # Download utility
+    speedtest-cli # Internet speed test
+
+    ### ========== UTILITIES & PRODUCTIVITY ==========
+    ### Document Processing
+    poppler-utils # PDF utilities (pdftotext)
+    pandoc # (not in list - document conversion)
+
+    ### File Managers
+    nautilus # GNOME file manager
+    yazi # Terminal file manager (blazing fast)
+
+    ### Renaming Tools
+    gprename # GUI bulk rename tool
+    bulky # GUI bulk rename tool
+    vimv # Terminal bulk rename
+
+    ### Archiving (Ordered by format support)
+    zip # zip archiver
+    unzip # ZIP format
+    p7zip # 7-Zip archiver
+    _7zz # 7-Zip archiver (both versions)
+    rar # RAR format (proprietary)
+    unar # Universal extractor (rar, 7z, zip, etc.)
+
+    ### Backup & Recovery
+    borgbackup # Deduplicating backup tool
+    httm # Interactive ZFS snapshot navigator
+    nix-serve # Serve Nix store over HTTP
+
+    ### Office & Calculation
+    qalculate-gtk # Powerful calculator (GUI)
     calc # C-style arbitrary precision calculator
-    zoxide # Fast cd command that learns your habits
-    fortune # Program that displays a pseudorandom message from a database of quotations
-    cowsay
-    lolcat # Rainbow version of cat
-    rhash # Console utility and library for computing and verifying hash sums of files
-    rclone # Command line program to sync files and directories to and from major cloud storage
-    rsync # Fast incremental file transfer utility
-    trash-cli # trash management
-    foliate # EPUB, Mobipocket, Kindle, FB2, CBZ, and PDF reader
-    librecad # autocad for poor
+    librecad # 2D CAD (AutoCAD alternative)
 
-    # stress testing
-    stress-ng
-    s-tui
-    furmark
-    grex # generate regex from example strings
+    ### Documentation
+    zeal # Offline API documentation browser
 
-    # rom tools
-    inputs.cia.packages.${pkgs.system}.default
+    ### ========== MONITORING & STRESS ==========
+    stress-ng # System stress testing
+    s-tui # Stress test UI
+    furmark # GPU stress test (verify package name)
 
-    gpu-screen-recorder-gtk # GUI app
-    audacity
-    bottom # Cross-platform graphical process/system monitor with a customizable interface
-    watchexec # execute commands when files change.
-    rmlint # find duplicate and obsolete files, with shell script output
-    fclones-gui # find duplicates gui
-    hyperfine # benchmark any command line tool.
-    procs # modern ps
+    ### ========== UNCATEGORIZED / SPECIALIZED ==========
+    nps # Cache and search Nix packages with relevance
+    hyperfine # Benchmark command-line tools
+    zenity # GTK dialog boxes for scripts
+    yad # Yet Another Dialog (GTK/Qt)
+    dconf-editor # GSettings configuration editor
+    libnotify # Desktop notifications
+    wl-clipboard # Wayland clipboard utilities
+    exiftool # application for reading, writing and editing meta information in a wide variety of files.
   ];
 
   programs.gpu-screen-recorder.enable = true; # For promptless recording on both CLI and GUI
