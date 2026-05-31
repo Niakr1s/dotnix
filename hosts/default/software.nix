@@ -249,6 +249,7 @@
     stress-ng
     s-tui
     furmark
+    grex # generate regex from example strings
 
     # rom tools
     inputs.cia.packages.${pkgs.system}.default
