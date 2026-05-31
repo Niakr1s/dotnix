@@ -247,6 +247,7 @@
     inputs.cia.packages.${pkgs.system}.default
 
     gpu-screen-recorder-gtk # GUI app
+    audacity
   ];
 
   programs.gpu-screen-recorder.enable = true; # For promptless recording on both CLI and GUI
