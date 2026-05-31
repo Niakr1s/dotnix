@@ -5,7 +5,7 @@
 let
   shadps4-no-desktop = pkgs.symlinkJoin {
     name = "shadps4-no-desktop";
-    paths = [ pkgs.unstable.shadps4 ];
+    paths = [ pkgs.shadps4 ];
     buildInputs = [ pkgs.coreutils ];
     postBuild = ''
       rm -f $out/share/applications/net.shadps4.shadPS4.desktop

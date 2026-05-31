@@ -11,7 +11,6 @@
 
   programs.niri = {
     enable = true;
-    # package = pkgs.unstable.niri;
   };
 
   environment.systemPackages = with pkgs; [
@@ -46,7 +45,7 @@
 
   home-manager.users.${username} = {config, ...}: {
     services.swayidle = let
-      lock = "${pkgs.unstable.noctalia-shell}/bin/noctalia-shell ipc call sessionMenu lockAndSuspend";
+      lock = "${pkgs.noctalia-shell}/bin/noctalia-shell ipc call sessionMenu lockAndSuspend";
       displayOff = "${pkgs.niri}/bin/niri msg action power-off-monitors";
       lockTimeout =
         if hostname == "laptop"

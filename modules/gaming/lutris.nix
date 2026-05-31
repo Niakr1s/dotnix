@@ -42,7 +42,7 @@ in {
       winePackages = [
         # wineWow64Packages.stable # stable
         # wineWow64Packages.staging # version with experimental features
-        wineWow64Packages.waylandFull # native wayland support (unstable)
+        wineWow64Packages.waylandFull # native wayland support
       ];
       runners = {
         linux = {
