@@ -124,10 +124,11 @@
   services.displayManager.defaultSession = "niri";
 
   # Garbage collection weekly
-  # nix.gc = {
-  #   automatic = true;
-  #   dates = "weekly";
-  # };
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
 
   # Optimize /nix/store via hardlinking store files
   nix.optimise = {
