@@ -185,6 +185,7 @@
     net-tools # netstat and maybe others
     playerctl # music play/pause
     nix-serve # serve nix store
+    zeal # offline documentation
 
     inotify-tools # File system events (files/directories being created, modified, deleted)
     audit # provides auditctl (who accessed what file, when)
