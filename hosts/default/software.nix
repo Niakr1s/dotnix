@@ -39,6 +39,7 @@
     ../../modules/shells/bash.nix
     ../../modules/shells/fzf.nix
     ../../modules/shells/zoxide.nix
+    ../../modules/shells/bat.nix
 
     ### FIle managers
     ../../modules/fm/yazi.nix
@@ -135,7 +136,6 @@
     htop
     pstree
     tree
-    bat
     mdcat # show markdown
     yazi
     fzf
