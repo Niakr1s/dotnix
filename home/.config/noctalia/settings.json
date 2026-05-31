@@ -623,50 +623,6 @@
     },
     "templates": {
         "activeTemplates": [
-            {
-                "enabled": true,
-                "id": "alacritty"
-            },
-            {
-                "enabled": true,
-                "id": "niri"
-            },
-            {
-                "enabled": true,
-                "id": "zed"
-            },
-            {
-                "enabled": true,
-                "id": "code"
-            },
-            {
-                "enabled": true,
-                "id": "yazi"
-            },
-            {
-                "enabled": true,
-                "id": "telegram"
-            },
-            {
-                "enabled": true,
-                "id": "btop"
-            },
-            {
-                "enabled": true,
-                "id": "steam"
-            },
-            {
-                "enabled": true,
-                "id": "qt"
-            },
-            {
-                "enabled": true,
-                "id": "cava"
-            },
-            {
-                "enabled": true,
-                "id": "gtk"
-            }
         ],
         "enableUserTheming": false
     },
