@@ -1,27 +1,28 @@
 -- [[ Basic Settings ]]
-vim.opt.number = true             -- Show line numbers
-vim.opt.relativenumber = false    -- Relative line numbers
-vim.opt.mouse = "a"               -- Enable mouse support
-vim.opt.showmode = false          -- We'll use statusline instead
+vim.opt.number = true          -- Show line numbers
+vim.opt.relativenumber = false -- Relative line numbers
+vim.opt.mouse = "a"            -- Enable mouse support
+vim.opt.showmode = false       -- We'll use statusline instead
 -- vim.opt.clipboard = "unnamedplus" -- Use system clipboard
-vim.opt.breakindent = true        -- Better indentation for wrapped lines
-vim.opt.autoindent = true
-vim.opt.smartindent = true
-vim.opt.cindent = true
-vim.opt.undofile = true           -- Save undo history
-vim.opt.ignorecase = true         -- Case-insensitive searching
-vim.opt.smartcase = true          -- But be smart about it
-vim.opt.signcolumn = "yes"        -- Keep sign column always visible
-vim.opt.updatetime = 250          -- Faster update time
-vim.opt.timeoutlen = 300          -- Faster key sequence timeout
-vim.opt.splitright = true         -- New splits open to the right
-vim.opt.splitbelow = true         -- New splits open below
-vim.opt.list = true               -- Show invisible characters
+vim.opt.breakindent = true     -- Better indentation for wrapped lines
+vim.opt.autoindent = true      -- Copy indent from furrent line when starting a new line
+vim.opt.smartindent = true     -- Do smart autoindenting when starting a new line
+vim.opt.cindent = false        -- Indent fo C progs
+vim.opt.copyindent = true      -- Copy the structure of the existing lines indent when autoindenting a new line.
+vim.opt.undofile = true        -- Save undo history
+vim.opt.ignorecase = true      -- Case-insensitive searching
+vim.opt.smartcase = true       -- But be smart about it
+vim.opt.signcolumn = "yes"     -- Keep sign column always visible
+vim.opt.updatetime = 250       -- Faster update time
+vim.opt.timeoutlen = 300       -- Faster key sequence timeout
+vim.opt.splitright = true      -- New splits open to the right
+vim.opt.splitbelow = true      -- New splits open below
+vim.opt.list = true            -- Show invisible characters
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
-vim.opt.inccommand = "split"      -- Preview substitutions live
-vim.opt.cursorline = false         -- Highlight current line
-vim.opt.scrolloff = 10            -- Keep 10 lines below/above cursor
-vim.opt.sidescrolloff = 8         -- Keep 8 columns side scrolling
+vim.opt.inccommand = "split"   -- Preview substitutions live
+vim.opt.cursorline = false     -- Highlight current line
+vim.opt.scrolloff = 10         -- Keep 10 lines below/above cursor
+vim.opt.sidescrolloff = 8      -- Keep 8 columns side scrolling
 vim.opt.termguicolors = true
 
 require("tokyonight").setup({
@@ -84,7 +85,8 @@ vim.keymap.set("n", "<leader>fg", telescope_live_grep, { desc = "Telescope live 
 vim.keymap.set("n", "<leader>fb", telescope_builtin.buffers, { desc = "Telescope buffers" })
 vim.keymap.set("n", "<leader>fh", telescope_builtin.help_tags, { desc = "Telescope help tags" })
 vim.keymap.set("n", "<leader>ft", telescope_builtin.treesitter, { desc = "Telescope treesitter" })
-vim.keymap.set("n", "<leader>fs", telescope_builtin.current_buffer_fuzzy_find, { desc = "Telescope current buffer fuzzy find" })
+vim.keymap.set("n", "<leader>fs", telescope_builtin.current_buffer_fuzzy_find,
+  { desc = "Telescope current buffer fuzzy find" })
 
 vim.api.nvim_create_user_command("Source", function()
   vim.cmd('source ~/.config/nvim/init.lua')
@@ -265,19 +267,19 @@ require("codecompanion").setup({
   },
   adapters = {
     http = {
-    -- Optional: Customize ollama adapter with your settings
-    ollama = function()
-      return require("codecompanion.adapters").extend("ollama", {
-        schema = {
-          model = {
-            default = "gemma4:e4b",  -- or your preferred model
+      -- Optional: Customize ollama adapter with your settings
+      ollama = function()
+        return require("codecompanion.adapters").extend("ollama", {
+          schema = {
+            model = {
+              default = "gemma4:e4b", -- or your preferred model
+            },
+            num_ctx = {
+              default = 16384, -- Context window size
+            },
           },
-          num_ctx = {
-            default = 16384,  -- Context window size
-          },
-        },
-      })
-    end,
+        })
+      end,
     }
   },
 })
