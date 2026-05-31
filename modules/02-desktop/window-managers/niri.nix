@@ -5,10 +5,6 @@
   flakeDir,
   ...
 }: {
-  imports = [
-    ../wvkbd.nix
-  ];
-
   programs.niri = {
     enable = true;
   };

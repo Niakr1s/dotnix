@@ -8,13 +8,13 @@
     ../default/configuration.nix
     ./boot.nix
     ./disko-config.nix
-    ../../modules/01-system/hardware/cpu/intel.nix
     ../../modules/01-system/hardware/gpu/nvidia.nix
     # Don't change this ------- END
 
     ./wallpaper.nix
     ./bookmarks.nix
     ./aliases.nix
+    ./modules.nix
   ];
 
   # ZFS need this

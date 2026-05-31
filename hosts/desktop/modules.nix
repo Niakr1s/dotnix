@@ -16,7 +16,6 @@
     ../../modules/03-software/gaming/emulators/nintendo/ryubing.nix
     ../../modules/03-software/gaming/emulators/sony/ps3/rpcs3.nix
     ../../modules/03-software/gaming/emulators/sony/ps4
-
     ../../modules/03-software/gaming/launchers/lutris.nix
     ../../modules/03-software/gaming/tools/mangohud.nix
   ];
