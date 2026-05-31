@@ -309,6 +309,7 @@ in
     ../../modules/03-software/multimedia/video/streaming/obs.nix
     ../../modules/03-software/file-managers/yazi.nix
     ../../modules/03-software/file-managers/nautilus.nix
+    ../../modules/03-software/terminal/emulators/alacritty.nix
     ../../modules/03-software/terminal/multiplexers/tmux.nix
     ../../modules/03-software/terminal/shells/bash.nix
     ../../modules/03-software/terminal/shells/zsh.nix

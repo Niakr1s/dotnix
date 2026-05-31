@@ -54,14 +54,6 @@
     NIXOS_OZONE_WL = "1"; # To force wayland
   };
 
-  # These variables will be set on shell initialisation (e.g. in /etc/profile).
-  environment.variables = {
-    EDITOR = "vim";
-    VISUAL = "vim";
-    # MANPAGER = "vim +Man!";
-    BROWSER = "firefox";
-  };
-
   environment.localBinInPath = true;
 
   # Services
@@ -175,6 +167,13 @@
   home-manager.users.${username} =
     { config, ... }:
     {
+      home.sessionVariables = {
+        TERMINAL = "alacritty";
+        EDITOR = "vim";
+        VISUAL = "vim";
+        BROWSER = "firefox";
+      };
+
       xdg.configFile."mimeapps.list" = {
         source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/mimeapps.list";
       };

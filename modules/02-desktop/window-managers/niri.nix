@@ -11,13 +11,6 @@
 
   environment.systemPackages = with pkgs; [
     xwayland-satellite
-
-    alacritty
-    # fuzzel
-    # swaylock
-    # mako
-    # swayidle
-
     noctalia-shell
   ];
 
@@ -84,12 +77,6 @@
 
     home.file.".config/niri/${hostname}.kdl" = {
       source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/niri/${hostname}.kdl";
-    };
-
-    home.file.".config/alacritty" = {
-      # TODO: probably move to a separate module, too lazy atm
-      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/alacritty";
-      recursive = true;
     };
   };
 }
