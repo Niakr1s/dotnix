@@ -4,6 +4,20 @@
   username,
   ...
 }:
+let
+  ffmpeg-full-configured =
+    (pkgs.ffmpeg-full.override {
+      withUnfree = true; # Allow unfree dependencies (for Nvidia features notably)
+      withMetal = false; # Use Metal API on Mac. Unfree and requires manual downloading of files
+      withMfx = false; # Hardware acceleration via the deprecated intel-media-sdk/libmfx. Use oneVPL instead (enabled by default) from Intel's oneAPI.
+      withTensorflow = false; # Tensorflow dnn backend support (Increases closure size by ~390 MiB)
+      withSmallBuild = true; # Prefer binary size to performance.
+      withDebug = false; # Build using debug options
+    }).overrideAttrs
+      (_: {
+        doCheck = false;
+      });
+in
 {
   # Packages with settings
   imports = [
@@ -90,19 +104,7 @@
 
   # System packages
   environment.systemPackages = with pkgs; [
-    (
-      (pkgs.ffmpeg-full.override {
-        withUnfree = true; # Allow unfree dependencies (for Nvidia features notably)
-        withMetal = false; # Use Metal API on Mac. Unfree and requires manual downloading of files
-        withMfx = false; # Hardware acceleration via the deprecated intel-media-sdk/libmfx. Use oneVPL instead (enabled by default) from Intel's oneAPI.
-        withTensorflow = false; # Tensorflow dnn backend support (Increases closure size by ~390 MiB)
-        withSmallBuild = true; # Prefer binary size to performance.
-        withDebug = false; # Build using debug options
-      }).overrideAttrs
-      (_: {
-        doCheck = false;
-      })
-    )
+    ffmpeg
 
     feh # image viewer
     gthumb # better image viewer
