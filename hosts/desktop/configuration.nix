@@ -14,7 +14,7 @@
     ./wallpaper.nix
     ./bookmarks.nix
     ./aliases.nix
-    ./modules.nix
+    ./software.nix
   ];
 
   # ZFS need this

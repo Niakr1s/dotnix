@@ -9,7 +9,6 @@
   imports = [
     ./boot.nix
 
-    ./modules.nix
     ./software.nix
 
     ./bookmarks.nix
