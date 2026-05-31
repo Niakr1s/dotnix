@@ -8,16 +8,10 @@
     ../default/configuration.nix
     ./boot.nix
     ./disko-config.nix
-    ../../modules/hardware/intel.nix
+    ../../modules/01-system/hardware/cpu/intel.nix
     # Don't change this ------- END
 
     ./wallpaper.nix # You can change wallpaper in this file
-
-    ../../modules/dconf/suspend.nix # turn on suspend for laptop
-    ../../modules/dconf/onscreen-keyboard-enabler.nix
-
-    ../../modules/de/gnome/extensions/screen-rotate.nix
-    ../../modules/de/gnome/extensions/gjs-osk.nix
   ];
 
   # ZFS need this

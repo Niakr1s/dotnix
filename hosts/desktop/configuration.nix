@@ -8,31 +8,13 @@
     ../default/configuration.nix
     ./boot.nix
     ./disko-config.nix
-    ../../modules/hardware/nvidia.nix
+    ../../modules/01-system/hardware/cpu/intel.nix
+    ../../modules/01-system/hardware/gpu/nvidia.nix
     # Don't change this ------- END
 
     ./wallpaper.nix
     ./bookmarks.nix
     ./aliases.nix
-    ./software.nix
-    ./games.nix
-    # ./ups.nix
-
-    ../../modules/dconf/monitors.nix
-    ../../modules/dconf/numlock.nix
-
-    # ../../modules/de/gnome/extensions/blur-my-shell.nix
-    ../../modules/de/gnome/extensions/display-configuration-switcher.nix
-
-    ../../modules/ai/ollama.nix
-    ../../modules/ai/aichat.nix
-    # ../../modules/ai/comfyui.nix # building from src, too long
-
-    ../../modules/video/handbrake.nix
-    ../../modules/video/losslesscut.nix
-    ../../modules/video/obs.nix
-
-    ../../modules/services/kiwix.nix
   ];
 
   # ZFS need this

@@ -8,15 +8,15 @@
 {
   imports = [
     ./boot.nix
+
+    ./modules.nix
+    ./software.nix
+
+    ./bookmarks.nix
     ./aliases.nix
     ./fonts.nix
-    ./software.nix
-    ./programming.nix
-    ./games.nix
     ./sops.nix
     ./ssh.nix
-    ./iphone.nix
-    ./bookmarks.nix
   ];
 
   ### BLuetooth
