@@ -5,7 +5,7 @@
   ...
 }:
 let
-  ffmpeg-full-configured =
+  ffmpeg-full-custom =
     (pkgs.ffmpeg-full.override {
       withUnfree = true; # Allow unfree dependencies (for Nvidia features notably)
       withMetal = false; # Use Metal API on Mac. Unfree and requires manual downloading of files
@@ -104,9 +104,8 @@ in
 
   # System packages
   environment.systemPackages = with pkgs; [
-    ffmpeg
+    ffmpeg-full-custom
 
-    feh # image viewer
     gthumb # better image viewer
 
     gptfdisk # gdisk sgidsk cgdisk
