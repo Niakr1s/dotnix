@@ -57,8 +57,8 @@ vim.keymap.set("v", "<", "<gv", { desc = "Indent left and reselect" })
 vim.keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
 
 -- Move selected lines
-vim.keymap.set("v", "J", ":m '>+1<CR>gv", { desc = "Move selected lines down" })
-vim.keymap.set("v", "K", ":m '<-2<CR>gv", { desc = "Move selected lines up" })
+-- vim.keymap.set("v", "J", ":m '>+1<CR>gv", { desc = "Move selected lines down" })
+-- vim.keymap.set("v", "K", ":m '<-2<CR>gv", { desc = "Move selected lines up" })
 
 -- Keep cursor centered
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half page down, center cursor" })
