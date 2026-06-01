@@ -21,9 +21,5 @@
         inherit (pkgs.yaziPlugins) bookmarks;
       };
     };
-
-    home.shellAliases = {
-      yz = "yazi";
-    };
   };
 }
