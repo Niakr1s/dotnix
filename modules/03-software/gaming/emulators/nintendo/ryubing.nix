@@ -1,11 +1,14 @@
 {
   pkgs,
+  lib,
   username,
   flakeDir,
   ...
 }:
 let
-  prodKeysFile = "prod.v21.2.0.keys";
+  version = "21.2.0";
+  prodKeysFile = "prod.v${version}.keys";
+  firmwareUrl = "https://github.com/THZoria/NX_Firmware/releases/download/${version}/Firmware.${version}.zip";
 
   # Read the contents of the original desktop file provided by the package
   originalDesktopFile = builtins.readFile "${pkgs.ryubing}/share/applications/Ryujinx.desktop";
@@ -22,6 +25,10 @@ let
   };
 in
 {
+  warnings = [
+    "Ryujinx firmware: ${firmwareUrl}"
+  ];
+
   environment.systemPackages = with pkgs; [
     ryubing
     nsz
@@ -49,6 +56,7 @@ in
       home.file.".config/Ryujinx/mods/contents" = {
         source = "${cheats}";
         recursive = true;
+        force = true;
       };
     };
 }
