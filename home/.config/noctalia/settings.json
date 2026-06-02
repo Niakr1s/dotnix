@@ -27,8 +27,8 @@
             "joplin",
             "tauonmb",
             "org.telegram.desktop",
-            "startcenter",
-            "io.missioncenter.MissionCenter"
+            "io.missioncenter.MissionCenter",
+            "org.gnome.TextEditor"
         ],
         "position": "center",
         "screenshotAnnotationTool": "",
