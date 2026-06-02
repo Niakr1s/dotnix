@@ -24,7 +24,11 @@
             "firefox",
             "re.sonny.Tangram",
             "dev.zed.Zed",
-            "joplin"
+            "joplin",
+            "tauonmb",
+            "org.telegram.desktop",
+            "startcenter",
+            "io.missioncenter.MissionCenter"
         ],
         "position": "center",
         "screenshotAnnotationTool": "",
