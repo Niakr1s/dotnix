@@ -13,6 +13,12 @@
     echo "${originalDesktopFile}" > $out
     sed -i 's|^Exec=\(.*\)|Exec=systemd-inhibit \1|' $out
   '';
+
+  cheats = pkgs.fetchzip {
+    name = "ryujinx-cheats";
+    url = "https://github.com/HamletDuFromage/switch-cheats-db/releases/download/2026-04-18/contents_complete.zip";
+    hash = "sha256-PxsMHOKWcmD6yZX9jxKo2aGtUWg8w1JT3h6sgu1QJSo=";
+  };
 in {
   environment.systemPackages = with pkgs; [
     ryubing
@@ -35,6 +41,9 @@ in {
     };
     home.file.".config/Ryujinx/Config.json" = {
       source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/Ryujinx/Config.json";
+    };
+    home.file.".config/Ryujinx/mods/contents" = {
+      source = "${cheats}";
     };
   };
 }
