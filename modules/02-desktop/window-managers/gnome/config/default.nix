@@ -17,13 +17,6 @@
           monospace-font-name = "JetBrainsMono Nerd Font 10";
         };
 
-        "org/gnome/TextEditor" = {
-          show-line-numbers = true;
-          tab-width = lib.hm.gvariant.mkUint32 2;
-          indent-width = -1;
-          restore-session = false;
-        };
-
         "org/gnome/shell" = {
           favorite-apps = [
             "org.gnome.Console.desktop"

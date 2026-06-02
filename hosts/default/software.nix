@@ -298,6 +298,7 @@ in
     ../../modules/03-software/documents/documentation/documentation.nix
     ../../modules/03-software/documents/notes/joplin.nix
     ../../modules/03-software/documents/office/libreoffice.nix
+    ../../modules/03-software/documents/text-editors/gnome-text-editor.nix
     ../../modules/03-software/internet/browsers/firefox.nix
     ../../modules/03-software/internet/browsers/w3m.nix
     ../../modules/03-software/internet/irc/weechat.nix

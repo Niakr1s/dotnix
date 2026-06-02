@@ -8,6 +8,7 @@ image/jpeg=org.gnome.gThumb.desktop
 image/png=org.gnome.gThumb.desktop
 video/mp4=mpv.desktop
 inode/directory=org.gnome.Nautilus.desktop
+text/plain=org.gnome.TextEditor.desktop
 
 [Added Associations]
 x-scheme-handler/tg=org.telegram.desktop.desktop;
@@ -20,3 +21,4 @@ image/jpeg=org.gnome.gThumb.desktop;
 image/png=org.gnome.gThumb.desktop;
 video/mp4=mpv.desktop;
 inode/directory=org.gnome.Nautilus.desktop;
+text/plain=org.gnome.TextEditor.desktop;
