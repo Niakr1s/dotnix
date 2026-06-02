@@ -17,3 +17,13 @@ desc = "Delete a bookmark"
 on = ["b", "D"]
 run = "plugin bookmarks delete_all"
 desc = "Delete all bookmarks"
+
+[[mgr.prepend_keymap]]
+on = [ "q" ]
+run = "quit --no-cwd-file"
+desc = "Quit Yazi without changing directory"
+
+[[mgr.prepend_keymap]]
+on = [ "Q" ]
+run = "quit"
+desc = "Quit Yazi and change directory in shell"
