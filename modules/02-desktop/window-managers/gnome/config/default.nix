@@ -2,7 +2,7 @@
   home-manager.users.${username} = {lib, ...}: {
     dconf = {
       enable = true;
-      settings = with lib.hm.gvariant; {
+      settings = {
         "org/gnome/desktop/interface" = {
           accent-color = "blue";
           color-scheme = "prefer-dark";
