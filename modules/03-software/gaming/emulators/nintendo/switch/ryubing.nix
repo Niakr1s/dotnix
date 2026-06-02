@@ -42,11 +42,6 @@ in
         force = true;
       };
 
-      # for nsz
-      home.file.".switch/prod.keys" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/Ryujinx/system/${prodKeysFile}";
-      };
-
       home.file.".config/Ryujinx/system/prod.keys" = {
         source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/Ryujinx/system/${prodKeysFile}";
       };

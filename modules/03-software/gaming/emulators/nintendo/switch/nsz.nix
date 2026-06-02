@@ -1,13 +1,9 @@
+{ prodKeysFilePath }:
 {
   pkgs,
   username,
-  flakeDir,
   ...
 }:
-let
-  version = "21.2.0";
-  prodKeysFile = "prod.v${version}.keys";
-in
 {
   environment.systemPackages = with pkgs; [
     nsz
@@ -17,7 +13,7 @@ in
     { config, ... }:
     {
       home.file.".switch/prod.keys" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/Ryujinx/system/${prodKeysFile}";
+        source = config.lib.file.mkOutOfStoreSymlink prodKeysFilePath;
       };
     };
 }
