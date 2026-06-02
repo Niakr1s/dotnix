@@ -1,15 +1,11 @@
+{ prodKeysFilePath }:
 {
   pkgs,
-  lib,
   username,
   flakeDir,
   ...
 }:
 let
-  version = "21.2.0";
-  prodKeysFile = "prod.v${version}.keys";
-  firmwareUrl = "https://github.com/THZoria/NX_Firmware/releases/download/${version}/Firmware.${version}.zip";
-
   # Read the contents of the original desktop file provided by the package
   originalDesktopFile = builtins.readFile "${pkgs.ryubing}/share/applications/Ryujinx.desktop";
   # Create a modified version with the new Exec line
@@ -25,13 +21,8 @@ let
   };
 in
 {
-  warnings = [
-    "Ryujinx firmware: ${firmwareUrl}"
-  ];
-
   environment.systemPackages = with pkgs; [
     ryubing
-    nsz
   ];
 
   home-manager.users.${username} =
@@ -43,7 +34,7 @@ in
       };
 
       home.file.".config/Ryujinx/system/prod.keys" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/Ryujinx/system/${prodKeysFile}";
+        source = config.lib.file.mkOutOfStoreSymlink prodKeysFilePath;
       };
       home.file.".config/Ryujinx/Config.json" = {
         source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/Ryujinx/Config.json";
