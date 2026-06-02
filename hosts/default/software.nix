@@ -25,6 +25,7 @@ in
     ### System Monitoring & Diagnostics
     htop # Interactive process viewer
     bottom # Cross-platform graphical process/system monitor (btm)
+    mission-center # gui process viewer
     procs # Modern ps replacement
     pstree # Display processes as a tree
     lm_sensors # Hardware temperature/voltage monitoring
