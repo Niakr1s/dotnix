@@ -21,11 +21,11 @@ vim.opt.sidescrolloff = 8      -- Keep 8 columns side scrolling
 vim.opt.termguicolors = true
 --
 -- Indent options
-vim.opt.breakindent = true     -- Better indentation for wrapped lines
-vim.opt.autoindent = true      -- Copy indent from furrent line when starting a new line
-vim.opt.smartindent = false     -- Do smart autoindenting when starting a new line
-vim.opt.cindent = false        -- Indent fo C progs
-vim.opt.copyindent = true      -- Copy the structure of the existing lines indent when autoindenting a new line.
+vim.opt.breakindent = true  -- Better indentation for wrapped lines
+vim.opt.autoindent = true   -- Copy indent from furrent line when starting a new line
+vim.opt.smartindent = false -- Do smart autoindenting when starting a new line
+vim.opt.cindent = false     -- Indent fo C progs
+vim.opt.copyindent = true   -- Copy the structure of the existing lines indent when autoindenting a new line.
 
 require("tokyonight").setup({
   transparent = true,
@@ -210,7 +210,25 @@ vim.keymap.set("n", "<leader>-", function()
 end, { desc = "Open yazi at the current file" })
 
 -- [[ Blink.cmp
-require("blink.cmp").setup()
+require("blink.cmp").setup {
+  completion = {
+    documentation = { auto_show = true },
+    list = { selection = { preselect = true, auto_insert = false } },
+    ghost_text = { enabled = true },
+  },
+  cmdline = {
+    enabled = true,
+    keymap = { preset = 'inherit' },
+    completion = {
+      menu = { auto_show = true },
+      list = { selection = { preselect = true, auto_insert = false } },
+      ghost_text = { enabled = true },
+    },
+  },
+  signature = {
+    enabled = true,
+  },
+}
 
 -- [[ Gitsigns
 require('gitsigns').setup {
