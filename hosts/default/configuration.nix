@@ -181,7 +181,7 @@
         source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/mimeapps.list";
       };
       home.file.".local/bin" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/scripts/${hostname}";
+        source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.local/bin";
         recursive = true;
       };
       home.file.".face" = {
