@@ -60,6 +60,7 @@ in
     uget # Download manager GUI
     parallel # Execute jobs in parallel
     watchexec # Execute commands when files change
+    file # Get file info
 
     ### ========== TEXT EDITORS ===============
     vim # vim text editor
