@@ -21,11 +21,11 @@ vim.opt.sidescrolloff = 8      -- Keep 8 columns side scrolling
 vim.opt.termguicolors = true
 --
 -- Indent options
-vim.opt.breakindent = true     -- Better indentation for wrapped lines
-vim.opt.autoindent = true      -- Copy indent from furrent line when starting a new line
-vim.opt.smartindent = false     -- Do smart autoindenting when starting a new line
-vim.opt.cindent = false        -- Indent fo C progs
-vim.opt.copyindent = true      -- Copy the structure of the existing lines indent when autoindenting a new line.
+vim.opt.breakindent = true  -- Better indentation for wrapped lines
+vim.opt.autoindent = true   -- Copy indent from furrent line when starting a new line
+vim.opt.smartindent = false -- Do smart autoindenting when starting a new line
+vim.opt.cindent = false     -- Indent fo C progs
+vim.opt.copyindent = true   -- Copy the structure of the existing lines indent when autoindenting a new line.
 
 require("tokyonight").setup({
   transparent = true,
@@ -57,8 +57,8 @@ vim.keymap.set("v", "<", "<gv", { desc = "Indent left and reselect" })
 vim.keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
 
 -- Move selected lines
-vim.keymap.set("v", "J", ":m '>+1<CR>gv", { desc = "Move selected lines down" })
-vim.keymap.set("v", "K", ":m '<-2<CR>gv", { desc = "Move selected lines up" })
+-- vim.keymap.set("v", "J", ":m '>+1<CR>gv", { desc = "Move selected lines down" })
+-- vim.keymap.set("v", "K", ":m '<-2<CR>gv", { desc = "Move selected lines up" })
 
 -- Keep cursor centered
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half page down, center cursor" })
@@ -197,8 +197,8 @@ require("nvim-treesitter").setup({
 -- [[ Yazi
 vim.g.loaded_netrwPlugin = 1 -- disable deafult explorer (netrw) when open with 'vim .'
 require("yazi").setup({
-  -- Set the floating window border to 'none' to remove borders
-  yazi_floating_window_border = 'none',
+  -- 'none', 'rounded', 'single', 'double', 'shadow'
+  yazi_floating_window_border = 'rounded',
   -- Optional: other common settings you might want to include
   open_for_directories = true,          -- Set to true if you want yazi to replace netrw
   floating_window_scaling_factor = 0.8, -- Control window size (0.9 = 90%)
@@ -210,7 +210,25 @@ vim.keymap.set("n", "<leader>-", function()
 end, { desc = "Open yazi at the current file" })
 
 -- [[ Blink.cmp
-require("blink.cmp").setup()
+require("blink.cmp").setup {
+  completion = {
+    documentation = { auto_show = true },
+    list = { selection = { preselect = true, auto_insert = false } },
+    ghost_text = { enabled = true },
+  },
+  cmdline = {
+    enabled = true,
+    keymap = { preset = 'inherit' },
+    completion = {
+      menu = { auto_show = true },
+      list = { selection = { preselect = true, auto_insert = false } },
+      ghost_text = { enabled = true },
+    },
+  },
+  signature = {
+    enabled = true,
+  },
+}
 
 -- [[ Gitsigns
 require('gitsigns').setup {

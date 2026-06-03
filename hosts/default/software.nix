@@ -25,6 +25,7 @@ in
     ### System Monitoring & Diagnostics
     htop # Interactive process viewer
     bottom # Cross-platform graphical process/system monitor (btm)
+    mission-center # gui process viewer
     procs # Modern ps replacement
     pstree # Display processes as a tree
     lm_sensors # Hardware temperature/voltage monitoring
@@ -59,6 +60,7 @@ in
     uget # Download manager GUI
     parallel # Execute jobs in parallel
     watchexec # Execute commands when files change
+    file # Get file info
 
     ### ========== TEXT EDITORS ===============
     vim # vim text editor
@@ -197,6 +199,9 @@ in
     bulky # GUI bulk rename tool
     vimv # Terminal bulk rename
 
+    ### Automation
+    crossmacro # Mouse and keyboard macro recorder/player
+
     ### Archiving (Ordered by format support)
     zip # zip archiver
     unzip # ZIP format
@@ -297,6 +302,7 @@ in
     ../../modules/03-software/documents/documentation/documentation.nix
     ../../modules/03-software/documents/notes/joplin.nix
     ../../modules/03-software/documents/office/libreoffice.nix
+    ../../modules/03-software/documents/text-editors/gnome-text-editor.nix
     ../../modules/03-software/internet/browsers/firefox.nix
     ../../modules/03-software/internet/browsers/w3m.nix
     ../../modules/03-software/internet/irc/weechat.nix

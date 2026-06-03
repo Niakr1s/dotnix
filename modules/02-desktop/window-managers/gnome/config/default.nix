@@ -2,7 +2,7 @@
   home-manager.users.${username} = {lib, ...}: {
     dconf = {
       enable = true;
-      settings = with lib.hm.gvariant; {
+      settings = {
         "org/gnome/desktop/interface" = {
           accent-color = "blue";
           color-scheme = "prefer-dark";
@@ -15,13 +15,6 @@
           document-font-name = "Liberation Serif 12";
           # JetBrains Mono Nerd Font for terminal - icons + readability
           monospace-font-name = "JetBrainsMono Nerd Font 10";
-        };
-
-        "org/gnome/TextEditor" = {
-          show-line-numbers = true;
-          tab-width = lib.hm.gvariant.mkUint32 2;
-          indent-width = -1;
-          restore-session = false;
         };
 
         "org/gnome/shell" = {
