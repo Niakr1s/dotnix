@@ -199,6 +199,9 @@ in
     bulky # GUI bulk rename tool
     vimv # Terminal bulk rename
 
+    ### Automation
+    crossmacro # Mouse and keyboard macro recorder/player
+
     ### Archiving (Ordered by format support)
     zip # zip archiver
     unzip # ZIP format
