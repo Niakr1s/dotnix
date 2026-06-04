@@ -14,6 +14,7 @@ Params:
 # for example "/data/hdd1", "/data/ssd" etc
 from_mnt_dir="/data"
 to_mnt_dir="/data"
+wait_seconds="5"
 
 while [[ -n "$1" ]]; do
 
@@ -89,16 +90,7 @@ if [[ -n "$dry_run" ]]; then
         backup_cmd+=("--dry-run")
 fi
 
-read -r -p "'${backup_cmd[*]}' is about to run. Continue? [yY]: " continue
+echo "'${backup_cmd[*]}' is about to run in $wait_seconds seconds..."
 
-case "$continue" in
-
-"y" | "Y")
-        "${backup_cmd[@]}"
-        ;;
-
-*)
-        echo "Aborted"
-        exit 1
-        ;;
-esac
+sleep "$wait_seconds"
+"${backup_cmd[@]}"
