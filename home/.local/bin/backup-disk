@@ -83,7 +83,7 @@ checklabel "$from_mnt"
 checkmnt "$to_mnt"
 checklabel "$to_mnt"
 
-backup_cmd=(rsync -avP --delete "$from_mnt"/ "$to_mnt"/"$from"/)
+backup_cmd=(rsync -avP --delete "$from_mnt"/ "$to_mnt"/"$from"/ --exclude="/.Trash-1000" --exclude="/Download" --exclude="/Downloads")
 
 if [[ -n "$dry_run" ]]; then
         backup_cmd+=("--dry-run")
