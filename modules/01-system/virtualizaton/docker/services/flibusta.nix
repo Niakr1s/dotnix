@@ -8,8 +8,8 @@
   containerName = "flibusta";
 
   # Base directories
-  flibustaDir = "/data/hdd20/Flibusta";
-  dataDir = "/data/hdd20/Flibusta/data";
+  flibustaDir = "/data/hdd4/Flibusta";
+  dataDir = "/data/hdd4/Flibusta/data";
 
   port = 8177;
 
