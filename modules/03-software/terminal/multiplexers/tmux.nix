@@ -20,6 +20,8 @@
       unbind C-b
       set -g prefix C-q
 
+      set -g @resurrect-capture-pane-contents 'on'
+
       # Use Alt+hjkl for immediate resizing
       bind -r M-h resize-pane -L 10
       bind -r M-j resize-pane -D 10
