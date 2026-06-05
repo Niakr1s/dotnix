@@ -26,9 +26,6 @@
       bind -r M-k resize-pane -U 10
       bind -r M-l resize-pane -R 10
 
-      # restore on tmux server start
-      set -g @continuum-restore 'on'
-
       set -g status-right "%H:%M:%S %d/%m/%Y"
       set -g status-interval 1
 
