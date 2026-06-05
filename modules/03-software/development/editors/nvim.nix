@@ -31,6 +31,7 @@
         codecompanion-nvim
         plenary-nvim # lua functions you don't want to write
         nvim-web-devicons # nerd font icons
+        smart-splits-nvim # move between tmux and vim effortlessly
 
         # themes
         tokyonight-nvim
