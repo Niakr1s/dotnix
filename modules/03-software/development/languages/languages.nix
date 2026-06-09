@@ -37,21 +37,21 @@
     # sbt # Scala build tool
 
     # --- Ruby ---
-    # ruby # Ruby interpreter
+    ruby # Ruby interpreter
     # bundler # Ruby dependency manager (gem bundler)
 
     # --- PHP ---
     php # PHP interpreter (latest stable)
 
     # --- Functional & Systems Programming ---
-    # ghc # Glasgow Haskell Compiler
+    ghc # Glasgow Haskell Compiler
     # cabal-install # Haskell build tool (cabal)
     # stack # Alternative Haskell build tool
-    # elixir # Elixir language (runs on Erlang VM)
+    elixir # Elixir language (runs on Erlang VM)
     # erlang # Erlang VM and runtime
     # rebar3 # Erlang/Elixir build tool
-    # crystal # Crystal language (Ruby‑like syntax, compiled)
-    # nim # Nim language (efficient, expressive)
+    crystal # Crystal language (Ruby‑like syntax, compiled)
+    nim # Nim language (efficient, expressive)
     # dmd # D language reference compiler
 
     # --- Web & Scripting (more) ---
