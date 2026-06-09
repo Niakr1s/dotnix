@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1781043784,
-        "narHash": "sha256-MRExkZYDNOudzODDjwbm4XLAHqgRAvhZBxPzviJLAvA=",
+        "lastModified": 1781047272,
+        "narHash": "sha256-Glg+E+2vWTpxSdxIHuQogPsTubVn0xD1F7l5dTIM4GM=",
         "owner": "Niakr1s",
         "repo": "cia-unix-full",
-        "rev": "ceb27ef4dd1c4d3c649e88d12264502f3ae4b320",
+        "rev": "26a580d5acba57e0a607852a05ef82b5c65da91b",
         "type": "github"
       },
       "original": {
