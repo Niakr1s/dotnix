@@ -146,6 +146,8 @@ vim.lsp.enable("yamlls")
 vim.lsp.enable("marksman")
 -- PHP
 vim.lsp.enable("phpactor")
+-- Crystal
+vim.lsp.enable("crystalline")
 
 -- [[ Lsp hotkeys ]]
 --

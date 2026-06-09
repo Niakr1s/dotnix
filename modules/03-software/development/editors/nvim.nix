@@ -58,6 +58,7 @@
         yaml-language-server
         marksman
         phpactor
+        crystalline
 
         file
         ripgrep
