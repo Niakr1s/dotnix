@@ -26,8 +26,9 @@
       flake = false;
     };
 
-    cia = {
+    cia-unix = {
       url = "github:Niakr1s/cia-unix-full";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 

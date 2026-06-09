@@ -17,7 +17,7 @@ let
       (_: {
         doCheck = false;
       });
-  cia = inputs.cia.packages.${pkgs.system}.default;
+  cia-unix = inputs.cia-unix.packages.${pkgs.system}.default;
 in
 {
   environment.systemPackages = with pkgs; [
@@ -173,7 +173,7 @@ in
     winetricks # Wine helper script
     umu-launcher # Universal Proton launcher
     nsz # Nintendo Switch game converter
-    cia # Nintendo 3ds games decryptor and converter
+    cia-unix # Nintendo 3ds games decryptor and converter
 
     ### ========== NETWORK & INTERNET ==========
     ### Browsers & Viewers
