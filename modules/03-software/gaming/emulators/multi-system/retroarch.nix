@@ -1,7 +1,20 @@
 {
   pkgs,
+  username,
   ...
-}: {
+}:
+let
+  bioses = pkgs.fetchzip {
+    url = "https://github.com/Abdess/retrobios/releases/download/v2026.04.02/RetroArch_Lakka_v1.22.2_Platform_BIOS_Pack.zip";
+    hash = "sha256-Z0oALGjqKw9YP0mG2uaCNJ833GVkuI9IN4/2IpA/7fs=";
+    stripRoot = false;
+  };
+in
+{
+  warnings = [
+    "BIOSes for RetroArch are available at: ${bioses}"
+  ];
+
   environment.systemPackages = with pkgs; [
     retroarch-full
     # retroarch
@@ -28,4 +41,13 @@
     #     pcsx2 # Sony - PS2
     #   ]))
   ];
+
+  home-manager.users.${username} =
+    { config, ... }:
+    {
+      home.file.".config/retroarch/system" = {
+        source = "${bioses}/system";
+        recursive = true;
+      };
+    };
 }
