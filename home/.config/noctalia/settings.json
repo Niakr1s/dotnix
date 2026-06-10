@@ -90,13 +90,12 @@
         "widgets": {
             "center": [
                 {
-                    "defaultSettings": {
-                        "compactMode": false,
-                        "defaultDuration": 0,
-                        "iconColor": "none",
-                        "textColor": "none"
-                    },
-                    "id": "plugin:timer"
+                    "hideWhenZero": false,
+                    "hideWhenZeroUnread": false,
+                    "iconColor": "none",
+                    "id": "NotificationHistory",
+                    "showUnreadBadge": true,
+                    "unreadBadgeColor": "primary"
                 },
                 {
                     "clockColor": "none",
@@ -194,10 +193,15 @@
                     "showPowerProfiles": false
                 },
                 {
-                    "applyToAllMonitors": false,
                     "displayMode": "onhover",
                     "iconColor": "none",
-                    "id": "Brightness",
+                    "id": "Bluetooth",
+                    "textColor": "none"
+                },
+                {
+                    "displayMode": "onhover",
+                    "iconColor": "none",
+                    "id": "Network",
                     "textColor": "none"
                 },
                 {
@@ -269,7 +273,7 @@
                 "id": "audio-card"
             },
             {
-                "enabled": false,
+                "enabled": true,
                 "id": "brightness-card"
             },
             {
@@ -286,18 +290,21 @@
         "shortcuts": {
             "left": [
                 {
-                    "id": "WiFi"
-                },
-                {
-                    "id": "Bluetooth"
-                },
-                {
                     "id": "WallpaperSelector"
+                },
+                {
+                    "defaultSettings": {
+                        "compactMode": false,
+                        "defaultDuration": 0,
+                        "iconColor": "none",
+                        "textColor": "none"
+                    },
+                    "id": "plugin:timer"
                 }
             ],
             "right": [
                 {
-                    "id": "Notifications"
+                    "id": "NightLight"
                 },
                 {
                     "id": "PowerProfile"
