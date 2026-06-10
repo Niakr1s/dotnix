@@ -1,7 +1,5 @@
 {
   pkgs,
-  username,
-  flakeDir,
   ...
 }: {
   environment.systemPackages = with pkgs; [
@@ -30,10 +28,4 @@
     #     pcsx2 # Sony - PS2
     #   ]))
   ];
-
-  # home-manager.users.${username} = {config, ...}: {
-  #   home.file.".config/retroarch/retroarch.cfg" = {
-  #     source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/retroarch/retroarch.cfg";
-  #   };
-  # };
 }
