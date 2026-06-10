@@ -42,6 +42,7 @@
       ];
 
       extraPackages = with pkgs; [
+        tree-sitter
         yazi
         ruff
         ruby-lsp
