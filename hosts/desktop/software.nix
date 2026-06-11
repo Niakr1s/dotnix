@@ -18,6 +18,7 @@
     ../../modules/03-software/gaming/emulators/sony/ps3/rpcs3.nix
     ../../modules/03-software/gaming/emulators/sony/ps4
     ../../modules/03-software/gaming/launchers/lutris.nix
+    # ../../modules/03-software/gaming/launchers/steam.nix # it doesn't works correctly
     ../../modules/03-software/gaming/tools/mangohud.nix
   ];
 }
