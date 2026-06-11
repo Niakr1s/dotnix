@@ -73,6 +73,9 @@ in
               gamescope_hdr = false;
               mangohud = true;
             };
+            runner = {
+              version = "${pkgs.dwproton-bin.name}";
+            };
           };
         };
       };
