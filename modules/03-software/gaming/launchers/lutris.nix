@@ -81,10 +81,4 @@ in
   systemd.tmpfiles.rules = [
     "f+ /home/${username}/.config/lutris/lutris.conf 644 ${username} users - ${lutris_conf}"
   ];
-  environment.systemPackages = with pkgs; [
-    vulkan-tools
-    vulkan-loader
-    vulkan-validation-layers
-    vulkan-extension-layer
-  ];
 }
