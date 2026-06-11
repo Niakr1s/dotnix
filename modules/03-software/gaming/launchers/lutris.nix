@@ -3,8 +3,9 @@
   pkgs,
   username,
   ...
-}: let
-  lutris_conf = lib.replaceStrings ["\n"] ["\\n"] ''
+}:
+let
+  lutris_conf = lib.replaceStrings [ "\n" ] [ "\\n" ] ''
     [services]
     gog = True
     egs = True
@@ -24,7 +25,8 @@
     ignored_supported_lutris_verison = 0.5.22
     show_advanced_options = True
   '';
-in {
+in
+{
   home-manager.users.${username} = {
     # lutris
     programs.lutris = with pkgs; {
@@ -35,14 +37,18 @@ in {
         gamescope
         gamemode
         umu-launcher
+        vulkan-tools
+        vulkan-loader
+        vulkan-validation-layers
+        vulkan-extension-layer
       ];
       protonPackages = [
         proton-ge-bin
       ];
       winePackages = [
         # wineWow64Packages.stable # stable
-        # wineWow64Packages.staging # version with experimental features
-        wineWow64Packages.waylandFull # native wayland support
+        wineWow64Packages.staging # version with experimental features
+        # wineWow64Packages.waylandFull # native wayland support
       ];
       runners = {
         linux = {

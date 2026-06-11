@@ -169,7 +169,7 @@ in
     playerctl # Media player controls (play/pause/next)
 
     ### Emulation & Compatibility
-    wine # Windows compatibility layer
+    wineWow64Packages.staging # wine
     winetricks # Wine helper script
     umu-launcher # Universal Proton launcher
     nsz # Nintendo Switch game converter
