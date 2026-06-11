@@ -44,6 +44,7 @@ in
       ];
       protonPackages = [
         proton-ge-bin
+        dwproton-bin
       ];
       winePackages = [
         # wineWow64Packages.stable # stable
