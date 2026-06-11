@@ -64,9 +64,10 @@ in
           settings = {
             system = {
               env = {
-                PROTON_ENABLE_HDR = "1";
+                PROTON_ENABLE_HDR = "0";
                 PROTON_ENABLE_WAYLAND = "0";
-                PROTON_DLSS_UPGRADE = "1";
+                PROTON_DLSS_UPGRADE = "0";
+                UMU_RUNTIME_UPDATE = "0"; # Disable umu runtime updates
               };
               gamemode = false;
               gamescope = false;
