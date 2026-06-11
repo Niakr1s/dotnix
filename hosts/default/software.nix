@@ -170,6 +170,7 @@ in
 
     ### Emulation & Compatibility
     wineWow64Packages.staging # wine
+    umu-launcher # umu-run
     nsz # Nintendo Switch game converter
     cia-unix # Nintendo 3ds games decryptor and converter
 
