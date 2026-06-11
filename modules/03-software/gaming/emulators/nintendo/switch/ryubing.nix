@@ -21,6 +21,10 @@ let
   };
 in
 {
+  warnings = [
+    "Ryujinx cheats are available under ${cheats}, consider copying them under ~/.config/Ryujinx/mods/contents"
+  ];
+
   environment.systemPackages = with pkgs; [
     ryubing
   ];
@@ -39,10 +43,12 @@ in
       home.file.".config/Ryujinx/Config.json" = {
         source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/Ryujinx/Config.json";
       };
-      home.file.".config/Ryujinx/mods/contents" = {
-        source = "${cheats}";
-        recursive = true;
-        force = true;
-      };
+
+      # this takes too long
+      # home.file.".config/Ryujinx/mods/contents" = {
+      #   source = "${cheats}";
+      #   recursive = true;
+      #   force = true;
+      # };
     };
 }
