@@ -52,7 +52,6 @@
   environment.sessionVariables = {
     MOZ_USE_XINPUT2 = "1"; # To enable one-to-one trackpad scrolling in Firefox
     NIXOS_OZONE_WL = "1"; # To force wayland
-    UMU_RUNTIME_UPDATE = "0"; # Disable umu runtime updates
   };
 
   environment.variables = {
