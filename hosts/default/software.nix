@@ -170,8 +170,6 @@ in
 
     ### Emulation & Compatibility
     wineWow64Packages.staging # wine
-    winetricks # Wine helper script
-    umu-launcher # Universal Proton launcher
     nsz # Nintendo Switch game converter
     cia-unix # Nintendo 3ds games decryptor and converter
 
