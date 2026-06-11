@@ -28,4 +28,6 @@
     hibernate.enable = false;
     hybrid-sleep.enable = false;
   };
+
+  zramSwap.enable = true; # Creates a zram block device and uses it as a swap device
 }
