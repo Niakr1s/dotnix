@@ -45,9 +45,10 @@ in
   home-manager.users.${username} =
     { config, ... }:
     {
-      home.file.".config/retroarch/system" = {
-        source = "${bioses}/system";
-        recursive = true;
-      };
+      # this takes too long
+      # home.file.".config/retroarch/system" = {
+      #   source = "${bioses}/system";
+      #   recursive = true;
+      # };
     };
 }
