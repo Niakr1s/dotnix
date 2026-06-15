@@ -123,6 +123,8 @@
 
   services.displayManager.defaultSession = "niri";
 
+  services.flatpak.enable = true;
+
   # Garbage collection weekly
   nix.gc = {
     automatic = true;
