@@ -56,6 +56,7 @@
       libevent
       pcre
       pcre2
+      mtdev
 
       # Some native games need it
       libpulseaudio
