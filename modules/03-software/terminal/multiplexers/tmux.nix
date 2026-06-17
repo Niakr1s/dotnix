@@ -32,6 +32,12 @@
       bind c split-window -v
       bind t new-window
 
+      bind q confirm-before -p "kill-pane #{pane_current_path} $ '#{pane_current_command}'? (y/n)" kill-pane
+      bind C-q confirm-before -p "kill-pane #{pane_current_path} $ '#{pane_current_command}'? (y/n)" kill-pane
+
+      bind w display-panes
+      bind C-w display-panes
+
       set -g status-right "%H:%M:%S %d/%m/%Y"
       set -g status-interval 1
 
