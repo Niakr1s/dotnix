@@ -34,9 +34,13 @@
       bind c split-window -v
       bind t new-window
 
+      # changing from key "x"
+      unbind x
       bind q confirm-before -p "kill-pane #{pane_current_path} $ '#{pane_current_command}'? (y/n)" kill-pane
       bind C-q confirm-before -p "kill-pane #{pane_current_path} $ '#{pane_current_command}'? (y/n)" kill-pane
 
+      # changing from key "q"
+      # unbind q # no need because of "q" new keybinding
       bind w display-panes
       bind C-w display-panes
 
