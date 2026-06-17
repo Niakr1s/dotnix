@@ -62,14 +62,18 @@ vim.keymap.set("n", "<C-w><C-c>", "<Nop>")
 vim.keymap.set("n", "<C-w><C-t>", "<Nop>")
 vim.keymap.set("n", "<C-w><C-p>", "<Nop>")
 vim.keymap.set("n", "<C-w><C-n>", "<Nop>")
-vim.keymap.set("n", "<C-w>v", ":vsplit<CR>", { desc = "Split vertical", silent = true, })
-vim.keymap.set("n", "<C-w>c", ":split<CR>", { desc = "Split horizontal", silent = true, })
-vim.keymap.set("n", "<C-w>t", ":tabnew<CR>", { desc = "Tab new", silent = true, })
-vim.keymap.set("n", "<C-w>p", ":tabprevious<CR>", { desc = "Tab previous", silent = true, })
-vim.keymap.set("n", "<C-w>n", ":tabnext<CR>", { desc = "Tab next", silent = true, })
+vim.keymap.set("n", "<C-w>v", vim.cmd.vsplit, { desc = "Split vertical", silent = true, })
+vim.keymap.set("n", "<C-w>c", vim.cmd.split, { desc = "Split horizontal", silent = true, })
+vim.keymap.set("n", "<C-w>t", vim.cmd.tabnew, { desc = "Tab new", silent = true, })
+vim.keymap.set("n", "<C-w>p", vim.cmd.tabprevious, { desc = "Tab previous", silent = true, })
+vim.keymap.set("n", "<C-w>n", vim.cmd.tabnext, { desc = "Tab next", silent = true, })
 
 for i = 1, 9 do
-  vim.keymap.set("n", "<C-w>" .. i, ":tabnext " .. i .. "<CR>", { desc = "Tab " .. i, silent = true, })
+  vim.keymap.set("n", "<C-w>" .. i, function()
+    if i <= #vim.api.nvim_list_tabpages() then
+      vim.cmd("tabnext " .. i)
+    end
+  end, { desc = "Tab " .. i, silent = true })
 end
 
 
