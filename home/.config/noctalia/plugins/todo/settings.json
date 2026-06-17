@@ -1,13 +1,45 @@
 {
-  "todos": [],
+  "todos": [
+    {
+      "id": 1781680701102,
+      "text": "Indiana Jones",
+      "completed": false,
+      "createdAt": "2026-06-17T07:18:21.102Z",
+      "pageId": 1,
+      "priority": "medium",
+      "details": ""
+    },
+    {
+      "id": 1781680343876,
+      "text": "Danganronpa 2",
+      "completed": false,
+      "createdAt": "2026-06-17T07:12:23.876Z",
+      "pageId": 1,
+      "priority": "medium",
+      "details": ""
+    },
+    {
+      "id": 1781680709679,
+      "text": "Resident Evil Requiem",
+      "completed": false,
+      "createdAt": "2026-06-17T07:18:29.679Z",
+      "pageId": 1,
+      "priority": "medium",
+      "details": ""
+    }
+  ],
   "pages": [
     {
       "id": 0,
       "name": "General"
+    },
+    {
+      "id": 1,
+      "name": "Games"
     }
   ],
-  "current_page_id": 0,
-  "count": 0,
+  "current_page_id": 1,
+  "count": 3,
   "completedCount": 0,
   "showCompleted": true,
   "showBackground": true,
