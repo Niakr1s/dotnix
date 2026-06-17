@@ -28,6 +28,10 @@
       bind -r M-k resize-pane -U 10
       bind -r M-l resize-pane -R 10
 
+      bind v split-window -h
+      bind c split-window -v
+      bind t new-window
+
       set -g status-right "%H:%M:%S %d/%m/%Y"
       set -g status-interval 1
 

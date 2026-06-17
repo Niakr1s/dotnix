@@ -46,15 +46,27 @@ vim.o.secure = true
 vim.g.mapleader = " " -- Set space as leader key
 vim.g.maplocalleader = " "
 
--- remap splits to match tmux
-vim.keymap.set('n', '<C-w>5', '<C-w>v', { desc = "Vertical split" })  -- vertical split
-vim.keymap.set('n', '<C-w>\'', '<C-w>s', { desc = "Horizontal split" })  -- horizontal split
+-- Clear keys
+vim.keymap.set("n", "<C-w>h", "<Nop>", { desc = "" })
+vim.keymap.set("n", "<C-w>j", "<Nop>", { desc = "" })
+vim.keymap.set("n", "<C-w>k", "<Nop>", { desc = "" })
+vim.keymap.set("n", "<C-w>l", "<Nop>", { desc = "" })
 
 -- Better navigation
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to upper window" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
+
+-- Windows
+vim.keymap.set("n", "<C-w>v", ":vsplit<CR>", { desc = "Split vertical", silent = true, })
+vim.keymap.set("n", "<C-w>c", ":split<CR>", { desc = "Split horizontal", silent = true, })
+vim.keymap.set("n", "<C-w>t", ":tabnew<CR>", { desc = "Tab new", silent = true, })
+
+for i = 1, 9 do
+  vim.keymap.set("n", "<C-w>" .. i, ":tabnext " .. i .. "<CR>", { desc = "Tab " .. i, silent = true, })
+end
+
 
 -- Better indenting
 vim.keymap.set("v", "<", "<gv", { desc = "Indent left and reselect" })
@@ -201,19 +213,32 @@ require("nvim-treesitter").setup({
 })
 
 -- [[ Yazi
-vim.g.loaded_netrwPlugin = 1 -- disable deafult explorer (netrw) when open with 'vim .'
-require("yazi").setup({
-  -- 'none', 'rounded', 'single', 'double', 'shadow'
-  yazi_floating_window_border = 'rounded',
-  -- Optional: other common settings you might want to include
-  open_for_directories = true,          -- Set to true if you want yazi to replace netrw
-  floating_window_scaling_factor = 0.8, -- Control window size (0.9 = 90%)
-  yazi_floating_window_winblend = 0,    -- Transparency (0 = opaque)
-})
-
 vim.keymap.set("n", "<leader>-", function()
   require("yazi").yazi()
 end, { desc = "Open yazi at the current file" })
+
+-- 👇 if you use `open_for_directories=true`, this is recommended.
+--
+-- mark netrw as loaded so it's not loaded at all.
+-- More details: https://github.com/mikavilpas/yazi.nvim/issues/802
+vim.g.loaded_netrwPlugin = 1
+vim.api.nvim_create_autocmd("UIEnter", {
+  callback = function()
+    require("yazi").setup({
+      -- 'none', 'rounded', 'single', 'double', 'shadow'
+      yazi_floating_window_border = 'rounded',
+      -- Optional: other common settings you might want to include
+      open_for_directories = true,          -- Set to true if you want yazi to replace netrw
+      floating_window_scaling_factor = 0.8, -- Control window size (0.9 = 90%)
+      yazi_floating_window_winblend = 0,    -- Transparency (0 = opaque)
+
+      keymaps = {
+        open_file_in_vertical_split = "<C-v>",
+        open_file_in_horizontal_split = "<C-c>",
+      },
+    })
+  end,
+})
 
 -- [[ Blink.cmp
 require("blink.cmp").setup {
