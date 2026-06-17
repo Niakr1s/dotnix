@@ -17,6 +17,8 @@
     extraConfig = ''
       setw -g mode-keys vi
       set -g mouse on
+
+      # change prefix to C-q
       unbind C-b
       set -g prefix C-q
 
