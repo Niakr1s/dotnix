@@ -46,22 +46,27 @@ vim.o.secure = true
 vim.g.mapleader = " " -- Set space as leader key
 vim.g.maplocalleader = " "
 
--- Clear keys
-vim.keymap.set("n", "<C-w>h", "<Nop>", { desc = "" })
-vim.keymap.set("n", "<C-w>j", "<Nop>", { desc = "" })
-vim.keymap.set("n", "<C-w>k", "<Nop>", { desc = "" })
-vim.keymap.set("n", "<C-w>l", "<Nop>", { desc = "" })
-
 -- Better navigation
+vim.keymap.set("n", "<C-w>h", "<Nop>")
+vim.keymap.set("n", "<C-w>j", "<Nop>")
+vim.keymap.set("n", "<C-w>k", "<Nop>")
+vim.keymap.set("n", "<C-w>l", "<Nop>")
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to upper window" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
 
 -- Windows
+vim.keymap.set("n", "<C-w><C-v>", "<Nop>")
+vim.keymap.set("n", "<C-w><C-c>", "<Nop>")
+vim.keymap.set("n", "<C-w><C-t>", "<Nop>")
+vim.keymap.set("n", "<C-w><C-p>", "<Nop>")
+vim.keymap.set("n", "<C-w><C-n>", "<Nop>")
 vim.keymap.set("n", "<C-w>v", ":vsplit<CR>", { desc = "Split vertical", silent = true, })
 vim.keymap.set("n", "<C-w>c", ":split<CR>", { desc = "Split horizontal", silent = true, })
 vim.keymap.set("n", "<C-w>t", ":tabnew<CR>", { desc = "Tab new", silent = true, })
+vim.keymap.set("n", "<C-w>p", ":tabprevious<CR>", { desc = "Tab previous", silent = true, })
+vim.keymap.set("n", "<C-w>n", ":tabnext<CR>", { desc = "Tab next", silent = true, })
 
 for i = 1, 9 do
   vim.keymap.set("n", "<C-w>" .. i, ":tabnext " .. i .. "<CR>", { desc = "Tab " .. i, silent = true, })
