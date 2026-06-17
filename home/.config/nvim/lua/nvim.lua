@@ -46,6 +46,10 @@ vim.o.secure = true
 vim.g.mapleader = " " -- Set space as leader key
 vim.g.maplocalleader = " "
 
+-- remap splits to match tmux
+vim.keymap.set('n', '<C-w>5', '<C-w>v', { desc = "Vertical split" })  -- vertical split
+vim.keymap.set('n', '<C-w>\'', '<C-w>s', { desc = "Horizontal split" })  -- horizontal split
+
 -- Better navigation
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to lower window" })
