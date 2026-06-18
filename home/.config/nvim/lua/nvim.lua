@@ -49,6 +49,7 @@ vim.g.maplocalleader = " "
 -- [[ Functions ]]
 function save()
   vim.cmd('write')
+  require("clear_statusline").start_clear_timer()
 end
 
 function format()
@@ -57,6 +58,7 @@ end
 
 function format_and_save()
   vim.lsp.buf.format({
+    async = false,
     lsp_fallback = true,
   })
   save()
