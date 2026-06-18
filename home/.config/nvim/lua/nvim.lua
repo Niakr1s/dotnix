@@ -85,8 +85,8 @@ vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to upper window" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
 
 -- Format and save
-vim.keymap.set("n", "<leader>s", save, { desc = "Save without formatting" })
-vim.keymap.set("n", "<leader>S", format_and_save, { desc = "Save with formatting" })
+vim.keymap.set("n", "<leader>w", save, { desc = "Write without formatting" })
+vim.keymap.set("n", "<leader>W", format_and_save, { desc = "Write with formatting" })
 
 -- Windows
 vim.keymap.set("n", "<C-w><C-v>", "<Nop>")
