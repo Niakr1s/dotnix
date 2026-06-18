@@ -32,8 +32,6 @@
     ];
   };
 
-  services.power-profiles-daemon.enable = true;
-
   home-manager.users.${username} = {config, ...}: {
     services.swayidle = let
       lock = "${pkgs.noctalia-shell}/bin/noctalia-shell ipc call sessionMenu lockAndSuspend";
