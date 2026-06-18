@@ -335,9 +335,6 @@
                     "id": "NightLight"
                 },
                 {
-                    "id": "PowerProfile"
-                },
-                {
                     "id": "KeepAwake"
                 }
             ]
