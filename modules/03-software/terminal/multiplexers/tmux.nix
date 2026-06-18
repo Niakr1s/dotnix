@@ -30,9 +30,9 @@
       bind -r M-k resize-pane -U 10
       bind -r M-l resize-pane -R 10
 
-      bind v split-window -h
-      bind c split-window -v
-      bind t new-window
+      bind v split-window -h -c "#{pane_current_path}"
+      bind c split-window -v -c "#{pane_current_path}"
+      bind t new-window -c "#{pane_current_path}"
 
       # changing from key "x"
       unbind x
