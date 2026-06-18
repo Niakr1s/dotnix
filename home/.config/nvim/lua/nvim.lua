@@ -57,10 +57,9 @@ end
 
 function format_and_save()
   vim.lsp.buf.format({
-    async = true,
     lsp_fallback = true,
-    callback = save,
   })
+  save()
 end
 
 function close_window_with_confirm()
