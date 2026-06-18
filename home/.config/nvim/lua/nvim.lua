@@ -46,6 +46,23 @@ vim.o.secure = true
 vim.g.mapleader = " " -- Set space as leader key
 vim.g.maplocalleader = " "
 
+-- [[ Functions ]]
+function save()
+  vim.cmd('write')
+end
+
+function format()
+  vim.lsp.buf.format({ async = true, lsp_fallback = true })
+end
+
+function format_and_save()
+  vim.lsp.buf.format({
+    async = true,
+    lsp_fallback = true,
+    callback = save,
+  })
+end
+
 -- Better navigation
 vim.keymap.set("n", "<C-w>h", "<Nop>")
 vim.keymap.set("n", "<C-w>j", "<Nop>")
@@ -55,6 +72,10 @@ vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to upper window" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
+
+-- Format and save
+vim.keymap.set("n", "<leader>s", save, { desc = "Save without formatting" })
+vim.keymap.set("n", "<leader>S", format_and_save, { desc = "Save with formatting" })
 
 -- Windows
 vim.keymap.set("n", "<C-w><C-v>", "<Nop>")
@@ -203,9 +224,7 @@ vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
 -- Go to declaration (often similar to definition)
 vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
 
-vim.api.nvim_create_user_command("Format", function()
-  vim.lsp.buf.format({ async = true, lsp_fallback = true })
-end, { desc = "Format current buffer" })
+vim.api.nvim_create_user_command("Format", format, { desc = "Format current buffer" })
 
 -- [[ Surround
 require("nvim-surround").setup()
