@@ -63,6 +63,17 @@ function format_and_save()
   })
 end
 
+function close_window_with_confirm()
+  local choice = vim.fn.confirm(
+    "Close window?",
+    "&Yes\n&No",
+    1
+  )
+  if choice == 1 then
+    vim.cmd('close')
+  end
+end
+
 -- Better navigation
 vim.keymap.set("n", "<C-w>h", "<Nop>")
 vim.keymap.set("n", "<C-w>j", "<Nop>")
@@ -88,6 +99,7 @@ vim.keymap.set("n", "<C-w>c", vim.cmd.split, { desc = "Split horizontal", silent
 vim.keymap.set("n", "<C-w>t", vim.cmd.tabnew, { desc = "Tab new", silent = true, })
 vim.keymap.set("n", "<C-w>p", vim.cmd.tabprevious, { desc = "Tab previous", silent = true, })
 vim.keymap.set("n", "<C-w>n", vim.cmd.tabnext, { desc = "Tab next", silent = true, })
+vim.keymap.set("n", "<C-w>q", close_window_with_confirm, { desc = "Close window with confirm" })
 
 for i = 1, 9 do
   vim.keymap.set("n", "<C-w>" .. i, function()
