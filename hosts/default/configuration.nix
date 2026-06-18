@@ -177,6 +177,7 @@
     {
       home.sessionVariables = {
         TERMINAL = "alacritty";
+        TERM = "alacritty";
       };
 
       xdg.configFile."mimeapps.list" = {

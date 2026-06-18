@@ -55,7 +55,6 @@
             };
           };
           env = {
-            TERM = "alacritty";
           };
           # font_family = "FiraCode Nerd Font";
           # font_features = null;
