@@ -21,6 +21,7 @@
       plugins = with pkgs.vimPlugins; [
         nvim-lspconfig
         nvim-treesitter.withAllGrammars
+        nvim-treesitter-textobjects
         telescope-nvim
         comment-nvim
         nvim-surround
