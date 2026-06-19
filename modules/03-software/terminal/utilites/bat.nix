@@ -1,11 +1,5 @@
 { pkgs, ... }:
 {
-  # some common aliases
-  # environment.shellAliases = {
-  #   man = "batman";
-  #   diff = "batdiff";
-  # };
-
   programs.bat = {
     enable = true;
 
@@ -17,6 +11,7 @@
     settings = {
       theme = "TwoDark";
       style = "plain";
+      paging = "always";
     };
   };
 }
