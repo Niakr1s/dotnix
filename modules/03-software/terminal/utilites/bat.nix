@@ -1,10 +1,10 @@
 { pkgs, ... }:
 {
   # some common aliases
-  environment.shellAliases = {
-    man = "batman";
-    diff = "batdiff";
-  };
+  # environment.shellAliases = {
+  #   man = "batman";
+  #   diff = "batdiff";
+  # };
 
   programs.bat = {
     enable = true;
