@@ -50,6 +50,7 @@ in
     fclones-gui # Duplicate finder GUI
     bleachbit # System cleaner
     trash-cli # Trash management from command line
+    scc # shows percentage of programming language usage
 
     ### File Operations & Syncing
     rsync # Fast incremental file transfer
