@@ -253,6 +253,10 @@ require("nvim-treesitter").setup({
   indent = { enable = true }
 })
 
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldlevelstart = 99 -- Start with all folds open
+
 -- [[ Yazi
 vim.keymap.set("n", "<leader>-", function()
   require("yazi").yazi()
