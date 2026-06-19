@@ -291,17 +291,40 @@ require("nvim-treesitter-textobjects").setup {
   },
 }
 
+local function is_in_fold()
+  return vim.fn.foldclosed(".") ~= -1
+end
+
 vim.keymap.set({ "n", "x", "o" }, "]]", function()
-  require("nvim-treesitter-textobjects.move").goto_next_start("@block.outer", "textobjects")
+  if is_in_fold() then
+    vim.cmd("normal! zj") -- Move to next fold
+  else
+    require("nvim-treesitter-textobjects.move").goto_next_start("@block.outer", "textobjects")
+  end
 end, { desc = "Goto next start of block" })
+
 vim.keymap.set({ "n", "x", "o" }, "]}", function()
-  require("nvim-treesitter-textobjects.move").goto_next_end("@block.outer", "textobjects")
+  if is_in_fold() then
+    vim.cmd("normal! zj") -- Move to next fold
+  else
+    require("nvim-treesitter-textobjects.move").goto_next_end("@block.outer", "textobjects")
+  end
 end, { desc = "Goto next end of block" })
+
 vim.keymap.set({ "n", "x", "o" }, "[[", function()
-  require("nvim-treesitter-textobjects.move").goto_previous_start("@block.outer", "textobjects")
+  if is_in_fold() then
+    vim.cmd("normal! zk") -- Move to prev fold
+  else
+    require("nvim-treesitter-textobjects.move").goto_previous_start("@block.outer", "textobjects")
+  end
 end, { desc = "Goto prev start of block" })
+
 vim.keymap.set({ "n", "x", "o" }, "[{", function()
-  require("nvim-treesitter-textobjects.move").goto_previous_end("@block.outer", "textobjects")
+  if is_in_fold() then
+    vim.cmd("normal! zk") -- Move to prev fold
+  else
+    require("nvim-treesitter-textobjects.move").goto_previous_end("@block.outer", "textobjects")
+  end
 end, { desc = "Goto prev end of block" })
 
 
