@@ -21,10 +21,9 @@
       # Note: man-db must be disabled when using mandoc
       man-db.enable = false;
 
-      # TODO: enable this after update to 26.05
-      # cache = {
-      #   enable = true;
-      # };
+      cache = {
+        enable = true;
+      };
     };
   };
 
