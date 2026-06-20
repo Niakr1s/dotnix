@@ -125,6 +125,8 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half page up, center cursor" }
 vim.keymap.set("n", "n", "nzzzv", { desc = "Next search result, center" })
 vim.keymap.set("n", "N", "Nzzzv", { desc = "Previous search result, center" })
 
+vim.keymap.set("n", "<leader>n", ":noh<CR>", { desc = "noh", silent = true })
+
 require("clear_statusline").setup({ timeout = 3000 })
 
 local telescope_builtin = require("telescope.builtin")
