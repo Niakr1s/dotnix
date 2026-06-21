@@ -37,6 +37,8 @@
       bind ] next-window
       bind [ previous-window
 
+      bind Space copy-mode
+
       # changing from key "x"
       unbind x
       bind q confirm-before -p "kill-pane #{pane_current_path} $ '#{pane_current_command}'? (y/n)" kill-pane
