@@ -34,6 +34,9 @@
       bind c split-window -v -c "#{pane_current_path}"
       bind t new-window -c "#{pane_current_path}"
 
+      bind ] next-window
+      bind [ previous-window
+
       # changing from key "x"
       unbind x
       bind q confirm-before -p "kill-pane #{pane_current_path} $ '#{pane_current_command}'? (y/n)" kill-pane

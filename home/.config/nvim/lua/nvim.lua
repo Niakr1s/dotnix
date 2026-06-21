@@ -101,6 +101,8 @@ vim.keymap.set("n", "<C-w>t", vim.cmd.tabnew, { desc = "Tab new", silent = true,
 vim.keymap.set("n", "<C-w>p", vim.cmd.tabprevious, { desc = "Tab previous", silent = true, })
 vim.keymap.set("n", "<C-w>n", vim.cmd.tabnext, { desc = "Tab next", silent = true, })
 vim.keymap.set("n", "<C-w>q", close_window_with_confirm, { desc = "Close window with confirm" })
+vim.keymap.set("n", "<C-w>]", "gt", { desc = "Goto next tab", silent = true })
+vim.keymap.set("n", "<C-w>[", "gT", { desc = "Goto previous tab", silent = true })
 
 for i = 1, 9 do
   vim.keymap.set("n", "<C-w>" .. i, function()
