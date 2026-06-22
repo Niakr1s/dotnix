@@ -48,7 +48,7 @@ in
       ];
       winePackages = [
         # wineWow64Packages.stable # stable
-        wineWow64Packages.staging # version with experimental features
+        wineWow64Packages.stagingFull # version with experimental features
         # wineWow64Packages.waylandFull # native wayland support
       ];
       runners = {
