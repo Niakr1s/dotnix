@@ -2,7 +2,8 @@
   pkgs,
   username,
   ...
-}: {
+}:
+{
   home-manager.users.${username} = {
     programs.zed-editor = {
       enable = true;
@@ -13,6 +14,7 @@
         "toml"
         "make"
         "lua"
+        "zig"
       ];
 
       # The extraPackages option includes additional Nixpkgs in the FHS environment,
@@ -24,6 +26,7 @@
         nil
         clang-tools
         lua-language-server
+        zls
       ];
 
       userKeymaps = [
@@ -50,7 +53,12 @@
           dock = "bottom";
           detect_venv = {
             on = {
-              directories = [".env" "env" ".venv" "venv"];
+              directories = [
+                ".env"
+                "env"
+                ".venv"
+                "venv"
+              ];
               activate_script = "default";
             };
           };
@@ -78,7 +86,7 @@
             provider = "ollama";
             model = "gemma4:e4b";
           };
-          model_parameters = [];
+          model_parameters = [ ];
         };
         colorize_brackets = true;
         gutter = {
