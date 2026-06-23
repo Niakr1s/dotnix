@@ -3,11 +3,15 @@
   username,
   flakeDir,
   ...
-}: {
+}:
+let
+  ezaCmd = "eza --group-directories-first --total-size --icons";
+in
+{
   # some common aliases
   environment.shellAliases = {
-    ll = "ls -l";
-    la = "ls -la";
+    ll = ezaCmd + "-l"; # "ls -l";
+    la = ezaCmd + "-la"; # "ls -la";
     mvi = "mv -i";
     cpi = "cp -i";
     rmi = "rm -i";
