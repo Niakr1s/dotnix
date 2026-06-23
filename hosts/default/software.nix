@@ -127,6 +127,9 @@ in
     lolcat # Rainbow text coloring
 
     ### ========== MULTIMEDIA & GRAPHICS ==========
+    ### Video/Audio Players
+    termusic # Terminal music player
+
     ### Video/Audio Processing
     ffmpeg-full-custom # Complete video/audio conversion (your custom build)
     yt-dlp # YouTube/downloader (supports 1000+ sites)
@@ -136,6 +139,7 @@ in
     audacity # Audio editing
     gpu-screen-recorder-gtk # GPU-accelerated screen recording GUI
     kdePackages.kdenlive # Video editing
+    tageditor # Audio tags editor
 
     ### Image Processing & Viewing
     gimp # Professional image editor
