@@ -100,7 +100,7 @@
   },
   "language_code": "en_US",
   "base_style": "Dark",
-  "game_list_view_mode": 1,
+  "game_list_view_mode": 0,
   "show_names": true,
   "grid_size": 4,
   "application_sort": 8,
