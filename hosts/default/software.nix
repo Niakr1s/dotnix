@@ -127,9 +127,6 @@ in
     lolcat # Rainbow text coloring
 
     ### ========== MULTIMEDIA & GRAPHICS ==========
-    ### Video/Audio Players
-    termusic # Terminal music player
-
     ### Video/Audio Processing
     ffmpeg-full-custom # Complete video/audio conversion (your custom build)
     yt-dlp # YouTube/downloader (supports 1000+ sites)
@@ -311,6 +308,7 @@ in
     ../../modules/03-software/internet/browsers/firefox.nix
     ../../modules/03-software/internet/browsers/w3m.nix
     ../../modules/03-software/internet/irc/weechat.nix
+    ../../modules/03-software/multimedia/audio/termusic.nix
     ../../modules/03-software/multimedia/audio/tauon.nix
     ../../modules/03-software/gaming/games/casual.nix
     ../../modules/03-software/multimedia/video/editors/handbrake.nix
