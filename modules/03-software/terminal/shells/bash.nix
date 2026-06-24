@@ -8,9 +8,6 @@
     programs.bash = {
       enable = true;
       shellAliases = config.environment.shellAliases;
-      bashrcExtra = ''
-        set -o vi
-      '';
     };
   };
 }
