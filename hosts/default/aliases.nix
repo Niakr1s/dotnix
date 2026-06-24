@@ -5,13 +5,17 @@
   ...
 }:
 let
-  ezaCmd = "eza --group-directories-first --total-size --icons";
+  ezaCmd = "eza --group-directories-first --icons";
+  ezaCmdTotal = ezaCmd + " --total-size";
 in
 {
   # some common aliases
   environment.shellAliases = {
-    ll = ezaCmd + " -l"; # "ls -l";
-    la = ezaCmd + " -la"; # "ls -la";
+    l = ezaCmd + " -a";
+    ll = ezaCmd + " -l";
+    la = ezaCmd + " -la";
+    llt = ezaCmdTotal + " -l";
+    lat = ezaCmdTotal + " -la";
     mvi = "mv -i";
     cpi = "cp -i";
     rmi = "rm -i";

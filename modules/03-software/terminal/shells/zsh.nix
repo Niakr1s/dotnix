@@ -1,8 +1,10 @@
 {
+  config,
   username,
   pkgs,
   ...
-}: {
+}:
+{
   environment.systemPackages = [
     pkgs.zsh-vi-mode
   ];
@@ -13,6 +15,7 @@
       enableCompletion = true;
       syntaxHighlighting.enable = true;
       autosuggestion.enable = true;
+      shellAliases = config.environment.shellAliases;
 
       # Source the zsh-vi-mode plugin
       initContent = ''
