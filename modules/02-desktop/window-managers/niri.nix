@@ -18,7 +18,8 @@
   # services.gnome.gnome-keyring.enable = true; # secret service
 
   xdg.portal.config.niri = {
-    "org.freedesktop.impl.portal.FileChooser" = ["gtk"]; # or "kde"
+    "org.freedesktop.impl.portal.RemoteDesktop" = [ "gnome" ];
+    "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ]; # or "kde"
   };
 
   # example command
