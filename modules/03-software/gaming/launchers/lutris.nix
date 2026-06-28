@@ -68,6 +68,7 @@ in
                 PROTON_ENABLE_WAYLAND = "0";
                 PROTON_DLSS_UPGRADE = "0";
                 UMU_RUNTIME_UPDATE = "0"; # Disable umu runtime updates
+                PROTON_LARGE_ADDRESS_AWARE = "1"; # This is enabled by default. Disabling this may help with installing repacks.
               };
               gamemode = false;
               gamescope = false;
