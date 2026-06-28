@@ -146,6 +146,7 @@ in
     gthumb # Image viewer/organizer
     chafa # Image-to-text converter for terminal
     ueberzug # Terminal image rendering library
+    jp2a # convert image to ASCII art
 
     ### E-book Readers
     foliate # EPUB, PDF, Mobi, CBZ reader (GTK)
