@@ -1,10 +1,10 @@
 {
   pkgs,
-  username,
+  flakeDir,
   ...
 }:
 let
-  command = "${pkgs.docker}/bin/docker compose --file /home/${username}/.config/winapps/compose.yaml";
+  command = "${pkgs.docker}/bin/docker compose --file ${flakeDir}/home/.config/winapps/compose.yaml";
 in
 {
   systemd.user.services.winapps = {
@@ -15,13 +15,9 @@ in
     # wantedBy = ["default.target"];
 
     serviceConfig = {
-      Type = "oneshot";
+      Type = "simple";
       RemainAfterExit = true;
-      ExecStartPre = [
-        # "${pkgs.coreutils}/bin/mkdir -p ${dataDir}"
-        # "${pkgs.docker}/bin/docker pull ${dockerImage}"
-      ];
-      ExecStart = "${command} up --detach";
+      ExecStart = "${command} up";
       ExecStop = "${command} down";
     };
   };
