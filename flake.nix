@@ -70,6 +70,7 @@
         ${hostname} = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
+            inherit self;
             inherit system;
             inherit inputs;
             inherit hostname;
