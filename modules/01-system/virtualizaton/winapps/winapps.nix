@@ -1,4 +1,5 @@
 {
+  pkgs,
   system,
   username,
   flakeDir,
@@ -9,6 +10,7 @@
   environment.systemPackages = [
     winapps.packages."${system}".winapps
     winapps.packages."${system}".winapps-launcher
+    pkgs.remmina
   ];
 
   users.users.${username}.extraGroups = [ "kvm" ];
