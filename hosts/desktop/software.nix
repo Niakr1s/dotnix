@@ -4,6 +4,7 @@
     ### 01-system
     ../../modules/01-system/virtualizaton/docker/services/comfyui.nix
     ../../modules/01-system/virtualizaton/docker/services/flibusta.nix
+    ../../modules/01-system/virtualizaton/winapps/winapps.nix
 
     ### 03-software
     ../../modules/03-software/ai/aichat.nix

@@ -30,6 +30,11 @@
       url = "github:Niakr1s/cia-unix-full";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    winapps = {
+      url = "github:winapps-org/winapps";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -40,6 +45,7 @@
       home-manager,
       disko,
       sops-nix,
+      winapps,
       ...
     }@inputs:
     let
@@ -69,6 +75,7 @@
             inherit hostname;
             inherit username;
             inherit flakeDir;
+            inherit winapps;
             flakeLib = nixpkgs.legacyPackages.${system}.callPackage ./flakeLib.nix { };
           };
           modules = [
