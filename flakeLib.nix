@@ -16,5 +16,15 @@
         "${name}.localhost"
       ];
     };
+
+    networking.firewall = {
+      enable = true;
+      allowedTCPPorts = [
+        port
+      ];
+      allowedUDPPorts = [
+        port
+      ];
+    };
   };
 }
