@@ -34,6 +34,7 @@
       "disk"
       "networkmanager"
       "input"
+      "kvm"
     ];
     uid = 1000;
     shell = pkgs.zsh;
