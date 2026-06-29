@@ -20,5 +20,8 @@
         source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/winapps";
         recursive = true;
       };
+      home.file.".local/share/remmina/group_rdp_winapps_127-0-0-1-3389.remmina" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.local/share/remmina/group_rdp_winapps_127-0-0-1-3389.remmina";
+      };
     };
 }
