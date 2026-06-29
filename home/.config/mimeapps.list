@@ -9,6 +9,11 @@ image/png=org.gnome.gThumb.desktop
 video/mp4=mpv.desktop
 inode/directory=org.gnome.Nautilus.desktop
 text/plain=org.gnome.TextEditor.desktop
+x-scheme-handler/rdp=org.remmina.Remmina.desktop
+x-scheme-handler/spice=org.remmina.Remmina.desktop
+x-scheme-handler/vnc=org.remmina.Remmina.desktop
+x-scheme-handler/remmina=org.remmina.Remmina.desktop
+application/x-remmina=org.remmina.Remmina.desktop
 
 [Added Associations]
 x-scheme-handler/tg=org.telegram.desktop.desktop;
@@ -22,3 +27,8 @@ image/png=org.gnome.gThumb.desktop;
 video/mp4=mpv.desktop;
 inode/directory=org.gnome.Nautilus.desktop;
 text/plain=org.gnome.TextEditor.desktop;
+x-scheme-handler/rdp=org.remmina.Remmina.desktop;
+x-scheme-handler/spice=org.remmina.Remmina.desktop;
+x-scheme-handler/vnc=org.remmina.Remmina.desktop;
+x-scheme-handler/remmina=org.remmina.Remmina.desktop;
+application/x-remmina=org.remmina.Remmina.desktop;

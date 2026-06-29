@@ -194,6 +194,7 @@ in
 
     ### Remote Access & Connectivity
     freerdp # Remote Desktop Protocol client (RDP)
+    remmina # Remote Desktop client (supports RDP, VNC, etc)
 
     ### ========== UTILITIES & PRODUCTIVITY ==========
     ### Document Processing
