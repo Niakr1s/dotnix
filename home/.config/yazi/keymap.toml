@@ -1,24 +1,4 @@
 [[mgr.prepend_keymap]]
-on = ["b", "a"]
-run = "plugin bookmarks save"
-desc = "Add current position as a bookmark"
-
-[[mgr.prepend_keymap]]
-on = ["b", "g"]
-run = "plugin bookmarks jump"
-desc = "Jump to a bookmark"
-
-[[mgr.prepend_keymap]]
-on = ["b", "d"]
-run = "plugin bookmarks delete"
-desc = "Delete a bookmark"
-
-[[mgr.prepend_keymap]]
-on = ["b", "D"]
-run = "plugin bookmarks delete_all"
-desc = "Delete all bookmarks"
-
-[[mgr.prepend_keymap]]
 on = [ "q" ]
 run = "quit --no-cwd-file"
 desc = "Quit Yazi without changing directory"

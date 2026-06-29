@@ -18,7 +18,6 @@
       shellWrapperName = "y";
       plugins = {
         inherit (pkgs.yaziPlugins) mediainfo;
-        inherit (pkgs.yaziPlugins) bookmarks;
       };
     };
   };
