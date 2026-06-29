@@ -192,6 +192,9 @@ in
     ### Messaging
     telegram-desktop # Messaging app
 
+    ### Remote Access & Connectivity
+    freerdp # Remote Desktop Protocol client (RDP)
+
     ### ========== UTILITIES & PRODUCTIVITY ==========
     ### Document Processing
     poppler-utils # PDF utilities (pdftotext)
