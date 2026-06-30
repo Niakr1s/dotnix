@@ -1,10 +1,16 @@
-{username, ...}: {
+{ username, ... }:
+{
   home-manager.users.${username} = {
     # mangohud
     programs.mangohud = {
       enable = true;
       settings = {
-        fps_limit = [165 30 60];
+        no_display = true;
+        fps_limit = [
+          165
+          30
+          60
+        ];
         vsync = 3; # 0 = adaptive; 1 = off; 2 = mailbox; 3 = on
         time = true;
         time_no_label = true;
