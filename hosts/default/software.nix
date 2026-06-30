@@ -290,6 +290,7 @@ in
     ../../modules/01-system/services/network/qbittorrent.nix
     ../../modules/01-system/services/network/syncthing.nix
     ../../modules/01-system/services/network/v2raya.nix
+    ../../modules/01-system/services/network/vnc.nix
     ../../modules/01-system/virtualizaton/compatibility/nixld.nix
     ../../modules/01-system/virtualizaton/docker/default.nix
     ../../modules/01-system/virtualizaton/vm/virt-manager.nix
