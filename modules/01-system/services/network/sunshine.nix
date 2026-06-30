@@ -5,10 +5,11 @@
 }:
 let
   port = 47989;
+  guiPort = port + 1;
 in
 {
   imports = [
-    (flakeLib.localhostReverseProxy "sunshine" port)
+    (flakeLib.localhostReverseProxy "sunshine" guiPort)
   ];
 
   environment.systemPackages = with pkgs; [
