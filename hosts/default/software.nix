@@ -172,7 +172,7 @@ in
     playerctl # Media player controls (play/pause/next)
 
     ### Emulation & Compatibility
-    wineWow64Packages.stagingFull # wine
+    wineWow64Packages.waylandFull # stagingFull # wine
     winetricks
     umu-launcher # umu-run
     nsz # Nintendo Switch game converter
