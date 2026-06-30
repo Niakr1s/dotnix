@@ -1,13 +1,14 @@
-{username, ...}: {
+{ username, ... }:
+{
   services.openssh = {
     enable = true;
-    ports = [5432];
+    ports = [ 5432 ];
     openFirewall = true;
     settings = {
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
       PermitRootLogin = "no";
-      AllowUsers = ["${username}"];
+      AllowUsers = [ "${username}" ];
     };
   };
 
@@ -31,6 +32,7 @@
     authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA5vWOuf5yFVKDQX08zvuw1thG88NhBIVkrvbzoL4/25 nea@desktop"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKISELrDRXz1FWCjaspsAjENSWBRJnU8DxFRav7mFuPq nea@laptop"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHvjiddEaZZ2iJppHRPGZolCzaSNdkaQ4ETvmO0WUysP infinix"
     ];
   };
 }
