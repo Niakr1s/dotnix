@@ -302,6 +302,7 @@ in
     ../../modules/02-desktop/input/wvkbd.nix
     ../../modules/02-desktop/input/kdeconnect.nix
     ../../modules/02-desktop/window-managers/niri.nix
+    ../../modules/02-desktop/window-managers/mango.nix
 
     ### 03-software
     ../../modules/03-software/development/editors/nvim.nix
