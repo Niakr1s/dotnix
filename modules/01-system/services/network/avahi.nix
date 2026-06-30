@@ -13,6 +13,7 @@
       enable = true; # Allows services to be published
       addresses = true; # Publishes the machine's IP addresses
       workstation = true;
+      userServices = true;
     };
   };
 }
