@@ -21,6 +21,7 @@
     slurp
     satty
     wayfreeze
+    wlr-randr
   ];
 
   security.polkit.enable = true; # polkit
