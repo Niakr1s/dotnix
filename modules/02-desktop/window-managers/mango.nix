@@ -13,10 +13,18 @@
   environment.systemPackages = with pkgs; [
     xwayland-satellite
     noctalia-shell
+    xdg-desktop-portal-wlr
+    xdg-desktop-portal-gnome
+    xdg-desktop-portal-gtk
   ];
 
   security.polkit.enable = true; # polkit
   # services.gnome.gnome-keyring.enable = true; # secret service
+
+  xdg.portal.config.niri = {
+    "org.freedesktop.impl.portal.RemoteDesktop" = [ "gnome" ];
+    "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ]; # or "kde"
+  };
 
   # example command
   # gtklock -b \"$(jq -r 'first(.wallpapers[].dark) // .defaultWallpaper' ~/.cache/noctalia/wallpapers.json)\" -f

@@ -149,6 +149,13 @@
                     "unfocusedIconsOpacity": 1
                 },
                 {
+                    "defaultSettings": {
+                        "monitorOrder": [
+                        ]
+                    },
+                    "id": "plugin:mangowc-layout-switcher"
+                },
+                {
                     "colorizeIcons": false,
                     "hideMode": "hidden",
                     "id": "ActiveWindow",
