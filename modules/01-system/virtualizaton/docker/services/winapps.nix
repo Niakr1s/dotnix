@@ -45,7 +45,7 @@ let
             - /data/hdd1/VMs/winapps/${version}:/storage # Mount volume 'data' to use as Windows 'C:' drive.
             - /home/${username}:/shared # Mount Linux user home directory @ '\\host.lan\Data'.
             - /data:/shared2
-            - /tmp/oem:/oem # Enables automatic post-install execution of 'oem/install.bat', applying Windows registry modifications contained within 'oem/RDPApps.reg'.
+            #- /tmp/oem:/oem # Enables automatic post-install execution of 'oem/install.bat', applying Windows registry modifications contained within 'oem/RDPApps.reg'.
             #- /path/to/windows/install/media.iso:/custom.iso # Uncomment to use a custom Windows ISO. If specified, 'VERSION' (e.g. 'tiny11') will be ignored.
           devices:
             - /dev/kvm # Enable KVM.
