@@ -31,7 +31,7 @@ in
     # lutris
     programs.lutris = with pkgs; {
       enable = true;
-      defaultWinePackage = dwproton-bin;
+      defaultWinePackage = proton-ge-bin;
       extraPackages = [
         winetricks
         gamescope
