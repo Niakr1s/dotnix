@@ -7,7 +7,7 @@
 let
   compose =
     # Official versions: 11l, 11i, 10l, 10i
-    # Custom versions: tiny11, core11, nano11
+    # Custom versions: tiny11, core11
     version:
     pkgs.writeText "winapps.yaml" ''
       # For documentation, FAQ, additional configuration options and technical help, visit: https://github.com/dockur/windows
@@ -51,7 +51,7 @@ let
             - /dev/kvm # Enable KVM.
             - /dev/net/tun # Enable tuntap
     '';
-  command = "${pkgs.docker}/bin/docker compose --file ${compose "nano11"}";
+  command = "${pkgs.docker}/bin/docker compose --file ${compose "core11"}";
 in
 {
   systemd.user.services.winapps = {
