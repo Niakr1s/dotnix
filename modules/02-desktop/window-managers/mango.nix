@@ -82,8 +82,8 @@
         source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/noctalia";
       };
 
-      # home.file.".config/niri/${hostname}.kdl" = {
-      #   source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/niri/${hostname}.kdl";
-      # };
+      home.file.".config/mango/${hostname}.conf" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/mango/${hostname}.conf";
+      };
     };
 }
