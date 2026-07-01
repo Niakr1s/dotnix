@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+lisgd -v -d /dev/input/by-path/pci-0000:00:17.0-platform-i2c_designware.4-event \
+    -g "1,LR,L,*,R,mmsg -d focusdir,left" \
+    -g "1,RL,R,*,R,mmsg -d focusdir,right" \
+    -g "1,DU,B,*,R,mmsg -d toggleoverview" \
+    -g "2,UD,T,*,R,mmsg -d killclient" \
+    -g "1,UD,T,*,R,mmsg -d toggleoverview" \
+    -g "2,DU,B,*,R,mmsg -d killclient" \
+    -g "2,LR,L,*,R,mmsg -d togglemaximizescreen" \
+    -g "2,RL,R,*,R,mmsg -d togglemaximizescreen"
