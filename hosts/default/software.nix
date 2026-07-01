@@ -215,6 +215,7 @@ in
     unzip # ZIP format
     p7zip # 7-Zip archiver
     _7zz # 7-Zip archiver (both versions)
+    lz4 # fast archiver
     rar # RAR format (proprietary)
     unar # Universal extractor (rar, 7z, zip, etc.)
 
