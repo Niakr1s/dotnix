@@ -11,7 +11,7 @@ in
       enable = true;
       autoStart = true;
       settings = {
-        address = "localhost";
+        address = "127.0.0.1";
         port = port;
       };
     };
