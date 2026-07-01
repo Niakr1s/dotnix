@@ -1,6 +1,6 @@
 {
   pkgs,
-  flakeDir,
+  flakeLib,
   username,
   ...
 }:
@@ -54,6 +54,10 @@ let
   command = "${pkgs.docker}/bin/docker compose --file ${compose "core11"}";
 in
 {
+  imports = [
+    (flakeLib.localhostReverseProxy "winapps" 8006)
+  ];
+
   systemd.user.services.winapps = {
     description = "Winapps container";
     after = [ "docker.service" ];
