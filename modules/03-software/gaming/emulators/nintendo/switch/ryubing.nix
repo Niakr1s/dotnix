@@ -6,14 +6,6 @@
   ...
 }:
 let
-  # Read the contents of the original desktop file provided by the package
-  originalDesktopFile = builtins.readFile "${pkgs.ryubing}/share/applications/Ryujinx.desktop";
-  # Create a modified version with the new Exec line
-  modifiedDesktopFile = pkgs.runCommand "modified-ryujinx-desktop" { } ''
-    echo "${originalDesktopFile}" > $out
-    sed -i 's|^Exec=\(.*\)|Exec=systemd-inhibit \1|' $out
-  '';
-
   cheats = pkgs.fetchzip {
     name = "ryujinx-cheats";
     url = "https://github.com/HamletDuFromage/switch-cheats-db/releases/download/2026-04-18/contents_complete.zip";
@@ -32,11 +24,6 @@ in
   home-manager.users.${username} =
     { config, ... }:
     {
-      home.file.".local/share/applications/Ryujinx.desktop" = {
-        text = builtins.readFile modifiedDesktopFile;
-        force = true;
-      };
-
       home.file.".config/Ryujinx/system/prod.keys" = {
         source = config.lib.file.mkOutOfStoreSymlink prodKeysFilePath;
       };
