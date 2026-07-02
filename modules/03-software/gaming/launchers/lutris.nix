@@ -25,7 +25,6 @@ let
     ignored_supported_lutris_verison = 0.5.22
     show_advanced_options = True
   '';
-  wine = pkgs.wineWow64Packages.stagingFull;
 in
 {
   warnings = [
@@ -50,13 +49,13 @@ in
         vulkan-validation-layers
         vulkan-extension-layer
       ];
-      defaultWinePackage = wine;
+      defaultWinePackage = proton-ge-bin;
       protonPackages = [
-        # proton-ge-bin
-        # dwproton-bin
+        proton-ge-bin
+        dwproton-bin
       ];
       winePackages = [
-        wine
+        wineWow64Packages.stagingFull
       ];
       runners = {
         linux = {
