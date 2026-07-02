@@ -7,8 +7,8 @@
     enable = true;
     protontricks.enable = true;
     extraCompatPackages = with pkgs; [
-      proton-ge-bin
-      dwproton-bin
+      # proton-ge-bin
+      # dwproton-bin
     ];
   };
 }

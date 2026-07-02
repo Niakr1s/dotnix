@@ -27,11 +27,18 @@ let
   '';
 in
 {
+  warnings = [
+    "proton packages for lutris were turned off, use protonplus tool to add them"
+  ];
+
+  environment.systemPackages = [
+    pkgs.protonplus
+  ];
+
   home-manager.users.${username} = {
     # lutris
     programs.lutris = with pkgs; {
       enable = true;
-      defaultWinePackage = proton-ge-bin;
       extraPackages = [
         winetricks
         gamescope
@@ -42,9 +49,10 @@ in
         vulkan-validation-layers
         vulkan-extension-layer
       ];
+      # defaultWinePackage = proton-ge-bin;
       protonPackages = [
-        proton-ge-bin
-        dwproton-bin
+        # proton-ge-bin
+        # dwproton-bin
       ];
       winePackages = [
         # wineWow64Packages.stable # stable
