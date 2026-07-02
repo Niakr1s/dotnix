@@ -25,21 +25,19 @@ let
     ignored_supported_lutris_verison = 0.5.22
     show_advanced_options = True
   '';
+  proton = {
+    ge = pkgs.unstable.proton-ge-bin;
+    dw = pkgs.unstable.dwproton-bin;
+    cachyos_vladexa = pkgs.nur.repos.vladexa.proton-cachyos-v3;
+    cachyos_forkprince = pkgs.nur.repos.forkprince.proton-cachyos-v3-bin;
+  };
 in
 {
-  warnings = [
-    "proton packages for lutris were turned off, use protonplus tool to add them"
-  ];
-
-  environment.systemPackages = [
-    pkgs.protonplus
-  ];
-
   home-manager.users.${username} = {
     # lutris
-    programs.lutris = with pkgs; {
+    programs.lutris = {
       enable = true;
-      extraPackages = [
+      extraPackages = with pkgs; [
         winetricks
         gamescope
         gamemode
@@ -49,13 +47,14 @@ in
         vulkan-validation-layers
         vulkan-extension-layer
       ];
-      defaultWinePackage = proton-ge-bin;
-      protonPackages = [
-        proton-ge-bin
-        dwproton-bin
+      defaultWinePackage = proton.ge;
+      protonPackages = with proton; [
+        ge
+        dw
+        cachyos_vladexa
       ];
       winePackages = [
-        wineWow64Packages.stagingFull
+        pkgs.wineWow64Packages.stagingFull
       ];
       runners = {
         linux = {

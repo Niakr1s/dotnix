@@ -30,6 +30,11 @@
       url = "github:Niakr1s/cia-unix-full";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -40,22 +45,11 @@
       home-manager,
       disko,
       sops-nix,
+      nur,
       ...
     }@inputs:
     let
       system = "x86_64-linux";
-
-      # so we can write "pkgs.unstable"
-      unstable-overlays = {
-        nixpkgs.overlays = [
-          (final: prev: {
-            unstable = import nixpkgs-unstable {
-              inherit system;
-              config.allowUnfree = true;
-            };
-          })
-        ];
-      };
 
       username = "nea"; # will be common among my hosts
       flakeDir = "/etc/nixos"; # root of this flake
@@ -70,14 +64,28 @@
             inherit hostname;
             inherit username;
             inherit flakeDir;
+            inherit nur;
             flakeLib = nixpkgs.legacyPackages.${system}.callPackage ./flakeLib.nix { };
           };
           modules = [
-            unstable-overlays
-
             disko.nixosModules.disko
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
+
+            # overlays
+            {
+              nixpkgs.overlays = [
+                # pkgs.unstable
+                (final: prev: {
+                  unstable = import nixpkgs-unstable {
+                    inherit system;
+                    config.allowUnfree = true;
+                  };
+                })
+                # pkgs.nur
+                nur.overlays.default
+              ];
+            }
 
             # Configurations
             ./hosts/${hostname}/configuration.nix # probably we can hardcode this
