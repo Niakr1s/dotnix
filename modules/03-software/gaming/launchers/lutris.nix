@@ -28,8 +28,8 @@ let
   proton = {
     ge = pkgs.unstable.proton-ge-bin;
     dw = pkgs.unstable.dwproton-bin;
-    cachyos_vladexa = pkgs.nur.repos.vladexa.proton-cachyos-v3;
-    cachyos_forkprince = pkgs.nur.repos.forkprince.proton-cachyos-v3-bin;
+    cachyos = pkgs.nur.repos.vladexa.proton-cachyos-v3;
+    # cachyos = pkgs.nur.repos.forkprince.proton-cachyos-v3-bin;
   };
 in
 {
@@ -47,11 +47,11 @@ in
         vulkan-validation-layers
         vulkan-extension-layer
       ];
-      defaultWinePackage = proton.ge;
+      defaultWinePackage = proton.cachyos;
       protonPackages = with proton; [
         ge
         dw
-        cachyos_vladexa
+        cachyos
       ];
       winePackages = [
         pkgs.wineWow64Packages.stagingFull
@@ -73,6 +73,7 @@ in
                 PROTON_ENABLE_WAYLAND = "0";
                 PROTON_DLSS_UPGRADE = "0";
                 UMU_RUNTIME_UPDATE = "0"; # Disable umu runtime updates
+                PROTON_DXVK_LOWLATENCY = "0"; # Activate low latency patch for proton-cachyos
                 # PROTON_LARGE_ADDRESS_AWARE = "1"; # This is enabled by default. Disabling this may help with installing repacks.
               };
               gamemode = false;
