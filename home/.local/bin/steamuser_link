@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+
+usage() {
+  cat <<EOF
+
+Description:
+  Links a steamuser directory to a directory in a wine prefix so it can be used to store savegames in one place.
+  Old steamuser directory will be backuped next to the old one inside the prefix.
+  Default directory can be configured via STEAMUSER_DIR env variable.
+
+Usage:
+  steamuser_link <prefix>
+EOF
+}
+
+STEAMUSER_DIR="${STEAMUSER_DIR:-$HOME/.steamuser}"
+if [[ ! -d "$STEAMUSER_DIR" ]]; then
+  echo "ERROR: directory $STEAMUSER_DIR doesn't exist"
+  usage
+  exit 1
+fi
+
+if [[ "$#" -ne 1 ]]; then
+  echo "ERROR: Wrong argument count"
+  usage
+  exit 1
+fi
+
+PREFIX_DIR="$1"
+PREFIX_STEAMUSER_DIR="$PREFIX_DIR/drive_c/users/steamuser"
+PREFIX_STEAMUSER_BAK_DIR="$PREFIX_STEAMUSER_DIR.bak"
+
+if [[ -d "$PREFIX_STEAMUSER_DIR" ]]; then
+  mv "$PREFIX_STEAMUSER_DIR" "$PREFIX_STEAMUSER_BAK_DIR" 2>/dev/null
+fi
+
+rm -rf "$PREFIX_STEAMUSER_DIR"
+ln -s "$STEAMUSER_DIR" "$PREFIX_STEAMUSER_DIR"
