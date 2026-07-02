@@ -173,7 +173,7 @@ in
     playerctl # Media player controls (play/pause/next)
 
     ### Emulation & Compatibility
-    wineWow64Packages.waylandFull # stagingFull # wine
+    wineWow64Packages.stagingFull # wine
     winetricks
     umu-launcher # umu-run
     protonplus # manage proton versions
