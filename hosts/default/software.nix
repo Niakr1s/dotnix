@@ -176,6 +176,7 @@ in
     wineWow64Packages.waylandFull # stagingFull # wine
     winetricks
     umu-launcher # umu-run
+    protonplus # manage proton versions
     nsz # Nintendo Switch game converter
     cia-unix # Nintendo 3ds games decryptor and converter
 
