@@ -203,6 +203,9 @@ in
     poppler-utils # PDF utilities (pdftotext)
     pandoc # (not in list - document conversion)
 
+    # File search tools
+    fsearch
+
     ### Renaming Tools
     gprename # GUI bulk rename tool
     bulky # GUI bulk rename tool
