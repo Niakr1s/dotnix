@@ -185,6 +185,7 @@ in
     lynx # Terminal web browser
     elinks # Advanced terminal browser
     kiwix-tools # Offline Wikipedia reader
+    tor-browser # For onion websites
 
     ### Network Tools
     curl # HTTP/FTP client
