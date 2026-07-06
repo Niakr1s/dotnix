@@ -1,7 +1,10 @@
 {
   pkgs,
+  config,
+  flakeDir,
   flakeLib,
   hostname,
+  username,
   ...
 }:
 let
@@ -24,6 +27,12 @@ in
     capSysAdmin = true;
     settings = {
       port = port; # default is 47989
+    };
+  };
+
+  home-manager.users.${username} = { config, ... }: {
+    home.file.".config/sunshine/sunshine.conf" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/sunshine/sunshine.conf";
     };
   };
 }
