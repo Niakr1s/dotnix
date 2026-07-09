@@ -179,6 +179,7 @@ in
     protonplus # manage proton versions
     nsz # Nintendo Switch game converter
     cia-unix # Nintendo 3ds games decryptor and converter
+    compose2nix # Generate a NixOS config from a Docker Compose project
 
     ### ========== NETWORK & INTERNET ==========
     ### Browsers & Viewers
