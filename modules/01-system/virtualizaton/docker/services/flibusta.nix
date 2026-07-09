@@ -13,8 +13,9 @@
 
   port = 8177;
 
+  dockerCmd = "${pkgs.podman}/bin/podman";
   dockerRun = ''
-    ${pkgs.docker}/bin/docker run -d \
+    ${dockerCmd} run -d \
       --name ${containerName} \
       -p ${toString port}:3000 \
       -v ${flibustaDir}:/library:ro \
@@ -28,7 +29,7 @@ in {
 
   systemd.user.services.flibusta = {
     description = "Flibusta library";
-    after = ["docker.service"];
+    # after = ["docker.service"];
 
     # I comment this out to not allow service to start after restart
     # wantedBy = ["default.target"];
@@ -38,11 +39,11 @@ in {
       RemainAfterExit = true;
       ExecStartPre = [
         "${pkgs.coreutils}/bin/mkdir -p ${dataDir}"
-        "${pkgs.docker}/bin/docker pull ${dockerImage}"
+        "${dockerCmd} pull ${dockerImage}"
       ];
       ExecStart = "${dockerRun}";
-      ExecStop = "${pkgs.docker}/bin/docker stop ${containerName}";
-      ExecStopPost = "${pkgs.docker}/bin/docker rm ${containerName}";
+      ExecStop = "${dockerCmd} stop ${containerName}";
+      ExecStopPost = "${dockerCmd} rm ${containerName}";
     };
   };
 
