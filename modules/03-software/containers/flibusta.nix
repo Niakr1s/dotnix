@@ -1,5 +1,6 @@
 {
   flakeLib,
+  username,
   ...
 }:
 let
@@ -18,8 +19,10 @@ in
   ];
 
   virtualisation.oci-containers.containers.flibusta = {
-    autoStart = false;
     image = "${dockerImage}";
+    autoStart = false;
+    podman.user = "${username}";
+
     ports = [ "${toString port}:3000" ];
     volumes = [
       "${flibustaDir}:/library:ro"

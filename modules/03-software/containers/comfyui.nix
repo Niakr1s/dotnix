@@ -75,6 +75,7 @@ in
   virtualisation.oci-containers.containers.comfyui = {
     image = "${dockerImage}";
     autoStart = false;
+    podman.user = "${username}";
 
     volumes = (map (m: "${m.host}:${m.container}") mappings);
     devices = [ "nvidia.com/gpu=all" ];

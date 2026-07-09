@@ -1,5 +1,6 @@
 {
   pkgs,
+  username,
   ...
 }:
 {
@@ -10,6 +11,9 @@
     dockerCompat = true;
     defaultNetwork.settings.dns_enabled = true; # Required for containers under podman-compose to be able to talk to each other.
   };
+
+  # linger after logout
+  users.users."${username}".linger = true;
 
   environment.systemPackages = with pkgs; [
     podman-tui

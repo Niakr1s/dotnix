@@ -24,6 +24,7 @@ in
   virtualisation.oci-containers.containers.winapps = {
     image = "ghcr.io/dockur/windows:5.16";
     autoStart = false;
+    podman.user = "${username}";
 
     environment = {
       "VERSION" = "${version}";
