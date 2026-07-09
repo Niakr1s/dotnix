@@ -179,8 +179,8 @@
     { config, ... }:
     {
       home.sessionVariables = {
+        TERM = "xterm-256color";
         TERMINAL = "alacritty";
-        TERM = "alacritty";
       };
 
       xdg.configFile."mimeapps.list" = {
