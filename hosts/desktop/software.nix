@@ -2,9 +2,7 @@
   # Modules
   imports = [
     ### 01-system
-    ../../modules/01-system/virtualizaton/docker/services/comfyui.nix
-    ../../modules/01-system/virtualizaton/docker/services/flibusta.nix
-    ../../modules/01-system/virtualizaton/docker/services/winapps.nix
+    ../../modules/03-software/containers/flibusta.nix
     ../../modules/01-system/services/network/sunshine.nix
 
     # I don't need this actually, can just use docker service and connect via rdp
