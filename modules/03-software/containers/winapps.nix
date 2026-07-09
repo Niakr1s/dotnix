@@ -7,13 +7,15 @@
 }:
 let
   version = "core11";
-  volume = "/data/hdd1/VMs/winapps/${version}";
+  storage = "/data/hdd1/VMs/winapps/${version}";
+  shared1 = "/home/${username}";
+  shared2 = "/data";
 in
 {
   imports = [
     (flakeLib.localhostReverseProxy "winapps" 8006)
     (flakeLib.createDirs {
-      dirs = [ volume ];
+      dirs = [ storage ];
       user = "${username}";
       group = "users";
     })
@@ -35,9 +37,9 @@ in
       "RAM_SIZE" = "4G";
     };
     volumes = [
-      "/home/${username}:/shared:rw"
-      "/data:/shared2:rw"
-      "${volume}:/storage:rw"
+      "${storage}:/storage:rw"
+      "${shared1}:/shared:rw"
+      "${shared2}:/shared2:rw"
     ];
     ports = [
       # Map '8006' on Linux host to '8006' on Windows VM --> For VNC Web Interface @ http://127.0.0.1:8006.
