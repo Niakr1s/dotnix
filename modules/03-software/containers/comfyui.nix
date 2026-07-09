@@ -72,7 +72,7 @@ in
     autoStart = false;
 
     volumes = (map (m: "${m.host}:${m.container}") mappings);
-    devices = [ "nvidia.con/gpu=all" ];
+    devices = [ "nvidia.com/gpu=all" ];
     ports = [ "${toString port}:${toString port}" ];
   };
 
