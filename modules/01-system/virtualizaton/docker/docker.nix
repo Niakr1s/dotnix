@@ -1,4 +1,8 @@
 {config, ...}: {
+  warnings = [
+    "docker is deprecated, better use podman"
+  ];
+
   virtualisation.docker = {
     enable = true;
     # Use the rootless mode - run Docker daemon as non-root user
