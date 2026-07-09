@@ -65,6 +65,11 @@ in
 {
   imports = [
     (flakeLib.localhostReverseProxy "comfyui" port)
+    (flakeLib.createDirs {
+      dirs = (map (m: "${m.host}") mappings);
+      user = "${username}";
+      group = "users";
+    })
   ];
 
   virtualisation.oci-containers.containers.comfyui = {

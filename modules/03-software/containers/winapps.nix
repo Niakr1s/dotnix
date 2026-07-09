@@ -7,10 +7,16 @@
 }:
 let
   version = "core11";
+  volume = "/data/hdd1/VMs/winapps/${version}";
 in
 {
   imports = [
     (flakeLib.localhostReverseProxy "winapps" 8006)
+    (flakeLib.createDirs {
+      dirs = [ volume ];
+      user = "${username}";
+      group = "users";
+    })
   ];
 
   virtualisation.oci-containers.containers.winapps = {
@@ -31,7 +37,7 @@ in
     volumes = [
       "/home/${username}:/shared:rw"
       "/data:/shared2:rw"
-      "/data/hdd1/VMs/winapps/${version}:/storage:rw"
+      "${volume}:/storage:rw"
     ];
     ports = [
       # Map '8006' on Linux host to '8006' on Windows VM --> For VNC Web Interface @ http://127.0.0.1:8006.

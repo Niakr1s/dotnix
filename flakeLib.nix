@@ -27,4 +27,16 @@
       ];
     };
   };
+
+  # Creates dirs using systemd.tmpfiles
+  createDirs =
+    {
+      dirs,
+      user ? "root",
+      group ? "root",
+      mode ? "0755",
+    }:
+    {
+      systemd.tmpfiles.rules = map (dir: "d ${dir} ${mode} ${user} ${group} - -") dirs;
+    };
 }
