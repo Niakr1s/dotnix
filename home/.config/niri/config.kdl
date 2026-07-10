@@ -220,7 +220,7 @@ layout {
     struts {
         left -2
         right -2
-        top 2
+        top 0
         bottom -2
     }
 }
@@ -636,7 +636,7 @@ include optional=true "./laptop.kdl"
 include "dms/binds.kdl"
 include "dms/colors.kdl"
 include "dms/cursor.kdl"
-include "dms/layout.kdl"
+// include "dms/layout.kdl" // 
 include "dms/outputs.kdl"
 include "dms/windowrules.kdl"
 include "dms/wpblur.kdl"

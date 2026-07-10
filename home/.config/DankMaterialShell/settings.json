@@ -469,13 +469,13 @@
           "enabled": true
         }
       ],
-      "spacing": 4,
+      "spacing": 0,
       "innerPadding": 4,
       "bottomGap": 0,
       "transparency": 1,
       "widgetTransparency": 0,
-      "squareCorners": false,
-      "noBackground": false,
+      "squareCorners": true,
+      "noBackground": true,
       "maximizeWidgetIcons": false,
       "maximizeWidgetText": false,
       "removeWidgetPadding": false,
