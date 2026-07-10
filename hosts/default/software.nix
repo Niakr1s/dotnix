@@ -306,7 +306,7 @@ in
     ../../modules/01-system/virtualizaton/vm/virt-manager.nix
 
     ### 02-desktop
-    ../../modules/02-desktop/display-managers/sddm.nix
+    ../../modules/02-desktop/display-managers/dms-greeter.nix
     ../../modules/02-desktop/input/dotool.nix
     ../../modules/02-desktop/input/wvkbd.nix
     ../../modules/02-desktop/input/kdeconnect.nix
