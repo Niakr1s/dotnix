@@ -201,6 +201,9 @@ in
     remmina # Remote Desktop client (supports RDP, VNC, etc)
 
     ### ========== UTILITIES & PRODUCTIVITY ==========
+    ### Security
+    keepassxc # Passwords
+
     ### Document Processing
     poppler-utils # PDF utilities (pdftotext)
     pandoc # (not in list - document conversion)
