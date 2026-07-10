@@ -212,6 +212,16 @@
           name = "Adwaita";
         };
       };
+
+      dconf = {
+        enable = true;
+        settings = {
+          "org/gnome/desktop/interface" = {
+            gtk-theme = "Adwaita"; # default
+          };
+        };
+      };
+
       programs.man.generateCaches = true;
     };
 }
