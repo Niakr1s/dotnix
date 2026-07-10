@@ -1,6 +1,7 @@
 {
   pkgs,
   username,
+  selectedWine,
   ...
 }:
 {
@@ -27,6 +28,18 @@
   };
 
   environment.systemPackages = with pkgs; [
+    selectedWine
+    winetricks
+    umu-launcher # umu-run
+    protonplus # manage proton versions
     steam-run
   ];
+
+  environment.variables = {
+    WINE_BIN = "${selectedWine}/bin/.wine"; # hack for winetricks
+  };
+
+  environment.shellAliases = {
+    winetricks = "WINE_BIN=$(dirname $(readlink $(which wine)))/.wine winetricks";
+  };
 }

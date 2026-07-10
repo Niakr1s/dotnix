@@ -2,6 +2,7 @@
   lib,
   pkgs,
   username,
+  selectedWine,
   ...
 }:
 let
@@ -54,7 +55,7 @@ in
         cachyos
       ];
       winePackages = [
-        pkgs.wineWow64Packages.stagingFull
+        selectedWine
       ];
       runners = {
         linux = {

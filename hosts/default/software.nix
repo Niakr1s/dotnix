@@ -18,8 +18,11 @@ let
         doCheck = false;
       });
   cia-unix = inputs.cia-unix.packages.${pkgs.system}.default;
+  selectedWine = pkgs.wineWow64Packages.stagingFull;
 in
 {
+  _module.args.selectedWine = selectedWine;
+
   environment.systemPackages = with pkgs; [
     ### ========== SYSTEM UTILITIES ==========
     ### System Monitoring & Diagnostics
@@ -173,10 +176,6 @@ in
     playerctl # Media player controls (play/pause/next)
 
     ### Emulation & Compatibility
-    wineWow64Packages.stagingFull # wine
-    winetricks
-    umu-launcher # umu-run
-    protonplus # manage proton versions
     nsz # Nintendo Switch game converter
     cia-unix # Nintendo 3ds games decryptor and converter
     compose2nix # Generate a NixOS config from a Docker Compose project
@@ -330,6 +329,7 @@ in
     ../../modules/03-software/internet/irc/weechat.nix
     ../../modules/03-software/multimedia/audio/termusic.nix
     ../../modules/03-software/multimedia/audio/tauon.nix
+    ../../modules/03-software/gaming/default.nix
     ../../modules/03-software/gaming/games/casual.nix
     ../../modules/03-software/multimedia/video/editors/handbrake.nix
     ../../modules/03-software/multimedia/video/editors/losslesscut.nix
