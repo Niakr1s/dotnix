@@ -489,7 +489,7 @@
       "borderThickness": 1,
       "widgetOutlineEnabled": true,
       "widgetOutlineColor": "primary",
-      "widgetOutlineOpacity": 0.1,
+      "widgetOutlineOpacity": 0.05,
       "widgetOutlineThickness": 1,
       "fontScale": 1,
       "iconScale": 1,
