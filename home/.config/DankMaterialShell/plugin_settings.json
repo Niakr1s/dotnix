@@ -18,5 +18,8 @@
         "name": "keyboard"
       }
     ]
+  },
+  "nvidiaGpuMonitor": {
+    "enabled": true
   }
 }
