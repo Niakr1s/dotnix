@@ -94,6 +94,10 @@
         source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/niri/${hostname}.kdl";
       };
 
+      # main config file
+      home.file.".config/niri/dms".source =
+        config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/niri/dms";
+
       home.file.".config/DankMaterialShell/firefox.css".source =
         config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/DankMaterialShell/firefox.css";
 
