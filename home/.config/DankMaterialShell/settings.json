@@ -204,7 +204,7 @@
   "appDrawerSectionViewModes": {
     "apps": "list"
   },
-  "niriOverviewOverlayEnabled": true,
+  "niriOverviewOverlayEnabled": false,
   "dankLauncherV2Size": "large",
   "dankLauncherV2BorderEnabled": false,
   "dankLauncherV2BorderThickness": 2,
