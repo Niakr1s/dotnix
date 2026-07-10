@@ -94,15 +94,13 @@
         source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/niri/${hostname}.kdl";
       };
 
-      #   # noctalia colorsheme
-      #   home.file.".config/niri/noctalia.kdl" = {
-      #     source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/niri/noctalia.kdl";
-      #     recursive = true;
-      #   };
-      #
-      #   # noctalia config
-      #   home.file.".config/noctalia" = {
-      #     source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/noctalia";
-      #   };
+      home.file.".config/DankMaterialShell/firefox.css".source =
+        config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/DankMaterialShell/firefox.css";
+
+      home.file.".config/DankMaterialShell/plugin_settings.json".source =
+        config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/DankMaterialShell/plugin_settings.json";
+
+      home.file.".config/DankMaterialShell/settings.json".source =
+        config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/DankMaterialShell/settings.json";
     };
 }
