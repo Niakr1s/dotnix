@@ -6,17 +6,17 @@ usage() {
 Description:
   Links a steamuser directory to a directory in a wine prefix so it can be used to store savegames in one place.
   Old steamuser directory will be backuped next to the old one inside the prefix.
-  Default directory can be configured via STEAMUSER_DIR env variable.
+  Default directory can be configured via SAVEGAMES_DIR env variable.
 
 Usage:
   $0 <prefix>
 EOF
 }
 
-# Validate STEAMUSER_DIR
-STEAMUSER_DIR="${STEAMUSER_DIR:-$HOME/.steamuser}"
-if [[ ! -d "$STEAMUSER_DIR" ]]; then
-  echo "ERROR: directory $STEAMUSER_DIR doesn't exist" >&2
+# Validate SAVEGAMES_DIR
+SAVEGAMES_DIR="${SAVEGAMES_DIR:-$HOME/.savegames}"
+if [[ ! -d "$SAVEGAMES_DIR" ]]; then
+  echo "ERROR: directory $SAVEGAMES_DIR doesn't exist" >&2
   exit 1
 fi
 
@@ -40,9 +40,6 @@ if [[ ! -d "$PREFIX_DIR/drive_c" ]]; then
   exit 1
 fi
 
-
-# Usage:
-#   make_link <from> <to>
 backup_and_make_link() {
   local from="$1"
   local from_bak_dir="$from.bak"
@@ -53,7 +50,7 @@ backup_and_make_link() {
     echo "Removing old symlink"
     rm -f "$from"
   else
-    # Handle existing steamuser directory
+    # Handle existing directory
     if [[ -d "$from" ]]; then
       # Check if backup already exists
       if [[ -d "$from_bak_dir" ]]; then
@@ -68,7 +65,7 @@ backup_and_make_link() {
         fi
       fi
       
-      echo "Moving existing steamuser directory to $from_bak_dir"
+      echo "Moving existing $from directory to $from_bak_dir"
       mv "$from" "$from_bak_dir"
     fi
   fi
@@ -77,10 +74,10 @@ backup_and_make_link() {
   echo "Creating symlink from $from to $to"
   ln -s "$to" "$from"
 
-  echo "Successfully linked steamuser directory"
+  echo "Successfully linked $from to $to"
 }
 
 PREFIX_USERS_DIR="$PREFIX_DIR/drive_c/users"
 
-backup_and_make_link "$PREFIX_USERS_DIR/$USER" "$STEAMUSER_DIR"
-backup_and_make_link "$PREFIX_USERS_DIR/steamuser" "$STEAMUSER_DIR"
+backup_and_make_link "$PREFIX_USERS_DIR/$USER" "$SAVEGAMES_DIR"
+backup_and_make_link "$PREFIX_USERS_DIR/steamuser" "$SAVEGAMES_DIR"
