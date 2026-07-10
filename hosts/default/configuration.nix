@@ -53,6 +53,7 @@
   environment.sessionVariables = {
     MOZ_USE_XINPUT2 = "1"; # To enable one-to-one trackpad scrolling in Firefox
     NIXOS_OZONE_WL = "1"; # To force wayland
+    QT_QPA_PLATFORMTHEME = "gtk3"; # Used to set Qt platform theme, usually one of "gtk3", "qt6ct", "kde"
   };
 
   environment.variables = {
