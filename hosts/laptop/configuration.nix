@@ -2,7 +2,8 @@
   lib,
   username,
   ...
-}: {
+}:
+{
   imports = [
     # Don't change this
     ../default/configuration.nix
@@ -19,18 +20,19 @@
 
   services.upower.enable = true;
 
-  services.tlp = {
-    enable = true;
-    settings = {
-      CPU_SCALING_GOVERNOR_ON_AC = "perfomance";
-      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-
-      CPU_ENERGY_PERF_POLICY_ON_AC = "perfomance";
-      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
-
-      CPU_BOOST_ON_BAT = 0;
-    };
-  };
+  # since power-profiles-daemon will be enabled in dms-shell
+  # services.tlp = {
+  #   enable = true;
+  #   settings = {
+  #     CPU_SCALING_GOVERNOR_ON_AC = "perfomance";
+  #     CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+  #
+  #     CPU_ENERGY_PERF_POLICY_ON_AC = "perfomance";
+  #     CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+  #
+  #     CPU_BOOST_ON_BAT = 0;
+  #   };
+  # };
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
