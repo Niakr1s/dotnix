@@ -185,7 +185,6 @@ in
     lynx # Terminal web browser
     elinks # Advanced terminal browser
     kiwix-tools # Offline Wikipedia reader
-    tor-browser # For onion websites
 
     ### Network Tools
     curl # HTTP/FTP client
@@ -198,6 +197,10 @@ in
     ### Remote Access & Connectivity
     freerdp # Remote Desktop Protocol client (RDP)
     remmina # Remote Desktop client (supports RDP, VNC, etc)
+
+    ### VPN
+    unstable.throne # VPN client
+    tor-browser # For onion websites
 
     ### ========== UTILITIES & PRODUCTIVITY ==========
     ### Security
