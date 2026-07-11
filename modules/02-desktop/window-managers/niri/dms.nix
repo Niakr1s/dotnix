@@ -20,6 +20,11 @@
     enableDynamicTheming = true; # Wallpaper-based theming (matugen)
     enableAudioWavelength = true; # Audio visualizer (cava)
     enableCalendarEvents = true; # Calendar integration (khal)
+
+    plugins = {
+      dankActions.enable = true;
+      nvidiaGpuMonitor.enable = true;
+    };
   };
 
   programs.dsearch.enable = true;

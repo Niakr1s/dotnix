@@ -40,6 +40,26 @@
         "type": "github"
       }
     },
+    "dms-plugin-registry": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1783760469,
+        "narHash": "sha256-xvuI3JYTu6z3C5rQ+88ZEtSH2MOk9JmmlaeU1J5rNI8=",
+        "owner": "AvengeMedia",
+        "repo": "dms-plugin-registry",
+        "rev": "f5fb93830f8783a07a3248798341675e3bb0b97b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AvengeMedia",
+        "repo": "dms-plugin-registry",
+        "type": "github"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
@@ -153,6 +173,7 @@
       "inputs": {
         "cia-unix": "cia-unix",
         "disko": "disko",
+        "dms-plugin-registry": "dms-plugin-registry",
         "home-manager": "home-manager",
         "mysecrets": "mysecrets",
         "nixpkgs": "nixpkgs",

@@ -35,6 +35,11 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    dms-plugin-registry = {
+      url = "github:AvengeMedia/dms-plugin-registry";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -46,6 +51,7 @@
       disko,
       sops-nix,
       nur,
+      dms-plugin-registry,
       ...
     }@inputs:
     let
@@ -71,6 +77,7 @@
             disko.nixosModules.disko
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
+            dms-plugin-registry.nixosModules.default
 
             # overlays
             {
