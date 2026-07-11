@@ -148,7 +148,7 @@
     }
   ],
   "showWorkspaceIndex": false,
-  "showWorkspaceName": false,
+  "showWorkspaceName": true,
   "showWorkspacePadding": false,
   "workspaceScrolling": false,
   "showWorkspaceApps": false,
