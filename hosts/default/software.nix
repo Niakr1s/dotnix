@@ -331,6 +331,7 @@ in
     ../../modules/03-software/multimedia/audio/tauon.nix
     ../../modules/03-software/gaming/default.nix
     ../../modules/03-software/gaming/launchers/lutris.nix
+    ../../modules/03-software/gaming/tools/mangohud.nix
     ../../modules/03-software/gaming/games/casual.nix
     ../../modules/03-software/multimedia/video/editors/handbrake.nix
     ../../modules/03-software/multimedia/video/editors/losslesscut.nix
