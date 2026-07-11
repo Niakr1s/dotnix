@@ -18,7 +18,7 @@ let
     library_ignores =
     migration_version = 15
     wine-update-channel = self-maintained
-    auto_update_runtime = False
+    auto_update_runtime = True
     width = 1280
     height = 720
     maximized = False
