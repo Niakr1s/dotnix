@@ -199,7 +199,6 @@ in
     remmina # Remote Desktop client (supports RDP, VNC, etc)
 
     ### VPN
-    unstable.throne # VPN client
     tor-browser # For onion websites
 
     ### ========== UTILITIES & PRODUCTIVITY ==========
@@ -305,6 +304,7 @@ in
     ../../modules/01-system/services/network/qbittorrent.nix
     ../../modules/01-system/services/network/syncthing.nix
     ../../modules/01-system/services/network/v2raya.nix
+    ../../modules/01-system/services/network/throne.nix
     # ../../modules/01-system/services/network/vnc.nix
     ../../modules/01-system/services/network/zapret.nix
     ../../modules/01-system/virtualizaton/compatibility/nixld.nix
