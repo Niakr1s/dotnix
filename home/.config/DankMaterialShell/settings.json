@@ -462,10 +462,6 @@
           "enabled": true
         },
         {
-          "id": "nvidiaGpuMonitor",
-          "enabled": true
-        },
-        {
           "id": "notificationButton",
           "enabled": true
         },

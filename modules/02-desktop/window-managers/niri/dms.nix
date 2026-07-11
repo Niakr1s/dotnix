@@ -23,7 +23,7 @@
 
     plugins = {
       dankActions.enable = true;
-      nvidiaGpuMonitor.enable = true;
+      # nvidiaGpuMonitor.enable = true;
     };
   };
 
