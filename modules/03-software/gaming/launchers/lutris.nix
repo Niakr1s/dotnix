@@ -68,6 +68,9 @@ in
         };
         wine = {
           settings = {
+            runner = {
+              system_winetricks = true;
+            };
             system = {
               env = {
                 PROTON_ENABLE_HDR = "0";
