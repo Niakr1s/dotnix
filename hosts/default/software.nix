@@ -254,6 +254,7 @@ in
     libnotify # Desktop notifications
     wl-clipboard # Wayland clipboard utilities
     exiftool # application for reading, writing and editing meta information in a wide variety of files.
+    perl5Packages.FileMimeInfo # mimeopen
   ];
 
   programs.gpu-screen-recorder.enable = true; # For promptless recording on both CLI and GUI
