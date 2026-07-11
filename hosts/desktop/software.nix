@@ -15,7 +15,6 @@
     ../../modules/03-software/ai/ollama.nix
     ../../modules/03-software/documents/documentation/kiwix.nix
 
-    ../../modules/03-software/gaming/launchers/lutris.nix
     ../../modules/03-software/gaming/emulators/multi-system/retroarch.nix
     ../../modules/03-software/gaming/emulators/nintendo/azahar.nix
     ../../modules/03-software/gaming/emulators/nintendo/switch
