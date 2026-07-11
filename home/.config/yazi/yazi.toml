@@ -59,3 +59,8 @@ suppress_preload = true
 
 [preview]
 cache_dir = "~/.cache/yazi"
+
+[opener]
+reveal = [
+	{ run = "nautilus --select %s1", desc = "Nautilus", for = "linux", orphan = true },
+]
