@@ -7,8 +7,10 @@
     zapret
   ];
 
+  systemd.services.zapret.wantedBy = [ ]; # Disable auto start
+
   services.zapret = {
-    enable = true;
+    enable = false;
     configureFirewall = true;
     qnum = 200; # default: 200
 
