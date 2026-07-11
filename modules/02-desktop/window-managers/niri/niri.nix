@@ -16,16 +16,10 @@
 
   environment.systemPackages = with pkgs; [
     xwayland-satellite
-    # noctalia-shell
   ];
 
   security.polkit.enable = true; # polkit
   # services.gnome.gnome-keyring.enable = true; # secret service
-
-  xdg.portal.config.niri = {
-    "org.freedesktop.impl.portal.RemoteDesktop" = [ "gnome" ];
-    "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ]; # or "kde"
-  };
 
   home-manager.users.${username} =
     { config, ... }:
