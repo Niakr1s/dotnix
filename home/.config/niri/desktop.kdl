@@ -70,20 +70,15 @@ output "Xiaomi Corporation Mi Monitor 2920000136510" {
     position x=2560 y=280
 }
 
-spawn-sh-at-startup "sleep 5 && firefox"
+spawn-at-startup "tauon"
+spawn-sh-at-startup "sleep 5 && firefox" // so it will be focused
 
-workspace "web" {
+workspace "tray" {
     open-on-output "HDMI-A-1"
 }
-
-window-rule {
-    match app-id="firefox"
-    open-maximized true
-    open-on-workspace "web"
+workspace "music" {
+    open-on-output "HDMI-A-1"
 }
-
-window-rule {
-    match title="Tangram"
-    open-maximized true
-    open-on-workspace "web"
+workspace "web" {
+    open-on-output "HDMI-A-1"
 }
