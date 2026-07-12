@@ -1,8 +1,5 @@
 {
-  pkgs,
-  username,
-  hostname,
-  flakeDir,
+  flakeLib,
   ...
 }:
 {
@@ -29,23 +26,11 @@
 
   programs.dsearch.enable = true;
 
-  home-manager.users.${username} =
-    { config, ... }:
-    {
-      # main config file
-      home.file.".config/niri/dms".source =
-        config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/niri/dms";
-
-      home.file.".config/DankMaterialShell/themes".source =
-        config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/DankMaterialShell/themes";
-
-      home.file.".config/DankMaterialShell/firefox.css".source =
-        config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/DankMaterialShell/firefox.css";
-
-      home.file.".config/DankMaterialShell/plugin_settings.json".source =
-        config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/DankMaterialShell/plugin_settings.json";
-
-      home.file.".config/DankMaterialShell/settings.json".source =
-        config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/DankMaterialShell/settings.json";
-    };
+  imports = [
+    (flakeLib.mkHomeLink ".config/niri/dms")
+    (flakeLib.mkHomeLink ".config/DankMaterialShell/themes")
+    (flakeLib.mkHomeLink ".config/DankMaterialShell/firefox.css")
+    (flakeLib.mkHomeLink ".config/DankMaterialShell/plugin_settings.json")
+    (flakeLib.mkHomeLink ".config/DankMaterialShell/settings.json")
+  ];
 }
