@@ -70,8 +70,9 @@ output "Xiaomi Corporation Mi Monitor 2920000136510" {
     position x=2560 y=280
 }
 
+spawn-at-startup "Throne"
 spawn-at-startup "tauon"
-spawn-sh-at-startup "sleep 5 && firefox" // so it will be focused
+spawn-at-startup "firefox" // so it will be focused
 
 workspace "tray" {
     open-on-output "HDMI-A-1"
@@ -82,3 +83,4 @@ workspace "music" {
 workspace "web" {
     open-on-output "HDMI-A-1"
 }
+spawn-sh-at-startup "niri msg action focus-workspace web; niri msg action focus-monitor-left"
