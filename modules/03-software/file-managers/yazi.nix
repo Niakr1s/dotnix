@@ -1,18 +1,15 @@
 {
   pkgs,
   username,
-  flakeDir,
+  flakeLib,
   ...
 }: {
+  imports = [
+    (flakeLib.mkHomeLink ".config/yazi/yazi.toml")
+    (flakeLib.mkHomeLink ".config/yazi/keymap.toml")
+  ];
+
   home-manager.users.${username} = {config, ...}: {
-    home.file.".config/yazi/yazi.toml" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/yazi/yazi.toml";
-    };
-
-    home.file.".config/yazi/keymap.toml" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/yazi/keymap.toml";
-    };
-
     programs.yazi = {
       enable = true;
       shellWrapperName = "y";
