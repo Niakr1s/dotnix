@@ -28,6 +28,8 @@ in
     nix-source = "(cd $(nix-instantiate --eval -E '<nixpkgs>') && $SHELL)";
 
     atop = "atop -Kk";
+
+    myip = "curl ipinfo.io"; # shows my ip and location in json format
   };
 
   home-manager.users.${username} = {
