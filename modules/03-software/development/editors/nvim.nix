@@ -1,10 +1,15 @@
 {
   pkgs,
   username,
-  flakeDir,
+  flakeLib,
   ...
-}: {
-  home-manager.users.${username} = {config, ...}: {
+}:
+{
+  imports = [
+    (flakeLib.mkHomeLink ".config/nvim/lua")
+  ];
+
+  home-manager.users.${username} = { config, ... }: {
     programs.neovim = {
       enable = true;
 
@@ -66,11 +71,6 @@
         ripgrep
         curl
       ];
-    };
-
-    home.file.".config/nvim/lua" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/nvim/lua";
-      recursive = true;
     };
   };
 }
