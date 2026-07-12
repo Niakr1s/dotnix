@@ -544,7 +544,6 @@ binds {
 
     Mod+O { focus-workspace "tray"; }
     Mod+W { focus-workspace "web"; }
-    Mod+M { focus-workspace "music"; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+1 { move-window-to-workspace 1; }
