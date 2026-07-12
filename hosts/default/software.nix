@@ -304,7 +304,6 @@ in
     ../../modules/01-system/services/network/qbittorrent.nix
     ../../modules/01-system/services/network/syncthing.nix
     ../../modules/01-system/services/network/v2raya.nix
-    ../../modules/01-system/services/network/throne.nix
     # ../../modules/01-system/services/network/vnc.nix
     ../../modules/01-system/services/network/zapret.nix
     ../../modules/01-system/virtualizaton/compatibility/nixld.nix
@@ -332,6 +331,7 @@ in
     ../../modules/03-software/internet/browsers/firefox.nix
     ../../modules/03-software/internet/browsers/w3m.nix
     ../../modules/03-software/internet/irc/weechat.nix
+    ../../modules/03-software/internet/vpn/throne.nix
     ../../modules/03-software/multimedia/audio/termusic.nix
     ../../modules/03-software/multimedia/audio/tauon.nix
     ../../modules/03-software/gaming/default.nix
