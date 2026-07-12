@@ -2,7 +2,7 @@
   pkgs,
   hostname,
   username,
-  flakeDir,
+  flakeLib,
   ...
 }:
 {
@@ -16,6 +16,10 @@
     ./fonts.nix
     ./sops.nix
     ./ssh.nix
+
+    (flakeLib.mkHomeLink ".config/mimeapps.list")
+    (flakeLib.mkHomeLink ".local/bin")
+    (flakeLib.mkHomeLink ".face")
   ];
 
   ### BLuetooth
@@ -183,16 +187,6 @@
         TERMINAL = "alacritty";
       };
 
-      xdg.configFile."mimeapps.list" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/mimeapps.list";
-      };
-      home.file.".local/bin" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.local/bin";
-        recursive = true;
-      };
-      home.file.".face" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/.face";
-      };
       home.pointerCursor = {
         enable = true;
         size = 24; # default: 32
