@@ -303,7 +303,7 @@ in
     ../../modules/01-system/services/network/avahi.nix
     ../../modules/01-system/services/network/qbittorrent.nix
     ../../modules/01-system/services/network/syncthing.nix
-    ../../modules/01-system/services/network/v2raya.nix
+    # ../../modules/01-system/services/network/v2raya.nix # use throne instead
     # ../../modules/01-system/services/network/vnc.nix
     ../../modules/01-system/services/network/zapret.nix
     ../../modules/01-system/virtualizaton/compatibility/nixld.nix
