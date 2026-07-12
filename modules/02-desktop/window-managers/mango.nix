@@ -2,7 +2,7 @@
   pkgs,
   username,
   hostname,
-  flakeDir,
+  flakeLib,
   ...
 }:
 {
@@ -32,18 +32,9 @@
     "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ]; # or "kde"
   };
 
-  home-manager.users.${username} =
-    { config, ... }:
-    {
-      home.file.".config/mango/config.conf".source =
-        config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/mango/config.conf";
-
-      home.file.".config/mango/${hostname}.conf" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/mango/${hostname}.conf";
-      };
-
-      home.file.".config/mango/scripts" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/mango/scripts";
-      };
-    };
+  imports = [
+    (flakeLib.mkHomeLink ".config/mango/config.conf")
+    (flakeLib.mkHomeLink ".config/mango/${hostname}.conf")
+    (flakeLib.mkHomeLink ".config/mango/scripts")
+  ];
 }
