@@ -1,16 +1,19 @@
 {
   pkgs,
   username,
-  flakeDir,
+  flakeLib,
   ...
-}: {
-  home-manager.users.${username} = {config, ...}: {
-    xdg.configFile."celluloid" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/mpv";
-      recursive = true;
-    };
+}:
+{
+  imports = [
+    (flakeLib.mkHomeLink {
+      homePath = ".config/celluloid";
+      flakePath = "home/.config/mpv";
+    })
+  ];
 
-    home.packages = with pkgs; [celluloid];
+  home-manager.users.${username} = { config, ... }: {
+    home.packages = with pkgs; [ celluloid ];
 
     dconf.settings = {
       "io/github/celluloid-player/celluloid" = {
