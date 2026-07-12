@@ -11,8 +11,8 @@
   ];
 
   imports = [
-    (flakeLib.mkHomeLink ".config/zellij/layouts/nix.kdl")
-    (flakeLib.mkHomeLink ".config/zellij/config.kdl")
+    (flakeLib.mkHomeLink { homePath = ".config/zellij/layouts/nix.kdl"; })
+    (flakeLib.mkHomeLink { homePath = ".config/zellij/config.kdl"; })
   ];
 
   home-manager.users.${username} =

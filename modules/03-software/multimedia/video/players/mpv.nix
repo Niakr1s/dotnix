@@ -13,6 +13,6 @@
   ];
 
   imports = [
-    (flakeLib.mkHomeLink ".config/mpv")
+    (flakeLib.mkHomeLink { homePath = ".config/mpv"; })
   ];
 }

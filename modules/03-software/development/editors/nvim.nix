@@ -6,7 +6,7 @@
 }:
 {
   imports = [
-    (flakeLib.mkHomeLink ".config/nvim/lua")
+    (flakeLib.mkHomeLink { homePath = ".config/nvim/lua"; })
   ];
 
   home-manager.users.${username} = { config, ... }: {

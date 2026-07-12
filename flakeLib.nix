@@ -43,9 +43,20 @@
     };
 
   # links files from <flakeDir>/home/path/to/file to /home/<user>/path/to/file
-  mkHomeLink = homePath: { username, flakeDir, ... }: {
-    home-manager.users.${username} = { config, ... }: {
-      home.file."${homePath}".source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/${homePath}";
+  mkHomeLink =
+    {
+      homePath,
+
+      # should be set as relative path from <flakeDir>,
+      # but if is null, it will be set to <flakeDir>/home/<homePath>
+      flakePath ? null,
+    }:
+    let
+      flakeRelPath = if flakePath == null then "home/${homePath}" else flakePath;
+    in
+    { username, flakeDir, ... }: {
+      home-manager.users.${username} = { config, ... }: {
+        home.file."${homePath}".source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/${flakeRelPath}";
+      };
     };
-  };
 }

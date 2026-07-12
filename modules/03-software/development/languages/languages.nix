@@ -3,7 +3,8 @@
   flakeLib,
   username,
   ...
-}: {
+}:
+{
   environment.systemPackages = with pkgs; [
     # --- Language Toolchains & Compilers (original) ---
     gcc # GNU C/C++ compiler
@@ -71,10 +72,10 @@
   ];
 
   imports = [
-    (flakeLib.mkHomeLink ".npmrc")
+    (flakeLib.mkHomeLink { homePath = ".npmrc"; })
   ];
 
-  home-manager.users.${username} = {config, ...}: {
+  home-manager.users.${username} = { config, ... }: {
     home.sessionPath = [
       "/home/${username}/.local/npm/bin"
     ];

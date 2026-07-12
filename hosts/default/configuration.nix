@@ -17,9 +17,9 @@
     ./sops.nix
     ./ssh.nix
 
-    (flakeLib.mkHomeLink ".config/mimeapps.list")
-    (flakeLib.mkHomeLink ".local/bin")
-    (flakeLib.mkHomeLink ".face")
+    (flakeLib.mkHomeLink { homePath = ".config/mimeapps.list"; })
+    (flakeLib.mkHomeLink { homePath = ".local/bin"; })
+    (flakeLib.mkHomeLink { homePath = ".face"; })
   ];
 
   ### BLuetooth

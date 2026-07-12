@@ -27,10 +27,10 @@
   programs.dsearch.enable = true;
 
   imports = [
-    (flakeLib.mkHomeLink ".config/niri/dms")
-    (flakeLib.mkHomeLink ".config/DankMaterialShell/themes")
-    (flakeLib.mkHomeLink ".config/DankMaterialShell/firefox.css")
-    (flakeLib.mkHomeLink ".config/DankMaterialShell/plugin_settings.json")
-    (flakeLib.mkHomeLink ".config/DankMaterialShell/settings.json")
+    (flakeLib.mkHomeLink { homePath = ".config/niri/dms"; })
+    (flakeLib.mkHomeLink { homePath = ".config/DankMaterialShell/themes"; })
+    (flakeLib.mkHomeLink { homePath = ".config/DankMaterialShell/firefox.css"; })
+    (flakeLib.mkHomeLink { homePath = ".config/DankMaterialShell/plugin_settings.json"; })
+    (flakeLib.mkHomeLink { homePath = ".config/DankMaterialShell/settings.json"; })
   ];
 }

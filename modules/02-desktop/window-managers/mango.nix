@@ -33,8 +33,8 @@
   };
 
   imports = [
-    (flakeLib.mkHomeLink ".config/mango/config.conf")
-    (flakeLib.mkHomeLink ".config/mango/${hostname}.conf")
-    (flakeLib.mkHomeLink ".config/mango/scripts")
+    (flakeLib.mkHomeLink { homePath = ".config/mango/config.conf"; })
+    (flakeLib.mkHomeLink { homePath = ".config/mango/${hostname}.conf"; })
+    (flakeLib.mkHomeLink { homePath = ".config/mango/scripts"; })
   ];
 }

@@ -1,6 +1,5 @@
 {
   pkgs,
-  username,
   hostname,
   flakeLib,
   ...
@@ -9,8 +8,8 @@
   imports = [
     ./dms.nix
 
-    (flakeLib.mkHomeLink ".config/niri/config.kdl")
-    (flakeLib.mkHomeLink ".config/niri/${hostname}.kdl")
+    (flakeLib.mkHomeLink { homePath = ".config/niri/config.kdl"; })
+    (flakeLib.mkHomeLink { homePath = ".config/niri/${hostname}.kdl"; })
   ];
 
   programs.niri = {

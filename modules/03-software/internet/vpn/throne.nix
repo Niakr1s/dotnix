@@ -11,6 +11,6 @@
   };
 
   imports = [
-    (flakeLib.mkHomeLink ".config/Throne/config/route_profiles/Default")
+    (flakeLib.mkHomeLink { homePath = ".config/Throne/config/route_profiles/Default"; })
   ];
 }
