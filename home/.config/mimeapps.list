@@ -16,6 +16,8 @@ application/x-remmina=org.remmina.Remmina.desktop
 application/xml=org.gnome.TextEditor.desktop
 application/pdf=com.github.johnfactotum.Foliate.desktop
 text/plain=org.gnome.TextEditor.desktop
+x-scheme-handler/clash=clash-verge.desktop;
+x-scheme-handler/clash-verge=clash-verge.desktop;
 
 [Added Associations]
 x-scheme-handler/tg=org.telegram.desktop.desktop;
@@ -36,3 +38,5 @@ application/x-remmina=org.remmina.Remmina.desktop;
 application/xml=org.gnome.TextEditor.desktop;
 application/pdf=com.github.johnfactotum.Foliate.desktop;
 text/plain=writer.desktop;org.gnome.TextEditor.desktop;
+x-scheme-handler/clash=clash-verge.desktop;
+x-scheme-handler/clash-verge=clash-verge.desktop;
