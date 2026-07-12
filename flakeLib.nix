@@ -1,5 +1,7 @@
 # my helper functions
-{ lib }:
+{
+  lib,
+}:
 {
   localhostReverseProxy = name: port: {
     services.caddy = {
@@ -39,4 +41,11 @@
     {
       systemd.tmpfiles.rules = map (dir: "d ${dir} ${mode} ${user} ${group} - -") dirs;
     };
+
+  # links files from <flakeDir>/home/path/to/file to /home/<user>/path/to/file
+  link = homePath: { username, flakeDir, ... }: {
+    home-manager.users.${username} = { config, ... }: {
+      home.file."${homePath}".source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/${homePath}";
+    };
+  };
 }
