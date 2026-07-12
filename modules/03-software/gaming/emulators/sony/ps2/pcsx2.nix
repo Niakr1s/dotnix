@@ -1,18 +1,14 @@
 {
   pkgs,
-  username,
-  flakeDir,
+  flakeLib,
   ...
 }:
 let
   linkBios =
     bios:
-    { config, ... }:
-    {
-      home.file.".config/PCSX2/bios/${bios}" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/secrets/emulators/sony/ps2/${bios}";
-        force = true;
-      };
+    flakeLib.mkHomeLink {
+      homePath = ".config/PCSX2/bios/${bios}";
+      flakePath = "secrets/emulators/sony/ps2/${bios}";
     };
 in
 {
@@ -24,10 +20,8 @@ in
     pcsx2
   ];
 
-  home-manager.users.${username} = {
-    imports = [
-      (linkBios "ps2-0230a-20080220.bin")
-      (linkBios "ps2-0230e-20080220.bin")
-    ];
-  };
+  imports = [
+    (linkBios "ps2-0230a-20080220.bin")
+    (linkBios "ps2-0230e-20080220.bin")
+  ];
 }
