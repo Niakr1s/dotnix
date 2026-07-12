@@ -1,21 +1,14 @@
 {
   pkgs,
-  username,
-  flakeDir,
+  flakeLib,
   ...
 }: {
   environment.systemPackages = with pkgs; [
     w3m
   ];
 
-  home-manager.users.${username} = {config, ...}: {
-    home.file.".w3m/keymap" = {
-      enable = false;
-      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.w3m/keymap";
-    };
-
-    home.file.".w3m/config" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.w3m/config";
-    };
-  };
+  imports = [
+    # (flakeLib.mkHomeLink ".w3m/keymap")
+    (flakeLib.mkHomeLink ".w3m/config")
+  ];
 }
