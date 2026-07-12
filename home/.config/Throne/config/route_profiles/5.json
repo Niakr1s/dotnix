@@ -37,7 +37,9 @@
             "rejectMethod": "",
             "rule_set": [
                 "geoip-ru",
-                "geosite-ru"
+                "geosite-ru",
+                "geosite-category-ru",
+                "geosite-ru-available-only-inside"
             ],
             "simple_action": 0,
             "sniffOverrideDest": false,
