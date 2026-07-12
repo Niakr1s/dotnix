@@ -1,6 +1,6 @@
 {
   pkgs,
-  flakeDir,
+  flakeLib,
   username,
   ...
 }: {
@@ -70,11 +70,11 @@
     uv
   ];
 
-  home-manager.users.${username} = {config, ...}: {
-    home.file.".npmrc" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.npmrc";
-    };
+  imports = [
+    (flakeLib.mkHomeLink ".npmrc")
+  ];
 
+  home-manager.users.${username} = {config, ...}: {
     home.sessionPath = [
       "/home/${username}/.local/npm/bin"
     ];
