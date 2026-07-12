@@ -1,8 +1,7 @@
 { prodKeysFilePath }:
 {
   pkgs,
-  username,
-  flakeDir,
+  flakeLib,
   ...
 }:
 let
@@ -21,21 +20,11 @@ in
     ryubing
   ];
 
-  home-manager.users.${username} =
-    { config, ... }:
-    {
-      home.file.".config/Ryujinx/system/prod.keys" = {
-        source = config.lib.file.mkOutOfStoreSymlink prodKeysFilePath;
-      };
-      home.file.".config/Ryujinx/Config.json" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/Ryujinx/Config.json";
-      };
-
-      # this takes too long
-      # home.file.".config/Ryujinx/mods/contents" = {
-      #   source = "${cheats}";
-      #   recursive = true;
-      #   force = true;
-      # };
-    };
+  imports = [
+    (flakeLib.mkHomeLink {
+      homePath = ".config/Ryujinx/system/prod.keys";
+      flakePath = prodKeysFilePath;
+    })
+    (flakeLib.mkHomeLink { homePath = ".config/Ryujinx/Config.json"; })
+  ];
 }

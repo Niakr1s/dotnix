@@ -1,8 +1,7 @@
 { prodKeysFilePath }:
 {
   pkgs,
-  username,
-  flakeDir,
+  flakeLib,
   ...
 }:
 {
@@ -10,12 +9,10 @@
     eden
   ];
 
-  home-manager.users.${username} =
-    { config, ... }:
-    {
-      home.file.".local/share/eden/keys/prod.keys" = {
-        source = config.lib.file.mkOutOfStoreSymlink prodKeysFilePath;
-        force = true;
-      };
-    };
+  imports = [
+    (flakeLib.mkHomeLink {
+      homePath = ".local/share/eden/keys/prod.keys";
+      flakePath = prodKeysFilePath;
+    })
+  ];
 }

@@ -1,16 +1,14 @@
 {
   pkgs,
-  username,
-  flakeDir,
+  flakeLib,
   ...
-}: {
+}:
+{
   environment.systemPackages = [
     pkgs.termusic # music player
   ];
 
-  home-manager.users.${username} = {config, ...}: {
-    home.file.".config/termusic/tui.toml" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/termusic/tui.toml";
-    };
-  };
+  imports = [
+    (flakeLib.mkHomeLink { homePath = ".config/termusic/tui.toml"; })
+  ];
 }

@@ -1,7 +1,7 @@
 { prodKeysFilePath }:
 {
   pkgs,
-  username,
+  flakeLib,
   ...
 }:
 {
@@ -9,11 +9,10 @@
     nsz
   ];
 
-  home-manager.users.${username} =
-    { config, ... }:
-    {
-      home.file.".switch/prod.keys" = {
-        source = config.lib.file.mkOutOfStoreSymlink prodKeysFilePath;
-      };
-    };
+  imports = [
+    (flakeLib.mkHomeLink {
+      homePath = ".switch/prod.keys";
+      flakePath = prodKeysFilePath;
+    })
+  ];
 }

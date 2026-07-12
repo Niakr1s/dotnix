@@ -1,16 +1,14 @@
 {
   pkgs,
-  username,
-  flakeDir,
+  flakeLib,
   ...
-}: {
+}:
+{
   environment.systemPackages = [
     pkgs.tauon # music player
   ];
 
-  home-manager.users.${username} = {config, ...}: {
-    home.file.".local/share/TauonMusicBox/tauon.conf" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.local/share/TauonMusicBox/tauon.conf";
-    };
-  };
+  imports = [
+    (flakeLib.mkHomeLink { homePath = ".local/share/TauonMusicBox/tauon.conf"; })
+  ];
 }

@@ -1,7 +1,6 @@
 {
   pkgs,
-  username,
-  flakeDir,
+  flakeLib,
   ...
 }:
 {
@@ -15,12 +14,7 @@
     enableZshIntegration = true;
   };
 
-  home-manager.users.${username} =
-    { config, ... }:
-    {
-      home.file.".config/foot" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/foot";
-        recursive = true;
-      };
-    };
+  imports = [
+    (flakeLib.mkHomeLink { homePath = ".config/foot"; })
+  ];
 }
