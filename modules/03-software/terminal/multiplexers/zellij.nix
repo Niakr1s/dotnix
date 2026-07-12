@@ -1,49 +1,39 @@
 {
   pkgs,
-  lib,
   username,
-  flakeDir,
+  flakeLib,
   ...
-}: {
+}:
+{
   environment.systemPackages = with pkgs; [
     zellij
     kitty.terminfo
   ];
 
-  home-manager.users.${username} = {config, ...}: let
-    mkLayout = layoutFileName: {
-      ".config/zellij/layouts/${layoutFileName}" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/zellij/layouts/${layoutFileName}";
+  imports = [
+    (flakeLib.mkHomeLink ".config/zellij/layouts/nix.kdl")
+    (flakeLib.mkHomeLink ".config/zellij/config.kdl")
+  ];
+
+  home-manager.users.${username} =
+    { config, ... }:
+    {
+      programs.zellij = {
+        enable = true;
+      };
+
+      home.shellAliases = {
+        ze = "zellij -l welcome";
+      };
+
+      programs.zsh.siteFunctions = {
+        yazi = ''
+          if [ -n "$ZELLIJ" ]; then
+            TERM=xterm-kitty command yazi "$@"
+          else
+            command yazi "$@"
+          fi
+        '';
       };
     };
-    layouts = [
-      (mkLayout "nix.kdl")
-    ];
-  in {
-    programs.zellij = {
-      enable = true;
-    };
-
-    home.shellAliases = {
-      ze = "zellij -l welcome";
-    };
-
-    programs.zsh.siteFunctions = {
-      yazi = ''
-        if [ -n "$ZELLIJ" ]; then
-          TERM=xterm-kitty command yazi "$@"
-        else
-          command yazi "$@"
-        fi
-      '';
-    };
-
-    home.file =
-      (lib.foldl lib.recursiveUpdate {} layouts)
-      // {
-        ".config/zellij/config.kdl" = {
-          source = config.lib.file.mkOutOfStoreSymlink "${flakeDir}/home/.config/zellij/config.kdl";
-        };
-      };
-  };
 }
