@@ -39,8 +39,10 @@ in
         unar
         fastfetch cmatrix cowsay
         wl-clipboard
-        nvtop
+        nvtopPackages.full
         tealdeer
+        lazygit
+        lazysql
       ]
       ++ optionals (!gpu.nvidia) [ btop-rocm ]
       ++ optionals gpu.nvidia [ btop-cuda ];
