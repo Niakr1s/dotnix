@@ -13,7 +13,9 @@ in
   ];
 
   environment.systemPackages = [
+    (pkgs.writeScriptBin "manage-disks" (builtins.readFile ./scripts/manage-disks.sh))
   ];
+
   core = {
     user = "user";
 
@@ -44,16 +46,6 @@ in
     };
     plasma = {
       enable = true;
-    };
-  };
-
-  hjem.users.${user} = {
-    enable = true;
-    files = {
-      ".local/bin/manage-disks" = {
-        source = ./scripts/manage-disks.sh;
-        executable = true;
-      };
     };
   };
 }
