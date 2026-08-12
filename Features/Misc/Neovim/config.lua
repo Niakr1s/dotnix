@@ -51,9 +51,15 @@ require("conform").format()
 -- vim.lsp.buf.format({ async = true, lsp_fallback = true })
 end
 
-function format_and_save()
-require("conform").format()
-save()
+local function format_and_save()
+  require("conform").format({
+    async = true,
+    lsp_fallback = true,
+  }, function(err)
+    if not err then
+      vim.cmd("write")
+    end
+  end)
 end
 
 function close_window_with_confirm()
