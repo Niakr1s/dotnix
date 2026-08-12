@@ -43,6 +43,7 @@ in
         tealdeer
         lazygit
         lazysql
+        chezmoi
       ]
       ++ optionals (!gpu.nvidia) [ btop-rocm ]
       ++ optionals gpu.nvidia [ btop-cuda ];

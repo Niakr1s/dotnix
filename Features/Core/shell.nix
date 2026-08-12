@@ -60,6 +60,14 @@ in
     lat="ezaCmdTotal -la";
     lattree="ezaCmdTotal -la --tree";
 
+    # Chezmoi
+    cz="chezmoi -S /etc/nixos/home";
+    cza="cz apply";
+    cze="cz edit";
+    czd="cz diff";
+    czs="cz status";
+    czm="cz merge-all";
+
     backup-etc="sudo borg create --progress /data/hdd1/borg/etc::{now} /etc";
     backup-home="borg create --progress /data/hdd1/borg/home::{now} $HOME --exclude '*/.config/rpcs3/dev_hdd0/game/*'";
   };
