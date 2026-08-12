@@ -40,6 +40,7 @@ in
     };
 
     environment.systemPackages = with pkgs; [
+      mpv
       ripdrag
       obsidian
       firefox
