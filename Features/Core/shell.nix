@@ -7,6 +7,9 @@ let
   user = config.core.user;
 in
 {
+  environment.localBinInPath = true;
+  environment.homeBinInPath = true;
+
   environment.systemPackages = with pkgs; [
     eza
     fzf
