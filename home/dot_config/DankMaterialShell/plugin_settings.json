@@ -1,0 +1,42 @@
+{
+  "dankActions": {
+    "enabled": true,
+    "variants": [
+      {
+        "icon": "keyboard",
+        "displayText": "",
+        "displayCommand": "",
+        "clickCommand": "pkill -SIGRTMIN wvkbd-mobintl",
+        "middleClickCommand": "",
+        "rightClickCommand": "",
+        "updateInterval": 0,
+        "showIcon": true,
+        "showText": true,
+        "visibilityCommand": "pgrep wvkbd-mobintl",
+        "visibilityInterval": 10,
+        "id": "variant_1783664649338",
+        "name": "keyboard"
+      },
+      {
+        "icon": "terminal",
+        "displayText": "",
+        "displayCommand": "[[ \"$(~/bin/vpn status)\" == \"on\" ]] && printf \"\\033[32m\\uf023\\033[0m\\n\" || printf \"\\033[31m\\uf023\\033[0m\\n\"",
+        "clickCommand": "~/bin/vpn toggle &>/tmp/vpn.txt",
+        "middleClickCommand": "",
+        "rightClickCommand": "",
+        "updateInterval": 5,
+        "showIcon": false,
+        "showText": true,
+        "visibilityCommand": "",
+        "visibilityInterval": 0,
+        "id": "variant_1785430484878",
+        "name": "VPN"
+      }
+    ]
+  },
+  "dankKDEConnect": {
+    "enabled": true,
+    "selectedDeviceId": "4a018fb364c1482eadcf3f9a76615c1e",
+    "showOngoingMedia": false
+  }
+}
