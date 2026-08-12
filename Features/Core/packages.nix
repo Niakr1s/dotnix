@@ -37,6 +37,9 @@ in
         jq
         fd
         unar
+        fastfetch cmatrix cowsay
+        wl-clipboard
+        nvtop
       ]
       ++ optionals (!gpu.nvidia) [ btop-rocm ]
       ++ optionals gpu.nvidia [ btop-cuda ];
