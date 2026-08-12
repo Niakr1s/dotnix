@@ -3,6 +3,8 @@ system:
   env:
     UMU_RUNTIME_UPDATE: '0'
   mangohud: true
+  postexit_command: ''
+  prelaunch_command: ''
 wine:
   system_winetricks: true
   version: Proton - Experimental
