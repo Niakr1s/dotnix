@@ -41,6 +41,20 @@ in
           ripdrag
           obsidian
           firefox
+          librecad
+          libreoffice
+          blender
+          keepassxc
+          cpu-x
+          hardinfo2
+          handbrake
+          obs-studio
+          clementine
+          playerctl
+          qbittorrent
+          gpu-viewer
+          losslesscut-bin
+          crossmacro
         ]
         ++ lib.optionals (config.core.isLaptop.enable) [
           moonlight-qt
