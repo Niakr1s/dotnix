@@ -284,6 +284,12 @@ switch to next activity=none,none,Switch to Next Activity
 switch to previous activity=none,none,Switch to Previous Activity
 toggle do not disturb=none,none,Toggle do not disturb
 
+[services][org.kde.konsole.desktop]
+_launch=Meta+Return
+
+[services][org.kde.plasma.emojier.desktop]
+_launch=Meta+.
+
 [services][org.kde.spectacle.desktop]
 CurrentMonitorScreenShot=none
 OpenWithoutScreenshot=none
