@@ -48,7 +48,7 @@ in
       }
 
       # 2. Вызываем функцию реверс-прокси и вмерживаем её результат
-      (flakeLib.localhostReverseProxy "sunshine" guiPort)
+      (flakeLib.localhostReverseProxy "sunshine" guiPort { insecureTLS = true; })
     ]
   );
 

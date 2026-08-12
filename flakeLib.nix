@@ -3,36 +3,48 @@
   lib,
 }:
 {
-  localhostReverseProxy = name: port: {
-    services.caddy = {
-      enable = true;
-      virtualHosts."${name}.localhost" = {
-        extraConfig = ''
-          reverse_proxy localhost:${toString port} {
-            transport http {
-              tls_insecure_skip_verify
+  localhostReverseProxy =
+    name: port:
+    {
+      insecureTLS ? false,
+    }:
+    {
+      services.caddy = {
+        enable = true;
+        virtualHosts."${name}.localhost" = {
+          extraConfig = ''
+            reverse_proxy localhost:${toString port} 
+            ${
+              if insecureTLS then
+                ''
+                  {
+                    transport http {
+                      tls_insecure_skip_verify
+                    }
+                  }''
+              else
+                ""
             }
-          }
-        '';
+          '';
+        };
+      };
+
+      networking.hosts = {
+        "127.0.0.1" = [
+          "${name}.localhost"
+        ];
+      };
+
+      networking.firewall = {
+        enable = true;
+        allowedTCPPorts = [
+          port
+        ];
+        allowedUDPPorts = [
+          port
+        ];
       };
     };
-
-    networking.hosts = {
-      "127.0.0.1" = [
-        "${name}.localhost"
-      ];
-    };
-
-    networking.firewall = {
-      enable = true;
-      allowedTCPPorts = [
-        port
-      ];
-      allowedUDPPorts = [
-        port
-      ];
-    };
-  };
 
   # Creates dirs using systemd.tmpfiles
   createDirs =

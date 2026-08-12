@@ -5,7 +5,7 @@
 }:
 {
   imports = [
-    (flakeLib.localhostReverseProxy "v2raya" 2017)
+    (flakeLib.localhostReverseProxy "v2raya" 2017 { })
   ];
 
   # VPN

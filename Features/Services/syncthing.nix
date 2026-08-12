@@ -11,7 +11,7 @@ let
 in
 {
   imports = [
-    (flakeLib.localhostReverseProxy "syncthing" port)
+    (flakeLib.localhostReverseProxy "syncthing" port { insecureTLS = true; })
   ];
 
   services.syncthing = {
