@@ -2,13 +2,11 @@
   config,
   lib,
   pkgs,
-  inputs,
   ...
 }:
 let
   inherit (lib) optionals;
   gpu = config.core.gpu;
-  user = config.core.user;
 in
 {
   environment.systemPackages = with pkgs; [
@@ -38,6 +36,7 @@ in
     lazygit
     lazysql
     chezmoi
+    borgbackup
   ]
     ++ optionals (!gpu.nvidia) [ btop-rocm ]
     ++ optionals gpu.nvidia [ btop-cuda ];
