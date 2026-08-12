@@ -58,6 +58,7 @@ in
       qbittorrent
       gpu-viewer
       losslesscut-bin
+      clementine
     ]
     ++ lib.optionals (config.core.isLaptop.enable) [
       moonlight-qt
