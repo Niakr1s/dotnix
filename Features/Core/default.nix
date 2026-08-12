@@ -84,10 +84,6 @@ in
         intel = mkEnableOption "Intel CPU (intel_pstate)";
       };
 
-      # Git
-      git.email = strOpt "git cfg email";
-      git.user = strOpt "git cfg user";
-
       domain = strOpt "Domain";
       # Zram
       zram = {

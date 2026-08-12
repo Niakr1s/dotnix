@@ -21,6 +21,8 @@ in
   systemd.targets.hibernate.enable = false;
   systemd.targets.hybrid-sleep.enable = false;
 
+
+
   core = {
     user = "user";
 
@@ -36,10 +38,6 @@ in
 
     cpu.intel = true;
     zram.size = 16384;
-    git = {
-      email = "pavel2188@gmail.com";
-      user = "Niakr1s";
-    };
   };
   features = {
     neovim.enable = true;
