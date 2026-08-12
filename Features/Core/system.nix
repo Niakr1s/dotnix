@@ -9,6 +9,7 @@ in
   security.sudo-rs.enable = true;
 
   networking.networkmanager.enable = true;
+  hardware.bluetooth.enable = true;
 
   users.users.${user} = {
     group = user;
