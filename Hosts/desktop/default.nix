@@ -1,11 +1,7 @@
 {
-  config,
   pkgs,
   ...
 }:
-let
-  user = config.core.user;
-in
 {
   imports = [
     ./hardware.nix
@@ -20,8 +16,6 @@ in
   systemd.targets.suspend.enable = false;
   systemd.targets.hibernate.enable = false;
   systemd.targets.hybrid-sleep.enable = false;
-
-
 
   core = {
     user = "user";
