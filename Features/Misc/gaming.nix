@@ -35,7 +35,7 @@ in
 
     boot.kernelModules = [ "ntsync" ];
 
-    hjem.users.${user}.packages = with pkgs; [
+    environment.systemPackages = with pkgs; [
       mangohud
       lutris
     ];
