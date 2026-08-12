@@ -5,6 +5,7 @@
 }:
 let
   user = config.core.user;
+  host = config.core.host;
 in
 {
   environment.localBinInPath = true;
@@ -38,6 +39,9 @@ in
     '';
 
   environment.shellAliases = {
+    nixcd="cd /etc/nixos";
+    nixupdate="sudo nixos-rebuild --flake /etc/nixos#${host} switch";
+
     # Git
     gst="git status";
     gd="git diff";
