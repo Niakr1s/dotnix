@@ -118,10 +118,11 @@ in
       VISUAL = "nvim";
     };
 
-    environment.systemPackages =
-      [ myNvim ]
-      ++ baseServersPkgs
-      ++ optionals (!headless) heavyServersPkgs;
+    environment.systemPackages = [
+      myNvim
+    ]
+    ++ baseServersPkgs
+    ++ optionals (!headless) heavyServersPkgs;
 
     hjem.users.${user} = {
       xdg.config.files = {
