@@ -1,13 +1,11 @@
 {
   config,
   lib,
-  inputs,
   pkgs,
   ...
 }:
 let
   cfg = config.features.gaming;
-  user = config.core.user;
 in
 {
   options.features.gaming = {
