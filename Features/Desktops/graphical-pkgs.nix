@@ -38,7 +38,6 @@ in
       packages =
         with pkgs;
         [
-          mpv
           ripdrag
           obsidian
           firefox
