@@ -6,9 +6,13 @@
   localhostReverseProxy = name: port: {
     services.caddy = {
       enable = true;
-      virtualHosts."http://${name}.localhost" = {
+      virtualHosts."${name}.localhost" = {
         extraConfig = ''
-          reverse_proxy localhost:${toString port}
+          reverse_proxy localhost:${toString port} {
+            transport http {
+              tls_insecure_skip_verify
+            }
+          }
         '';
       };
     };
