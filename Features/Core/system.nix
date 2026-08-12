@@ -6,8 +6,6 @@ let
   user = config.core.user;
 in
 {
-  security.sudo-rs.enable = true;
-
   networking.networkmanager.enable = true;
   hardware.bluetooth.enable = true;
 
