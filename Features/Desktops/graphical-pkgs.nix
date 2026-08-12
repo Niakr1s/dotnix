@@ -49,7 +49,9 @@ in
       keepassxc
       cpu-x
       hardinfo2
-      handbrake
+      (handbrake.overrideAttrs (previous: {
+        nativeBuildInputs = (previous.nativeBuildInputs or []) ++ [pkgs.autoAddDriverRunpath];
+      }))
       obs-studio
       clementine
       playerctl
