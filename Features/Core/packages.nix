@@ -40,6 +40,7 @@ in
         fastfetch cmatrix cowsay
         wl-clipboard
         nvtop
+        tealdeer
       ]
       ++ optionals (!gpu.nvidia) [ btop-rocm ]
       ++ optionals gpu.nvidia [ btop-cuda ];
