@@ -35,6 +35,9 @@
       nixosConfigurations = nixpkgs.lib.genAttrs hostNames (
         hostname:
         nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            flakeLib = nixpkgs.legacyPackages.${system}.callPackage ./flakeLib.nix { };
+          };
           modules = [
             inputs.hjem.nixosModules.default
             inputs.nvidia-pstated.nixosModules.default
