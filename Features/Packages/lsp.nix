@@ -11,6 +11,7 @@ let
 
   baseServersPkgs = with pkgs; [
     nil
+    nixd
     lua-language-server
     bash-language-server
     ruff
