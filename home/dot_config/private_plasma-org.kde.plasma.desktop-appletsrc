@@ -58,6 +58,10 @@ popupWidth=204
 chartFace=org.kde.ksysguard.linechart
 title=Network Speed
 
+[Containments][3][Applets][26][Configuration][ConfigDialog]
+DialogHeight=630
+DialogWidth=810
+
 [Containments][3][Applets][26][Configuration][SensorColors]
 network/all/download=61,174,233
 network/all/upload=233,120,61
@@ -72,6 +76,41 @@ plugin=org.kde.plasma.mediacontroller
 [Containments][3][Applets][31][Configuration]
 popupHeight=360
 popupWidth=361
+
+[Containments][3][Applets][32]
+immutability=1
+plugin=org.kde.plasma.systemmonitor.cpu
+
+[Containments][3][Applets][32][Configuration]
+CurrentPreset=org.kde.plasma.systemmonitor
+popupHeight=400
+popupWidth=560
+
+[Containments][3][Applets][32][Configuration][Appearance]
+chartFace=org.kde.ksysguard.linechart
+title=Total CPU Use
+
+[Containments][3][Applets][32][Configuration][ConfigDialog]
+DialogHeight=630
+DialogWidth=810
+
+[Containments][3][Applets][32][Configuration][FaceGrid][Appearance]
+chartFace=org.kde.ksysguard.linechart
+showTitle=false
+
+[Containments][3][Applets][32][Configuration][FaceGrid][SensorColors]
+cpu/all/usage=61,174,233
+
+[Containments][3][Applets][32][Configuration][FaceGrid][Sensors]
+highPrioritySensorIds=["cpu/all/usage"]
+
+[Containments][3][Applets][32][Configuration][SensorColors]
+cpu/all/usage=61,174,233
+
+[Containments][3][Applets][32][Configuration][Sensors]
+highPrioritySensorIds=["cpu/all/usage"]
+lowPrioritySensorIds=["cpu/all/cpuCount","cpu/all/coreCount"]
+totalSensors=["cpu/all/usage"]
 
 [Containments][3][Applets][4]
 immutability=1
@@ -195,7 +234,7 @@ extraItems=org.kde.plasma.cameraindicator,org.kde.plasma.clipboard,org.kde.plasm
 knownItems=org.kde.plasma.cameraindicator,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.plasma.notifications,org.kde.kscreen,org.kde.plasma.battery,org.kde.plasma.brightness,org.kde.plasma.keyboardindicator,org.kde.plasma.keyboardlayout,org.kde.plasma.networkmanagement,org.kde.plasma.volume,org.kde.plasma.weather,org.kde.kdeconnect,org.kde.plasma.bluetooth
 
 [Containments][3][General]
-AppletOrder=4;5;6;31;7;26;8;21
+AppletOrder=4;5;6;31;7;32;26;8;21
 
 [Containments][30]
 ItemGeometries-2560x1440=
