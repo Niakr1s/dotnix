@@ -36,8 +36,6 @@ in
         description = "Hostname (auto-set from flake)";
       };
       user = strOpt "The primary user";
-      ip = strOpt "IP";
-      domain = strOpt "Domain";
       headless = mkEnableOption "Is the host a headless device?";
 
       # Laptop
