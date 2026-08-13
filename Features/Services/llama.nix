@@ -8,7 +8,7 @@
 
 let
   inherit (lib) mkIf concatStringsSep optionals;
-  cfg = config.features.ai.llama;
+  cfg = config.features.llama;
   gpu = config.core.gpu;
 
   llama-cpp = pkgs.llama-cpp.override {

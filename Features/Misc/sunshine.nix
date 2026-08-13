@@ -17,7 +17,7 @@ in
       {
         services.sunshine = {
           enable = true;
-          package = (if cfg.cuda then pkgs.sunshine.override { cudaSupport = true; } else pkgs.sunshine);
+          package = (if config.core.gpu.nvidia then pkgs.sunshine.override { cudaSupport = true; } else pkgs.sunshine);
           autoStart = true;
           openFirewall = true;
           capSysAdmin = true;

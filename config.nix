@@ -16,6 +16,15 @@ let
     enum
     ;
 
+  # Like mkEnableOption, but default is false
+  mkDisableOption =
+    desc:
+    mkOption {
+      type = bool;
+      default = false;
+      description = desc;
+    };
+
   strOpt =
     desc:
     mkOption {
@@ -40,11 +49,7 @@ in
 
       # Laptop
       isLaptop = {
-        enable = mkOption {
-          type = bool;
-          default = false;
-          description = "Whether this host is a laptop (enables battery-aware features)";
-        };
+        enable = mkDisableOption "Whether this host is a laptop";
       };
 
       # GPU
@@ -54,11 +59,7 @@ in
         intel = mkEnableOption "Intel GPU (i915/Xe)";
 
         nvidia-prime = {
-          enable = mkOption {
-            type = bool;
-            default = false;
-            description = "Offload mode puts your dGPU to sleep and lets the iGPU handle all tasks";
-          };
+          enable = mkDisableOption "Offload mode puts your dGPU to sleep and lets the iGPU handle all tasks";
           iGPU = mkOption {
             type = enum [
               "intel"
@@ -78,11 +79,8 @@ in
 
       # Zram
       zram = {
-        enable = mkOption {
-          type = bool;
-          default = true;
-          description = "Enable zram swap (compressed RAM swap)";
-        };
+        enable = mkEnableOption "Enable zram swap (compressed RAM swap)";
+
         algorithm = mkOption {
           type = enum [
             "lzo"
@@ -120,70 +118,31 @@ in
         enable = mkEnableOption "Plasma Configuration";
       };
 
+      graphicalPkgs = {
+        enable = mkDisableOption "Graphical Packages";
+      };
+
       neovim = {
-        enable = mkOption {
-          type = bool;
-          default = false;
-          description = "Neovim Configuration";
-        };
+        enable = mkDisableOption "Neovim Configuration";
       };
 
       gaming = {
         enable = mkEnableOption "Enable gaming bundle";
-        steam = mkOption {
-          type = bool;
-          default = true;
-          description = "Enable Steam (part of the bundle, can be opted out)";
-        };
-        gamescope = mkOption {
-          type = bool;
-          default = true;
-          description = "Enable Gamescope (part of the bundle, can be opted out)";
-        };
-        gamemode = mkOption {
-          type = bool;
-          default = true;
-          description = "Enable Gamemode (part of the bundle, can be opted out)";
-        };
-        gsr.enable = mkEnableOption "Enable GPU Screen Recorder";
+        steam = mkEnableOption "Enable steam";
+        gamescope = mkEnableOption "Enable Gamescope (part of the bundle, can be opted out)";
+        gamemode = mkEnableOption "Enable Gamemode (part of the bundle, can be opted out)";
       };
 
       sunshine = {
-        enable = mkOption {
-          type = bool;
-          default = false;
-          description = "Sunshine Configuration";
-        };
-        cuda = mkOption {
-          type = bool;
-          default = false;
-          description = "Enable Nvidia Cuda support";
-        };
+        enable = mkDisableOption "Sunshine Service";
       };
 
       virtualization = {
         enable = mkEnableOption "Virtualization (libvirtd + Docker)";
       };
 
-      graphicalPkgs = {
-        enable = mkOption {
-          type = bool;
-          default = false; # was `!headless` — the actual default depends on context
-          description = "Graphical Packages";
-        };
-      };
-
-      ai = {
-        enable = mkOption {
-          type = bool;
-          default = false; # was `!headless` — depends on context
-          description = "AI Tools";
-        };
-        llama.enable = mkOption {
-          type = bool;
-          default = false; # was `cfg.enable` — depends on context
-          description = "Enable llama service";
-        };
+      llama = {
+        enable = mkDisableOption "Enable llama service";
       };
     };
   };
