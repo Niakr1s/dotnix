@@ -22,23 +22,6 @@ let
   };
   sd-server = lib.getExe' sd-cpp "sd-server";
 
-  # Build an sd-server command for SDXL models.
-  mkSD =
-    {
-      model,
-      checkEndpoint ? "/",
-    }:
-    {
-      cmd = concatStringsSep " " [
-        sd-server
-        "--listen-port \${PORT}"
-        "--diffusion-fa"
-        "--vae-tiling"
-        "-m"
-        model
-      ];
-      checkEndpoint = checkEndpoint;
-    };
 
   # Common flags parsed from [*] section
   globalFlags = concatStringsSep " " [
@@ -56,7 +39,7 @@ let
 
   # Build an llama-server command. Only `model` is required;
   # every other flag is optional and only emitted when set.
-  mkLlmCmd =
+  mkLlm =
     {
       model,
       tensorSplit ? null,
@@ -69,27 +52,76 @@ let
       mmproj ? null,
       imageMinTokens ? null,
     }:
-    concatStringsSep " " (
-      [
-        llama-server
-        globalFlags
-        "--model"
-        model
-      ]
-      ++ optionals (tensorSplit != null) [ "--tensor-split" tensorSplit ]
-      ++ optionals (temperature != null) [ "--temperature" temperature ]
-      ++ optionals (topK != null) [ "--top-k" topK ]
-      ++ optionals (topP != null) [ "--top-p" topP ]
-      ++ optionals (minP != null) [ "--min-p" minP ]
-      ++ optionals (presencePenalty != null) [ "--presence-penalty" presencePenalty ]
-      ++ optionals (repeatPenalty != null) [ "--repeat-penalty" repeatPenalty ]
-      ++ optionals (mmproj != null) [ "--mmproj" mmproj ]
-      ++ optionals (imageMinTokens != null) [ "--image-min-tokens" imageMinTokens ]
-    );
+    {
+      cmd = concatStringsSep " " (
+        [
+          llama-server
+          globalFlags
+          "--model"
+          model
+        ]
+        ++ optionals (tensorSplit != null) [
+          "--tensor-split"
+          tensorSplit
+        ]
+        ++ optionals (temperature != null) [
+          "--temperature"
+          temperature
+        ]
+        ++ optionals (topK != null) [
+          "--top-k"
+          topK
+        ]
+        ++ optionals (topP != null) [
+          "--top-p"
+          topP
+        ]
+        ++ optionals (minP != null) [
+          "--min-p"
+          minP
+        ]
+        ++ optionals (presencePenalty != null) [
+          "--presence-penalty"
+          presencePenalty
+        ]
+        ++ optionals (repeatPenalty != null) [
+          "--repeat-penalty"
+          repeatPenalty
+        ]
+        ++ optionals (mmproj != null) [
+          "--mmproj"
+          mmproj
+        ]
+        ++ optionals (imageMinTokens != null) [
+          "--image-min-tokens"
+          imageMinTokens
+        ]
+      );
+    };
+
+    mkSD =
+      {
+        model,
+        checkEndpoint ? "/",
+      }:
+      {
+        cmd = concatStringsSep " " [
+          sd-server
+          "--listen-port \${PORT}"
+          "--diffusion-fa"
+          "--vae-tiling"
+          "-m"
+          model
+        ];
+        checkEndpoint = checkEndpoint;
+      };
 in
 {
   config = mkIf cfg.enable {
-    environment.systemPackages = [ llama-cpp sd-cpp ];
+    environment.systemPackages = [
+      llama-cpp
+      sd-cpp
+    ];
 
     services.llama-swap = mkIf cfg.enable {
       enable = true;
@@ -100,47 +132,41 @@ in
         healthCheckTimeout = 60;
 
         models = {
-          "Gemma4-26B-A4B-Uncensored" = {
-            cmd = mkLlmCmd {
-              model = "/data/ssd/models/LLM/HauhauCS/Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-MTP/Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-Q4_K_M.gguf";
-              mmproj = "/data/ssd/models/LLM/HauhauCS/Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-MTP/mmproj-Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-BF16.gguf";
-              tensorSplit = "0,4";
-              temperature = "0.6";
-              topK = "64";
-              topP = "0.9";
-              minP = "0.05";
-              repeatPenalty = "1.1";
-            };
+          "Gemma4-26B-A4B-Uncensored" = mkLlm {
+            model = "/data/ssd/models/LLM/HauhauCS/Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-MTP/Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-Q4_K_M.gguf";
+            mmproj = "/data/ssd/models/LLM/HauhauCS/Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-MTP/mmproj-Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-BF16.gguf";
+            tensorSplit = "0,4";
+            temperature = "0.6";
+            topK = "64";
+            topP = "0.9";
+            minP = "0.05";
+            repeatPenalty = "1.1";
           };
 
-          "Qwen3.6-27B" = {
-            cmd = mkLlmCmd {
-              model = "/data/ssd/models/LLM/bartowski/Qwen_Qwen3.6-27B-GGUF/Qwen_Qwen3.6-27B-Q4_K_M.gguf";
-              mmproj = "/data/ssd/models/LLM/bartowski/Qwen_Qwen3.6-27B-GGUF/mmproj-Qwen_Qwen3.6-27B-bf16.gguf";
-              tensorSplit = "1,3";
-              temperature = "0.6";
-              topP = "0.95";
-              topK = "20";
-              minP = "0.0";
-              presencePenalty = "0.0";
-              repeatPenalty = "1.0";
-              imageMinTokens = "1024";
-            };
+          "Qwen3.6-27B" = mkLlm {
+            model = "/data/ssd/models/LLM/bartowski/Qwen_Qwen3.6-27B-GGUF/Qwen_Qwen3.6-27B-Q4_K_M.gguf";
+            mmproj = "/data/ssd/models/LLM/bartowski/Qwen_Qwen3.6-27B-GGUF/mmproj-Qwen_Qwen3.6-27B-bf16.gguf";
+            tensorSplit = "1,3";
+            temperature = "0.6";
+            topP = "0.95";
+            topK = "20";
+            minP = "0.0";
+            presencePenalty = "0.0";
+            repeatPenalty = "1.0";
+            imageMinTokens = "1024";
           };
 
-          "Qwen3.6-35B-A3B" = {
-            cmd = mkLlmCmd {
-              model = "/data/ssd/models/LLM/bartowski/Qwen_Qwen3.6-35B-A3B-GGUF/Qwen_Qwen3.6-35B-A3B-Q4_K_M.gguf";
-              mmproj = "/data/ssd/models/LLM/bartowski/Qwen_Qwen3.6-35B-A3B-GGUF/mmproj-Qwen_Qwen3.6-35B-A3B-bf16.gguf";
-              tensorSplit = "1,4";
-              temperature = "0.6";
-              topP = "0.95";
-              topK = "20";
-              minP = "0.0";
-              presencePenalty = "0.0";
-              repeatPenalty = "1.0";
-              imageMinTokens = "1024";
-            };
+          "Qwen3.6-35B-A3B" = mkLlm {
+            model = "/data/ssd/models/LLM/bartowski/Qwen_Qwen3.6-35B-A3B-GGUF/Qwen_Qwen3.6-35B-A3B-Q4_K_M.gguf";
+            mmproj = "/data/ssd/models/LLM/bartowski/Qwen_Qwen3.6-35B-A3B-GGUF/mmproj-Qwen_Qwen3.6-35B-A3B-bf16.gguf";
+            tensorSplit = "1,4";
+            temperature = "0.6";
+            topP = "0.95";
+            topK = "20";
+            minP = "0.0";
+            presencePenalty = "0.0";
+            repeatPenalty = "1.0";
+            imageMinTokens = "1024";
           };
 
           "animosity_illustriousV11" = mkSD {
