@@ -7,7 +7,7 @@
 let
   inherit (lib) mkIf ;
 
-  cfg = config.modules.features.graphicalPkgs;
+  cfg = config.modules.packages.gui;
   user = config.modules.core.user;
 in
 {

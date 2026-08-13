@@ -45,22 +45,31 @@
         size = 16384;
       };
     };
+
     de = {
       plasma.enable = true;
     };
-    features = {
-      graphicalPkgs.enable = true;
-      lspPkgs = {
+
+    packages = {
+      cli = {
+        nvim.enable = true;
+      };
+      gui = {
+        enable = true;
+        gaming = {
+          enable = true;
+          steam = true;
+          gamescope = true;
+          gamemode = true;
+        };
+      };
+      lsp = {
         base = true;
         heavy = true;
       };
-      neovim.enable = true;
-      gaming = {
-        enable = true;
-        steam = true;
-        gamescope = true;
-        gamemode = true;
-      };
+    };
+
+    features = {
       sunshine.enable = true;
       llama.enable = true;
     };

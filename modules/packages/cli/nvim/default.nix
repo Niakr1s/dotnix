@@ -5,9 +5,8 @@
   ...
 }:
 let
-  cfg = config.modules.features.neovim;
+  cfg = config.modules.cli.neovim;
   user = config.modules.core.user;
-  headless = config.modules.core.headless;
 
   myNvim = pkgs.neovim.override {
     configure = {
@@ -66,7 +65,7 @@ let
   ];
 
 
-  lspServers = baseServers ++ lib.optionals (!headless) heavyServers;
+  lspServers = baseServers ++ heavyServers;
 
   lspList = lib.concatMapStringsSep ",\n    " (s: ''"${s}"'') lspServers;
 

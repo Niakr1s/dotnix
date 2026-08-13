@@ -5,11 +5,10 @@
   ...
 }:
 let
-  cfg = config.modules.features.gaming;
+  cfg = config.modules.packages.gui.gaming;
 in
 {
   config = lib.mkIf cfg.enable {
-
     boot.kernelModules = [ "ntsync" ];
 
     environment.systemPackages = with pkgs; [

@@ -5,7 +5,7 @@
   ...
 }:
 let
-  cfg = config.modules.features.lspPkgs;
+  cfg = config.modules.cli.lsp;
 
   inherit (lib) optionals;
 

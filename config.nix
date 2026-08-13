@@ -116,28 +116,33 @@ in
       };
     };
 
-    # ── features ────────────────────────────────────────────────────────
-    features = {
-      graphicalPkgs = {
-        enable = mkDisableOption "Graphical Packages";
+    packages = {
+      # all cli packages are turned on by default
+      cli = {
+        nvim = {
+          enable = mkEnableOption "Neovim Configuration";
+        };
       };
-
-      lspPkgs = {
+      gui = {
+        enable = mkDisableOption "GUI Packages";
+        gaming = {
+          enable = mkEnableOption "Enable gaming bundle";
+          steam = mkEnableOption "Enable steam";
+          gamescope = mkEnableOption "Enable Gamescope (part of the bundle, can be opted out)";
+          gamemode = mkEnableOption "Enable Gamemode (part of the bundle, can be opted out)";
+        };
+        zed = {
+          enable = mkDisableOption "Zed editor";
+        };
+      };
+      lsp = {
         base = mkEnableOption "Lightweight lsp packages";
         heavy = mkDisableOption "Heavy lsp packages";
       };
+    };
 
-      neovim = {
-        enable = mkDisableOption "Neovim Configuration";
-      };
-
-      gaming = {
-        enable = mkEnableOption "Enable gaming bundle";
-        steam = mkEnableOption "Enable steam";
-        gamescope = mkEnableOption "Enable Gamescope (part of the bundle, can be opted out)";
-        gamemode = mkEnableOption "Enable Gamemode (part of the bundle, can be opted out)";
-      };
-
+    # ── features ────────────────────────────────────────────────────────
+    features = {
       sunshine = {
         enable = mkDisableOption "Sunshine Service";
       };
