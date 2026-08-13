@@ -9,6 +9,9 @@ Rows=2
 [Effect-hidecursor]
 InactivityDuration=10
 
+[Effect-overview]
+BorderActivate=9
+
 [Effect-translucency]
 ComboboxPopups=68
 Dialogs=85
@@ -19,6 +22,9 @@ IndividualMenuConfig=true
 Menus=66
 PopupMenus=74
 TornOffMenus=73
+
+[ElectricBorders]
+TopLeft=ApplicationLauncher
 
 [NightColor]
 Active=true
