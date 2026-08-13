@@ -78,34 +78,10 @@ in
       # Zram
       zram = {
         enable = mkEnableOption "Enable zram swap (compressed RAM swap)";
-
-        algorithm = mkOption {
-          type = enum [
-            "lzo"
-            "lzo-rle"
-            "lz4"
-            "lz4hc"
-            "zstd"
-            "deflate"
-            "842"
-          ];
-          default = "zstd";
-          description = "Compression algorithm for zram";
-        };
-        size = mkOption {
+        percent = mkOption {
           type = int;
-          default = 2048;
-          description = "Fixed zram size in MiB (2048 = 2GiB)";
-        };
-        priority = mkOption {
-          type = int;
-          default = 100;
-          description = "Priority of zram swap devices (higher = used first)";
-        };
-        swappiness = mkOption {
-          type = int;
-          default = 180;
-          description = "vm.swappiness value (180 aggressively prefers zram over page cache eviction)";
+          default = 50;
+          description = "Percentage of RAM";
         };
       };
     };

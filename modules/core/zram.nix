@@ -4,21 +4,19 @@
   ...
 }:
 let
-  inherit (lib) mkIf;
-
-  zram = config.modules.core.zram;
+  cfg = config.modules.core.zram;
 in
 {
-  config = mkIf (zram.enable) {
+  config = lib.mkIf (cfg.enable) {
     zramSwap = {
       enable = true;
-      algorithm = zram.algorithm;
-      memoryMax = zram.size * 1024 * 1024;
-      priority = zram.priority;
+      algorithm = "zstd";
+      memoryPercent = cfg.percent;
+      priority = 100;
     };
 
     boot.kernel.sysctl = {
-      "vm.swappiness" = zram.swappiness;
+      "vm.swappiness" = 180;
       "vm.watermark_boost_factor" = 0;
       "vm.watermark_scale_factor" = 125;
       "vm.page-cluster" = 0;

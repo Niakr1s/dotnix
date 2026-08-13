@@ -43,7 +43,7 @@
 
       zram = {
         enable = true;
-        size = 16384;
+        percent = 200;
       };
     };
 
