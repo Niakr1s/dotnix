@@ -26,7 +26,7 @@
     let
       stVersion = "26.05";
       hostNames = builtins.attrNames (
-        nixpkgs.lib.filterAttrs (name: type: type == "directory") (builtins.readDir ./Hosts)
+        nixpkgs.lib.filterAttrs (name: type: type == "directory") (builtins.readDir ./hosts)
       );
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -44,7 +44,7 @@
             inputs.nvidia-pstated.nixosModules.default
             ./config.nix
             ./modules
-            ./Hosts/${hostname}
+            ./hosts/${hostname}
             (
               {
                 config,
