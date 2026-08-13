@@ -123,17 +123,6 @@ popupWidth=648
 [Containments][3][Applets][4][Configuration][General]
 favoritesPortedToKAstats=true
 
-[Containments][3][Applets][5]
-immutability=1
-plugin=org.kde.plasma.pager
-
-[Containments][3][Applets][5][Configuration][ConfigDialog]
-DialogHeight=630
-DialogWidth=810
-
-[Containments][3][Applets][5][Configuration][General]
-wrapPage=true
-
 [Containments][3][Applets][6]
 immutability=1
 plugin=org.kde.plasma.icontasks
@@ -241,7 +230,7 @@ extraItems=org.kde.plasma.cameraindicator,org.kde.plasma.clipboard,org.kde.plasm
 knownItems=org.kde.plasma.cameraindicator,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.plasma.notifications,org.kde.kscreen,org.kde.plasma.battery,org.kde.plasma.brightness,org.kde.plasma.keyboardindicator,org.kde.plasma.keyboardlayout,org.kde.plasma.networkmanagement,org.kde.plasma.volume,org.kde.plasma.weather,org.kde.kdeconnect,org.kde.plasma.bluetooth
 
 [Containments][3][General]
-AppletOrder=4;5;6;31;7;32;26;8;21
+AppletOrder=4;6;31;7;32;26;8;21
 
 [Containments][30]
 ItemGeometries-2560x1440=
