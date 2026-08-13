@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  inputs,
   ...
 }:
 let
@@ -10,9 +9,8 @@ let
     mkOption
     mkIf
     types
-    concatStringsSep
     ;
-  inherit (types) bool str listOf;
+  inherit (types) bool;
 
   cfg = config.features.graphicalPkgs;
   user = config.core.user;
@@ -25,44 +23,47 @@ in
       default = !headless;
       description = "Graphical Packages";
     };
-    foot.theme = mkOption {
-      type = listOf str;
-      default = [ ];
-      description = "Import themes for Foot";
-      example = "include=path";
-    };
   };
 
   config = mkIf cfg.enable {
+    nixpkgs.config.permittedInsecurePackages = [
+      "electron-40.10.5"
+    ];
+
     services.crossmacro = {
       enable = true;
       users = [ "${user}" ];
     };
 
-    environment.systemPackages = with pkgs; [
-      mpv
-      ripdrag
-      obsidian
-      firefox
-      librecad
-      libreoffice
-      blender
-      keepassxc
-      cpu-x
-      hardinfo2
-      (handbrake.overrideAttrs (previous: {
-        nativeBuildInputs = (previous.nativeBuildInputs or []) ++ [pkgs.autoAddDriverRunpath];
-      }))
-      obs-studio
-      clementine
-      playerctl
-      qbittorrent
-      gpu-viewer
-      losslesscut-bin
-      strawberry
-    ]
-    ++ lib.optionals (config.core.isLaptop.enable) [
-      moonlight-qt
-    ];
+    environment.systemPackages =
+      with pkgs;
+      [
+        mpv
+        ripdrag
+        obsidian
+        firefox
+        librecad
+        libreoffice
+        blender
+        keepassxc
+        cpu-x
+        hardinfo2
+        (handbrake.overrideAttrs (previous: {
+          nativeBuildInputs = (previous.nativeBuildInputs or [ ]) ++ [ pkgs.autoAddDriverRunpath ];
+        }))
+        obs-studio
+        clementine
+        playerctl
+        qbittorrent
+        gpu-viewer
+        losslesscut-bin
+        strawberry
+      ]
+      ++ lib.optionals (!config.core.isLaptop.enable) [
+        winboat
+      ]
+      ++ lib.optionals (config.core.isLaptop.enable) [
+        moonlight-qt
+      ];
   };
 }
