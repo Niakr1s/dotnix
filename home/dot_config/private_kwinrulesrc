@@ -1,2 +1,12 @@
+[78830183-5d4a-43af-956b-b5166363091d]
+Description=firefox
+desktops=b097b271-ad16-47ad-a879-6d065d844722
+desktopsrule=2
+screen=1
+screenrule=2
+wmclass=firefox
+wmclassmatch=1
+
 [General]
-rules=
+count=1
+rules=78830183-5d4a-43af-956b-b5166363091d

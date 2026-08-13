@@ -9,6 +9,7 @@
 
   environment.systemPackages = [
     (pkgs.writeScriptBin "manage-disks" (builtins.readFile ./scripts/manage-disks.sh))
+    (pkgs.writeScriptBin "monitor-toggle" (builtins.readFile ./scripts/monitor-toggle.sh))
   ];
 
   systemd.targets.sleep.enable = false;
