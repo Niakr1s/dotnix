@@ -8,7 +8,6 @@ let
   cfg = config.features.neovim;
   user = config.core.user;
   headless = config.core.headless;
-  inherit (lib) optionals;
 
   myNvim = pkgs.neovim.override {
     configure = {
@@ -55,22 +54,6 @@ let
     "sqlls"
   ];
 
-  baseServersPkgs = with pkgs; [
-    nil
-    lua-language-server
-    bash-language-server
-    ruff
-    pyright
-    typescript-language-server
-    vscode-langservers-extracted # предоставляет jsonls, html, cssls
-    yaml-language-server
-    marksman
-    docker-language-server
-    taplo
-    lemminx
-    sqls
-  ];
-
   heavyServers = [
     "clangd"
     "kotlin_language_server"
@@ -82,16 +65,6 @@ let
     "crystalline"
   ];
 
-  heavyServersPkgs = with pkgs; [
-    clang-tools
-    kotlin-language-server
-    rust-analyzer
-    gopls
-    omnisharp-roslyn
-    jdt-language-server
-    phpactor
-    crystalline
-  ];
 
   lspServers = baseServers ++ lib.optionals (!headless) heavyServers;
 
@@ -120,9 +93,7 @@ in
 
     environment.systemPackages = [
       myNvim
-    ]
-    ++ baseServersPkgs
-    ++ optionals (!headless) heavyServersPkgs;
+    ];
 
     hjem.users.${user} = {
       xdg.config.files = {
