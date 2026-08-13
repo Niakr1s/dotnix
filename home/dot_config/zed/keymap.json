@@ -5,7 +5,9 @@
       "ctrl-`": "editor::ToggleFocus",
       "ctrl-w h": "workspace::ActivatePaneLeft",
       "ctrl-w k": "workspace::ActivatePaneUp",
-      "ctrl-w l": "workspace::ActivatePaneRight"
+      "ctrl-w l": "workspace::ActivatePaneRight",
+      "ctrl-p": null,
+      "ctrl-n": null,
     }
   },
   {
