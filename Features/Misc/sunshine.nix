@@ -11,19 +11,6 @@ let
   guiPort = port + 1;
 in
 {
-  options.features.sunshine = {
-    enable = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-      description = "Sunshine Configuration";
-    };
-    cuda = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-      description = "Enable Nvidia Cuda support";
-    };
-  };
-
   config = lib.mkIf cfg.enable (
     lib.mkMerge [
       # 1. Настройки самого Sunshine

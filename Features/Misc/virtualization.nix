@@ -7,11 +7,8 @@ let
   cfg = config.features.virtualization;
   user = config.core.user;
   isLaptop = config.core.isLaptop.enable;
-
 in
 {
-  options.features.virtualization.enable = lib.mkEnableOption "Virtualization (libvirtd + Docker)";
-
   config = lib.mkIf cfg.enable {
     users.users.${user} = {
       group = user;

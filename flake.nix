@@ -37,14 +37,15 @@
         nixpkgs.lib.nixosSystem {
           specialArgs = {
             flakeLib = nixpkgs.legacyPackages.${system}.callPackage ./flakeLib.nix { };
+            inherit hostname;
           };
           modules = [
             inputs.hjem.nixosModules.default
             inputs.nvidia-pstated.nixosModules.default
+            ./config.nix
             ./Hosts/${hostname}
             (
               {
-                lib,
                 config,
                 ...
               }:
@@ -52,15 +53,6 @@
                 user = config.core.user;
               in
               {
-                options.core = {
-                  host = lib.mkOption {
-                    type = lib.types.str;
-                    description = "Hostname option explicity";
-                    default = "${hostname}";
-                    readOnly = true;
-                  };
-                };
-
                 config = {
                   networking.hostName = hostname;
                   system.stateVersion = stVersion;

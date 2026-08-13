@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  flakeLib,
   ...
 }:
 
@@ -22,6 +23,7 @@ let
   };
   sd-server = lib.getExe' sd-cpp "sd-server";
 
+  port = 8080;
 
   # Common flags parsed from [*] section
   llmCommonFlags = concatStringsSep " " [
@@ -99,81 +101,86 @@ let
       );
     };
 
-    mkSD =
-      {
-        model,
-        checkEndpoint ? "/",
-      }:
-      {
-        cmd = concatStringsSep " " [
-          sd-server
-          "--listen-port \${PORT}"
-          "--diffusion-fa"
-          "--vae-tiling"
-          "-m"
-          model
-        ];
-        checkEndpoint = checkEndpoint;
-      };
+  mkSD =
+    {
+      model,
+      checkEndpoint ? "/",
+    }:
+    {
+      cmd = concatStringsSep " " [
+        sd-server
+        "--listen-port \${PORT}"
+        "--diffusion-fa"
+        "--vae-tiling"
+        "-m"
+        model
+      ];
+      checkEndpoint = checkEndpoint;
+    };
 in
 {
-  config = mkIf cfg.enable {
-    environment.systemPackages = [
-      llama-cpp
-      sd-cpp
-    ];
+  config = mkIf cfg.enable (
+    lib.mkMerge [
+      {
+        environment.systemPackages = [
+          llama-cpp
+          sd-cpp
+        ];
 
-    services.llama-swap = mkIf cfg.enable {
-      enable = true;
-      port = 8080;
+        services.llama-swap = mkIf cfg.enable {
+          enable = true;
+          port = port;
 
-      settings = {
-        clientTimeout = 600;
-        healthCheckTimeout = 60;
+          settings = {
+            clientTimeout = 600;
+            healthCheckTimeout = 60;
 
-        models = {
-          "Gemma4-26B-A4B-Uncensored" = mkLlm {
-            model = "/data/ssd/models/LLM/HauhauCS/Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-MTP/Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-Q4_K_M.gguf";
-            mmproj = "/data/ssd/models/LLM/HauhauCS/Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-MTP/mmproj-Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-BF16.gguf";
-            tensorSplit = "0,4";
-            temperature = "0.6";
-            topK = "64";
-            topP = "0.9";
-            minP = "0.05";
-            repeatPenalty = "1.1";
-          };
+            models = {
+              "Gemma4-26B-A4B-Uncensored" = mkLlm {
+                model = "/data/ssd/models/LLM/HauhauCS/Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-MTP/Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-Q4_K_M.gguf";
+                mmproj = "/data/ssd/models/LLM/HauhauCS/Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-MTP/mmproj-Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-BF16.gguf";
+                tensorSplit = "0,4";
+                temperature = "0.6";
+                topK = "64";
+                topP = "0.9";
+                minP = "0.05";
+                repeatPenalty = "1.1";
+              };
 
-          "Qwen3.6-27B" = mkLlm {
-            model = "/data/ssd/models/LLM/bartowski/Qwen_Qwen3.6-27B-GGUF/Qwen_Qwen3.6-27B-Q4_K_M.gguf";
-            mmproj = "/data/ssd/models/LLM/bartowski/Qwen_Qwen3.6-27B-GGUF/mmproj-Qwen_Qwen3.6-27B-bf16.gguf";
-            tensorSplit = "1,3";
-            temperature = "0.6";
-            topP = "0.95";
-            topK = "20";
-            minP = "0.0";
-            presencePenalty = "0.0";
-            repeatPenalty = "1.0";
-            imageMinTokens = "1024";
-          };
+              "Qwen3.6-27B" = mkLlm {
+                model = "/data/ssd/models/LLM/bartowski/Qwen_Qwen3.6-27B-GGUF/Qwen_Qwen3.6-27B-Q4_K_M.gguf";
+                mmproj = "/data/ssd/models/LLM/bartowski/Qwen_Qwen3.6-27B-GGUF/mmproj-Qwen_Qwen3.6-27B-bf16.gguf";
+                tensorSplit = "1,3";
+                temperature = "0.6";
+                topP = "0.95";
+                topK = "20";
+                minP = "0.0";
+                presencePenalty = "0.0";
+                repeatPenalty = "1.0";
+                imageMinTokens = "1024";
+              };
 
-          "Qwen3.6-35B-A3B" = mkLlm {
-            model = "/data/ssd/models/LLM/bartowski/Qwen_Qwen3.6-35B-A3B-GGUF/Qwen_Qwen3.6-35B-A3B-Q4_K_M.gguf";
-            mmproj = "/data/ssd/models/LLM/bartowski/Qwen_Qwen3.6-35B-A3B-GGUF/mmproj-Qwen_Qwen3.6-35B-A3B-bf16.gguf";
-            tensorSplit = "1,4";
-            temperature = "0.6";
-            topP = "0.95";
-            topK = "20";
-            minP = "0.0";
-            presencePenalty = "0.0";
-            repeatPenalty = "1.0";
-            imageMinTokens = "1024";
-          };
+              "Qwen3.6-35B-A3B" = mkLlm {
+                model = "/data/ssd/models/LLM/bartowski/Qwen_Qwen3.6-35B-A3B-GGUF/Qwen_Qwen3.6-35B-A3B-Q4_K_M.gguf";
+                mmproj = "/data/ssd/models/LLM/bartowski/Qwen_Qwen3.6-35B-A3B-GGUF/mmproj-Qwen_Qwen3.6-35B-A3B-bf16.gguf";
+                tensorSplit = "1,4";
+                temperature = "0.6";
+                topP = "0.95";
+                topK = "20";
+                minP = "0.0";
+                presencePenalty = "0.0";
+                repeatPenalty = "1.0";
+                imageMinTokens = "1024";
+              };
 
-          "animosity_illustriousV11" = mkSD {
-            model = "/data/ssd/models/checkpoints/animosity_illustriousV11.safetensors";
+              "animosity_illustriousV11" = mkSD {
+                model = "/data/ssd/models/checkpoints/animosity_illustriousV11.safetensors";
+              };
+            };
           };
         };
-      };
-    };
-  };
+      }
+      (flakeLib.localhostReverseProxy "sunshine" port { insecureTLS = true; })
+    ]
+  );
 }

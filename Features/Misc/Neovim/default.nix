@@ -77,14 +77,6 @@ let
   '';
 in
 {
-  options.features.neovim = {
-    enable = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-      description = "Neovim Configuration";
-    };
-  };
-
   config = lib.mkIf cfg.enable {
     environment.sessionVariables = {
       EDITOR = "nvim";

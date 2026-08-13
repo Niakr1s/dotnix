@@ -5,23 +5,11 @@
   ...
 }:
 let
-  inherit (lib)
-    mkOption
-    mkEnableOption
-    mkIf
-    types
-    optionalString
-    ;
-  inherit (types) str;
+  inherit (lib) mkIf;
 
   cfg = config.features.plasma;
-  user = config.core.user;
 in
 {
-  options.features.plasma = {
-    enable = mkEnableOption "Plasma Configuration";
-  };
-
   config = mkIf cfg.enable {
     services.displayManager.sddm.enable = true;
     services.desktopManager.plasma6.enable = true;

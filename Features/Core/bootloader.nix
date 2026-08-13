@@ -9,7 +9,6 @@ let
   headless = config.core.headless;
 in
 {
-
   systemd.services.NetworkManager-wait-online.enable = false;
   boot = {
     loader = {

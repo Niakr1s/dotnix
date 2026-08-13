@@ -5,26 +5,12 @@
   ...
 }:
 let
-  inherit (lib)
-    mkOption
-    mkIf
-    types
-    ;
-  inherit (types) bool;
+  inherit (lib) mkIf ;
 
   cfg = config.features.graphicalPkgs;
   user = config.core.user;
-  headless = config.core.headless;
 in
 {
-  options.features.graphicalPkgs = {
-    enable = mkOption {
-      type = bool;
-      default = !headless;
-      description = "Graphical Packages";
-    };
-  };
-
   config = mkIf cfg.enable {
     nixpkgs.config.permittedInsecurePackages = [
       "electron-40.10.5"
