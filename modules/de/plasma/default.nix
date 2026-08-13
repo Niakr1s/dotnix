@@ -7,7 +7,7 @@
 let
   inherit (lib) mkIf;
 
-  cfg = config.features.plasma;
+  cfg = config.modules.features.plasma;
 in
 {
   config = mkIf cfg.enable {

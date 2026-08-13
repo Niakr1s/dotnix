@@ -4,7 +4,7 @@
   ...
 }:
 let
-  user = config.core.user;
+  user = config.modules.core.user;
 in
 {
   # Конфигурация системных шрифтов

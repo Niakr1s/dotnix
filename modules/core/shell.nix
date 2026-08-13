@@ -4,8 +4,8 @@
   ...
 }:
 let
-  user = config.core.user;
-  host = config.core.host;
+  user = config.modules.core.user;
+  host = config.modules.core.host;
 in
 {
   environment.localBinInPath = true;

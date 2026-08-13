@@ -8,8 +8,8 @@
 
 let
   inherit (lib) mkIf concatStringsSep optionals;
-  cfg = config.features.llama;
-  gpu = config.core.gpu;
+  cfg = config.modules.features.llama;
+  gpu = config.modules.core.gpu;
 
   llama-cpp = pkgs.llama-cpp.override {
     cudaSupport = gpu.nvidia;

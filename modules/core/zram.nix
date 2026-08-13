@@ -6,7 +6,7 @@
 let
   inherit (lib) mkIf;
 
-  zram = config.core.zram;
+  zram = config.modules.core.zram;
 in
 {
   config = mkIf (zram.enable) {

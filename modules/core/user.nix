@@ -4,7 +4,7 @@
   ...
 }:
 let
-  user = config.core.user;
+  user = config.modules.core.user;
   localeID = "en_DK.UTF-8";
 in
 {

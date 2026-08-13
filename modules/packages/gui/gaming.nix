@@ -5,7 +5,7 @@
   ...
 }:
 let
-  cfg = config.features.gaming;
+  cfg = config.modules.features.gaming;
 in
 {
   config = lib.mkIf cfg.enable {

@@ -6,7 +6,7 @@
   ...
 }:
 let
-  cpu = config.core.cpu;
+  cpu = config.modules.core.cpu;
 in
 {
   boot = {

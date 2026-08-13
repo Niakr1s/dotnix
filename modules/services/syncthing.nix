@@ -8,7 +8,7 @@ let
   port = lib.strings.toInt (
     lib.last (lib.strings.splitString ":" config.services.syncthing.guiAddress)
   );
-  user = config.core.user;
+  user = config.modules.core.user;
 in
 {
   imports = [

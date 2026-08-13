@@ -6,7 +6,7 @@
 }:
 let
   inherit (lib) optionals;
-  gpu = config.core.gpu;
+  gpu = config.modules.core.gpu;
 in
 {
   environment.systemPackages = with pkgs; [

@@ -7,8 +7,8 @@
 let
   inherit (lib) mkIf ;
 
-  cfg = config.features.graphicalPkgs;
-  user = config.core.user;
+  cfg = config.modules.features.graphicalPkgs;
+  user = config.modules.core.user;
 in
 {
   config = mkIf cfg.enable {

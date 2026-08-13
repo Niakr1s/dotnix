@@ -5,9 +5,9 @@
   ...
 }:
 let
-  cfg = config.features.neovim;
-  user = config.core.user;
-  headless = config.core.headless;
+  cfg = config.modules.features.neovim;
+  user = config.modules.core.user;
+  headless = config.modules.core.headless;
 
   myNvim = pkgs.neovim.override {
     configure = {

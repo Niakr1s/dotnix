@@ -6,7 +6,7 @@
 }:
 let
   inherit (lib) mkMerge mkIf;
-  gpu = config.core.gpu;
+  gpu = config.modules.core.gpu;
 in
 {
   config = mkMerge [

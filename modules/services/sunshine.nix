@@ -6,7 +6,7 @@
   ...
 }:
 let
-  cfg = config.features.sunshine;
+  cfg = config.modules.features.sunshine;
   port = 47989;
   guiPort = port + 1;
 in
@@ -17,7 +17,7 @@ in
       {
         services.sunshine = {
           enable = true;
-          package = (if config.core.gpu.nvidia then pkgs.sunshine.override { cudaSupport = true; } else pkgs.sunshine);
+          package = (if config.modules.core.gpu.nvidia then pkgs.sunshine.override { cudaSupport = true; } else pkgs.sunshine);
           autoStart = true;
           openFirewall = true;
           capSysAdmin = true;

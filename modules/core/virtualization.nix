@@ -4,8 +4,8 @@
   ...
 }:
 let
-  cfg = config.features.virtualization;
-  user = config.core.user;
+  cfg = config.modules.features.virtualization;
+  user = config.modules.core.user;
 in
 {
   config = lib.mkIf cfg.enable {

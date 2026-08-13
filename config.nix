@@ -34,7 +34,7 @@ let
     };
 in
 {
-  options = {
+  options.modules = {
     # ── core ────────────────────────────────────────────────────────────
     core = {
       # Generic

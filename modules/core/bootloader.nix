@@ -6,7 +6,7 @@
 let
   inherit (lib) mkIf;
 
-  headless = config.core.headless;
+  headless = config.modules.core.headless;
 in
 {
   systemd.services.NetworkManager-wait-online.enable = false;
