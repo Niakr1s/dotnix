@@ -1,10 +1,17 @@
 {
+  "context_servers": {
+    "mcp-nixos": {
+      "enabled": true,
+      "remote": false,
+      "command": "mcp-nixos",
+      "args": []
+    }
+  },
   "language_models": {
     "openai_compatible": {
-      "local": {
-        "api_url": "http://127.0.0.1:8080/v1",
-        "available_models": [],
-      },
+    "llama.cpp": {
+        "api_url": "http://localhost:8080",
+        "auto_discover": true,
     },
   },
   "show_signature_help_after_edits": true,
@@ -33,9 +40,9 @@
   "show_edit_predictions": false,
   "agent": {
     "default_model": {
-      "enable_thinking": false,
+      "enable_thinking": true,
       "provider": "llama.cpp",
-      "model": "Gemma4-26B-A4B-Uncensored",
+      "model": "Qwen3.6-35B-A3B",
     },
     "model_parameters": [],
   },
