@@ -125,12 +125,13 @@ in
       };
       gui = {
         enable = mkDisableOption "GUI Packages";
-        gaming = {
-          enable = mkEnableOption "Enable gaming bundle";
-        };
         zed = {
           enable = mkDisableOption "Zed editor";
         };
+      };
+      gaming = {
+        enable = mkDisableOption "Enable gaming bundle (steam + lutris)";
+        # TODO: emulators
       };
       lsp = {
         base = mkEnableOption "Lightweight lsp packages";

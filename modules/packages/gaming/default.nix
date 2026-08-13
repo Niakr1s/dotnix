@@ -5,7 +5,7 @@
   ...
 }:
 let
-  cfg = config.modules.packages.gui.gaming;
+  cfg = config.modules.packages.gaming;
 in
 {
   config = lib.mkIf cfg.enable {
@@ -34,6 +34,8 @@ in
 
       steam = {
         enable = true;
+        remotePlay.openFirewall = true;
+        protontricks.enable = true;
         extraCompatPackages = [ pkgs.proton-ge-bin ];
       };
     };

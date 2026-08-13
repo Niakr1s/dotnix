@@ -56,9 +56,9 @@
       };
       gui = {
         enable = true;
-        gaming = {
-          enable = true;
-        };
+      };
+      gaming = {
+        enable = true;
       };
       lsp = {
         base = true;
