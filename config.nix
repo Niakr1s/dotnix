@@ -128,6 +128,9 @@ in
         zed = {
           enable = mkDisableOption "Zed editor";
         };
+        winboat = {
+          enable = mkDisableOption "Winboat (running windows native apps)";
+        };
       };
       gaming = {
         enable = mkDisableOption "Enable gaming bundle (steam + lutris)";

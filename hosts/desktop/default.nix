@@ -58,6 +58,7 @@
       gui = {
         enable = true;
         zed.enable = true;
+        winboat.enable = true;
       };
       gaming = {
         enable = true;
