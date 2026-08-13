@@ -85,5 +85,7 @@
   <Action name="edit_find"/>
   <Action name="hamburger_menu"/>
  </ToolBar>
- <ActionProperties scheme="Default"/>
+ <ActionProperties scheme="Default">
+  <Action name="close-session" shortcut="Ctrl+Q"/>
+ </ActionProperties>
 </gui>

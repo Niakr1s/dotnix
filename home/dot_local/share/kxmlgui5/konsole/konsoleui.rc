@@ -73,5 +73,7 @@
   <Action name="next-tab" shortcut="; Ctrl+Tab"/>
   <Action name="last-used-tab" shortcut=""/>
   <Action name="last-used-tab-reverse" shortcut=""/>
+  <Action name="close-window" shortcut=""/>
+  <Action name="new-tab" shortcut="Ctrl+W"/>
  </ActionProperties>
 </gui>
