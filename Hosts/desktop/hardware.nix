@@ -38,6 +38,7 @@
     device = "/dev/mapper/luks-276c86e7-7ad1-4624-ae05-37a41127565f";
     fsType = "btrfs";
     options = [
+      "compress=zstd"
     ];
   };
 
