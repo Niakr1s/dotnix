@@ -6,10 +6,27 @@ Id_4=49f32aeb-765a-4e99-8315-ca022e72d578
 Number=4
 Rows=2
 
+[Effect-hidecursor]
+InactivityDuration=10
+
+[Effect-translucency]
+ComboboxPopups=68
+Dialogs=85
+DropdownMenus=73
+ExcludeFullScreen=true
+Inactive=80
+IndividualMenuConfig=true
+Menus=66
+PopupMenus=74
+TornOffMenus=73
+
 [NightColor]
 Active=true
 
 [Plugins]
+blurEnabled=false
+diminactiveEnabled=true
+hidecursorEnabled=true
 virtualdesktopsonlyonprimaryEnabled=true
 
 [Tiling][42eceeaa-51bc-4afa-91a1-ef78d05b6eaa][9783a55a-50b7-41b6-84c2-e0718fa0eea2]
