@@ -7,5 +7,13 @@
       "ctrl-w k": "workspace::ActivatePaneUp",
       "ctrl-w l": "workspace::ActivatePaneRight"
     }
+  },
+  {
+    "context": "Terminal"
+  },
+  {
+    "unbind": {
+      "ctrl-shift-w": "workspace::CloseWindow"
+    }
   }
 ]
