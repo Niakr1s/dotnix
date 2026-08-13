@@ -58,7 +58,6 @@ in
         gpu-viewer
         losslesscut-bin
         strawberry
-        zed-editor
       ]
       ++ lib.optionals (!config.core.isLaptop.enable) [
         winboat
