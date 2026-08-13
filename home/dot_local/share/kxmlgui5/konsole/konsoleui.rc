@@ -69,8 +69,8 @@
   <Action name="split-view"/>
  </ToolBar>
  <ActionProperties scheme="Default">
-  <Action name="next-tab" shortcut="Shift+Right; Ctrl+Tab"/>
-  <Action name="previous-tab" shortcut="Shift+Left; Shift+Tab"/>
+  <Action name="previous-tab" shortcut="; Shift+Tab"/>
+  <Action name="next-tab" shortcut="; Ctrl+Tab"/>
   <Action name="last-used-tab" shortcut=""/>
   <Action name="last-used-tab-reverse" shortcut=""/>
  </ActionProperties>
