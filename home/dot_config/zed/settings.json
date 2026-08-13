@@ -38,7 +38,7 @@
   },
   "show_edit_predictions": false,
   "agent": {
-    "default_profile": "ask",
+    "default_profile": "write",
     "tool_permissions": {
       "tools": {
         "terminal": {
