@@ -86,6 +86,6 @@
   <Action name="hamburger_menu"/>
  </ToolBar>
  <ActionProperties scheme="Default">
-  <Action name="close-session" shortcut="Ctrl+Q"/>
+  <Action name="close-session" shortcut="Ctrl+Shift+Q"/>
  </ActionProperties>
 </gui>
