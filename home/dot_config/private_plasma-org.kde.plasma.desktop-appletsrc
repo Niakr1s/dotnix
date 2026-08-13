@@ -15,12 +15,6 @@ location=0
 plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
 
-[Containments][29]
-formfactor=0
-immutability=1
-location=0
-plugin=org.kde.desktopcontainment
-
 [Containments][3]
 activityId=
 formfactor=3
