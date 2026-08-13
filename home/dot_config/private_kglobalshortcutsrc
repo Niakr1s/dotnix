@@ -284,12 +284,18 @@ switch to next activity=none,none,Switch to Next Activity
 switch to previous activity=none,none,Switch to Previous Activity
 toggle do not disturb=none,none,Toggle do not disturb
 
+[services][net.local.monitor-toggle.desktop]
+_launch=Meta+P
+
 [services][org.kde.konsole.desktop]
 _launch=Meta+Return
 
 [services][org.kde.krunner.desktop]
 RunClipboard=none
 _launch=Meta+D
+
+[services][org.kde.kscreen.desktop]
+ShowOSD=Display
 
 [services][org.kde.plasma-systemmonitor.desktop]
 _launch=none
