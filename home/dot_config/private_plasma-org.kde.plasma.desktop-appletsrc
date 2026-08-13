@@ -15,6 +15,10 @@ location=0
 plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
 
+[Containments][2][ConfigDialog]
+DialogHeight=630
+DialogWidth=810
+
 [Containments][3]
 activityId=
 formfactor=3
@@ -60,6 +64,14 @@ network/all/upload=233,120,61
 
 [Containments][3][Applets][26][Configuration][Sensors]
 highPrioritySensorIds=["network/all/download","network/all/upload"]
+
+[Containments][3][Applets][31]
+immutability=1
+plugin=org.kde.plasma.mediacontroller
+
+[Containments][3][Applets][31][Configuration]
+popupHeight=360
+popupWidth=361
 
 [Containments][3][Applets][4]
 immutability=1
@@ -183,7 +195,7 @@ extraItems=org.kde.plasma.cameraindicator,org.kde.plasma.clipboard,org.kde.plasm
 knownItems=org.kde.plasma.cameraindicator,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.plasma.notifications,org.kde.kscreen,org.kde.plasma.battery,org.kde.plasma.brightness,org.kde.plasma.keyboardindicator,org.kde.plasma.keyboardlayout,org.kde.plasma.networkmanagement,org.kde.plasma.volume,org.kde.plasma.weather,org.kde.kdeconnect,org.kde.plasma.bluetooth
 
 [Containments][3][General]
-AppletOrder=4;5;6;7;26;8;21
+AppletOrder=4;5;6;31;7;26;8;21
 
 [Containments][30]
 ItemGeometries-2560x1440=
@@ -194,7 +206,7 @@ immutability=1
 lastScreen=0
 location=0
 plugin=org.kde.plasma.folder
-wallpaperplugin=org.kde.image
+wallpaperplugin=com.plasma.wallpaper.wallhaven
 
 [Containments][30][ConfigDialog]
 DialogHeight=630
@@ -205,6 +217,15 @@ changedPositions={"desktop:/net.lutris.yakuza-like-a-dragon-1.desktop":["2560x14
 lastResolution=2560x1440
 positions={"2560x1440":["1","23","desktop:/net.lutris.yakuza-like-a-dragon-1.desktop","0","22"]}
 sortMode=-1
+
+[Containments][30][Wallpaper][com.plasma.wallpaper.wallhaven][General]
+CategoryGeneral=false
+CategoryPeople=false
+FillMode=2
+Query=girl starry sky
+Sorting=favorites
+TopRange=3M
+WallpaperDelay=50000
 
 [Containments][30][Wallpaper][org.kde.image][General]
 Image=file:///home/user/Pictures/Wallpapers/wallhaven-l83k62.jpg
