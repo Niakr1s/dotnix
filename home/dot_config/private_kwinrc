@@ -9,6 +9,9 @@ Rows=2
 [NightColor]
 Active=true
 
+[Plugins]
+virtualdesktopsonlyonprimaryEnabled=true
+
 [Tiling][42eceeaa-51bc-4afa-91a1-ef78d05b6eaa][9783a55a-50b7-41b6-84c2-e0718fa0eea2]
 padding=4
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
