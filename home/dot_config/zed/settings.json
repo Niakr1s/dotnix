@@ -8,7 +8,6 @@
     }
   },
   "language_models": {
-    "openai_compatible": {
     "llama.cpp": {
         "api_url": "http://localhost:8080",
         "auto_discover": true,
@@ -39,6 +38,21 @@
   },
   "show_edit_predictions": false,
   "agent": {
+    "default_profile": "ask",
+    "tool_permissions": {
+      "tools": {
+        "terminal": {
+          "always_allow": [
+            {
+              "pattern": "^ls\\b"
+            }
+          ]
+        },
+        "mcp:mcp-server-context7:query-docs": {
+          "default": "allow"
+        }
+      }
+    },
     "default_model": {
       "enable_thinking": true,
       "provider": "llama.cpp",
