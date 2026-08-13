@@ -22,8 +22,8 @@ in
       theme = "bgrt";
     };
     kernelParams = mkIf (!headless) [
-      "quiet"
-      "splash"
+      # "quiet"
+      # "splash"
       "udev.log_level=3"
     ];
     initrd.systemd.enable = true;
