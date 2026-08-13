@@ -6,7 +6,7 @@
   ...
 }:
 let
-  cfg = config.modules.features.sunshine;
+  cfg = config.modules.services.sunshine;
   port = 47989;
   guiPort = port + 1;
   sunshinePkg = if config.modules.core.gpu.nvidia.enable then pkgs.sunshine.override { cudaSupport = true; } else pkgs.sunshine;

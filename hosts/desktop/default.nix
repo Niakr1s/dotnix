@@ -66,7 +66,7 @@
       };
     };
 
-    features = {
+    services = {
       sunshine.enable = true;
       llama.enable = true;
     };

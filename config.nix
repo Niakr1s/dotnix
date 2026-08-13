@@ -140,7 +140,7 @@ in
     };
 
     # ── features ────────────────────────────────────────────────────────
-    features = {
+    services = {
       sunshine = {
         enable = mkDisableOption "Sunshine Service";
       };
