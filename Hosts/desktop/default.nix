@@ -37,6 +37,7 @@
     neovim.enable = true;
     virtualization.enable = true;
     sunshine.enable = true;
+    graphicalPkgs.enable = true;
 
     gaming = {
       enable = true;
