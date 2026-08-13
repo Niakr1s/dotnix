@@ -5,7 +5,7 @@
   ...
 }:
 let
-  cfg = config.modules.cli.neovim;
+  cfg = config.modules.packages.cli.nvim;
   user = config.modules.core.user;
 
   myNvim = pkgs.neovim.override {
@@ -92,7 +92,7 @@ in
           require('config')
           require('lsp')
         '';
-        "nvim/lua/config.lua".source = ./config.lua;
+        "nvim/lua/config.lua".source = ./nvim/config.lua;
         "nvim/lua/lsp.lua".text = lspLua;
       };
     };

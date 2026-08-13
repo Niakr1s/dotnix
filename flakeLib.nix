@@ -89,6 +89,8 @@
       imports = lib.flatten (lib.mapAttrsToList (name: _: findNixInSubdir name) subDirs);
     };
 
+  # Note: this must be run from default.nix
+  # It will ignore another default.nix in subdirectories to evade inf recursions
   importSubdirsRec =
     path:
     let
