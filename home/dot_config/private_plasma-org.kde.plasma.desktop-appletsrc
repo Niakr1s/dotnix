@@ -134,6 +134,8 @@ DialogWidth=810
 [Containments][3][Applets][6][Configuration][General]
 iconSpacing=0
 launchers=applications:org.kde.konsole.desktop,preferred://filemanager,preferred://browser
+showOnlyCurrentActivity=false
+showOnlyCurrentDesktop=false
 
 [Containments][3][Applets][7]
 immutability=1
