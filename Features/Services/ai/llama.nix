@@ -24,7 +24,7 @@ let
 
 
   # Common flags parsed from [*] section
-  globalFlags = concatStringsSep " " [
+  llmCommonFlags = concatStringsSep " " [
     "--port \${PORT}"
     "--jinja"
     "--parallel 1"
@@ -56,7 +56,7 @@ let
       cmd = concatStringsSep " " (
         [
           llama-server
-          globalFlags
+          llmCommonFlags
           "--model"
           model
         ]
