@@ -19,6 +19,13 @@ let
   };
   llama-server = lib.getExe' llama-cpp "llama-server";
 
+  sd-cpp = pkgs.stable-diffusion-cpp.override {
+    cudaSupport = gpu.nvidia;
+    rocmSupport = gpu.amd;
+  };
+
+  sd-server = lib.getExe' sd-cpp "sd-server";
+
   # Global flags parsed from your [*] section, split cleanly for scannability
   globalFlags = toString [
     "--port \${PORT}"
@@ -37,6 +44,7 @@ in
   config = mkIf cfg.enable {
     environment.systemPackages = [
       llama-cpp
+      sd-cpp
     ];
 
     services.llama-swap = mkIf cfg.enable {
@@ -92,6 +100,17 @@ in
                 --model /data/ssd/models/bartowski/Qwen_Qwen3.6-35B-A3B-GGUF/Qwen_Qwen3.6-35B-A3B-Q4_K_M.gguf \
                 --mmproj /data/ssd/models/bartowski/Qwen_Qwen3.6-35B-A3B-GGUF/mmproj-Qwen_Qwen3.6-35B-A3B-bf16.gguf
             '';
+          };
+
+          "animosity_illustriousV11" = {
+            cmd = ''
+              ${sd-server} \
+                --listen-port ''${PORT} \
+                --diffusion-fa \
+                --vae-tiling \
+                -m /data/ssd/comfy/models/checkpoints/animosity_illustriousV11.safetensors
+            '';
+            checkEndpoint = "/";
           };
         };
       };
