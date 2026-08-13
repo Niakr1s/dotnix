@@ -22,12 +22,10 @@
       headless = false;
 
       gpu = {
-        intel = true;
-        nvidia = true;
-
-        nvidia-prime = {
+        intel.enable = true;
+        nvidia = {
           enable = true;
-          iGPU = "intel";
+          prime.enable = true;
         };
       };
 

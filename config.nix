@@ -49,19 +49,13 @@ in
 
       # GPU
       gpu = {
-        amd = mkEnableOption "AMD GPU (RADV/amdgpu)";
-        nvidia = mkEnableOption "Nvidia GPU (nvidia/nouveau)";
-        intel = mkEnableOption "Intel GPU (i915/Xe)";
+        amd.enable = mkEnableOption "AMD GPU (RADV/amdgpu)";
+        intel.enable = mkEnableOption "Intel GPU (i915/Xe)";
 
-        nvidia-prime = {
-          enable = mkDisableOption "Offload mode puts your dGPU to sleep and lets the iGPU handle all tasks";
-          iGPU = mkOption {
-            type = enum [
-              "intel"
-              "amd"
-            ];
-            default = "intel";
-            description = "Choose your iGPU";
+        nvidia = {
+          enable = mkEnableOption "Nvidia GPU (nvidia/nouveau)";
+          prime = {
+            enable = mkDisableOption "Offload mode puts your dGPU to sleep and lets the iGPU handle all tasks";
           };
         };
       };

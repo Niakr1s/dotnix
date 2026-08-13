@@ -37,7 +37,6 @@ in
     lazysql
     chezmoi
     borgbackup
-  ]
-    ++ optionals (!gpu.nvidia) [ btop-rocm ]
-    ++ optionals gpu.nvidia [ btop-cuda ];
+    bottom
+  ];
 }

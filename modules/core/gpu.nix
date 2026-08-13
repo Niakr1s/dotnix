@@ -7,10 +7,11 @@
 let
   inherit (lib) mkMerge mkIf;
   gpu = config.modules.core.gpu;
+  cpu = config.modules.core.cpu;
 in
 {
   config = mkMerge [
-    (mkIf gpu.amd {
+    (mkIf gpu.amd.enable {
       hardware = {
         graphics = {
           enable = true;
@@ -28,7 +29,7 @@ in
       ];
     })
 
-    (mkIf gpu.nvidia {
+    (mkIf gpu.nvidia.enable {
       services.xserver.videoDrivers = [ "nvidia" ];
       boot = {
         blacklistedKernelModules = [ "nouveau" ];
@@ -49,24 +50,21 @@ in
           open = false;
           package = config.boot.kernelPackages.nvidiaPackages.stable;
           nvidiaSettings = true;
+          prime = mkIf gpu.nvidia.prime.enable {
+            offload.enable = true;
+            offload.enableOffloadCmd = true;
+            nvidiaBusId = "PCI:1@0:0:0"; # dGPU address
+
+            # iGPU address
+            intelBusId = lib.mkIf (cpu.intel) "PCI:0@0:2:0";
+            amdgpuBusId = lib.mkIf (cpu.amd) "PCI:5@0:0:0";
+          };
         };
       };
       services.nvidia-pstated.enable = true;
     })
 
-    (mkIf gpu.nvidia-prime.enable {
-      hardware.nvidia.prime = {
-        offload.enable = true;
-        offload.enableOffloadCmd = true;
-
-        intelBusId = lib.mkIf (gpu.nvidia-prime.iGPU == "intel") "PCI:0@0:2:0";
-        amdgpuBusId   = lib.mkIf (gpu.nvidia-prime.iGPU == "amd")   "PCI:5@0:0:0";
-
-        nvidiaBusId = "PCI:1@0:0:0"; # Укажите адрес вашей dGPU!
-      };
-    })
-
-    (mkIf gpu.intel {
+    (mkIf gpu.intel.enable {
       hardware.graphics = {
         enable = true;
         enable32Bit = true;

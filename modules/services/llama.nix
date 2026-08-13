@@ -12,14 +12,14 @@ let
   gpu = config.modules.core.gpu;
 
   llama-cpp = pkgs.llama-cpp.override {
-    cudaSupport = gpu.nvidia;
-    rocmSupport = gpu.amd;
+    cudaSupport = gpu.nvidia.enable;
+    rocmSupport = gpu.amd.enable;
   };
   llama-server = lib.getExe' llama-cpp "llama-server";
 
   sd-cpp = pkgs.stable-diffusion-cpp.override {
-    cudaSupport = gpu.nvidia;
-    rocmSupport = gpu.amd;
+    cudaSupport = gpu.nvidia.enable;
+    rocmSupport = gpu.amd.enable;
   };
   sd-server = lib.getExe' sd-cpp "sd-server";
 
