@@ -1,4 +1,7 @@
 {
+  "show_signature_help_after_edits": true,
+  "auto_signature_help": true,
+  "icon_theme": "Zed (Default)",
   "cli_default_open_behavior": "existing_window",
   "load_direnv": "shell_hook",
   "terminal": {
@@ -41,7 +44,7 @@
   "buffer_font_size": 14.0,
   "theme": {
     "mode": "system",
-    "light": "One Light",
-    "dark": "One Dark"
+    "light": "Ayu Mirage",
+    "dark": "Ayu Dark"
   },
 }
