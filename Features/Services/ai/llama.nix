@@ -65,8 +65,8 @@ in
                 --top-p 0.9 \
                 --min-p 0.05 \
                 --repeat-penalty 1.1 \
-                --model /data/ssd/models/HauhauCS/Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-MTP/Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-Q4_K_M.gguf \
-                --mmproj /data/ssd/models/HauhauCS/Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-MTP/mmproj-Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-BF16.gguf
+                --model /data/ssd/models/LLM/HauhauCS/Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-MTP/Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-Q4_K_M.gguf \
+                --mmproj /data/ssd/models/LLM/HauhauCS/Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-MTP/mmproj-Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-BF16.gguf
             '';
           };
 
@@ -81,8 +81,8 @@ in
                 --min-p 0.0 \
                 --presence-penalty 0.0 \
                 --repeat-penalty 1.0 \
-                --model /data/ssd/models/bartowski/Qwen_Qwen3.6-27B-GGUF/Qwen_Qwen3.6-27B-Q4_K_M.gguf \
-                --mmproj /data/ssd/models/bartowski/Qwen_Qwen3.6-27B-GGUF/mmproj-Qwen_Qwen3.6-27B-bf16.gguf
+                --model /data/ssd/models/LLM/bartowski/Qwen_Qwen3.6-27B-GGUF/Qwen_Qwen3.6-27B-Q4_K_M.gguf \
+                --mmproj /data/ssd/models/LLM/bartowski/Qwen_Qwen3.6-27B-GGUF/mmproj-Qwen_Qwen3.6-27B-bf16.gguf
             '';
           };
 
@@ -97,8 +97,8 @@ in
                 --min-p 0.0 \
                 --presence-penalty 0.0 \
                 --repeat-penalty 1.0 \
-                --model /data/ssd/models/bartowski/Qwen_Qwen3.6-35B-A3B-GGUF/Qwen_Qwen3.6-35B-A3B-Q4_K_M.gguf \
-                --mmproj /data/ssd/models/bartowski/Qwen_Qwen3.6-35B-A3B-GGUF/mmproj-Qwen_Qwen3.6-35B-A3B-bf16.gguf
+                --model /data/ssd/models/LLM/bartowski/Qwen_Qwen3.6-35B-A3B-GGUF/Qwen_Qwen3.6-35B-A3B-Q4_K_M.gguf \
+                --mmproj /data/ssd/models/LLM/bartowski/Qwen_Qwen3.6-35B-A3B-GGUF/mmproj-Qwen_Qwen3.6-35B-A3B-bf16.gguf
             '';
           };
 
@@ -108,7 +108,7 @@ in
                 --listen-port ''${PORT} \
                 --diffusion-fa \
                 --vae-tiling \
-                -m /data/ssd/comfy/models/checkpoints/animosity_illustriousV11.safetensors
+                -m /data/ssd/models/checkpoints/animosity_illustriousV11.safetensors
             '';
             checkEndpoint = "/";
           };
