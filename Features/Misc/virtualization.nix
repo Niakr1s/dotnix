@@ -6,7 +6,6 @@
 let
   cfg = config.features.virtualization;
   user = config.core.user;
-  isLaptop = config.core.isLaptop.enable;
 in
 {
   config = lib.mkIf cfg.enable {
@@ -20,8 +19,8 @@ in
     virtualisation = {
       libvirtd.enable = true;
       docker = {
-        enable = true;
-        enableOnBoot = !isLaptop;
+        enable = cfg.docker.enable;
+        enableOnBoot = cfg.docker.autostart;
         autoPrune.enable = true;
       };
     };

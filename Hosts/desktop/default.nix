@@ -35,9 +35,20 @@
   };
   features = {
     neovim.enable = true;
-    virtualization.enable = true;
+    virtualization = {
+      enable = true;
+      libvirt.enable = true;
+      docker = {
+        enable = true;
+        autostart = true;
+      };
+    };
     sunshine.enable = true;
     graphicalPkgs.enable = true;
+    lspPkgs = {
+      base = true;
+      heavy = true;
+    };
 
     gaming = {
       enable = true;

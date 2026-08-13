@@ -47,11 +47,6 @@ in
       user = strOpt "The primary user";
       headless = mkEnableOption "Is the host a headless device?";
 
-      # Laptop
-      isLaptop = {
-        enable = mkDisableOption "Whether this host is a laptop";
-      };
-
       # GPU
       gpu = {
         amd = mkEnableOption "AMD GPU (RADV/amdgpu)";
@@ -122,6 +117,11 @@ in
         enable = mkDisableOption "Graphical Packages";
       };
 
+      lspPkgs = {
+        base = mkEnableOption "Lightweight lsp packages";
+        heavy = mkDisableOption "Heavy lsp packages";
+      };
+
       neovim = {
         enable = mkDisableOption "Neovim Configuration";
       };
@@ -139,6 +139,11 @@ in
 
       virtualization = {
         enable = mkEnableOption "Virtualization (libvirtd + Docker)";
+        libvirt.enable = mkEnableOption "Enable libvirt";
+        docker = {
+          enable = mkEnableOption "Enable docker";
+          autostart = mkDisableOption "Enable autostart";
+        };
       };
 
       llama = {

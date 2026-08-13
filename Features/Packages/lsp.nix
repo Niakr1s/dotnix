@@ -5,9 +5,9 @@
   ...
 }:
 let
-  inherit (lib) optionals;
+  cfg = config.features.lspPkgs;
 
-  isLaptop = config.core.isLaptop.enable;
+  inherit (lib) optionals;
 
   baseServersPkgs = with pkgs; [
     nil
@@ -39,5 +39,5 @@ let
 
 in
 {
-  environment.systemPackages = baseServersPkgs ++ optionals (!isLaptop) heavyServersPkgs;
+  environment.systemPackages = optionals (cfg.base) baseServersPkgs ++ optionals (cfg.heavy) heavyServersPkgs;
 }

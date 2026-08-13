@@ -44,12 +44,8 @@ in
         gpu-viewer
         losslesscut-bin
         strawberry
-      ]
-      ++ lib.optionals (!config.core.isLaptop.enable) [
-        winboat
-      ]
-      ++ lib.optionals (config.core.isLaptop.enable) [
         moonlight-qt
+        winboat # TODO: probably move to services
       ];
   };
 }
