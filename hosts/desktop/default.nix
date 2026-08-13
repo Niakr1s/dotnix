@@ -58,9 +58,6 @@
         enable = true;
         gaming = {
           enable = true;
-          steam = true;
-          gamescope = true;
-          gamemode = true;
         };
       };
       lsp = {

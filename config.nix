@@ -127,9 +127,6 @@ in
         enable = mkDisableOption "GUI Packages";
         gaming = {
           enable = mkEnableOption "Enable gaming bundle";
-          steam = mkEnableOption "Enable steam";
-          gamescope = mkEnableOption "Enable Gamescope (part of the bundle, can be opted out)";
-          gamemode = mkEnableOption "Enable Gamemode (part of the bundle, can be opted out)";
         };
         zed = {
           enable = mkDisableOption "Zed editor";

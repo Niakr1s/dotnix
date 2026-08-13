@@ -15,12 +15,12 @@ in
       mangohud
       lutris
       (pkgs.writeScriptBin "link_steamruntime_to_umu" ''
-          rm -rf ~/.local/share/umu/steamrt*
-          ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime ~/.local/share/umu/steamrt1
-          ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime ~/.local/share/umu/steamrt # dunno if it with prefix 1
-          ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime_soldier ~/.local/share/umu/steamrt2
-          ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime_sniper ~/.local/share/umu/steamrt3
-          ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime_4 ~/.local/share/umu/steamrt4
+        rm -rf ~/.local/share/umu/steamrt*
+        ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime ~/.local/share/umu/steamrt1
+        ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime ~/.local/share/umu/steamrt # dunno if it with prefix 1
+        ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime_soldier ~/.local/share/umu/steamrt2
+        ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime_sniper ~/.local/share/umu/steamrt3
+        ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime_4 ~/.local/share/umu/steamrt4
       '')
     ];
 
@@ -29,11 +29,10 @@ in
     ];
 
     programs = {
+      gamemode.enable = true;
+      gamescope.enable = true;
 
-      gamemode.enable = cfg.gamemode;
-      gamescope.enable = cfg.gamescope;
-
-      steam = lib.mkIf cfg.steam {
+      steam = {
         enable = true;
         extraCompatPackages = [ pkgs.proton-ge-bin ];
       };
