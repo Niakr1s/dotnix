@@ -22,6 +22,24 @@ let
   };
   sd-server = lib.getExe' sd-cpp "sd-server";
 
+  # Build an sd-server command for SDXL models.
+  mkSD =
+    {
+      model,
+      checkEndpoint ? "/",
+    }:
+    {
+      cmd = concatStringsSep " " [
+        sd-server
+        "--listen-port \${PORT}"
+        "--diffusion-fa"
+        "--vae-tiling"
+        "-m"
+        model
+      ];
+      checkEndpoint = checkEndpoint;
+    };
+
   # Common flags parsed from [*] section
   globalFlags = concatStringsSep " " [
     "--port \${PORT}"
@@ -125,15 +143,8 @@ in
             };
           };
 
-          "animosity_illustriousV11" = {
-            cmd = ''
-              ${sd-server} \
-                --listen-port ''${PORT} \
-                --diffusion-fa \
-                --vae-tiling \
-                -m /data/ssd/models/checkpoints/animosity_illustriousV11.safetensors
-            '';
-            checkEndpoint = "/";
+          "animosity_illustriousV11" = mkSD {
+            model = "/data/ssd/models/checkpoints/animosity_illustriousV11.safetensors";
           };
         };
       };
