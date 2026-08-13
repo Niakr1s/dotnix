@@ -48,5 +48,9 @@
     plasma = {
       enable = true;
     };
+    ai = {
+      enable = true;
+      llama.enable = true;
+    };
   };
 }
