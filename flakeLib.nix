@@ -89,4 +89,38 @@
       imports = lib.flatten (lib.mapAttrsToList (name: _: findNixInSubdir name) subDirs);
     };
 
+  importSubdirsRec =
+    path:
+    let
+      # 1. Recursive scanner that returns a flat list of path types
+      scanDir =
+        currentPath:
+        let
+          contents = builtins.readDir currentPath;
+
+          # Process each item in the directory
+          collectedPaths = lib.mapAttrsToList (
+            name: type:
+            let
+              itemPath = currentPath + "/${name}";
+            in
+            if type == "directory" then
+              # If it's a directory, recurse into it
+              scanDir itemPath
+            else if type == "regular" && lib.hasSuffix ".nix" name && name != "default.nix" then
+              # If it's a regular .nix file (excluding default.nix), collect it
+              [ itemPath ]
+            else
+              # Skip any other asset file types
+              [ ]
+          ) contents;
+        in
+        # Flatten the list of lists for this directory level
+        lib.flatten collectedPaths;
+    in
+    {
+      # 2. Return standard NixOS module structure with gathered imports
+      imports = scanDir path;
+    };
+
 }

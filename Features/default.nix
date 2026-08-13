@@ -1,4 +1,4 @@
 {
   flakeLib,
   ...
-} : flakeLib.importSubdirs ./.
+} : flakeLib.importSubdirsRec ./.
