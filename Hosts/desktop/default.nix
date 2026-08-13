@@ -5,7 +5,6 @@
 {
   imports = [
     ./hardware.nix
-    ../../Features
   ];
 
   environment.systemPackages = [

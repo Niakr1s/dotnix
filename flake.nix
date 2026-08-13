@@ -43,6 +43,7 @@
             inputs.hjem.nixosModules.default
             inputs.nvidia-pstated.nixosModules.default
             ./config.nix
+            ./modules
             ./Hosts/${hostname}
             (
               {
