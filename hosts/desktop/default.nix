@@ -19,6 +19,7 @@
   modules = {
     core = {
       user = "user";
+      headless = false;
 
       gpu = {
         intel = true;
@@ -31,10 +32,27 @@
       };
 
       cpu.intel = true;
-      zram.size = 16384;
+
+      zram = {
+        enable = true;
+        size = 16384;
+      };
     };
     features = {
+      plasma.enable = true;
+      graphicalPkgs.enable = true;
+      lspPkgs = {
+        base = true;
+        heavy = true;
+      };
       neovim.enable = true;
+      gaming = {
+        enable = true;
+        steam = true;
+        gamescope = true;
+        gamemode = true;
+      };
+      sunshine.enable = true;
       virtualization = {
         enable = true;
         libvirt.enable = true;
@@ -42,22 +60,6 @@
           enable = true;
           autostart = true;
         };
-      };
-      sunshine.enable = true;
-      graphicalPkgs.enable = true;
-      lspPkgs = {
-        base = true;
-        heavy = true;
-      };
-
-      gaming = {
-        enable = true;
-        steam = true;
-        gamescope = true;
-        gamemode = true;
-      };
-      plasma = {
-        enable = true;
       };
       llama.enable = true;
     };
