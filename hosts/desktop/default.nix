@@ -45,8 +45,10 @@
         size = 16384;
       };
     };
-    features = {
+    de = {
       plasma.enable = true;
+    };
+    features = {
       graphicalPkgs.enable = true;
       lspPkgs = {
         base = true;

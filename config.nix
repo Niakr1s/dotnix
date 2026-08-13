@@ -110,12 +110,14 @@ in
       };
     };
 
-    # ── features ────────────────────────────────────────────────────────
-    features = {
+    de = {
       plasma = {
         enable = mkEnableOption "Plasma Configuration";
       };
+    };
 
+    # ── features ────────────────────────────────────────────────────────
+    features = {
       graphicalPkgs = {
         enable = mkDisableOption "Graphical Packages";
       };
