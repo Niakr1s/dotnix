@@ -66,6 +66,15 @@ in
         intel = mkEnableOption "Intel CPU (intel_pstate)";
       };
 
+      virtualization = {
+        enable = mkEnableOption "Virtualization (libvirtd + Docker)";
+        libvirt.enable = mkEnableOption "Enable libvirt";
+        docker = {
+          enable = mkEnableOption "Enable docker";
+          autostart = mkDisableOption "Enable autostart";
+        };
+      };
+
       # Zram
       zram = {
         enable = mkEnableOption "Enable zram swap (compressed RAM swap)";
@@ -129,15 +138,6 @@ in
 
       sunshine = {
         enable = mkDisableOption "Sunshine Service";
-      };
-
-      virtualization = {
-        enable = mkEnableOption "Virtualization (libvirtd + Docker)";
-        libvirt.enable = mkEnableOption "Enable libvirt";
-        docker = {
-          enable = mkEnableOption "Enable docker";
-          autostart = mkDisableOption "Enable autostart";
-        };
       };
 
       llama = {

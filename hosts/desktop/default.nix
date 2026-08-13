@@ -31,6 +31,15 @@
 
       cpu.intel = true;
 
+      virtualization = {
+        enable = true;
+        libvirt.enable = true;
+        docker = {
+          enable = true;
+          autostart = true;
+        };
+      };
+
       zram = {
         enable = true;
         size = 16384;
@@ -51,14 +60,6 @@
         gamemode = true;
       };
       sunshine.enable = true;
-      virtualization = {
-        enable = true;
-        libvirt.enable = true;
-        docker = {
-          enable = true;
-          autostart = true;
-        };
-      };
       llama.enable = true;
     };
   };

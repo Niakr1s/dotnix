@@ -4,7 +4,7 @@
   ...
 }:
 let
-  cfg = config.modules.features.virtualization;
+  cfg = config.modules.core.virtualization;
   user = config.modules.core.user;
 in
 {
