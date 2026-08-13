@@ -67,8 +67,11 @@
     };
 
     services = {
-      sunshine.enable = true;
+      avahi.enable = true;
       llama.enable = true;
+      sunshine.enable = true;
+      syncthing.enable = true;
+      v2raya.enable = true;
     };
   };
 }

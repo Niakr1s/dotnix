@@ -140,12 +140,24 @@ in
     };
 
     services = {
+      avahi = {
+        enable = mkEnableOption "Avahi Service";
+      };
+
+      llama = {
+        enable = mkDisableOption "Llama service";
+      };
+
       sunshine = {
         enable = mkDisableOption "Sunshine Service";
       };
 
-      llama = {
-        enable = mkDisableOption "Enable llama service";
+      syncthing = {
+        enable = mkDisableOption "Syncthing Service";
+      };
+
+      v2raya = {
+        enable = mkEnableOption "v2raya Service";
       };
     };
   };
