@@ -36,6 +36,9 @@ let
 in
 {
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = [ pkginstall ];
+    environment.systemPackages = with pkgs; [
+      shadps4-qtlauncher
+      pkginstall
+    ];
   };
 }
