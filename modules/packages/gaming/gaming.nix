@@ -6,22 +6,24 @@
 }:
 let
   cfg = config.modules.packages.gaming;
+
+  link_steam_runtime_to_umu =  pkgs.writeScriptBin "link_steamruntime_to_umu" ''
+    rm -rf ~/.local/share/umu/steamrt*
+    ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime ~/.local/share/umu/steamrt1
+    ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime ~/.local/share/umu/steamrt # dunno if it with prefix 1
+    ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime_soldier ~/.local/share/umu/steamrt2
+    ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime_sniper ~/.local/share/umu/steamrt3
+    ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime_4 ~/.local/share/umu/steamrt4
+  '';
 in
 {
   config = lib.mkIf cfg.enable {
     boot.kernelModules = [ "ntsync" ];
 
     environment.systemPackages = with pkgs; [
+      link_steam_runtime_to_umu
       mangohud
       lutris
-      (pkgs.writeScriptBin "link_steamruntime_to_umu" ''
-        rm -rf ~/.local/share/umu/steamrt*
-        ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime ~/.local/share/umu/steamrt1
-        ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime ~/.local/share/umu/steamrt # dunno if it with prefix 1
-        ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime_soldier ~/.local/share/umu/steamrt2
-        ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime_sniper ~/.local/share/umu/steamrt3
-        ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime_4 ~/.local/share/umu/steamrt4
-      '')
     ];
 
     warnings = [
