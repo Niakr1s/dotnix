@@ -7,8 +7,10 @@ let
   cfg = config.modules.services.avahi;
 in
 {
-
   config = lib.mkIf cfg.enable {
+    warnings = [
+      "avahi is enabled"
+    ];
     services.avahi = {
       enable = true;
       nssmdns4 = true; # Integrates .local resolution with your system's DNS

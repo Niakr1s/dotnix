@@ -126,6 +126,37 @@ in
             clientTimeout = 600;
             healthCheckTimeout = 60;
 
+            # groups documentation
+            # swap: how members of this group swap among themselves
+            # - optional, default: true
+            # - true:  only one member runs at a time
+            # - false: all members can run together, no swapping
+            # exclusive: how this group affects other groups
+            # - optional, default: true
+            # - true:  running a member unloads every other group
+            # - false: running a member leaves other groups untouched
+            # persistent: other groups cannot unload this group's members
+            # - optional, default: false
+            # - has no effect on swapping within the group
+            groups = {
+              tiny = {
+                swap = false;
+                exclusive = true;
+                members = [
+                  "Gemma4-26B-A4B-Uncensored"
+                  "animosity_illustriousV11"
+                ];
+              };
+              huge = {
+                swap = true;
+                exclusive = true;
+                members = [
+                  "Qwen3.6-27B"
+                  "Qwen3.6-35B-A3B"
+                ];
+              };
+            };
+
             models = {
               "Gemma4-26B-A4B-Uncensored" = mkLlm {
                 model = "/data/ssd/models/LLM/HauhauCS/Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-MTP/Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-Q4_K_M.gguf";
