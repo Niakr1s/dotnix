@@ -10,10 +10,25 @@ let
   inherit (lib) mkIf concatStringsSep optionals;
   cfg = config.modules.services.llama;
 
+  port = 8080;
+
+  # this is a auxillary script to generate images using llama-swap in batches
+  imggenPkg = pkgs.writeShellApplication {
+    name = "imggen";
+    runtimeInputs = [
+      pkgs.curl
+      pkgs.jq
+      pkgs.util-linux
+      pkgs.chafa
+    ];
+    text = ''
+      export PORT="${toString port}"
+      exec ${./llama/imggen.sh} "$@"
+    '';
+  };
+
   llama-server = lib.getExe' pkgs.llama-cpp "llama-server";
   sd-server = lib.getExe' pkgs.stable-diffusion-cpp "sd-server";
-
-  port = 8080;
 
   # Common flags parsed from [*] section
   llmCommonFlags = concatStringsSep " " [
@@ -115,6 +130,7 @@ in
         environment.systemPackages = with pkgs; [
           llama-cpp
           stable-diffusion-cpp
+          imggenPkg
         ];
 
         services.llama-swap = mkIf cfg.enable {
