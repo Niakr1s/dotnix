@@ -119,6 +119,7 @@ in
 
         services.llama-swap = mkIf cfg.enable {
           enable = true;
+          listenAddress = "0.0.0.0";
           port = port;
 
           settings = {
