@@ -70,6 +70,7 @@ let
     cmake # Cross-platform build system
     gnumake # GNU Make build automation
     ninja # Small build system
+    pkg-config
   ];
 in
 {
