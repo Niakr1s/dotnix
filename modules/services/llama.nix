@@ -170,7 +170,7 @@ in
           };
         };
       }
-      (flakeLib.localhostReverseProxy "llama" port { insecureTLS = true; })
+      (flakeLib.localhostReverseProxy "llama" port { })
     ]
   );
 }
