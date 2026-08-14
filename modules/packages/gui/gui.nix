@@ -39,13 +39,28 @@ in
       hardinfo2
       handbrakePkg
       obs-studio
-      clementine
       playerctl
       qbittorrent
       gpu-viewer
       losslesscut-bin
       strawberry
       moonlight-qt
+      sqlitestudio
+      kdePackages.kdenlive # Video editing
+      audacity # Audio editing
+      tageditor # Audio tags editor
+      conjure # ImageMagick GUI
+      inkscape # Vector graphics editor
+      gimp # Professional image editor
+      telegram-desktop # Messaging app
+      remmina # Remote Desktop client (supports RDP, VNC, etc)
+      tor-browser # For onion websites
+      gprename # GUI bulk rename tool
+      bulky # GUI bulk rename tool
+      furmark # GPU stress test (verify package name)
+      zenity # GTK dialog boxes for scripts
+      yad # Yet Another Dialog (GTK/Qt)
+      dconf-editor # GSettings configuration editor
     ];
   };
 }
