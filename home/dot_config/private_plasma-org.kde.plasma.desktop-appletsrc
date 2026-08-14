@@ -40,6 +40,7 @@ popupWidth=560
 customDateFormat=dd/MM
 dateFormat=custom
 fontWeight=400
+use24hFormat=2
 
 [Containments][3][Applets][21][Configuration][ConfigDialog]
 DialogHeight=630
