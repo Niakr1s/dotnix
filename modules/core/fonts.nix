@@ -1,11 +1,7 @@
 {
-  config,
   pkgs,
   ...
 }:
-let
-  user = config.modules.core.user;
-in
 {
   # Конфигурация системных шрифтов
   fonts.packages = with pkgs; [

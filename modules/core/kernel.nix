@@ -1,8 +1,6 @@
 {
   config,
-  lib,
   pkgs,
-  inputs,
   ...
 }:
 let
@@ -10,9 +8,7 @@ let
 in
 {
   boot = {
-    kernelPackages = (
-      pkgs.linuxPackages
-    );
+    kernelPackages = (pkgs.linuxPackages);
     kernelParams =
       if cpu.amd then
         [ "amd_pstate=active" ]
