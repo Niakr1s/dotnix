@@ -17,7 +17,7 @@
   };
 
   nixConfig = {
-    extra-trusted-substituters = [
+    extra-substituters = [
       "https://cache.nixos-cuda.org"
     ];
     extra-trusted-public-keys = [
