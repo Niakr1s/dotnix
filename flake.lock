@@ -22,32 +22,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1785828668,
-        "narHash": "sha256-8fsyqeO+mJqvIzeO4xIpgJe/f7MTbbVTEC6RT6WSXNs=",
+        "lastModified": 1786535285,
+        "narHash": "sha256-rG5HKMAgAhMgydvKGtco6rqTxRq4EDZQCx9USLvVqYw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e72e4f299401a3689d4b3d5fc6496b11db7064eb",
+        "rev": "9f78f44a87948854445dae0b6bf82b2e87e4efb5",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs-master": {
-      "locked": {
-        "lastModified": 1786023240,
-        "narHash": "sha256-y2PnOPx/C6mjFOb8opGG5V6e6rvJTps5rVApeEND7Zs=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "becaf719850a8131b7f2094aeaad86b8f49b1585",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "master",
+        "ref": "nixos-26.05",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -90,7 +74,6 @@
       "inputs": {
         "hjem": "hjem",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-master": "nixpkgs-master",
         "nvidia-pstated": "nvidia-pstated"
       }
     }

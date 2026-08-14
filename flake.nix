@@ -1,18 +1,8 @@
 {
   description = "Declarating... Imperative machines...";
 
-  nixConfig = {
-    trusted-substituters = [
-      "https://cache.nixos-cuda.org"
-    ];
-    trusted-public-keys = [
-      "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
-    ];
-  };
-
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-master.url = "github:NixOS/nixpkgs/master";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
 
     hjem = {
       url = "github:feel-co/hjem";
@@ -23,6 +13,15 @@
       url = "github:sasha0552/nvidia-pstated";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+  };
+
+  nixConfig = {
+    trusted-substituters = [
+      "https://cache.nixos-cuda.org"
+    ];
+    trusted-public-keys = [
+      "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
+    ];
   };
 
   outputs =
