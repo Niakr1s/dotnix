@@ -84,6 +84,9 @@
       };
       gaming = {
         enable = true;
+        emulators = {
+          retroarch.enable = true;
+        };
       };
       lsp = {
         base = true;

@@ -133,7 +133,9 @@ in
           default = pkgs.wineWow64Packages.stagingFull;
           description = "Wine version";
         };
-        # TODO: emulators
+        emulators = {
+          retroarch.enable = disabled "Retroarch";
+        };
       };
       lsp = {
         base = enabled "Lightweight lsp packages";
