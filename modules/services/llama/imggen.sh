@@ -51,14 +51,14 @@ set -euo pipefail
 # ENVIRONMENT VARIABLES & SANE DEFAULTS
 # ==========================================
 SERVER="${SERVER:-localhost:8080}"
-MODEL="${MODEL:-animosity_illustriousV11}" 
+MODEL="${MODEL:-animosity_illustriousV11}"
 SERVER_URL="http://${SERVER}/sdapi/v1/txt2img"
 
-COUNT=${COUNT:-1}         
+COUNT=${COUNT:-1}
 STEPS=${STEPS:-28}
 WIDTH=${WIDTH:-512}
 HEIGHT=${HEIGHT:-512}
-SEED=${SEED:--1}          
+SEED=${SEED:--1}
 CFG_SCALE=${CFG_SCALE:-5.5}
 SAMPLER_NAME="${SAMPLER_NAME:-Euler a}"
 SCHEDULER="${SCHEDULER:-Normal}"
@@ -186,7 +186,7 @@ generate_image() {
 
   if [ -s "$output_file" ]; then
       echo "Success! Image generated safely and saved to: $output_file"
-      
+
       if command -v chafa &> /dev/null; then
           echo "=== Terminal Preview ==="
           chafa --size=60x30 "$output_file"
@@ -237,7 +237,7 @@ parse_prompt() {
 # Main multi-prompt entry coordinator
 generate_images() {
   local multi_prompt=()
-  
+
   # Step 1: Extract individual prompts into a clean array structure
   parse_prompt multi_prompt
 
