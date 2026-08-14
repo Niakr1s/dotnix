@@ -88,6 +88,7 @@
           retroarch.enable = true;
           nintendo-3ds.enable = true;
           nintendo-switch.enable = true;
+          sony-ps2.enable = true;
           sony-ps3.enable = true;
           sony-ps4.enable = true;
         };
