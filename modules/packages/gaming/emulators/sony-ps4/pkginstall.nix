@@ -29,7 +29,7 @@ let
 
     installPhase = ''
       mkdir -p $out/bin
-      cp PKGInstall $out/bin/
+      cp PKGInstall $out/bin/pkginstall
       chmod +x $out/bin/*
     '';
   };
