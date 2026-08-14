@@ -16,6 +16,7 @@ in
     zoxide
     direnv
     python3Packages.pygments # Добавляет утилиту pygmentize для плагина colorize
+    nix-your-shell
   ];
 
   environment.interactiveShellInit = ''
@@ -91,6 +92,10 @@ in
           "fzf"
         ];
       };
+
+      interactiveShellInit = ''
+        nix-your-shell zsh | source /dev/stdin
+      '';
     };
     zoxide = {
       enable = true;
