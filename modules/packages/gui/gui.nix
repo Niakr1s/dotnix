@@ -18,6 +18,14 @@ let
       }))
     else
       pkgs.handbrake;
+
+  obsStudioPkg =
+    if gpu.nvidia.enable then
+      pkgs.obs-studio.override {
+        cudaSupport = true;
+      }
+    else
+      pkgs.obs-studio;
 in
 {
   config = mkIf cfg.enable {
@@ -27,40 +35,79 @@ in
     };
 
     environment.systemPackages = with pkgs; [
-      mpv
-      ripdrag
-      obsidian
+      # Browser
       firefox
-      librecad
-      libreoffice
-      blender
-      keepassxc
-      cpu-x
-      hardinfo2
-      handbrakePkg
-      obs-studio
-      playerctl
+      tor-browser # For onion websites
+
+      # Internet
       qbittorrent
-      gpu-viewer
+      telegram-desktop # Messaging app
+      remmina # Remote Desktop client (supports RDP, VNC, etc)
+
+      # Video
+      mpv
       losslesscut-bin
-      strawberry
-      moonlight-qt
-      sqlitestudio
       kdePackages.kdenlive # Video editing
+      handbrakePkg # Open-source video transcoder
+
+      # Audio
+      strawberry
       audacity # Audio editing
       tageditor # Audio tags editor
+
+      # Graphics & CAD
+      librecad
       conjure # ImageMagick GUI
       inkscape # Vector graphics editor
       gimp # Professional image editor
-      telegram-desktop # Messaging app
-      remmina # Remote Desktop client (supports RDP, VNC, etc)
-      tor-browser # For onion websites
+      blender
+
+      # Office & Productivity
+      obsidian
+      libreoffice
+      sqlitestudio
+
+      # Hardware & System Monitor
+      cpu-x
+      hardinfo2
+      gpu-viewer
+      furmark # GPU stress test (verify package name)
+
+      # Secrets
+      keepassxc
+
+      # System Utilities & Configuration
+      ripdrag
       gprename # GUI bulk rename tool
       bulky # GUI bulk rename tool
-      furmark # GPU stress test (verify package name)
+      dconf-editor # GSettings configuration editor
+
+      # Development & Scripting GUIs
       zenity # GTK dialog boxes for scripts
       yad # Yet Another Dialog (GTK/Qt)
-      dconf-editor # GSettings configuration editor
+
+      # Gaming & Streaming
+      moonlight-qt
     ];
+
+    programs.obs-studio = {
+      enable = true;
+
+      # optional Nvidia hardware acceleration
+      package = obsStudioPkg;
+
+      plugins =
+        with pkgs.obs-studio-plugins;
+        [
+          wlrobs
+          obs-backgroundremoval
+          obs-pipewire-audio-capture
+          obs-gstreamer
+          obs-vkcapture
+        ]
+        ++ lib.optionals gpu.amd.enable [
+          obs-vaapi # optional AMD hardware acceleration
+        ];
+    };
   };
 }
