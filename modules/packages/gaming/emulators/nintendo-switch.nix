@@ -14,13 +14,14 @@ let
     firmware = pkgs.fetchzip {
       name = "switch-firmware";
       url = "https://github.com/THZoria/NX_Firmware/releases/download/${version}/Firmware.${version}.zip";
-      hash = "sha256-fgpBpD732embqYjDg1D6DEWfGXrbTcsXw+26rEK8xrw=";
+      hash = "sha256-1m+zEe/2LY7gg5629wyzlfBp5pq2mmtPvWOvO23lzos=";
+      stripRoot = false;
     };
     prod = pkgs.fetchzip {
       name = "switch-prod";
       url = "https://files.prodkeys.net/ProdKeys.NET-v${version}.zip";
-      stripRoot = false;
       hash = "sha256-fgpBpD732embqYjDg1D6DEWfGXrbTcsXw+26rEK8xrw=";
+      stripRoot = false;
     };
   };
   edenConfigPath = ".local/share/eden";
