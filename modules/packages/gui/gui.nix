@@ -80,5 +80,11 @@ in
       # Gaming & Streaming
       moonlight-qt
     ];
+
+    # appimage support
+    programs.appimage = {
+      enable = true;
+      binfmt = true;
+    };
   };
 }
