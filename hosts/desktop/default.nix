@@ -54,6 +54,26 @@
     packages = {
       cli = {
         nvim.enable = true;
+
+        dev = {
+          buildtools = true;
+          langs = {
+            bundles.functional = false;
+
+            cpp = true;
+            go = true;
+            haskell = false;
+            java = true;
+            lua = true;
+            node = true;
+            perl = false;
+            php = false;
+            python = true;
+            ruby = false;
+            rust = true;
+            zig = true;
+          };
+        };
       };
       gui = {
         enable = true;
