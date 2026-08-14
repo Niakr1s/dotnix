@@ -36,7 +36,6 @@
       };
 
       networking.firewall = {
-        enable = true;
         allowedTCPPorts = [
           port
         ];

@@ -7,6 +7,7 @@ let
 in
 {
   networking.networkmanager.enable = true;
+  networking.firewall.enable = true;
 
   # Disable power management/autosuspend for the faulty Bluetooth driver
   boot.extraModprobeConfig = ''
