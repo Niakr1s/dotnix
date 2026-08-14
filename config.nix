@@ -9,18 +9,12 @@ let
     mkOption
     types
     ;
-  inherit (types)
-    str
-    bool
-    int
-    enum
-    ;
 
   # Like enabled, but default is false
   disabled =
     desc:
     mkOption {
-      type = bool;
+      type = types.bool;
       default = false;
       description = desc;
     };
@@ -28,7 +22,7 @@ let
   enabled =
     desc:
     mkOption {
-      type = bool;
+      type = types.bool;
       default = true;
       description = desc;
     };
@@ -39,13 +33,13 @@ in
     core = {
       # Generic
       host = mkOption {
-        type = str;
+        type = types.str;
         default = hostname;
         readOnly = true;
         description = "Hostname (auto-set from flake)";
       };
       user = mkOption {
-        type = str;
+        type = types.str;
         default = "";
         description = "The primary user";
       };
@@ -83,7 +77,7 @@ in
       zram = {
         enable = enabled "Enable zram swap (compressed RAM swap)";
         percent = mkOption {
-          type = int;
+          type = types.int;
           default = 50;
           description = "Percentage of RAM";
         };
