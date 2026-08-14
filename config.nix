@@ -26,18 +26,10 @@ let
     };
 
   enabled =
-  desc:
-  mkOption {
-    type = bool;
-    default = true;
-    description = desc;
-  };
-
-  strOpt =
     desc:
     mkOption {
-      type = str;
-      default = "";
+      type = bool;
+      default = true;
       description = desc;
     };
 in
@@ -52,7 +44,11 @@ in
         readOnly = true;
         description = "Hostname (auto-set from flake)";
       };
-      user = strOpt "The primary user";
+      user = mkOption {
+        type = str;
+        default = "";
+        description = "The primary user";
+      };
       headless = enabled "Is the host a headless device?";
 
       # GPU
@@ -107,7 +103,7 @@ in
           enable = enabled "Neovim Configuration";
         };
         dev = {
-          buildtools =  enabled "Build tools (make, cmake, ...)";
+          buildtools = enabled "Build tools (make, cmake, ...)";
 
           langs = {
             bundles = {
