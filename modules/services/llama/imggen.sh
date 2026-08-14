@@ -65,6 +65,11 @@ SCHEDULER="${SCHEDULER:-Normal}"
 CLIP_SKIP=${CLIP_SKIP:-2}
 OUTPUT_DIR=${OUTPUT_DIR:-.}
 
+mkdir -p "$OUTPUT_DIR"
+if [[ ! $? ]]; then
+    exit 1
+fi
+
 # PROMPTS
 
 # common positive prompt
