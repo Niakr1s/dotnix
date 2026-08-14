@@ -135,6 +135,8 @@ in
         };
         emulators = {
           retroarch.enable = disabled "Retroarch";
+          nintendo-3ds.enable = disabled "Nintendo 3DS";
+          nintendo-switch.enable = disabled "Nintendo Switch";
         };
       };
       lsp = {

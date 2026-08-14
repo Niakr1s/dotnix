@@ -86,6 +86,8 @@
         enable = true;
         emulators = {
           retroarch.enable = true;
+          nintendo-3ds.enable = true;
+          nintendo-switch.enable = true;
         };
       };
       lsp = {
