@@ -42,7 +42,7 @@ Active=true
 blurEnabled=false
 diminactiveEnabled=true
 hidecursorEnabled=true
-virtualdesktopsonlyonprimaryEnabled=true
+virtualdesktopsonlyonprimaryEnabled=false
 
 [Tiling][00832976-64ec-4c0c-8aa5-4fa9b3900907][9783a55a-50b7-41b6-84c2-e0718fa0eea2]
 padding=4
