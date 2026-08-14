@@ -13,7 +13,11 @@ in
     gc = {
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than +5d";
+      options = "--delete-older-than 7d";
+    };
+    optimise = {
+      automatic = true;
+      dates = "daily";
     };
     settings = {
       auto-optimise-store = true;
