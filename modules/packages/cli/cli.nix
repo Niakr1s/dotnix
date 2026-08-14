@@ -153,6 +153,7 @@
     exiftool # application for reading, writing and editing meta information in a wide variety of files.
     perl5Packages.FileMimeInfo # mimeopen
     pciutils # lspci
+    calc # calculator
 
     ### Archiving (Ordered by format support)
     zip # zip archiver
