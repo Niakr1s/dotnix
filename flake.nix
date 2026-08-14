@@ -2,7 +2,8 @@
   description = "Declarating... Imperative machines...";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    nixpkgs.url = "nixpkgs/nixos-26.05";
+    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
 
     hjem = {
       url = "github:feel-co/hjem";
@@ -27,6 +28,7 @@
   outputs =
     inputs@{
       nixpkgs,
+      nixpkgs-unstable,
       hjem,
       nvidia-pstated,
       ...
@@ -53,11 +55,25 @@
             ./config.nix
             ./modules
             ./hosts/${hostname}
+
+            # overlays
+            ({ config, ... }: {
+              nixpkgs.overlays = [
+                (final: prev: {
+                  unstable = import nixpkgs-unstable {
+                    inherit system;
+                    config = {
+                      allowUnfree = true;
+                      cudaSupport = config.modules.core.gpu.nvidia.enable;
+                    };
+                  };
+                })
+              ];
+            })
+
+            # base config
             (
-              {
-                config,
-                ...
-              }:
+              { config, ... }:
               let
                 user = config.modules.core.user;
               in
