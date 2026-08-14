@@ -58,6 +58,19 @@
             ./modules
             ./hosts/${hostname}
 
+            # aliases
+            (
+              { lib, config, ... }:
+              let
+                user = config.modules.core.user;
+              in
+              {
+                imports = [
+                  (lib.mkAliasOptionModule [ "home" ] [ "hjem" "users" "${user}" "files" ])
+                ];
+              }
+            )
+
             # overlays
             ({ config, ... }: {
               nixpkgs.overlays = [

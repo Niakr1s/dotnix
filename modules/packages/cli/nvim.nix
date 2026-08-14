@@ -6,7 +6,6 @@
 }:
 let
   cfg = config.modules.packages.cli.nvim;
-  user = config.modules.core.user;
 
   myNvim = pkgs.neovim.override {
     configure = {
@@ -64,7 +63,6 @@ let
     "crystalline"
   ];
 
-
   lspServers = baseServers ++ heavyServers;
 
   lspList = lib.concatMapStringsSep ",\n    " (s: ''"${s}"'') lspServers;
@@ -86,15 +84,13 @@ in
       myNvim
     ];
 
-    hjem.users.${user} = {
-      xdg.config.files = {
-        "nvim/init.lua".text = ''
-          require('config')
-          require('lsp')
-        '';
-        "nvim/lua/config.lua".source = ./nvim/config.lua;
-        "nvim/lua/lsp.lua".text = lspLua;
-      };
+    home = {
+      ".config/nvim/init.lua".text = ''
+        require('config')
+        require('lsp')
+      '';
+      ".config/nvim/lua/config.lua".source = ./nvim/config.lua;
+      ".config/nvim/lua/lsp.lua".text = lspLua;
     };
   };
 }

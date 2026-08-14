@@ -2,12 +2,10 @@
   config,
   lib,
   pkgs,
-  hjem,
   ...
 }:
 let
   cfg = config.modules.packages.gaming.emulators.nintendo-switch;
-  user = config.modules.core.user;
 
   assets = rec {
     version = "22.5.0";
@@ -38,12 +36,10 @@ in
       eden
     ];
 
-    hjem.users.${user} = {
-      files = {
-        "${firmwarePath}".source = "${assets.firmware}";
-        "${keysPath}/prod.keys".source = "${assets.prod}/prod.keys";
-        "${keysPath}/title.keys".source = "${assets.prod}/title.keys";
-      };
+    home = {
+      "${firmwarePath}".source = "${assets.firmware}";
+      "${keysPath}/prod.keys".source = "${assets.prod}/prod.keys";
+      "${keysPath}/title.keys".source = "${assets.prod}/title.keys";
     };
   };
 }

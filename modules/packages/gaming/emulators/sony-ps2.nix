@@ -2,12 +2,10 @@
   config,
   lib,
   pkgs,
-  hjem,
   ...
 }:
 let
   cfg = config.modules.packages.gaming.emulators.sony-ps2;
-  user = config.modules.core.user;
 
   bios = rec {
     a = {
@@ -39,7 +37,7 @@ in
       pcsx2
     ];
 
-    hjem.users.${user}.files = {
+    home = {
       "${biosPath}/${bios.a.name}".source = bios.a.firmware;
       "${biosPath}/${bios.e.name}".source = bios.e.firmware;
     };

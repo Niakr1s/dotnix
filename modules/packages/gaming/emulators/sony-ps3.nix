@@ -2,12 +2,10 @@
   config,
   lib,
   pkgs,
-  hjem,
   ...
 }:
 let
   cfg = config.modules.packages.gaming.emulators.sony-ps3;
-  user = config.modules.core.user;
 
   firmware = pkgs.fetchurl {
     name = "ps3-firmware";
@@ -26,7 +24,7 @@ in
       rpcs3
     ];
 
-    hjem.users.${user}.files = {
+    home = {
       "${firmwarePath}".source = firmware;
     };
   };
