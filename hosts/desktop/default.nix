@@ -79,6 +79,8 @@
         enable = true;
         zed.enable = true;
         winboat.enable = true;
+        blender.enable = true;
+        obs.enable = true;
       };
       gaming = {
         enable = true;

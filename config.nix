@@ -123,6 +123,8 @@ in
         enable = disabled "GUI Packages";
         zed.enable = disabled "Zed editor";
         winboat.enable = disabled "Winboat (running windows native apps)";
+        blender.enable = disabled "Blender";
+        obs.enable = disabled "obs-studio";
       };
       gaming = {
         enable = disabled "Enable gaming bundle (steam + lutris)";

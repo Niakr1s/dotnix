@@ -52,7 +52,6 @@ in
       conjure # ImageMagick GUI
       inkscape # Vector graphics editor
       gimp # Professional image editor
-      blender
 
       # Office & Productivity
       obsidian
@@ -81,17 +80,5 @@ in
       # Gaming & Streaming
       moonlight-qt
     ];
-
-    programs.obs-studio = {
-      enable = true;
-
-      plugins = with pkgs.obs-studio-plugins; [
-        wlrobs
-        obs-backgroundremoval
-        obs-pipewire-audio-capture
-        obs-gstreamer
-        obs-vkcapture
-      ];
-    };
   };
 }
