@@ -256,9 +256,9 @@ DialogHeight=630
 DialogWidth=810
 
 [Containments][30][General]
-changedPositions={"desktop:/net.lutris.yakuza-like-a-dragon-1.desktop":["2560x1440","0","22"]}
+changedPositions={"desktop:/A Hat in Time.desktop":["2560x1440","1","22"],"desktop:/net.lutris.yakuza-like-a-dragon-1.desktop":["2560x1440","0","22"]}
 lastResolution=2560x1440
-positions={"2560x1440":["1","23","desktop:/net.lutris.yakuza-like-a-dragon-1.desktop","0","22"]}
+positions={"2560x1440":["2","23","desktop:/A Hat in Time.desktop","1","22","desktop:/net.lutris.yakuza-like-a-dragon-1.desktop","0","22"]}
 sortMode=-1
 
 [Containments][30][Wallpaper][com.plasma.wallpaper.wallhaven][General]
@@ -277,4 +277,4 @@ SlidePaths=/nix/store/yrv58jj0lv73lnrymxwq7pnpn8m046y4-breeze-6.7.3/share/wallpa
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/net.lutris.yakuza-like-a-dragon-1.desktop,0,d9256584-3e8c-4855-beae-b7a5ae5065d5
+screenMapping=desktop:/net.lutris.yakuza-like-a-dragon-1.desktop,0,d9256584-3e8c-4855-beae-b7a5ae5065d5,desktop:/A Hat in Time.desktop,0,d9256584-3e8c-4855-beae-b7a5ae5065d5
