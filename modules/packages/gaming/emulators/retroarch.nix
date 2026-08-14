@@ -11,7 +11,7 @@ in
   config = lib.mkIf cfg.enable {
 
     warnings = [
-      "Retroarch bioses download script:\ncurl -fsSL https://raw.githubusercontent.com/Abdess/retrobios/main/install.sh | sh"
+      "Retroarch bioses download script: curl -fsSL https://raw.githubusercontent.com/Abdess/retrobios/main/install.sh | sh"
     ];
 
     environment.systemPackages = with pkgs; [
