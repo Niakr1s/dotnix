@@ -121,12 +121,8 @@ in
       };
       gui = {
         enable = disabled "GUI Packages";
-        zed = {
-          enable = disabled "Zed editor";
-        };
-        winboat = {
-          enable = disabled "Winboat (running windows native apps)";
-        };
+        zed.enable = disabled "Zed editor";
+        winboat.enable = disabled "Winboat (running windows native apps)";
       };
       gaming = {
         enable = disabled "Enable gaming bundle (steam + lutris)";
