@@ -19,7 +19,7 @@ InactivityDuration=10
 
 [Effect-overview]
 BorderActivate=9
-GridBorderActivate=5
+GridBorderActivate=1,3,5,7
 
 [Effect-translucency]
 ComboboxPopups=68
@@ -31,9 +31,6 @@ IndividualMenuConfig=true
 Menus=66
 PopupMenus=74
 TornOffMenus=73
-
-[ElectricBorders]
-TopLeft=ApplicationLauncher
 
 [NightColor]
 Active=true
