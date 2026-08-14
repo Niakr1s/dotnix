@@ -40,8 +40,7 @@ in
 
   environment.shellAliases = {
     nixcd="cd /etc/nixos";
-    nixupdate="sudo nixos-rebuild --flake /etc/nixos#${host} switch";
-    nixdryupdate="nixos-rebuild --flake /etc/nixos#${host} dry-run";
+    nixup="nixos-rebuild --flake /etc/nixos#${host}";
 
     # Git
     gst="git status";
