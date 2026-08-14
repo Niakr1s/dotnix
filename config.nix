@@ -137,6 +137,7 @@ in
           retroarch.enable = disabled "Retroarch";
           nintendo-3ds.enable = disabled "Nintendo 3DS";
           nintendo-switch.enable = disabled "Nintendo Switch";
+          sony-ps3.enable = disabled "Sony PS3";
           sony-ps4.enable = disabled "Sony PS4";
         };
       };
