@@ -134,7 +134,7 @@ DialogWidth=810
 
 [Containments][3][Applets][6][Configuration][General]
 iconSpacing=0
-launchers=applications:org.kde.konsole.desktop,preferred://filemanager,preferred://browser
+launchers=applications:org.kde.konsole.desktop,preferred://filemanager,applications:dev.zed.Zed.desktop
 showOnlyCurrentActivity=false
 showOnlyCurrentDesktop=false
 
@@ -228,9 +228,14 @@ plugin=org.kde.plasma.bluetooth
 immutability=1
 plugin=org.kde.plasma.cameraindicator
 
+[Containments][3][Applets][8][ConfigDialog]
+DialogHeight=630
+DialogWidth=810
+
 [Containments][3][Applets][8][General]
 extraItems=org.kde.plasma.cameraindicator,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.plasma.notifications,org.kde.kscreen,org.kde.plasma.battery,org.kde.plasma.brightness,org.kde.plasma.keyboardindicator,org.kde.plasma.keyboardlayout,org.kde.plasma.networkmanagement,org.kde.plasma.volume,org.kde.plasma.weather,org.kde.kdeconnect,org.kde.plasma.bluetooth
 knownItems=org.kde.plasma.cameraindicator,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.plasma.notifications,org.kde.kscreen,org.kde.plasma.battery,org.kde.plasma.brightness,org.kde.plasma.keyboardindicator,org.kde.plasma.keyboardlayout,org.kde.plasma.networkmanagement,org.kde.plasma.volume,org.kde.plasma.weather,org.kde.kdeconnect,org.kde.plasma.bluetooth
+shownItems=org.kde.plasma.bluetooth
 
 [Containments][3][General]
 AppletOrder=4;6;31;7;32;26;8;21
