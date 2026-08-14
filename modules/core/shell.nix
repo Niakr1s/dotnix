@@ -71,6 +71,7 @@ in
     backup-home = "borg create --progress /data/hdd1/borg/home::{now} $HOME --exclude '*/.config/rpcs3/dev_hdd0/game/*'";
   };
 
+  users.defaultUserShell = pkgs.zsh;
   programs = {
     zsh = {
       enable = true;

@@ -1,6 +1,5 @@
 {
   config,
-  pkgs,
   ...
 }:
 let
@@ -28,7 +27,6 @@ in
     groups.${user} = { };
     users.${user} = {
       isNormalUser = true;
-      shell = pkgs.zsh;
       group = user;
       extraGroups = [
         "wheel"
