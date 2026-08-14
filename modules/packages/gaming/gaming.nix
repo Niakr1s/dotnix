@@ -7,7 +7,7 @@
 let
   cfg = config.modules.packages.gaming;
 
-  link_steam_runtime_to_umu =  pkgs.writeScriptBin "link_steamruntime_to_umu" ''
+  link_steam_runtime_to_umu = pkgs.writeScriptBin "link_steamruntime_to_umu" ''
     rm -rf ~/.local/share/umu/steamrt*
     ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime ~/.local/share/umu/steamrt1
     ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime ~/.local/share/umu/steamrt # dunno if it with prefix 1
@@ -40,9 +40,7 @@ in
 
       steam = {
         enable = true;
-        remotePlay.openFirewall = true;
         protontricks.enable = true;
-        extraCompatPackages = [ pkgs.proton-ge-bin ];
       };
     };
 
