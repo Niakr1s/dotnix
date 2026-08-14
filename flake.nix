@@ -1,6 +1,15 @@
 {
   description = "Declarating... Imperative machines...";
 
+  nixConfig = {
+    trusted-substituters = [
+      "https://cache.nixos-cuda.org"
+    ];
+    trusted-public-keys = [
+      "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
+    ];
+  };
+
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
@@ -57,6 +66,7 @@
                 config = {
                   networking.hostName = hostname;
                   system.stateVersion = stVersion;
+                  nixpkgs.config.cudaSupport = config.modules.core.gpu.nvidia.enable;
                   hjem.users.${user} = {
                     enable = true;
                     clobberFiles = true;

@@ -18,14 +18,6 @@ let
       }))
     else
       pkgs.handbrake;
-
-  obsStudioPkg =
-    if gpu.nvidia.enable then
-      pkgs.obs-studio.override {
-        cudaSupport = true;
-      }
-    else
-      pkgs.obs-studio;
 in
 {
   config = mkIf cfg.enable {
@@ -93,21 +85,13 @@ in
     programs.obs-studio = {
       enable = true;
 
-      # optional Nvidia hardware acceleration
-      package = obsStudioPkg;
-
-      plugins =
-        with pkgs.obs-studio-plugins;
-        [
-          wlrobs
-          obs-backgroundremoval
-          obs-pipewire-audio-capture
-          obs-gstreamer
-          obs-vkcapture
-        ]
-        ++ lib.optionals gpu.amd.enable [
-          obs-vaapi # optional AMD hardware acceleration
-        ];
+      plugins = with pkgs.obs-studio-plugins; [
+        wlrobs
+        obs-backgroundremoval
+        obs-pipewire-audio-capture
+        obs-gstreamer
+        obs-vkcapture
+      ];
     };
   };
 }

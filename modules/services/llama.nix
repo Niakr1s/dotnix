@@ -9,19 +9,9 @@
 let
   inherit (lib) mkIf concatStringsSep optionals;
   cfg = config.modules.services.llama;
-  gpu = config.modules.core.gpu;
 
-  llama-cpp = pkgs.llama-cpp.override {
-    cudaSupport = gpu.nvidia.enable;
-    rocmSupport = gpu.amd.enable;
-  };
-  llama-server = lib.getExe' llama-cpp "llama-server";
-
-  sd-cpp = pkgs.stable-diffusion-cpp.override {
-    cudaSupport = gpu.nvidia.enable;
-    rocmSupport = gpu.amd.enable;
-  };
-  sd-server = lib.getExe' sd-cpp "sd-server";
+  llama-server = lib.getExe' pkgs.llama-cpp "llama-server";
+  sd-server = lib.getExe' pkgs.stable-diffusion-cpp "sd-server";
 
   port = 8080;
 
@@ -122,9 +112,9 @@ in
   config = mkIf cfg.enable (
     lib.mkMerge [
       {
-        environment.systemPackages = [
+        environment.systemPackages = with pkgs; [
           llama-cpp
-          sd-cpp
+          stable-diffusion-cpp
         ];
 
         services.llama-swap = mkIf cfg.enable {

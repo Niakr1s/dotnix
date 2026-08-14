@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   flakeLib,
   ...
 }:
@@ -9,7 +8,6 @@ let
   cfg = config.modules.services.sunshine;
   port = 47989;
   guiPort = port + 1;
-  sunshinePkg = if config.modules.core.gpu.nvidia.enable then pkgs.sunshine.override { cudaSupport = true; } else pkgs.sunshine;
 in
 {
   config = lib.mkIf cfg.enable (
@@ -18,7 +16,6 @@ in
       {
         services.sunshine = {
           enable = true;
-          package = sunshinePkg;
           autoStart = true;
           openFirewall = true;
           capSysAdmin = true;
