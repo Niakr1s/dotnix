@@ -41,6 +41,13 @@ Environment Variables & Defaults:
                     [Default: masterpiece, best quality, highly detailed]
   NEGATIVE          Standard generation exclusions
                     [Default: ugly, deformed, malformed, lowres...]
+
+Resolution Guidelines:
+  Illustrious:
+    Training resolution: 1024x1024
+    Portrait: 832x1216
+    Landscape: 1216x832
+    Widescreen: 1344x768
 EOF
 }
 
