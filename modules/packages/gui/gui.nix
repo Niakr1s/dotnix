@@ -52,6 +52,8 @@ in
       conjure # ImageMagick GUI
       inkscape # Vector graphics editor
       gimp # Professional image editor
+      krita
+      xnconvert
 
       # Office & Productivity
       obsidian
