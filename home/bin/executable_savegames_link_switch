@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Script to create symlink from Eden save directory to ~/.savegames/switch
 # This allows Eden to use saves stored in ~/.savegames/switch
@@ -93,7 +93,7 @@ else
         echo "  [$((i+1))] $USER_ID"
     done
     echo ""
-    
+
     while true; do
         read -p "Select user ID (1-${#USER_DIRS[@]}): " CHOICE
         if [[ "$CHOICE" =~ ^[0-9]+$ ]] && [ "$CHOICE" -ge 1 ] && [ "$CHOICE" -le ${#USER_DIRS[@]} ]; then
