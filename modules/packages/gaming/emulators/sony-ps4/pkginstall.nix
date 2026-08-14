@@ -29,7 +29,7 @@ let
 
     installPhase = ''
       mkdir -p $out/bin
-      cp PKGInstall $out/bin/pkginstall
+      cp PKGInstall $out/bin/shadPS4pkginstall
       chmod +x $out/bin/*
     '';
   };
