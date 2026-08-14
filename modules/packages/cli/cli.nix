@@ -1,28 +1,7 @@
 {
-  config,
-  lib,
   pkgs,
   ...
 }:
-let
-  gpu = config.modules.core.gpu;
-
-  ffmpegPkg =
-    if gpu.nvidia.enable then
-      (pkgs.ffmpeg-full.override {
-        withUnfree = true; # Allow unfree dependencies (for Nvidia features notably)
-        withMetal = false; # Use Metal API on Mac. Unfree and requires manual downloading of files
-        withMfx = false; # Hardware acceleration via the deprecated intel-media-sdk/libmfx. Use oneVPL instead (enabled by default) from Intel's oneAPI.
-        withTensorflow = false; # Tensorflow dnn backend support (Increases closure size by ~390 MiB)
-        withSmallBuild = true; # Prefer binary size to performance.
-        withDebug = false; # Build using debug options
-      }).overrideAttrs
-        (_: {
-          doCheck = false;
-        })
-    else
-      pkgs.ffmpeg-full;
-in
 {
   environment.systemPackages = with pkgs; [
     ### System Monitoring & Diagnostics
@@ -104,7 +83,7 @@ in
     lolcat # Rainbow text coloring
 
     ### Video/Audio Processing
-    ffmpegPkg # Complete video/audio conversion (your custom build)
+    ffmpeg-full # Complete video/audio conversion (your custom build)
     yt-dlp # YouTube/downloader (supports 1000+ sites)
     gallery-dl # Download image galleries from websites
     ytfzf # Terminal YouTube search and player
