@@ -22,6 +22,10 @@ in
 
     environment.systemPackages = with pkgs; [
       link_steam_runtime_to_umu
+
+      cfg.wine
+      winetricks
+
       mangohud
       lutris
     ];
@@ -40,6 +44,10 @@ in
         protontricks.enable = true;
         extraCompatPackages = [ pkgs.proton-ge-bin ];
       };
+    };
+
+    environment.variables = {
+      WINE_BIN = "${cfg.wine}/bin/.wine"; # hack for winetricks
     };
   };
 }

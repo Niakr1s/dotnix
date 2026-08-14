@@ -1,5 +1,6 @@
 {
   lib,
+  pkgs,
   hostname,
   ...
 }:
@@ -110,6 +111,11 @@ in
       };
       gaming = {
         enable = mkDisableOption "Enable gaming bundle (steam + lutris)";
+        wine = mkOption {
+          type = types.package;
+          default = pkgs.wineWow64Packages.stagingFull;
+          description = "Wine version";
+        };
         # TODO: emulators
       };
       lsp = {
