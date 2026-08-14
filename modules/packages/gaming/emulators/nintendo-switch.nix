@@ -31,7 +31,7 @@ in
 {
   config = lib.mkIf cfg.enable {
     warnings = [
-      "firmware is available under ${firmwarePath}"
+      "Nintendo Switch firmware is available under ${firmwarePath}"
     ];
 
     environment.systemPackages = with pkgs; [
