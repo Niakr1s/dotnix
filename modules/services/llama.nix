@@ -108,19 +108,42 @@ let
 
   mkSD =
     {
-      model,
-      checkEndpoint ? "/",
+      model ? null, # safetensors
+      diffusion-model ? null, # gguf
+      vae ? null,
+      clip_l ? null,
+      t5xxl ? null,
     }:
     {
-      cmd = concatStringsSep " " [
-        sd-server
-        "--listen-port \${PORT}"
-        "--diffusion-fa"
-        "--vae-tiling"
-        "-m"
-        model
-      ];
-      checkEndpoint = checkEndpoint;
+      cmd = concatStringsSep " " (
+        [
+          sd-server
+          "--listen-port \${PORT}"
+          "--diffusion-fa"
+          "--vae-tiling"
+        ]
+        ++ optionals (model != null) [
+          "--model"
+          model
+        ]
+        ++ optionals (diffusion-model != null) [
+          "--diffusion-model"
+          diffusion-model
+        ]
+        ++ optionals (vae != null) [
+          "--vae"
+          vae
+        ]
+        ++ optionals (clip_l != null) [
+          "--clip_l"
+          clip_l
+        ]
+        ++ optionals (t5xxl != null) [
+          "--t5xxl"
+          t5xxl
+        ]
+      );
+      checkEndpoint = "/";
     };
 in
 {
@@ -213,6 +236,13 @@ in
 
               "animosity_illustriousV11" = mkSD {
                 model = "/data/ssd/models/checkpoints/animosity_illustriousV11.safetensors";
+              };
+
+              "flux1.dev" = mkSD {
+                diffusion-model = "/data/ssd/models/unet/ggufFluxUnchained_q41V2/ggufFluxUnchained_q41V2.gguf";
+                vae = "/data/ssd/models/vae/ae.safetensors";
+                clip_l = "/data/ssd/models/clip/clip_l.safetensors";
+                t5xxl = "/data/ssd/models/text_encoders/t5xxl-Q4_0.gguf";
               };
             };
           };
