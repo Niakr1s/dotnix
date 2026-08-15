@@ -61,7 +61,14 @@ set -euo pipefail
 # ==========================================
 # ENVIRONMENT VARIABLES & SANE DEFAULTS
 # ==========================================
-MODEL="${MODEL:-animosity_illustriousV11}"
+MODEL="${MODEL:-}"
+
+if [[ -z "$MODEL" ]]; then
+    echo "MODEL not provided"
+    usage
+    exit 1
+fi
+
 SERVER="${SERVER:-localhost:8080}"
 SERVER_URL="http://${SERVER}/sdapi/v1/txt2img"
 
