@@ -96,7 +96,6 @@ preset() {
             CLIP="${CLIP:-2}"
         ;;
         flux1)
-            echo "in flux"
             SAMPLER="${SAMPLER:-Euler}"
             SCHEDULER="${SCHEDULER:-Discrete}"
             STEPS="${STEPS:-28}"
@@ -179,31 +178,8 @@ SEP="----------------------------------------"
 # GENERATION ENGINE FUNCTION
 # ==========================================
 generate_image() {
-  local prompt=$1
-
-  local uuid
-  uuid=$(uuidgen -7)
-  local output_file="$OUT/generated_${uuid}.png"
-  output_file=$(realpath "$output_file")
-
-  echo $SEP
-  echo " MODEL:        $MODEL"
-  echo " SERVER:       $SERVER"
-  echo " WIDTH:        $WIDTH"
-  echo " HEIGHT:       $HEIGHT"
-  echo " SAMPLER:      $SAMPLER"
-  echo " SCHEDULER:    $SCHEDULER"
-  echo " STEPS:        $STEPS"
-  echo " CFG:          $CFG"
-  echo " CLIP:         $CLIP"
-  echo $SEP
-  echo " Prompts:"
-  echo "   Negative: $NEGATIVE"
-  echo "   Positive: $POSITIVE"
-  echo "   Provided: $prompt"
-  echo $SEP
-  echo " Output:  $output_file"
-  echo $SEP
+  local prompt="$1"
+  local output_file="$2"
 
   local json_payload
   json_payload=$(jq -n \
@@ -234,7 +210,6 @@ generate_image() {
      }
   ')
 
-  echo "Requesting generation from llama-swap..."
   local response
   response=$(curl -s -X POST "$SERVER_URL" \
     -H "Content-Type: application/json" \
@@ -249,18 +224,7 @@ generate_image() {
   # Extract the base64 string from the "images" array index 0 and decode it
   echo "$response" | jq -r '.images[0]' | base64 --decode > "$output_file"
 
-  if [ -s "$output_file" ]; then
-      echo "Success! Image generated safely and saved to: $output_file"
 
-      if command -v chafa &> /dev/null; then
-          echo "=== Terminal Preview ==="
-          chafa --size=60x30 "$output_file"
-          echo "========================"
-      fi
-  else
-      echo "Error: Output file is empty. Generation failed."
-      exit 1
-  fi
 }
 
 # Parses global $PROMPT and populates a target array passed by reference
@@ -299,6 +263,14 @@ parse_prompt() {
   fi
 }
 
+generate_output_filepath() {
+  local uuid
+  uuid=$(uuidgen -7)
+  local output_file="$OUT/generated_${uuid}.png"
+  output_file=$(realpath "$output_file")
+  echo "$output_file"
+}
+
 # Main multi-prompt entry coordinator
 generate_images() {
   local multi_prompt=()
@@ -307,14 +279,49 @@ generate_images() {
   parse_prompt multi_prompt
 
   # Step 2: Loop through the parsed array elements and fire batch commands
+  echo $SEP
+  echo " MODEL:        $MODEL"
+  echo " SERVER:       $SERVER"
+  echo " WIDTH:        $WIDTH"
+  echo " HEIGHT:       $HEIGHT"
+  echo " SAMPLER:      $SAMPLER"
+  echo " SCHEDULER:    $SCHEDULER"
+  echo " STEPS:        $STEPS"
+  echo " CFG:          $CFG"
+  echo " CLIP:         $CLIP"
+  echo ""
+  echo " NEGATIVE: $NEGATIVE"
+  echo " POSITIVE: $POSITIVE"
+  echo $SEP
+
   local i=1
   while [ "$i" -le "$COUNT" ]; do
     for index in "${!multi_prompt[@]}"; do
+      local prompt
+      prompt="${multi_prompt[$index]}"
+      local output_filepath
+      output_filepath="$(generate_output_filepath)"
+
+      generate_image "$prompt" "$output_filepath"
+
+      if [ ! -s "$output_filepath" ]; then
+          echo "Error: Output file is empty. Generation failed."
+          exit 1
+      fi
+
       echo $SEP
+      echo " Prompt: $prompt"
+      echo ""
       echo " Generation:        [$i / $COUNT]"
       echo " Progress:          [$((index + 1)) / ${#multi_prompt[@]}]"
-      generate_image "${multi_prompt[$index]}"
+      echo " Output: $output_filepath"
+      if command -v chafa &> /dev/null; then
+          echo ""
+          chafa --size=60x30 "$output_filepath"
+      fi
+      echo $SEP
     done
+
     i=$((i + 1))
   done
 }
