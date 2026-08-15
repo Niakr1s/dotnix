@@ -25,22 +25,26 @@ Available Flags:
   --with_face        Appends highly detailed face/eyes features
 
 Environment Variables & Defaults:
-  SERVER            Host address ($SERVER_URL variant) [Default: localhost:8080]
   MODEL             Target AI generation route name    [Default: animosity_illustriousV11]
-  OUTPUT_DIR        Output directory                   [Default: .]
-  COUNT             Number of sequential runs to queue [Default: 1]
-  CLIP_SKIP         CLIP text processing layer skip    [Default: 2]
-  STEPS             Generation inference passes        [Default: 28]
+  SERVER            Host address                       [Default: localhost:8080]
+
   WIDTH / HEIGHT    Output dimensions                  [Default: 512x512]
-  SEED              Target entropy seed (-1 is random) [Default: -1]
-  CFG_SCALE         Classifier-Free Guidance weight    [Default: 5.5]
+
   SAMPLER_NAME      Target sampling algorithm          [Default: Euler a]
   SCHEDULER         Noise scheduling algorithm         [Default: Normal]
 
-  POSITIVE          Pre-concatenated styling wrapper
-                    [Default: masterpiece, best quality, highly detailed]
+  STEPS             Generation inference passes        [Default: 28]
+  CFG_SCALE         Classifier-Free Guidance weight    [Default: 5.5]
+  CLIP_SKIP         CLIP text processing layer skip    [Default: 2]
+  SEED              Target entropy seed (-1 is random) [Default: -1]
+
+  OUTPUT_DIR        Output directory                   [Default: .]
+  COUNT             Number of sequential runs to queue [Default: 1]
+
   NEGATIVE          Standard generation exclusions
                     [Default: ugly, deformed, malformed, lowres...]
+  POSITIVE          Pre-concatenated styling wrapper
+                    [Default: masterpiece, best quality, highly detailed]
 
 Resolution Guidelines:
   Illustrious:
@@ -61,16 +65,19 @@ MODEL="${MODEL:-animosity_illustriousV11}"
 SERVER="${SERVER:-localhost:8080}"
 SERVER_URL="http://${SERVER}/sdapi/v1/txt2img"
 
-COUNT=${COUNT:-1}
-STEPS=${STEPS:-28}
 WIDTH=${WIDTH:-512}
 HEIGHT=${HEIGHT:-512}
-SEED=${SEED:--1}
-CFG_SCALE=${CFG_SCALE:-5.5}
+
 SAMPLER_NAME="${SAMPLER_NAME:-Euler a}"
 SCHEDULER="${SCHEDULER:-Normal}"
+
+STEPS=${STEPS:-28}
+CFG_SCALE=${CFG_SCALE:-5.5}
 CLIP_SKIP=${CLIP_SKIP:-2}
+SEED=${SEED:--1}
+
 OUTPUT_DIR=${OUTPUT_DIR:-.}
+COUNT=${COUNT:-1}
 
 mkdir -p "$OUTPUT_DIR"
 if [[ ! $? ]]; then
@@ -153,30 +160,30 @@ generate_image() {
   local json_payload
   json_payload=$(jq -n \
     --arg m "$MODEL" \
-    --arg p "$POSITIVE, $prompt" \
-    --arg np "$NEGATIVE" \
+    --argjson w "$WIDTH" \
+    --argjson h "$HEIGHT" \
     --arg s "$SAMPLER_NAME" \
     --arg sch "$SCHEDULER" \
     --argjson st "$STEPS" \
-    --argjson w "$WIDTH" \
-    --argjson h "$HEIGHT" \
-    --argjson sd "$SEED" \
     --argjson cfg "$CFG_SCALE" \
     --argjson cs "$CLIP_SKIP" \
+    --argjson sd "$SEED" \
+    --arg np "$NEGATIVE" \
+    --arg p "$POSITIVE, $prompt" \
     '{
       model: $m,
-      prompt: $p,
-      negative_prompt: $np,
-      steps: $st,
       width: $w,
       height: $h,
-      seed: $sd,
-      cfg_scale: $cfg,
       sampler_name: $s,
       scheduler: $sch,
+      steps: $st,
+      cfg_scale: $cfg,
       override_settings: {
         CLIP_stop_at_last_layers: $cs
       }
+      seed: $sd,
+      negative_prompt: $np,
+      prompt: $p,
      }
   ')
 
