@@ -32,7 +32,7 @@ Environment Variables & Defaults:
 
   WIDTH / HEIGHT    Output dimensions                  [Default: 512x512]
 
-  SAMPLER_NAME      Target sampling algorithm          [Default: Euler a]
+  SAMPLER           Target sampling algorithm          [Default: Euler a]
   SCHEDULER         Noise scheduling algorithm         [Default: Normal]
 
   STEPS             Generation inference passes        [Default: 28]
@@ -75,7 +75,7 @@ SERVER_URL="http://${SERVER}/sdapi/v1/txt2img"
 WIDTH=${WIDTH:-512}
 HEIGHT=${HEIGHT:-512}
 
-SAMPLER_NAME="${SAMPLER_NAME:-Euler a}"
+SAMPLER="${SAMPLER:-Euler a}"
 SCHEDULER="${SCHEDULER:-Normal}"
 
 STEPS=${STEPS:-28}
@@ -147,7 +147,7 @@ generate_image() {
   echo " SERVER:       $SERVER"
   echo " WIDTH:        $WIDTH"
   echo " HEIGHT:       $HEIGHT"
-  echo " SAMPLER_NAME: $SAMPLER_NAME"
+  echo " SAMPLER:      $SAMPLER"
   echo " SCHEDULER:    $SCHEDULER"
   echo " STEPS:        $STEPS"
   echo " CFG_SCALE:    $CFG_SCALE"
@@ -167,7 +167,7 @@ generate_image() {
     --arg m "$MODEL" \
     --argjson w "$WIDTH" \
     --argjson h "$HEIGHT" \
-    --arg s "$SAMPLER_NAME" \
+    --arg s "$SAMPLER" \
     --arg sch "$SCHEDULER" \
     --argjson st "$STEPS" \
     --argjson cfg "$CFG_SCALE" \
