@@ -37,13 +37,11 @@ Environment Variables & Defaults:
   WIDTH / W         Output image width                 [Default: 512]
   HEIGHT / H        Output image height                [Default: 512]
 
-  SAMPLER           Target sampling algorithm          [Default: Euler a]
-  SCHEDULER         Noise scheduling algorithm         [Default: Normal]
-  STEPS             Generation inference passes        [Default: 28]
-  CFG               Classifier-Free Guidance weight    [Default: 5.5]
-  CLIP              CLIP text processing layer skip    [Default: 2]
-
-  SEED              Target entropy seed (-1 is random) [Default: -1]
+  SAMPLER           Target sampling algorithm
+  SCHEDULER         Noise scheduling algorithm
+  STEPS             Generation inference passes
+  CFG               Classifier-Free Guidance weight
+  CLIP              CLIP text processing layer skip
 
   OUT               Output directory                   [Default: ~/Pictures/imggen]
   COUNT             Number of sequential runs to queue [Default: 1]
@@ -113,8 +111,6 @@ preset() {
     esac
     PRESET_SET=true
 }
-
-SEED=${SEED:--1}
 
 NEGATIVE="${NEGATIVE:-}"
 POSITIVE="${POSITIVE:-}"
@@ -201,7 +197,6 @@ generate_image() {
   echo " STEPS:        $STEPS"
   echo " CFG:          $CFG"
   echo " CLIP:         $CLIP"
-  echo " SEED:         $SEED"
   echo $SEP
   echo " Prompts:"
   echo " Negative: $NEGATIVE"
@@ -221,7 +216,6 @@ generate_image() {
     --argjson st "$STEPS" \
     --argjson cfg "$CFG" \
     --argjson cs "$CLIP" \
-    --argjson sd "$SEED" \
     --arg np "$NEGATIVE" \
     --arg p "$POSITIVE, $prompt" \
     '{
@@ -235,7 +229,7 @@ generate_image() {
       override_settings: {
         CLIP_stop_at_last_layers: $cs
       },
-      seed: $sd,
+      seed: -1,
       negative_prompt: $np,
       prompt: $p
      }
