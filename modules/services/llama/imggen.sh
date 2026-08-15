@@ -80,7 +80,6 @@ HEIGHT=${HEIGHT:-${H:-512}}
 
 PRESET_SET=false
 preset() {
-    echo "inside preset: $1"
     case "$1" in
         default)
             SAMPLER="${SAMPLER:-Euler a}"
