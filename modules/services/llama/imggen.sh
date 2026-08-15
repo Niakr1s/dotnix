@@ -57,8 +57,8 @@ set -euo pipefail
 # ==========================================
 # ENVIRONMENT VARIABLES & SANE DEFAULTS
 # ==========================================
-SERVER="${SERVER:-localhost:8080}"
 MODEL="${MODEL:-animosity_illustriousV11}"
+SERVER="${SERVER:-localhost:8080}"
 SERVER_URL="http://${SERVER}/sdapi/v1/txt2img"
 
 COUNT=${COUNT:-1}
@@ -131,19 +131,23 @@ generate_image() {
   output_file=$(realpath "$output_file")
 
   echo $SEP
-  echo " Target Model:      $MODEL"
-  echo " Server Target:     $SERVER"
-  echo " Resolution:        ${WIDTH}x${HEIGHT}"
-  echo " Sampler/Scheduler: $SAMPLER_NAME ($SCHEDULER)"
-  echo " Steps / CFG:       $STEPS / $CFG_SCALE"
-  echo " Clip Skip:         $CLIP_SKIP"
-  echo " Seed Token:        $SEED"
-  echo " File Tracker:      $output_file"
+  echo " MODEL:        $MODEL"
+  echo " SERVER:       $SERVER"
+  echo " WIDTH:        $WIDTH"
+  echo " HEIGHT:       $HEIGHT"
+  echo " SAMPLER_NAME: $SAMPLER_NAME"
+  echo " SCHEDULER:    $SCHEDULER"
+  echo " STEPS:        $STEPS"
+  echo " CFG_SCALE:    $CFG_SCALE"
+  echo " CLIP_SKIP:    $CLIP_SKIP"
+  echo " SEED:         $SEED"
   echo $SEP
   echo " Prompts:"
   echo " Negative: $NEGATIVE"
   echo " Positive: $POSITIVE"
   echo " Provided: $prompt"
+  echo $SEP
+  echo " Output:  $output_file"
   echo $SEP
 
   local json_payload
