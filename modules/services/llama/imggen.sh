@@ -302,6 +302,13 @@ generate_images() {
       local output_filepath
       output_filepath="$(generate_output_filepath)"
 
+      echo $SEP
+      echo " Batch:    [$i / $COUNT]"
+      echo " Prompt:   [$((index + 1)) / ${#multi_prompt[@]}]"
+      echo ""
+      echo " Generating: $prompt"
+      echo ""
+
       generate_image "$prompt" "$output_filepath"
 
       if [ ! -s "$output_filepath" ]; then
@@ -309,11 +316,6 @@ generate_images() {
           exit 1
       fi
 
-      echo $SEP
-      echo " Prompt: $prompt"
-      echo ""
-      echo " Generation:        [$i / $COUNT]"
-      echo " Progress:          [$((index + 1)) / ${#multi_prompt[@]}]"
       echo " Output: $output_filepath"
       if command -v chafa &> /dev/null; then
           echo ""
