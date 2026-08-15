@@ -231,14 +231,27 @@ generate_image() {
 parse_prompt() {
   local -n target_array=$1  # Bash reference to the array variable passed in
   local current_buffer=""
+  local skipping=0          # State flag: 1 means we are discarding text
 
   while IFS= read -r line || [ -n "$line" ]; do
-    # Skip any line that starts with '#' (ignoring optional leading whitespace)
+    # Check for the block ignore comment '###'
+    if [[ "$line" =~ ^[[:space:]]*### ]]; then
+      skipping=1
+      continue
+    fi
+
+    # Skip any line that starts with single '#' (ignoring optional leading whitespace)
     if [[ "$line" =~ ^[[:space:]]*# ]]; then
       continue
     fi
 
     if [[ "$line" =~ ^[[:space:]]*--- ]]; then
+      # If we were skipping, the delimiter stops the block skip
+      if [ "$skipping" -eq 1 ]; then
+        skipping=0
+        continue
+      fi
+
       # Strip spaces and append non-empty buffers to our array
       local clean_prompt
       clean_prompt=$(echo "$current_buffer" | xargs)
@@ -247,6 +260,11 @@ parse_prompt() {
       fi
       current_buffer=""
     else
+      # If we are inside a ### block, do not accumulate text
+      if [ "$skipping" -eq 1 ]; then
+        continue
+      fi
+
       if [ -z "$current_buffer" ]; then
         current_buffer="$line"
       else
@@ -256,10 +274,13 @@ parse_prompt() {
   done <<< "$PROMPT"
 
   # Don't forget the last tracked prompt remaining in the buffer stream
-  local clean_final
-  clean_final=$(echo "$current_buffer" | xargs)
-  if [ -n "$clean_final" ]; then
-    target_array+=("$clean_final")
+  # Only append if we didn't end the file while in a skipped block
+  if [ "$skipping" -eq 0 ]; then
+    local clean_final
+    clean_final=$(echo "$current_buffer" | xargs)
+    if [ -n "$clean_final" ]; then
+      target_array+=("$clean_final")
+    fi
   fi
 }
 
