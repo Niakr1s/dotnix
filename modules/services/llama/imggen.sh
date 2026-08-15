@@ -41,7 +41,7 @@ Environment Variables & Defaults:
   CLIP              CLIP text processing layer skip    [Default: 2]
   SEED              Target entropy seed (-1 is random) [Default: -1]
 
-  OUTPUT_DIR        Output directory                   [Default: .]
+  OUTPUT_DIR        Output directory                   [Default: ~/Pictures/imggen]
   COUNT             Number of sequential runs to queue [Default: 1]
 
   NEGATIVE          Standard generation exclusions
