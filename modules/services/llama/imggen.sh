@@ -21,6 +21,8 @@ Interactive Input:
 
 Available Flags:
   -h, --help        Show this help message and exit
+  --neg             Appends sane defaults negatives
+  --pos              Appends sane defaults positives
   --with_no-people   Appends human/crowd exclusions
   --with_face        Appends highly detailed face/eyes features
 
@@ -89,14 +91,6 @@ if [[ ! $? ]]; then
     exit 1
 fi
 
-# PROMPTS
-
-# common positive prompt
-POSITIVE="${POSITIVE:-masterpiece, best quality, ultra high res, 8k resolution, highly detailed}"
-
-# common negative prompt
-NEGATIVE="${NEGATIVE:-ugly, deformed, malformed, lowres, mutant, mutated, disfigured, compressed, noise, artifacts, dithering, simple, watermark, text, font, signage, collage, pixel}"
-
 while [ $# -gt 0 ]; do
   case "$1" in
     -h|--help)
@@ -105,6 +99,12 @@ while [ $# -gt 0 ]; do
       ;;
 
     # PROMPTS
+    --neg)
+      NEGATIVE="${NEGATIVE}, ugly, deformed, malformed, lowres, mutant, mutated, disfigured, compressed, noise, artifacts, dithering, simple, watermark, text, font, signage, collage, pixel"
+      ;;
+    --pos)
+      POSITIVE="${POSITIVE}, masterpiece, best quality, ultra high res, 8k resolution, highly detailed"
+      ;;
     --with_no-people)
       NEGATIVE="${NEGATIVE}, (human, person, people, crowd:1.4), (man, woman:1.3)"
       shift
