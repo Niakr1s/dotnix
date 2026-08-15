@@ -20,8 +20,9 @@ Interactive Input:
   echo "my prompt" | $0  -> Pipe text directly via stdin
 
 Available Flags:
-  -h, --help        Show this help message and exit
-  --neg             Appends sane defaults negatives
+  -h, --help         Show this help message and exit
+Prompts:
+  --neg              Appends sane defaults negatives
   --pos              Appends sane defaults positives
   --with_no-people   Appends human/crowd exclusions
   --with_face        Appends highly detailed face/eyes features
