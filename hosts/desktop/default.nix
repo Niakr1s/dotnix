@@ -102,6 +102,7 @@
     services = {
       avahi.enable = true;
       llama.enable = true;
+      comfyui.enable = true;
       sunshine.enable = true;
       syncthing.enable = true;
       v2raya.enable = true;

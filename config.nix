@@ -157,6 +157,10 @@ in
         enable = disabled "Llama service";
       };
 
+      comfyui = {
+        enable = disabled "Comfyui service";
+      };
+
       sunshine = {
         enable = disabled "Sunshine Service";
       };
