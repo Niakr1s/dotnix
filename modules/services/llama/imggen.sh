@@ -36,7 +36,7 @@ Environment Variables & Defaults:
   SCHEDULER         Noise scheduling algorithm         [Default: Normal]
 
   STEPS             Generation inference passes        [Default: 28]
-  CFG_SCALE         Classifier-Free Guidance weight    [Default: 5.5]
+  CFG               Classifier-Free Guidance weight    [Default: 5.5]
   CLIP              CLIP text processing layer skip    [Default: 2]
   SEED              Target entropy seed (-1 is random) [Default: -1]
 
@@ -79,7 +79,7 @@ SAMPLER="${SAMPLER:-Euler a}"
 SCHEDULER="${SCHEDULER:-Normal}"
 
 STEPS=${STEPS:-28}
-CFG_SCALE=${CFG_SCALE:-5.5}
+CFG=${CFG:-5.5}
 CLIP=${CLIP:-2}
 SEED=${SEED:--1}
 
@@ -150,7 +150,7 @@ generate_image() {
   echo " SAMPLER:      $SAMPLER"
   echo " SCHEDULER:    $SCHEDULER"
   echo " STEPS:        $STEPS"
-  echo " CFG_SCALE:    $CFG_SCALE"
+  echo " CFG:          $CFG"
   echo " CLIP:         $CLIP"
   echo " SEED:         $SEED"
   echo $SEP
@@ -170,7 +170,7 @@ generate_image() {
     --arg s "$SAMPLER" \
     --arg sch "$SCHEDULER" \
     --argjson st "$STEPS" \
-    --argjson cfg "$CFG_SCALE" \
+    --argjson cfg "$CFG" \
     --argjson cs "$CLIP" \
     --argjson sd "$SEED" \
     --arg np "$NEGATIVE" \
