@@ -1,5 +1,11 @@
 [Applications][firefox]
 Seen=true
 
+[Applications][io.gitlab.theevilskeleton.Upscaler]
+Seen=true
+
+[Applications][upscayl]
+Seen=true
+
 [Notifications]
 PopupPosition=TopRight

@@ -3,5 +3,8 @@ MenuBar=Disabled
 [General]
 ConfigVersion=1
 
+[Notification Messages]
+CloseAllTabs=true
+
 [UiSettings]
 ColorScheme=

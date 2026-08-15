@@ -4,13 +4,13 @@
       "enabled": true,
       "remote": false,
       "command": "mcp-nixos",
-      "args": []
-    }
+      "args": [],
+    },
   },
   "language_models": {
     "llama.cpp": {
-        "api_url": "http://localhost:8080",
-        "auto_discover": true,
+      "api_url": "http://localhost:8080",
+      "auto_discover": true,
     },
   },
   "show_signature_help_after_edits": true,
@@ -44,14 +44,14 @@
         "terminal": {
           "always_allow": [
             {
-              "pattern": "^ls\\b"
-            }
-          ]
+              "pattern": "^ls\\b",
+            },
+          ],
         },
         "mcp:mcp-server-context7:query-docs": {
-          "default": "allow"
-        }
-      }
+          "default": "allow",
+        },
+      },
     },
     "default_model": {
       "enable_thinking": true,
@@ -64,6 +64,9 @@
   "gutter": { "line_numbers": true },
   "vim_mode": true,
   "buffer_font_family": ".ZedMono",
+  "buffer_font_features": {
+    "calt": false,
+  },
   "auto_update": false,
   "telemetry": {
     "diagnostics": false,
