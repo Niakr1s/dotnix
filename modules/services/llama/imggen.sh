@@ -34,7 +34,8 @@ Environment Variables & Defaults:
   MODEL             Target AI generation route name    [Default: animosity_illustriousV11]
   SERVER            Host address                       [Default: localhost:8080]
 
-  WIDTH / HEIGHT    Output dimensions                  [Default: 512x512]
+  WIDTH / W         Output image width                 [Default: 512]
+  HEIGHT / H        Output image height                [Default: 512]
 
   SAMPLER           Target sampling algorithm          [Default: Euler a]
   SCHEDULER         Noise scheduling algorithm         [Default: Normal]
@@ -76,8 +77,8 @@ fi
 SERVER="${SERVER:-localhost:8080}"
 SERVER_URL="http://${SERVER}/sdapi/v1/txt2img"
 
-WIDTH=${WIDTH:-512}
-HEIGHT=${HEIGHT:-512}
+WIDTH=${WIDTH:-${W:-512}}
+HEIGHT=${HEIGHT:-${H:-512}}
 
 PRESET_SET=false
 preset() {
