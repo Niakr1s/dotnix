@@ -66,6 +66,7 @@ set -euo pipefail
 # ==========================================
 # ENVIRONMENT VARIABLES & SANE DEFAULTS
 # ==========================================
+MODEL="${MODEL:-}"
 if [[ -z "$MODEL" ]]; then
     echo "MODEL not provided"
     usage
@@ -348,7 +349,7 @@ generate_images() {
       echo " Output: $output_filepath"
       if command -v chafa &> /dev/null; then
           echo ""
-          chafa --size=60x30 "$output_filepath"
+          chafa --size=120x60 "$output_filepath"
       fi
       echo $SEP
     done
