@@ -26,6 +26,9 @@ Prompts:
   --pos              Appends sane defaults positives
   --with_no-people   Appends human/crowd exclusions
   --with_face        Appends highly detailed face/eyes features
+Preset:
+  --preset [ sdxl | flux1 ]
+    Set preconfigured values (SAMPLER, SCHEDULER, STEPS, CFG, CLIP)
 
 Environment Variables & Defaults:
   MODEL             Target AI generation route name    [Default: animosity_illustriousV11]
@@ -35,10 +38,10 @@ Environment Variables & Defaults:
 
   SAMPLER           Target sampling algorithm          [Default: Euler a]
   SCHEDULER         Noise scheduling algorithm         [Default: Normal]
-
   STEPS             Generation inference passes        [Default: 28]
   CFG               Classifier-Free Guidance weight    [Default: 5.5]
   CLIP              CLIP text processing layer skip    [Default: 2]
+
   SEED              Target entropy seed (-1 is random) [Default: -1]
 
   OUT               Output directory                   [Default: ~/Pictures/imggen]
@@ -76,13 +79,44 @@ SERVER_URL="http://${SERVER}/sdapi/v1/txt2img"
 WIDTH=${WIDTH:-512}
 HEIGHT=${HEIGHT:-512}
 
-SAMPLER="${SAMPLER:-Euler a}"
-SCHEDULER="${SCHEDULER:-Normal}"
+PRESET_SET=false
+preset() {
+    echo "inside preset: $1"
+    case "$1" in
+        default)
+            SAMPLER="${SAMPLER:-Euler a}"
+            SCHEDULER="${SCHEDULER:-Discrete}"
+            STEPS="${STEPS:-20}"
+            CFG="${CFG:-7.0}"
+            CLIP="${CLIP:-0}"
+        ;;
+        sdxl)
+            SAMPLER="${SAMPLER:-Euler a}"
+            SCHEDULER="${SCHEDULER:-Normal}"
+            STEPS="${STEPS:-28}"
+            CFG="${CFG:-5.5}"
+            CLIP="${CLIP:-2}"
+        ;;
+        flux1)
+            echo "in flux"
+            SAMPLER="${SAMPLER:-Euler}"
+            SCHEDULER="${SCHEDULER:-Discrete}"
+            STEPS="${STEPS:-28}"
+            CFG="${CFG:-1.0}"
+            CLIP="${CLIP:-0}"
+        ;;
+        *)
+            echo "Error: unkown preset"
+            useage
+            exit 1
+    esac
+    PRESET_SET=true
+}
 
-STEPS=${STEPS:-28}
-CFG=${CFG:-5.5}
-CLIP=${CLIP:-2}
 SEED=${SEED:--1}
+
+NEGATIVE="${NEGATIVE:-}"
+POSITIVE="${POSITIVE:-}"
 
 OUT=${OUT:-~/Pictures/imggen}
 COUNT=${COUNT:-1}
@@ -99,12 +133,21 @@ while [ $# -gt 0 ]; do
       exit 0
       ;;
 
+    # PRESET
+    --preset)
+      shift
+      preset "$1"
+      shift
+      ;;
+
     # PROMPTS
     --neg)
       NEGATIVE="${NEGATIVE}, ugly, deformed, malformed, lowres, mutant, mutated, disfigured, compressed, noise, artifacts, dithering, simple, watermark, text, font, signage, collage, pixel"
+      shift
       ;;
     --pos)
       POSITIVE="${POSITIVE}, masterpiece, best quality, ultra high res, 8k resolution, highly detailed"
+      shift
       ;;
     --with_no-people)
       NEGATIVE="${NEGATIVE}, (human, person, people, crowd:1.4), (man, woman:1.3)"
@@ -123,6 +166,10 @@ while [ $# -gt 0 ]; do
       ;;
   esac
 done
+
+if [ "$PRESET_SET" != true ]; then
+    preset "default"
+fi
 
 # positive prompt, provided by user via standard input
 if [ -t 0 ]; then
