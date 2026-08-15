@@ -187,10 +187,10 @@ generate_image() {
       cfg_scale: $cfg,
       override_settings: {
         CLIP_stop_at_last_layers: $cs
-      }
+      },
       seed: $sd,
       negative_prompt: $np,
-      prompt: $p,
+      prompt: $p
      }
   ')
 
