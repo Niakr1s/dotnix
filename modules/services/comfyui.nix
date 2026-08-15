@@ -77,7 +77,9 @@ in
 
           volumes = (map (m: "${m.host}:${m.container}") mappings);
           devices = lib.mkIf gpu.nvidia.enable [ "nvidia.com/gpu=all" ];
-          ports = [ "${toString port}:${toString port}" ];
+
+          extraOptions = [ "--network=host" ];
+          # ports = [ "${toString port}:${toString port}" ];
         };
 
         networking.firewall = {
