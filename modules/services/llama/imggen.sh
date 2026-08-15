@@ -229,53 +229,60 @@ generate_image() {
 
 # Parses global $PROMPT and populates a target array passed by reference
 parse_prompt() {
-  local -n target_array=$1  # Bash reference to the array variable passed in
+  local -n target_array=$1
   local current_buffer=""
-  local skipping=0          # State flag: 1 means we are discarding text
+  local skipping=false
 
   while IFS= read -r line || [ -n "$line" ]; do
-    # Check for the block ignore comment '###'
-    if [[ "$line" =~ ^[[:space:]]*### ]]; then
-      skipping=1
-      continue
-    fi
-
-    # Skip any line that starts with single '#' (ignoring optional leading whitespace)
-    if [[ "$line" =~ ^[[:space:]]*# ]]; then
-      continue
-    fi
-
+    # If we encounter a delimiter, reset skipping state and handle the buffer
     if [[ "$line" =~ ^[[:space:]]*--- ]]; then
-      # If we were skipping, the delimiter stops the block skip
-      if [ "$skipping" -eq 1 ]; then
-        skipping=0
-        continue
+      # Only save the buffer if we weren't just in a skip block
+      if [ "$skipping" = false ]; then
+        local clean_prompt
+        clean_prompt=$(echo "$current_buffer" | xargs)
+        if [ -n "$clean_prompt" ]; then
+          target_array+=("$clean_prompt")
+        fi
       fi
+      skipping=false
+      current_buffer=""
+      continue
+    fi
 
-      # Strip spaces and append non-empty buffers to our array
+    # If currently in a skip block, ignore the line
+    if [ "$skipping" = true ]; then
+      continue
+    fi
+
+    # Check for the start of a multi-line skip block
+    if [[ "$line" =~ ^[[:space:]]*### ]]; then
+      # CRITICAL: Save the completed prompt before entering skip mode
       local clean_prompt
       clean_prompt=$(echo "$current_buffer" | xargs)
       if [ -n "$clean_prompt" ]; then
         target_array+=("$clean_prompt")
       fi
-      current_buffer=""
-    else
-      # If we are inside a ### block, do not accumulate text
-      if [ "$skipping" -eq 1 ]; then
-        continue
-      fi
 
-      if [ -z "$current_buffer" ]; then
-        current_buffer="$line"
-      else
-        current_buffer="${current_buffer}${IFS}${line}"
-      fi
+      skipping=true
+      current_buffer=""
+      continue
+    fi
+
+    # Skip single-line comments starting with a single '#' (but not '###')
+    if [[ "$line" =~ ^[[:space:]]*# ]]; then
+      continue
+    fi
+
+    # Append valid lines to the buffer
+    if [ -z "$current_buffer" ]; then
+      current_buffer="$line"
+    else
+      current_buffer="${current_buffer}${IFS}${line}"
     fi
   done <<< "$PROMPT"
 
-  # Don't forget the last tracked prompt remaining in the buffer stream
-  # Only append if we didn't end the file while in a skipped block
-  if [ "$skipping" -eq 0 ]; then
+  # Append final buffer if not currently in a skip block
+  if [ "$skipping" = false ]; then
     local clean_final
     clean_final=$(echo "$current_buffer" | xargs)
     if [ -n "$clean_final" ]; then
@@ -283,6 +290,7 @@ parse_prompt() {
     fi
   fi
 }
+
 
 generate_output_filepath() {
   local uuid
