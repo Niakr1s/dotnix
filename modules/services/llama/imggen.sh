@@ -41,7 +41,7 @@ Environment Variables & Defaults:
   CLIP              CLIP text processing layer skip    [Default: 2]
   SEED              Target entropy seed (-1 is random) [Default: -1]
 
-  OUTPUT_DIR        Output directory                   [Default: ~/Pictures/imggen]
+  OUT               Output directory                   [Default: ~/Pictures/imggen]
   COUNT             Number of sequential runs to queue [Default: 1]
 
   NEGATIVE          Standard generation exclusions
@@ -84,10 +84,10 @@ CFG=${CFG:-5.5}
 CLIP=${CLIP:-2}
 SEED=${SEED:--1}
 
-OUTPUT_DIR=${OUTPUT_DIR:-~/Pictures/imggen}
+OUT=${OUT:-~/Pictures/imggen}
 COUNT=${COUNT:-1}
 
-mkdir -p "$OUTPUT_DIR"
+mkdir -p "$OUT"
 if [[ ! $? ]]; then
     exit 1
 fi
@@ -140,7 +140,7 @@ generate_image() {
 
   local uuid
   uuid=$(uuidgen -7)
-  local output_file="$OUTPUT_DIR/generated_${uuid}.png"
+  local output_file="$OUT/generated_${uuid}.png"
   output_file=$(realpath "$output_file")
 
   echo $SEP
