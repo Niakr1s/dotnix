@@ -61,8 +61,6 @@ set -euo pipefail
 # ==========================================
 # ENVIRONMENT VARIABLES & SANE DEFAULTS
 # ==========================================
-MODEL="${MODEL:-}"
-
 if [[ -z "$MODEL" ]]; then
     echo "MODEL not provided"
     usage
