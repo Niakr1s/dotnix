@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }:
 let
@@ -13,8 +14,13 @@ in
       linger = true; # linger containers after logout
       extraGroups = [
         "docker"
+        "podman"
       ];
     };
+
+    environment.systemPackages = with pkgs; [
+      podman-compose
+    ];
 
     virtualisation = {
       libvirtd.enable = true;
