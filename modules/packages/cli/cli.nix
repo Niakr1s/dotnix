@@ -170,6 +170,8 @@
     man-pages
     nixpkgs-manual
     tealdeer
+
+    opencode
   ];
 
   programs.direnv = {
