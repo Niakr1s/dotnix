@@ -13,7 +13,7 @@ Prompt Layout & Syntax:
   * Commentaries:       Any line starting with '#' (or spaces followed by '#')
                         will be completely skipped. Use this for annotations.
   * Multi-Prompt (---): Separate distinct concepts with a line starting with '---'.
-                        The engine will process your loop queue for each section.
+  * Multi-Prompt (###): The section can be disabled by changing starting '---' to '###'.
 
 Interactive Input:
   $0 -> Type prompt, then press Ctrl+D on a new line to run
