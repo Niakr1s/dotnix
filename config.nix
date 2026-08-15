@@ -67,10 +67,7 @@ in
       virtualization = {
         enable = enabled "Virtualization (libvirtd + Docker)";
         libvirt.enable = enabled "Enable libvirt";
-        docker = {
-          enable = enabled "Enable docker";
-          autostart = disabled "Enable autostart";
-        };
+        docker.enable = enabled "Enable docker";
       };
 
       # Zram

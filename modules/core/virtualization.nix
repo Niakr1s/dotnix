@@ -10,7 +10,7 @@ in
 {
   config = lib.mkIf cfg.enable {
     users.users.${user} = {
-      group = user;
+      linger = true; # linger containers after logout
       extraGroups = [
         "docker"
       ];
@@ -18,10 +18,13 @@ in
 
     virtualisation = {
       libvirtd.enable = true;
-      docker = {
+      containers.enable = true;
+      oci-containers.backend = "podman";
+      podman = {
         enable = cfg.docker.enable;
-        enableOnBoot = cfg.docker.autostart;
-        autoPrune.enable = true;
+        dockerCompat = true;
+        dockerSocket.enable = true;
+        defaultNetwork.settings.dns_enabled = true; # Required for containers under podman-compose to be able to talk to each other.
       };
     };
   };

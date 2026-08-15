@@ -35,10 +35,7 @@
       virtualization = {
         enable = true;
         libvirt.enable = true;
-        docker = {
-          enable = true;
-          autostart = true;
-        };
+        docker.enable = true;
       };
 
       zram = {

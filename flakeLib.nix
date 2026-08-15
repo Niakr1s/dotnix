@@ -46,6 +46,21 @@
     };
 
   # Creates dirs using systemd.tmpfiles
+  createUserDirs =
+    {
+      dirs,
+      user,
+      group ? "users",
+      mode ? "0755",
+    }:
+    {
+      systemd.user.tmpfiles = {
+        enable = true;
+        rules = map (dir: "d ${dir} ${mode} ${user} ${group} - -") dirs;
+      };
+    };
+
+  # Creates dirs using systemd.tmpfiles
   createDirs =
     {
       dirs,
