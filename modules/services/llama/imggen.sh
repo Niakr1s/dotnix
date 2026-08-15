@@ -199,9 +199,9 @@ generate_image() {
   echo " CLIP:         $CLIP"
   echo $SEP
   echo " Prompts:"
-  echo " Negative: $NEGATIVE"
-  echo " Positive: $POSITIVE"
-  echo " Provided: $prompt"
+  echo "   Negative: $NEGATIVE"
+  echo "   Positive: $POSITIVE"
+  echo "   Provided: $prompt"
   echo $SEP
   echo " Output:  $output_file"
   echo $SEP
