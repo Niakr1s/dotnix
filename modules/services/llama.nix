@@ -41,7 +41,6 @@ let
     "--cache-type-v q8_0"
     "--n-gpu-layers 999"
     "--split-mode layer"
-    "--ctx-size 200000"
   ];
 
   # Build an llama-server command. Only `model` is required;
@@ -49,8 +48,9 @@ let
   mkLlm =
     {
       model,
+      ctxSize ? 230000,
       tensorSplit ? null,
-      temperature ? null,
+      temperature ? null, # 0.1 - strict, 1.1 - imaginative
       topK ? null,
       topP ? null,
       minP ? null,
@@ -66,6 +66,8 @@ let
           llmCommonFlags
           "--model"
           model
+          "--ctx-size"
+          "${toString ctxSize}"
         ]
         ++ optionals (tensorSplit != null) [
           "--tensor-split"
@@ -200,10 +202,11 @@ in
 
             models = {
               "Gemma4-26B-A4B-Uncensored" = mkLlm {
+                ctxSize = 192000;
                 model = "/data/ssd/models/LLM/HauhauCS/Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-MTP/Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-Q4_K_M.gguf";
                 mmproj = "/data/ssd/models/LLM/HauhauCS/Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-MTP/mmproj-Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-BF16.gguf";
                 tensorSplit = "0,4";
-                temperature = "0.6";
+                temperature = "1.0";
                 topK = "64";
                 topP = "0.9";
                 minP = "0.05";
