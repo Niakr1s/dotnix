@@ -48,13 +48,13 @@ in
       tageditor # Audio tags editor
 
       # Graphics & CAD
-      librecad
+      librecad # autocad for poor
       conjure # ImageMagick GUI
       inkscape # Vector graphics editor
       gimp # Professional image editor
-      krita
-      xnconvert
-      gthumb
+      krita # image editor
+      xnconvert # bulk image converter
+      nomacs # good image viewer
 
       # Office & Productivity
       obsidian
