@@ -16,6 +16,7 @@ in
       xwayland-satellite # xwayland support
       alacritty
       nautilus
+      gnome-text-editor
 
       # themes
       adwaita-icon-theme

@@ -109,6 +109,7 @@
     sops # Secrets management (encrypted YAML/JSON)
     gnupg # GPG encryption
     rhash # Hash calculation utility
+    vulkan-tools
 
     ### Audio
     alsa-tools # ALSA utilities (speaker-test, etc.)
