@@ -54,6 +54,7 @@ in
       gimp # Professional image editor
       krita
       xnconvert
+      gthumb
 
       # Office & Productivity
       obsidian
