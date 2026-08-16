@@ -82,9 +82,8 @@ in
     };
 
     de = {
-      plasma = {
-        enable = enabled "Plasma Configuration";
-      };
+      plasma.enable = disabled "Plasma Configuration";
+      niri.enable = disabled "Niri Configuration";
     };
 
     packages = {

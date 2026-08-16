@@ -46,6 +46,7 @@
 
     de = {
       plasma.enable = true;
+      niri.enable = true;
     };
 
     packages = {
