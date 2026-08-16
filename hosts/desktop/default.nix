@@ -45,7 +45,7 @@
     };
 
     de = {
-      plasma.enable = true;
+      plasma.enable = false;
       niri.enable = true;
     };
 
