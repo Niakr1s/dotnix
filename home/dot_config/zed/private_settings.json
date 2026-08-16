@@ -1,18 +1,7 @@
 {
   "context_servers": {
     "mcp-nixos": {
-      "enabled": true,
-      "remote": false,
-      "command": "mcp-nixos",
-      "args": [],
-    },
-  },
-  "language_models": {
-    "llama.cpp": {
-      "api_url": "http://localhost:8080",
-      "auto_discover": true,
-    },
-  },
+  "disable_ai": true,
   "show_signature_help_after_edits": true,
   "auto_signature_help": true,
   "icon_theme": "Zed (Default)",
@@ -37,29 +26,6 @@
     "working_directory": "current_project_directory",
   },
   "show_edit_predictions": false,
-  "agent": {
-    "default_profile": "write",
-    "tool_permissions": {
-      "tools": {
-        "terminal": {
-          "always_allow": [
-            {
-              "pattern": "^ls\\b",
-            },
-          ],
-        },
-        "mcp:mcp-server-context7:query-docs": {
-          "default": "allow",
-        },
-      },
-    },
-    "default_model": {
-      "enable_thinking": true,
-      "provider": "llama.cpp",
-      "model": "Qwen3.6-35B-A3B",
-    },
-    "model_parameters": [],
-  },
   "colorize_brackets": true,
   "gutter": { "line_numbers": true },
   "vim_mode": true,
