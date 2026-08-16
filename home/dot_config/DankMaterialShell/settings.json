@@ -39,7 +39,7 @@
   "showSeconds": true,
   "padHours12Hour": true,
   "useFahrenheit": false,
-  "windSpeedUnit": "kmh",
+  "windSpeedUnit": "ms",
   "nightModeEnabled": false,
   "animationSpeed": 1,
   "customAnimationDuration": 500,
