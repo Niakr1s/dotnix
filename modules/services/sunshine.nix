@@ -14,6 +14,10 @@ in
     lib.mkMerge [
       # 1. Настройки самого Sunshine
       {
+        systemd.user.services.sunshine.environment = {
+          CUDA_VISIBLE_DEVICES = "1";
+        };
+
         services.sunshine = {
           enable = true;
           autoStart = true;
