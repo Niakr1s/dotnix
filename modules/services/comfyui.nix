@@ -10,7 +10,7 @@ let
   gpu = config.modules.core.gpu;
 
   # Docker image configuration
-  dockerImage = "yanwk/comfyui-boot:cu130-megapak-pt211-20260814";
+  dockerImage = "yanwk/comfyui-boot:cu130-slim-v2-20260814";
 
   # Base directories
   baseDir = "/home/${user}/.comfyui";
@@ -18,6 +18,17 @@ let
   # Single source of truth for all mappings
   # Format: { host = "path"; container = "path"; }
   mappings = [
+    # images
+    {
+      host = "/home/${user}/Pictures/comfy/input";
+      container = "/root/ComfyUI/input";
+    }
+    {
+      host = "/home/${user}/Pictures/comfy/output";
+      container = "/root/ComfyUI/output";
+    }
+
+    # cache
     {
       host = "${baseDir}/cache/dot-cache";
       container = "/root/.cache";
@@ -26,14 +37,14 @@ let
       host = "${baseDir}/cache/dot-config";
       container = "/root/.config";
     }
+
+    # custom nodes
     {
-      host = "${baseDir}/nodes/dot-local";
-      container = "/root/.local";
-    }
-    {
-      host = "${baseDir}/nodes/custom_nodes";
+      host = "${baseDir}/custom_nodes";
       container = "/root/ComfyUI/custom_nodes";
     }
+
+    # models
     {
       host = "${baseDir}/models/models";
       container = "/root/ComfyUI/models";
@@ -46,21 +57,11 @@ let
       host = "${baseDir}/models/torch-hub";
       container = "/root/.cache/torch/hub";
     }
+
+    # user
     {
-      host = "${baseDir}/user/input";
-      container = "/root/ComfyUI/input";
-    }
-    {
-      host = "${baseDir}/user/output";
-      container = "/root/ComfyUI/output";
-    }
-    {
-      host = "${baseDir}/user/user-profile";
+      host = "${baseDir}/user";
       container = "/root/ComfyUI/user";
-    }
-    {
-      host = "${baseDir}/user/user-scripts";
-      container = "/root/user-scripts";
     }
   ];
 
