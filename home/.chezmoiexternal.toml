@@ -1,0 +1,4 @@
+[".config/DankMaterialShell/plugins"]
+    type = "git-repo"
+    url = "https://github.com/AvengeMedia/dms-plugins.git"
+    refreshPeriod = "168h"

@@ -13,6 +13,21 @@
     nerd-fonts.fira-code
   ];
 
-  # Автоматически подтягивает установленные шрифты в Fontconfig
-  fonts.fontconfig.enable = true;
+  fonts.fontconfig = {
+    enable = true;
+    antialias = true; # Ensures antialiasing is turned on globally
+
+    # Subpixel rendering configurations
+    subpixel = {
+      rgba = "rgb"; # Most common for standard monitors. Options: "rgb", "bgr", "vrgb", "vbgr", "none"
+      lcdfilter = "default"; # Smooths out color fringes. Options: "none", "default", "light", "legacy"
+    };
+
+    # Slight or medium hinting usually works best alongside subpixel rendering
+    hinting = {
+      enable = true;
+      autohint = false; # Use the font's internal hinting metrics instead of generic autohinting
+      style = "slight"; # "none", "slight", "medium", "full"
+    };
+  };
 }

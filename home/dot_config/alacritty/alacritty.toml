@@ -1,13 +1,13 @@
 [window]
 padding = { x = 10, y = 10 }
 dynamic_padding = false
-opacity = 0.90
+# opacity = 0.90
 
 [font]
 size = 10.0
 
 [font.normal]
-family = "Inconsolata LGC Nerd Font Mono"
+family = "JetBrains Mono Nerd Font"
 # family = "Fira Code Nerd Font Mono"
 
 [scrolling]
