@@ -201,6 +201,17 @@ in
             };
 
             models = {
+              "SuperGemma4-26B-A4B-Uncensored" = mkLlm {
+                ctxSize = 192000;
+                model = "/data/ssd/models/LLM/jiunsong/supergemma4-26b-uncensored-fast-v2-Q4_K_M.gguf";
+                tensorSplit = "0,4";
+                temperature = "1.0";
+                topK = "64";
+                topP = "0.9";
+                minP = "0.05";
+                repeatPenalty = "1.1";
+              };
+
               "Gemma4-26B-A4B-Uncensored" = mkLlm {
                 ctxSize = 192000;
                 model = "/data/ssd/models/LLM/HauhauCS/Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-MTP/Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-Q4_K_M.gguf";
