@@ -16,7 +16,18 @@ in
       xwayland-satellite # xwayland support
       alacritty
       nautilus
+
+      # themes
+      adwaita-icon-theme
+      adwaita-qt
+      adwaita-qt6
     ];
+
+    qt = {
+      enable = true;
+      platformTheme = "gnome";
+      style = "adwaita-dark";
+    };
 
     programs.kdeconnect.enable = true;
 
