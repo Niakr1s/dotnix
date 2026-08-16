@@ -21,7 +21,13 @@ in
       adwaita-icon-theme
       adwaita-qt
       adwaita-qt6
+      adwaita-fonts
     ];
+
+    environment.sessionVariables = {
+      XCURSOR_THEME = "Adwaita";
+      XCURSOR_SIZE = "24"; # Set your desired cursor size here
+    };
 
     qt = {
       enable = true;
