@@ -22,6 +22,10 @@ in
       adwaita-qt
       adwaita-qt6
       adwaita-fonts
+
+      # fixes for qt applications
+      libsForQt5.qt5ct
+      kdePackages.qt6ct
     ];
 
     environment.sessionVariables = {
@@ -31,7 +35,7 @@ in
 
     qt = {
       enable = true;
-      platformTheme = "gnome";
+      platformTheme = "qt5ct";
       style = "adwaita-dark";
     };
 
