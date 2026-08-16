@@ -75,10 +75,10 @@ in
         dankKDEConnect.enable = true;
 
         # launcher
-        commandRunner.enable = true;
-        nixPackageRunner.enable = true;
-        calculator.enable = true;
-        emojiLauncher.enable = true;
+        commandRunner.enable = true; # >
+        nixPackageRunner.enable = true; # nix
+        calculator.enable = true; # =
+        emojiLauncher.enable = true; # :e
       };
 
       systemd = {
