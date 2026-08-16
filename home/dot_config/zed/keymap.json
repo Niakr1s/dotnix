@@ -1,21 +1,27 @@
 [
   {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-shift-q": "pane::CloseActiveItem",
+    },
+  },
+  {
     "context": "Terminal",
     "bindings": {
       "ctrl-`": "editor::ToggleFocus",
       "ctrl-w h": "workspace::ActivatePaneLeft",
       "ctrl-w k": "workspace::ActivatePaneUp",
       "ctrl-w l": "workspace::ActivatePaneRight",
+      "ctrl-w [": "pane::ActivatePreviousItem",
       "ctrl-p": null,
       "ctrl-n": null,
-    }
-  },
-  {
-    "context": "Terminal"
+      "ctrl-shift-w": "workspace::NewTerminal",
+      "ctrl-shift-q": "pane::CloseActiveItem",
+    },
   },
   {
     "unbind": {
-      "ctrl-shift-w": "workspace::CloseWindow"
-    }
-  }
+      "ctrl-shift-w": "workspace::CloseWindow",
+    },
+  },
 ]

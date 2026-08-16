@@ -19,6 +19,11 @@
       url = "github:utensils/comfyui-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    dms-plugin-registry = {
+      url = "github:AvengeMedia/dms-plugin-registry";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   nixConfig = {
@@ -42,6 +47,7 @@
       nixpkgs-unstable,
       hjem,
       nvidia-pstated,
+      dms-plugin-registry,
       comfyui,
       ...
     }:
@@ -65,6 +71,7 @@
             inputs.hjem.nixosModules.default
             inputs.nvidia-pstated.nixosModules.default
             inputs.comfyui.nixosModules.default
+            inputs.dms-plugin-registry.nixosModules.default
             ./config.nix
             ./modules
             ./hosts/${hostname}

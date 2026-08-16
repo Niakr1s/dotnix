@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  inputs,
   ...
 }:
 let
@@ -67,6 +68,18 @@ in
 
     programs.dms-shell = {
       enable = true;
+
+      plugins = {
+        # core
+        dankActions.enable = true;
+        dankKDEConnect.enable = true;
+
+        # launcher
+        commandRunner.enable = true;
+        nixPackageRunner.enable = true;
+        calculator.enable = true;
+        emojiLauncher.enable = true;
+      };
 
       systemd = {
         enable = true; # Systemd service for auto-start
