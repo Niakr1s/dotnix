@@ -28,6 +28,11 @@ in
       # fixes for qt applications
       libsForQt5.qt5ct
       kdePackages.qt6ct
+
+      # for my custom script 'open with'
+      rofi
+      gtk3 # gtk launch
+      glib # gio
     ];
 
     environment.sessionVariables = {

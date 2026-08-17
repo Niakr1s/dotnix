@@ -20,3 +20,17 @@ prepend_previewers = [
     { mime = "{image,audio,video}/*", run = "mediainfo"},
     { mime = "application/x-subrip", run = "mediainfo"},
 ]
+
+[opener]
+custom = [
+  { run = "open_with %s", desc = "open", for = "linux", orphan = true },
+  { run = "unar -d %s", desc = "extract", for = "linux", orphan = false, block = true },
+  { run = "chezmoi -S /etc/nixos/home add %s", desc = "chezmoi", for = "linux" },
+  { run = "nautilus --select %s", desc = "nautilus", for = "linux", orphan = true },
+]
+
+[open]
+rules = [
+	{ url = "*/", use = "custom" },
+	{ url = "*", use = "custom" },
+]

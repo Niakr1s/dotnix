@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+FILE="$1"
+[ -z "$FILE" ] && echo "Usage: $0 <file>" && exit 1
+
+# 1. Get MIME type
+MIME_TYPE=$(gio info --attributes=standard::content-type "$FILE" | awk '/content-type:/ {print $2}')
+
+# 2. Get the current default application
+DEFAULT_APP=$(gio mime "$MIME_TYPE" | awk '/Default application/ {print $5}')
+
+# 3. Get alternative app names (explicitly excluding the default app)
+ALTS=$(gio mime "$MIME_TYPE" | awk '{print $1}' | grep -E '\.desktop$' | grep -v -F "$DEFAULT_APP" | sort -u)
+
+# 4. Combine them with the default app strictly at the very top
+APPS=$(printf "%s\n%s" "$DEFAULT_APP" "$ALTS")
+
+# 5. Present the menu using Rofi's built-in dark theme
+CHOICE=$(echo "$APPS" | rofi -dmenu -i -p "Open '$FILE' with:" \
+  -theme solarized_alternate \
+  -theme-str '
+    * { background: #1a1a1a; foreground: #ffffff; }
+  '
+)
+
+# 6. Launch it
+[ -n "$CHOICE" ] && gtk-launch "$CHOICE" "$FILE"
+
