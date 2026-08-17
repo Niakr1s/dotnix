@@ -57,3 +57,5 @@ user_pref("network.proxy.no_proxies_on", "deepseek.com,.ru");
 
 user_pref("browser.download.dir", "/home/nea/Downloads");
 user_pref("browser.download.dir", "/home/nea/Downloads");
+
+user_pref("middlemouse.paste", false);
