@@ -60,6 +60,7 @@ in
       obsidian
       libreoffice
       sqlitestudio
+      foliate
 
       # Hardware & System Monitor
       cpu-x
