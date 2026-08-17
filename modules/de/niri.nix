@@ -79,6 +79,8 @@ in
         dankActions.enable = true;
         dankKDEConnect.enable = true;
 
+        wallpaperCarousel.enable = true;
+
         # launcher
         commandRunner.enable = true; # >
         nixPackageRunner.enable = true; # nix

@@ -47,5 +47,10 @@
   "calculator": {
     "enabled": true,
     "trigger": "="
+  },
+  "wallpaperCarousel": {
+    "enabled": true,
+    "expandSelected": "true",
+    "expandMultiplier": 300
   }
 }
