@@ -15,7 +15,7 @@ in
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       xwayland-satellite # xwayland support
-      alacritty
+      kitty
       nautilus
       gnome-text-editor
 

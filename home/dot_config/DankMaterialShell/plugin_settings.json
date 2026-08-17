@@ -27,8 +27,12 @@
   "commandRunner": {
     "enabled": true,
     "history": [
+      "alacritty",
+      "nvtop",
       "zeditor ~"
-    ]
+    ],
+    "terminal": "kitty",
+    "execFlag": "-e"
   },
   "nixPackageRunner": {
     "enabled": true

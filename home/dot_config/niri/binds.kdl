@@ -14,7 +14,7 @@ binds {
     // Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+Return hotkey-overlay-title="Terminal" { spawn-sh "alacritty"; }
+    Mod+Return hotkey-overlay-title="Terminal" { spawn-sh "kitty"; }
     Mod+E hotkey-overlay-title="Files" { spawn-sh "nautilus"; }
     Mod+D hotkey-overlay-title="Appmenu" { spawn-sh "dms ipc launcher toggle"; }
 
@@ -260,4 +260,3 @@ binds {
     // Mod+Shift+E { quit; }
     // Ctrl+Alt+Delete { quit; }
 }
-
