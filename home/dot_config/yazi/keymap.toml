@@ -28,3 +28,8 @@ desc = "Open $SHELL here"
 on   = [ "T" ]
 run  = "plugin toggle-pane max-preview"
 desc = "Maximize or restore the preview pane"
+
+[[mgr.prepend_keymap]]
+on   = [ "M" ]
+run  = "plugin mediainfo -- toggle-metadata"
+desc = "Toggle media preview metadata"
