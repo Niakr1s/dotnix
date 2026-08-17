@@ -269,7 +269,7 @@
   "soundNewNotification": true,
   "soundVolumeChanged": true,
   "soundPluggedIn": true,
-  "acMonitorTimeout": 0,
+  "acMonitorTimeout": 600,
   "acLockTimeout": 600,
   "acSuspendTimeout": 900,
   "acSuspendBehavior": 0,
