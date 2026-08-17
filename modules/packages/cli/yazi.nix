@@ -10,6 +10,7 @@
 
   home = {
     ".config/yazi/plugins/mediainfo.yazi".source = pkgs.yaziPlugins.mediainfo;
+    ".config/yazi/plugins/toggle-pane.yazi".source = pkgs.yaziPlugins.toggle-pane;
   };
 
   programs.yazi = {
