@@ -185,9 +185,6 @@ in
                 exclusive = true;
                 members = [
                   "Gemma4-26B-A4B-Uncensored"
-
-                  "animosity_illustriousV11"
-                  "flux1.dev"
                 ];
               };
               huge = {
