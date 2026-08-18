@@ -158,7 +158,7 @@ in
           imggenPkg
         ];
 
-        services.llama-swap = mkIf cfg.enable {
+        services.llama = mkIf cfg.enable {
           enable = true;
           listenAddress = "0.0.0.0";
           port = port;
