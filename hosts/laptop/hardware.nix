@@ -16,7 +16,9 @@
   fileSystems."/" =
     { device = "/dev/mapper/luks-213f2b5e-d651-421b-9c72-bbab1b1c19db";
       fsType = "btrfs";
-      options = [ ];
+      options = [
+        "compress=zstd"
+      ];
     };
 
   boot.initrd.luks.devices."luks-213f2b5e-d651-421b-9c72-bbab1b1c19db".device = "/dev/disk/by-uuid/213f2b5e-d651-421b-9c72-bbab1b1c19db";
@@ -24,13 +26,19 @@
   fileSystems."/home" =
     { device = "/dev/mapper/luks-213f2b5e-d651-421b-9c72-bbab1b1c19db";
       fsType = "btrfs";
-      options = [ "subvol=home" ];
+      options = [
+        "subvol=home"
+        "compress=zstd"
+      ];
     };
 
   fileSystems."/nix" =
     { device = "/dev/mapper/luks-213f2b5e-d651-421b-9c72-bbab1b1c19db";
       fsType = "btrfs";
-      options = [ "subvol=nix" ];
+      options = [
+        "subvol=nix"
+        "compress=zstd"
+      ];
     };
 
   fileSystems."/boot" =
