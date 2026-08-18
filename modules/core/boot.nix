@@ -11,6 +11,8 @@ in
 {
   systemd.services.NetworkManager-wait-online.enable = false;
   boot = {
+    tmp.cleanOnBoot = true;
+
     loader = {
       efi.canTouchEfiVariables = true;
       systemd-boot.enable = true;
