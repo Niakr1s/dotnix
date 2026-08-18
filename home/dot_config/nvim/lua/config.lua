@@ -74,10 +74,6 @@ if choice == 1 then
   end
 
   -- Better navigation
-  vim.keymap.set("n", "<C-w>h", "<Nop>")
-  vim.keymap.set("n", "<C-w>j", "<Nop>")
-  vim.keymap.set("n", "<C-w>k", "<Nop>")
-  vim.keymap.set("n", "<C-w>l", "<Nop>")
   vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
   vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to lower window" })
   vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to upper window" })

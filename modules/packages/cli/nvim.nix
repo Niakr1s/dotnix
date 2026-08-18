@@ -89,7 +89,6 @@ in
         require('config')
         require('lsp')
       '';
-      ".config/nvim/lua/config.lua".source = ./nvim/config.lua;
       ".config/nvim/lua/lsp.lua".text = lspLua;
     };
   };
