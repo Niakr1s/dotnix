@@ -26,7 +26,8 @@ let
         codecompanion-nvim
         plenary-nvim
         nvim-web-devicons
-        vim-tmux-navigator
+        # vim-tmux-navigator # doesn't work with kitty
+        vim-kitty-navigator
       ];
     };
   };
