@@ -11,6 +11,8 @@
     lisgd
   ];
 
+  services.iio-niri.enable = true;
+
   modules = {
     core = {
       user = "user";
