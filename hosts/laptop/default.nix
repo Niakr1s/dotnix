@@ -9,6 +9,7 @@
 
   environment.systemPackages = with pkgs; [
     lisgd
+    wvkbd
   ];
 
   services.iio-niri.enable = true;
