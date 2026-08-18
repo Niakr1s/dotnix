@@ -13,7 +13,7 @@
         enable = true;
         virtualHosts."${name}.localhost" = {
           extraConfig = ''
-            reverse_proxy localhost:${toString port}
+            reverse_proxy 127.0.0.1:${toString port}
             ${
               if insecureTLS then
                 ''
