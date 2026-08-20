@@ -41,6 +41,7 @@ let
     "--cache-type-v q8_0"
     "--n-gpu-layers 999"
     "--split-mode layer"
+    "--ui-mcp-proxy"
   ];
 
   # Build an llama-server command. Only `model` is required;
