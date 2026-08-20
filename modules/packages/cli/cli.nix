@@ -169,6 +169,7 @@
     tealdeer
 
     opencode
+    lazydocker
   ];
 
   programs.direnv = {
