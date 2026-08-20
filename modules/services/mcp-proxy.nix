@@ -4,9 +4,7 @@
   flakeLib,
   config,
   ...
-}:
-
-let
+}: let
   cfg = config.modules.services.mcp-proxy;
   port = 8096;
 
@@ -22,7 +20,7 @@ let
       };
       fetch = {
         command = "${pkgs.mcp-server-fetch}/bin/mcp-server-fetch";
-        args = [ "--ignore-robots-txt" ];
+        args = ["--ignore-robots-txt"];
       };
       nixos = {
         command = "${pkgs.mcp-nixos}/bin/mcp-nixos";
@@ -32,7 +30,7 @@ let
       };
       playwright = {
         command = "${pkgs.playwright-mcp}/bin/playwright-mcp";
-        args = [ "--headless" "--user-data-dir" "/var/lib/mcp-proxy/.cache/playwright" ];
+        args = ["--headless" "--user-data-dir" "/var/lib/mcp-proxy/.cache/playwright"];
       };
     };
   };
@@ -42,62 +40,60 @@ let
 
   servicename = "mcp-proxy";
   mcp-proxy-home = "/var/lib/${servicename}";
-in
-{
-  
+in {
   config = lib.mkIf cfg.enable (
     lib.mkMerge [
-    {
-  environment.systemPackages = with pkgs; [
-    mcp-proxy
-    uv
+      {
+        environment.systemPackages = with pkgs; [
+          mcp-proxy
+          uv
 
-    mcp-nixos
-    mcp-server-fetch
-    mcp-server-time
-    context7-mcp
-    playwright-mcp
-  ];
+          mcp-nixos
+          mcp-server-fetch
+          mcp-server-time
+          context7-mcp
+          playwright-mcp
+        ];
 
-  users.users."${servicename}" = {
-    isSystemUser = true;
-    group = "${servicename}";
-    home = "${mcp-proxy-home}";
-    createHome = true;
-  };
-  users.groups.mcp-proxy = {};
+        users.users."${servicename}" = {
+          isSystemUser = true;
+          group = "${servicename}";
+          home = "${mcp-proxy-home}";
+          createHome = true;
+        };
+        users.groups.mcp-proxy = {};
 
-  # Systemd service definition
-  systemd.services.mcp-proxy = {
-    description = "MCP Proxy Service";
-    after = [ "network.target" ];
-    wantedBy = [ "multi-user.target" ];
+        # Systemd service definition
+        systemd.services.mcp-proxy = {
+          description = "MCP Proxy Service";
+          after = ["network.target"];
+          wantedBy = ["multi-user.target"];
 
-    environment = {
-      HOME = "${mcp-proxy-home}";
-      UV_CACHE_DIR = "${mcp-proxy-home}/.cache/uv";
-      UV_DATA_DIR = "${mcp-proxy-home}/.local/share/uv";
-      NPM_CONFIG_CACHE = "${mcp-proxy-home}/.npm";
-    };
+          environment = {
+            HOME = "${mcp-proxy-home}";
+            UV_CACHE_DIR = "${mcp-proxy-home}/.cache/uv";
+            UV_DATA_DIR = "${mcp-proxy-home}/.local/share/uv";
+            NPM_CONFIG_CACHE = "${mcp-proxy-home}/.npm";
+          };
 
-    serviceConfig = {
-      ExecStart = "${pkgs.mcp-proxy}/bin/mcp-proxy --port=${toString port} --named-server-config ${configFile}";
-      Restart = "always";
-      RestartSec = "5s";
+          serviceConfig = {
+            ExecStart = "${pkgs.mcp-proxy}/bin/mcp-proxy --port=${toString port} --named-server-config ${configFile}";
+            Restart = "always";
+            RestartSec = "5s";
 
-      User = "${servicename}";
-      Group = "${servicename}";
-      WorkingDirectory = "${mcp-proxy-home}";
-      StateDirectory = "${servicename}";
+            User = "${servicename}";
+            Group = "${servicename}";
+            WorkingDirectory = "${mcp-proxy-home}";
+            StateDirectory = "${servicename}";
 
-      ProtectSystem = "strict";
-      PrivateTmp = true;
-      ProtectHome = true;
-      NoNewPrivileges = false;
-    };
-  };
-  }
-      (flakeLib.localhostReverseProxy "${servicename}" port { insecureTLS = false; })
-  ]);
+            ProtectSystem = "strict";
+            PrivateTmp = true;
+            ProtectHome = true;
+            NoNewPrivileges = false;
+          };
+        };
+      }
+      (flakeLib.localhostReverseProxy "${servicename}" port {insecureTLS = false;})
+    ]
+  );
 }
-
