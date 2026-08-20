@@ -28,7 +28,7 @@
 in {
   config = lib.mkIf cfg.enable {
     warnings = [
-      "Playstation2 bioses are available under ${biosPath}"
+      "Playstation2 bioses are available under ~/${biosPath}"
     ];
 
     environment.systemPackages = with pkgs; [

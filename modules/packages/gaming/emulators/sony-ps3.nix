@@ -15,7 +15,7 @@
 in {
   config = lib.mkIf cfg.enable {
     warnings = [
-      "Playstation3 firmware is available under ${firmwarePath}"
+      "Playstation3 firmware is available under ~/${firmwarePath}"
     ];
 
     environment.systemPackages = with pkgs; [
