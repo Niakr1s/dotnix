@@ -11,7 +11,7 @@
     {
       services.caddy = {
         enable = true;
-        virtualHosts."${name}.localhost" = {
+        virtualHosts."http://${name}.localhost" = {
           extraConfig = ''
             reverse_proxy 127.0.0.1:${toString port}
             ${
