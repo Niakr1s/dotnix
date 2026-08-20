@@ -1,29 +1,66 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
+let
+  # Define the MCP proxy configuration as a Nix attribute set
+  mcpConfig = {
+    mcpServers = {
+      fetch = {
+        command = "${pkgs.mcp-server-fetch}/bin/mcp-server-fetch";
+        args = [ "--ignore-robots-txt" ];
+      };
+      ddg-search = {
+        command = "${pkgs.uv}/bin/uvx";
+        args = ["duckduckgo-mcp-server"];
+      };
+    };
+  };
+
+  # Convert the Nix attribute set into a JSON file for the service
+  configFile = pkgs.writeText "mcp-proxy-config.json" (builtins.toJSON mcpConfig);
+in
 {
-  virtualisation.oci-containers.containers."mcp-proxy" = {
-    image = "ghcr.io/sparfenyuk/mcp-proxy:latest";
-    autoStart = true;
+  # Ensure the required packages are installed
+  environment.systemPackages = with pkgs; [
+    mcp-proxy
+    mcp-server-fetch
+    uv
+  ];
 
-    extraOptions = [ "--network=host" ];
+  users.users.mcp-proxy = {
+    isSystemUser = true;
+    group = "mcp-proxy";
+    home = "/var/lib/mcp-proxy";
+    createHome = true;
+  };
+  users.groups.mcp-proxy = {};
 
-    # Replicates the ENV instructions
+  # Systemd service definition
+  systemd.services.mcp-proxy = {
+    description = "MCP Proxy Service";
+    after = [ "network.target" ];
+    wantedBy = [ "multi-user.target" ];
+
     environment = {
-      PATH = "/usr/local/bin:/usr/bin:/bin:/app/.venv/bin";
-      UV_PYTHON_PREFERENCE = "only-system";
-      PIP_ROOT_USER_ACTION = "ignore";
-      # Force the application framework (Uvicorn) to listen on all interfaces
-      HOST = "0.0.0.0";
-      PORT = "8096";
+      HOME = "/var/lib/mcp-proxy";
+      UV_CACHE_DIR = "/var/lib/mcp-proxy/.cache/uv";
+      UV_DATA_DIR = "/var/lib/mcp-proxy/.local/share/uv";
     };
 
-    # Replicates the RUN/ENTRYPOINT steps safely via standard container overrides
-    # Runs the pip installation and then chains execution to catatonit
-    entrypoint = "sh";
-    cmd = [
-      "-c"
-      "python3 -m ensurepip && pip install --no-cache-dir uv && exec catatonit -- mcp-proxy --pass-environment --port=8096 --sse-host 0.0.0.0 uvx mcp-server-fetch"
-    ];
+    serviceConfig = {
+      # Runs the proxy, pointing it to the generated JSON configuration file
+      ExecStart = "${pkgs.mcp-proxy}/bin/mcp-proxy --port=8096 --named-server-config ${configFile}";
+      Restart = "always";
+      RestartSec = "5s";
+
+      User = "mcp-proxy";
+      Group = "mcp-proxy";
+      WorkingDirectory = "/var/lib/mcp-proxy";
+      StateDirectory = "mcp-proxy";
+
+      ProtectSystem = "strict";
+      ProtectHome = true;
+      NoNewPrivileges = false;
+    };
   };
 }
 
