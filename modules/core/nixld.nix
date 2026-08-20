@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   # https://wiki.nixos.org/wiki/Nix-ld
 
   # Allow unfree packages

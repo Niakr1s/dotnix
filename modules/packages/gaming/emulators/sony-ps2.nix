@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   cfg = config.modules.packages.gaming.emulators.sony-ps2;
 
   bios = rec {
@@ -26,8 +25,7 @@ let
     };
   };
   biosPath = ".config/PCSX2/bios";
-in
-{
+in {
   config = lib.mkIf cfg.enable {
     warnings = [
       "Playstation2 bioses are available under ${biosPath}"

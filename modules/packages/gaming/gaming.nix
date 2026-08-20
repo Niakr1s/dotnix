@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   cfg = config.modules.packages.gaming;
 
   link_steam_runtime_to_umu = pkgs.writeScriptBin "link_steamruntime_to_umu" ''
@@ -15,10 +14,9 @@ let
     ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime_sniper ~/.local/share/umu/steamrt3
     ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime_4 ~/.local/share/umu/steamrt4
   '';
-in
-{
+in {
   config = lib.mkIf cfg.enable {
-    boot.kernelModules = [ "ntsync" ];
+    boot.kernelModules = ["ntsync"];
 
     environment.systemPackages = with pkgs; [
       link_steam_runtime_to_umu

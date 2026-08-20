@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   cfg = config.modules.packages.gaming.emulators.sony-ps4;
 
   pkginstall = pkgs.stdenv.mkDerivation rec {
@@ -33,8 +32,7 @@ let
       chmod +x $out/bin/*
     '';
   };
-in
-{
+in {
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       shadps4-qtlauncher

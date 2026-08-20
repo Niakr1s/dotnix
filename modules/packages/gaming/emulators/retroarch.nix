@@ -3,13 +3,10 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   cfg = config.modules.packages.gaming.emulators.retroarch;
-in
-{
+in {
   config = lib.mkIf cfg.enable {
-
     warnings = [
       "Retroarch bioses download script: curl -fsSL https://raw.githubusercontent.com/Abdess/retrobios/main/install.sh | sh"
     ];

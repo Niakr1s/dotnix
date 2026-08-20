@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   cfg = config.modules.packages.lsp;
 
   inherit (lib) optionals;
@@ -36,8 +35,6 @@ let
     phpactor
     crystalline
   ];
-
-in
-{
+in {
   environment.systemPackages = optionals (cfg.base) baseServersPkgs ++ optionals (cfg.heavy) heavyServersPkgs;
 }

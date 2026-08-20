@@ -3,13 +3,11 @@
   config,
   pkgs,
   ...
-}:
-let
+}: let
   inherit (lib) mkIf;
 
   cfg = config.modules.de.plasma;
-in
-{
+in {
   config = mkIf cfg.enable {
     services.displayManager.sddm.enable = true;
     services.desktopManager.plasma6.enable = true;

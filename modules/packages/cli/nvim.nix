@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   cfg = config.modules.packages.cli.nvim;
 
   myNvim = pkgs.neovim.override {
@@ -77,17 +76,18 @@ let
       ${lspList},
     })
   '';
-in
-{
+in {
   config = lib.mkIf cfg.enable {
     environment.sessionVariables = {
       EDITOR = "nvim";
       VISUAL = "nvim";
     };
 
-    environment.systemPackages = [
-      myNvim
-    ] ++ formatters;
+    environment.systemPackages =
+      [
+        myNvim
+      ]
+      ++ formatters;
 
     home = {
       ".config/nvim/init.lua".text = ''

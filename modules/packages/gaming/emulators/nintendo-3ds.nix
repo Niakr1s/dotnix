@@ -3,11 +3,9 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   cfg = config.modules.packages.gaming.emulators.nintendo-3ds;
-in
-{
+in {
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       azahar

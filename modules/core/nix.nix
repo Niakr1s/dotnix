@@ -2,11 +2,9 @@
   config,
   pkgs,
   ...
-}:
-let
+}: let
   user = config.modules.core.user;
-in
-{
+in {
   nixpkgs.config.allowUnfree = true;
   nix = {
     package = pkgs.lix;

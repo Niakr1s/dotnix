@@ -2,20 +2,17 @@
   config,
   pkgs,
   ...
-}:
-let
+}: let
   cpu = config.modules.core.cpu;
-in
-{
+in {
   boot = {
-    kernelPackages = (pkgs.linuxPackages);
+    kernelPackages = pkgs.linuxPackages;
     kernelParams =
-      if cpu.amd then
-        [ "amd_pstate=active" ]
-      else if cpu.intel then
-        [ "intel_pstate=active" ]
-      else
-        [ ];
+      if cpu.amd
+      then ["amd_pstate=active"]
+      else if cpu.intel
+      then ["intel_pstate=active"]
+      else [];
   };
   assertions = [
     {

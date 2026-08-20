@@ -3,12 +3,10 @@
   config,
   pkgs,
   ...
-}:
-let
+}: let
   cfg = config.modules.core.virtualization;
   user = config.modules.core.user;
-in
-{
+in {
   config = lib.mkIf cfg.enable {
     users.users.${user} = {
       linger = true; # linger containers after logout

@@ -3,13 +3,11 @@
   lib,
   flakeLib,
   ...
-}:
-let
+}: let
   cfg = config.modules.services.sunshine;
   port = 47989;
   guiPort = port + 1;
-in
-{
+in {
   config = lib.mkIf cfg.enable (
     lib.mkMerge [
       # 1. Настройки самого Sunshine
@@ -37,8 +35,7 @@ in
       }
 
       # 2. Вызываем функцию реверс-прокси и вмерживаем её результат
-      (flakeLib.localhostReverseProxy "sunshine" guiPort { insecureTLS = true; })
+      (flakeLib.localhostReverseProxy "sunshine" guiPort {insecureTLS = true;})
     ]
   );
-
 }

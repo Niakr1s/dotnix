@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   cfg = config.modules.packages.gaming.emulators.sony-ps3;
 
   firmware = pkgs.fetchurl {
@@ -13,8 +12,7 @@ let
     hash = "sha256-FYRx/YNPjqgDYTa2qrQ82Gx7pz15yjDgrzwP4AAc82U=";
   };
   firmwarePath = ".config/rpcs3/PS3UPDAT.PUP";
-in
-{
+in {
   config = lib.mkIf cfg.enable {
     warnings = [
       "Playstation3 firmware is available under ${firmwarePath}"

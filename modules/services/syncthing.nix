@@ -3,15 +3,13 @@
   lib,
   flakeLib,
   ...
-}:
-let
+}: let
   cfg = config.modules.services.syncthing;
   port = lib.strings.toInt (
     lib.last (lib.strings.splitString ":" config.services.syncthing.guiAddress)
   );
   user = config.modules.core.user;
-in
-{
+in {
   config = lib.mkIf cfg.enable (
     lib.mkMerge [
       {
@@ -23,7 +21,7 @@ in
           dataDir = "/home/${user}";
         };
       }
-      (flakeLib.localhostReverseProxy "syncthing" port { insecureTLS = true; })
+      (flakeLib.localhostReverseProxy "syncthing" port {insecureTLS = true;})
     ]
   );
 }

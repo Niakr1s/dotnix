@@ -3,31 +3,28 @@
   pkgs,
   hostname,
   ...
-}:
-let
-  inherit (lib)
+}: let
+  inherit
+    (lib)
     mkOption
     types
     ;
 
   # Like enabled, but default is false
-  disabled =
-    desc:
+  disabled = desc:
     mkOption {
       type = types.bool;
       default = false;
       description = desc;
     };
 
-  enabled =
-    desc:
+  enabled = desc:
     mkOption {
       type = types.bool;
       default = true;
       description = desc;
     };
-in
-{
+in {
   options.modules = {
     # ── core ────────────────────────────────────────────────────────────
     core = {

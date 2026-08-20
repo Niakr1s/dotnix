@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   cfg = config.modules.packages.gaming.emulators.nintendo-switch;
 
   assets = rec {
@@ -25,8 +24,7 @@ let
   edenConfigPath = ".local/share/eden";
   firmwarePath = "${edenConfigPath}/firmware";
   keysPath = "${edenConfigPath}/keys";
-in
-{
+in {
   config = lib.mkIf cfg.enable {
     warnings = [
       "Nintendo Switch firmware is available under ${firmwarePath}"

@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   inherit (lib) optionals;
 
   cfg = config.modules.packages.cli.dev;
@@ -40,7 +39,6 @@ let
     ];
     php = with pkgs; [
       php # PHP interpreter (latest stable)
-
     ];
     python = with pkgs; [
       python3 # Python 3 interpreter
@@ -72,14 +70,11 @@ let
     ninja # Small build system
     pkg-config
   ];
-in
-{
+in {
   environment.systemPackages =
-    [ ]
+    []
     ++ optionals cfg.buildtools buildtools
-
     ++ optionals cfg.langs.bundles.functional langs.bundles.functional
-
     ++ optionals cfg.langs.cpp langs.cpp
     ++ optionals cfg.langs.go langs.go
     ++ optionals cfg.langs.haskell langs.haskell

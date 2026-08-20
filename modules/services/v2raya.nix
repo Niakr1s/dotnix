@@ -4,11 +4,9 @@
   flakeLib,
   pkgs,
   ...
-}:
-let
+}: let
   cfg = config.modules.services.v2raya;
-in
-{
+in {
   config = lib.mkIf cfg.enable (
     lib.mkMerge [
       {
@@ -18,7 +16,7 @@ in
           cliPackage = pkgs.xray;
         };
       }
-      (flakeLib.localhostReverseProxy "v2raya" 2017 { })
+      (flakeLib.localhostReverseProxy "v2raya" 2017 {})
     ]
   );
 }

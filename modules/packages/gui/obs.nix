@@ -3,11 +3,9 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   cfg = config.modules.packages.gui.obs;
-in
-{
+in {
   config = lib.mkIf cfg.enable {
     programs.obs-studio = {
       enable = true;

@@ -4,14 +4,12 @@
   pkgs,
   inputs,
   ...
-}:
-let
+}: let
   inherit (lib) mkIf;
 
   cfg = config.modules.de.niri;
   user = config.modules.core.user;
-in
-{
+in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       xwayland-satellite # xwayland support
@@ -100,6 +98,5 @@ in
       enableAudioWavelength = false; # Audio visualizer (cava)
       enableCalendarEvents = false; # Calendar integration (khal)
     };
-
   };
 }

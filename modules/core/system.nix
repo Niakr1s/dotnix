@@ -1,11 +1,6 @@
-{
-  config,
-  ...
-}:
-let
+{config, ...}: let
   user = config.modules.core.user;
-in
-{
+in {
   networking.networkmanager.enable = true;
   networking.firewall.enable = true;
 
@@ -28,7 +23,7 @@ in
 
   users.users.${user} = {
     group = user;
-    extraGroups = [ "networkmanager" ];
+    extraGroups = ["networkmanager"];
   };
 
   documentation = {

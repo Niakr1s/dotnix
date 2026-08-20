@@ -2,11 +2,9 @@
   config,
   lib,
   ...
-}:
-let
+}: let
   cfg = config.modules.services.avahi;
-in
-{
+in {
   config = lib.mkIf cfg.enable {
     warnings = [
       "avahi is enabled"

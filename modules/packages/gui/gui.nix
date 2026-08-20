@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   inherit (lib) mkIf;
 
   cfg = config.modules.packages.gui;
@@ -12,18 +11,17 @@ let
   user = config.modules.core.user;
 
   handbrakePkg =
-    if gpu.nvidia.enable then
+    if gpu.nvidia.enable
+    then
       (pkgs.handbrake.overrideAttrs (previous: {
-        nativeBuildInputs = (previous.nativeBuildInputs or [ ]) ++ [ pkgs.autoAddDriverRunpath ];
+        nativeBuildInputs = (previous.nativeBuildInputs or []) ++ [pkgs.autoAddDriverRunpath];
       }))
-    else
-      pkgs.handbrake;
-in
-{
+    else pkgs.handbrake;
+in {
   config = mkIf cfg.enable {
     services.crossmacro = {
       enable = true;
-      users = [ "${user}" ];
+      users = ["${user}"];
     };
 
     environment.systemPackages = with pkgs; [

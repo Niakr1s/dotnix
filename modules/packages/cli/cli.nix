@@ -1,8 +1,4 @@
-{
-  pkgs,
-  ...
-}:
-{
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     ### System Monitoring & Diagnostics
     bottom # Cross-platform graphical process/system monitor (btm)

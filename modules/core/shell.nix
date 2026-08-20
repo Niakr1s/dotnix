@@ -2,11 +2,9 @@
   config,
   pkgs,
   ...
-}:
-let
+}: let
   host = config.modules.core.host;
-in
-{
+in {
   environment.localBinInPath = true;
   environment.homeBinInPath = true;
 

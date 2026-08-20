@@ -4,9 +4,7 @@
   lib,
   flakeLib,
   ...
-}:
-
-let
+}: let
   inherit (lib) mkIf concatStringsSep optionals;
   cfg = config.modules.services.llama;
 
@@ -46,110 +44,105 @@ let
 
   # Build an llama-server command. Only `model` is required;
   # every other flag is optional and only emitted when set.
-  mkLlm =
-    {
-      model,
-      ctxSize ? 230000,
-      tensorSplit ? null,
-      temperature ? null, # 0.1 - strict, 1.1 - imaginative
-      topK ? null,
-      topP ? null,
-      minP ? null,
-      presencePenalty ? null,
-      repeatPenalty ? null,
-      mmproj ? null,
-      imageMinTokens ? null,
-    }:
-    {
-      cmd = concatStringsSep " " (
-        [
-          llama-server
-          llmCommonFlags
-          "--model"
-          model
-          "--ctx-size"
-          "${toString ctxSize}"
-        ]
-        ++ optionals (tensorSplit != null) [
-          "--tensor-split"
-          tensorSplit
-        ]
-        ++ optionals (temperature != null) [
-          "--temperature"
-          temperature
-        ]
-        ++ optionals (topK != null) [
-          "--top-k"
-          topK
-        ]
-        ++ optionals (topP != null) [
-          "--top-p"
-          topP
-        ]
-        ++ optionals (minP != null) [
-          "--min-p"
-          minP
-        ]
-        ++ optionals (presencePenalty != null) [
-          "--presence-penalty"
-          presencePenalty
-        ]
-        ++ optionals (repeatPenalty != null) [
-          "--repeat-penalty"
-          repeatPenalty
-        ]
-        ++ optionals (mmproj != null) [
-          "--mmproj"
-          mmproj
-        ]
-        ++ optionals (imageMinTokens != null) [
-          "--image-min-tokens"
-          imageMinTokens
-        ]
-      );
-    };
+  mkLlm = {
+    model,
+    ctxSize ? 230000,
+    tensorSplit ? null,
+    temperature ? null, # 0.1 - strict, 1.1 - imaginative
+    topK ? null,
+    topP ? null,
+    minP ? null,
+    presencePenalty ? null,
+    repeatPenalty ? null,
+    mmproj ? null,
+    imageMinTokens ? null,
+  }: {
+    cmd = concatStringsSep " " (
+      [
+        llama-server
+        llmCommonFlags
+        "--model"
+        model
+        "--ctx-size"
+        "${toString ctxSize}"
+      ]
+      ++ optionals (tensorSplit != null) [
+        "--tensor-split"
+        tensorSplit
+      ]
+      ++ optionals (temperature != null) [
+        "--temperature"
+        temperature
+      ]
+      ++ optionals (topK != null) [
+        "--top-k"
+        topK
+      ]
+      ++ optionals (topP != null) [
+        "--top-p"
+        topP
+      ]
+      ++ optionals (minP != null) [
+        "--min-p"
+        minP
+      ]
+      ++ optionals (presencePenalty != null) [
+        "--presence-penalty"
+        presencePenalty
+      ]
+      ++ optionals (repeatPenalty != null) [
+        "--repeat-penalty"
+        repeatPenalty
+      ]
+      ++ optionals (mmproj != null) [
+        "--mmproj"
+        mmproj
+      ]
+      ++ optionals (imageMinTokens != null) [
+        "--image-min-tokens"
+        imageMinTokens
+      ]
+    );
+  };
 
-  mkSD =
-    {
-      model ? null, # safetensors
-      diffusion-model ? null, # gguf
-      vae ? null,
-      clip_l ? null,
-      t5xxl ? null,
-    }:
-    {
-      cmd = concatStringsSep " " (
-        [
-          sd-server
-          "--listen-port \${PORT}"
-          "--diffusion-fa"
-          "--vae-tiling"
-        ]
-        ++ optionals (model != null) [
-          "--model"
-          model
-        ]
-        ++ optionals (diffusion-model != null) [
-          "--diffusion-model"
-          diffusion-model
-        ]
-        ++ optionals (vae != null) [
-          "--vae"
-          vae
-        ]
-        ++ optionals (clip_l != null) [
-          "--clip_l"
-          clip_l
-        ]
-        ++ optionals (t5xxl != null) [
-          "--t5xxl"
-          t5xxl
-        ]
-      );
-      checkEndpoint = "/";
-    };
-in
-{
+  mkSD = {
+    model ? null, # safetensors
+    diffusion-model ? null, # gguf
+    vae ? null,
+    clip_l ? null,
+    t5xxl ? null,
+  }: {
+    cmd = concatStringsSep " " (
+      [
+        sd-server
+        "--listen-port \${PORT}"
+        "--diffusion-fa"
+        "--vae-tiling"
+      ]
+      ++ optionals (model != null) [
+        "--model"
+        model
+      ]
+      ++ optionals (diffusion-model != null) [
+        "--diffusion-model"
+        diffusion-model
+      ]
+      ++ optionals (vae != null) [
+        "--vae"
+        vae
+      ]
+      ++ optionals (clip_l != null) [
+        "--clip_l"
+        clip_l
+      ]
+      ++ optionals (t5xxl != null) [
+        "--t5xxl"
+        t5xxl
+      ]
+    );
+    checkEndpoint = "/";
+  };
+in {
   config = mkIf cfg.enable (
     lib.mkMerge [
       {
@@ -240,7 +233,7 @@ in
           };
         };
       }
-      (flakeLib.localhostReverseProxy "llama" port { })
+      (flakeLib.localhostReverseProxy "llama" port {})
     ]
   );
 }

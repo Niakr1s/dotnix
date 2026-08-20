@@ -2,11 +2,9 @@
   config,
   lib,
   ...
-}:
-let
+}: let
   cfg = config.modules.core.zram;
-in
-{
+in {
   config = lib.mkIf (cfg.enable) {
     zramSwap = {
       enable = true;

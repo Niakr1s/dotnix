@@ -3,8 +3,7 @@
   lib,
   flakeLib,
   ...
-}:
-let
+}: let
   user = config.modules.core.user;
   cfg = config.modules.services.comfyui;
   gpu = config.modules.core.gpu;
@@ -66,8 +65,7 @@ let
   ];
 
   port = 8188;
-in
-{
+in {
   config = lib.mkIf cfg.enable (
     lib.mkMerge [
       {
@@ -76,10 +74,10 @@ in
           autoStart = false;
           podman.user = "${user}";
 
-          volumes = (map (m: "${m.host}:${m.container}") mappings);
-          devices = lib.mkIf gpu.nvidia.enable [ "nvidia.com/gpu=all" ];
+          volumes = map (m: "${m.host}:${m.container}") mappings;
+          devices = lib.mkIf gpu.nvidia.enable ["nvidia.com/gpu=all"];
 
-          extraOptions = [ "--network=host" ];
+          extraOptions = ["--network=host"];
           # ports = [ "${toString port}:${toString port}" ];
         };
 
@@ -90,10 +88,10 @@ in
         };
       }
       (flakeLib.createUserDirs {
-        dirs = (map (m: "${m.host}") mappings);
+        dirs = map (m: "${m.host}") mappings;
         user = "${user}";
       })
-      (flakeLib.localhostReverseProxy "comfyui" port { })
+      (flakeLib.localhostReverseProxy "comfyui" port {})
     ]
   );
 }

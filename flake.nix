@@ -41,30 +41,27 @@
     ];
   };
 
-  outputs =
-    inputs@{
-      nixpkgs,
-      nixpkgs-unstable,
-      hjem,
-      nvidia-pstated,
-      dms-plugin-registry,
-      comfyui,
-      ...
-    }:
-    let
-      stVersion = "26.05";
-      hostNames = builtins.attrNames (
-        nixpkgs.lib.filterAttrs (name: type: type == "directory") (builtins.readDir ./hosts)
-      );
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in
-    {
-      nixosConfigurations = nixpkgs.lib.genAttrs hostNames (
-        hostname:
+  outputs = inputs @ {
+    nixpkgs,
+    nixpkgs-unstable,
+    hjem,
+    nvidia-pstated,
+    dms-plugin-registry,
+    comfyui,
+    ...
+  }: let
+    stVersion = "26.05";
+    hostNames = builtins.attrNames (
+      nixpkgs.lib.filterAttrs (name: type: type == "directory") (builtins.readDir ./hosts)
+    );
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+  in {
+    nixosConfigurations = nixpkgs.lib.genAttrs hostNames (
+      hostname:
         nixpkgs.lib.nixosSystem {
           specialArgs = {
-            flakeLib = nixpkgs.legacyPackages.${system}.callPackage ./flakeLib.nix { };
+            flakeLib = nixpkgs.legacyPackages.${system}.callPackage ./flakeLib.nix {};
             inherit hostname;
           };
           modules = [
@@ -78,19 +75,21 @@
 
             # aliases
             (
-              { lib, config, ... }:
-              let
-                user = config.modules.core.user;
-              in
               {
+                lib,
+                config,
+                ...
+              }: let
+                user = config.modules.core.user;
+              in {
                 imports = [
-                  (lib.mkAliasOptionModule [ "home" ] [ "hjem" "users" "${user}" "files" ])
+                  (lib.mkAliasOptionModule ["home"] ["hjem" "users" "${user}" "files"])
                 ];
               }
             )
 
             # overlays
-            ({ config, ... }: {
+            ({config, ...}: {
               nixpkgs.overlays = [
                 (final: prev: {
                   unstable = import nixpkgs-unstable {
@@ -107,11 +106,9 @@
 
             # base config
             (
-              { config, ... }:
-              let
+              {config, ...}: let
                 user = config.modules.core.user;
-              in
-              {
+              in {
                 config = {
                   networking.hostName = hostname;
                   system.stateVersion = stVersion;
@@ -125,16 +122,16 @@
             )
           ];
         }
-      );
+    );
 
-      # Devshell
-      devShells.${system} = {
-        default = pkgs.mkShell {
-          packages = with pkgs; [
-            python314
-            ruff
-          ];
-        };
+    # Devshell
+    devShells.${system} = {
+      default = pkgs.mkShell {
+        packages = with pkgs; [
+          python314
+          ruff
+        ];
       };
     };
+  };
 }

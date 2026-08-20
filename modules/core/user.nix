@@ -1,12 +1,7 @@
-{
-  config,
-  ...
-}:
-let
+{config, ...}: let
   user = config.modules.core.user;
   localeID = "en_DK.UTF-8";
-in
-{
+in {
   time.timeZone = "Europe/Moscow";
   i18n = {
     defaultLocale = "en_US.UTF-8";
@@ -24,7 +19,7 @@ in
   };
 
   users = {
-    groups.${user} = { };
+    groups.${user} = {};
     users.${user} = {
       isNormalUser = true;
       group = user;
