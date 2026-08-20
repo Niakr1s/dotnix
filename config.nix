@@ -153,6 +153,10 @@ in
         enable = disabled "Llama service";
       };
 
+      mcp-proxy = {
+        enable = disabled "Llama service";
+      };
+
       comfyui = {
         enable = disabled "Comfyui service";
       };

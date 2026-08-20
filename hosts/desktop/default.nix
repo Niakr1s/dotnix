@@ -120,6 +120,7 @@
     services = {
       avahi.enable = true;
       llama.enable = true;
+      mcp-proxy.enable = true;
       comfyui.enable = true;
       sunshine.enable = true;
       syncthing.enable = true;

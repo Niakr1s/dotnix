@@ -1,6 +1,15 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  flakeLib,
+  config,
+  ...
+}:
 
 let
+  cfg = config.modules.services.mcp-proxy;
+  port = 8096;
+
   # Define the MCP proxy configuration as a Nix attribute set
   mcpConfig = {
     mcpServers = {
@@ -35,7 +44,10 @@ let
   mcp-proxy-home = "/var/lib/${servicename}";
 in
 {
-  # Ensure the required packages are installed
+  
+  config = lib.mkIf cfg.enable (
+    lib.mkMerge [
+    {
   environment.systemPackages = with pkgs; [
     mcp-proxy
     uv
@@ -69,7 +81,7 @@ in
     };
 
     serviceConfig = {
-      ExecStart = "${pkgs.mcp-proxy}/bin/mcp-proxy --port=8096 --named-server-config ${configFile}";
+      ExecStart = "${pkgs.mcp-proxy}/bin/mcp-proxy --port=${toString port} --named-server-config ${configFile}";
       Restart = "always";
       RestartSec = "5s";
 
@@ -84,5 +96,8 @@ in
       NoNewPrivileges = false;
     };
   };
+  }
+      (flakeLib.localhostReverseProxy "${servicename}" port { insecureTLS = false; })
+  ]);
 }
 
