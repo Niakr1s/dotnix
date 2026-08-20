@@ -32,7 +32,27 @@
   };
 
   formatters = with pkgs; [
-    alejandra
+    # --- baseServers Languages ---
+    alejandra # Nix (nixd)
+    stylua # Lua (lua_ls)
+    shfmt # Bash / Shell (bashls)
+    ruff # Python Lint/Format (ruff/pyright)
+    biome # JavaScript / TypeScript / JSON / HTML / CSS (ts_ls, jsonls, html, cssls)
+    yamlfmt # YAML (yamlls)
+    deno # Markdown (marksman) - Multi-language block fallback
+    dockerfile-language-server # Dockerfile (dockerls) - (Often formats natively or via 'injected')
+    taplo # TOML (taplo)
+    lemminx # XML (lemminx) - Formats natively via its own LSP binaries
+    sleek # SQL (sqlls) - Modern CLI SQL formatter
+
+    # --- heavyServers Languages ---
+    clang-tools # C / C++ (clangd) - Provides 'clang-format'
+    ktlint # Kotlin (kotlin_language_server)
+    rustfmt # Rust (rust_analyzer) - Usually bundled, explicit here
+    gofumpt # Go (gopls) - Stricter standard formatter
+    csharpier # C# (omnisharp)
+    google-java-format # Java (jdtls)
+    crystal # Crystal (crystalline) - Includes the native
   ];
 
   baseServers = [
