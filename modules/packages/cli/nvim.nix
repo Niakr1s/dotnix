@@ -32,8 +32,12 @@ let
     };
   };
 
+  formatters = with pkgs; [
+    alejandra
+  ];
+
   baseServers = [
-    "nil_ls"
+    "nixd"
     "lua_ls"
     "bashls"
 
@@ -83,7 +87,7 @@ in
 
     environment.systemPackages = [
       myNvim
-    ];
+    ] ++ formatters;
 
     home = {
       ".config/nvim/init.lua".text = ''
