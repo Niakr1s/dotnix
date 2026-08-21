@@ -33,9 +33,11 @@
     };
   };
 
-  modules = {
+  modules = let
+    user = "user";
+  in {
     core = {
-      user = "user";
+      user = "${user}";
       headless = false;
 
       gpu = {
@@ -92,7 +94,7 @@
       gui = {
         enable = true;
         zed.enable = true;
-        winboat.enable = true;
+        winboat.enable = false;
         blender.enable = true;
         obs.enable = true;
       };
@@ -121,6 +123,12 @@
       sunshine.enable = true;
       syncthing.enable = true;
       v2raya.enable = true;
+      windows = {
+        enable = true;
+        isoPath = "/data/hdd1/Install/Windows/core11.iso";
+        shared = "/home/${user}";
+        shared2 = "/data";
+      };
     };
   };
 }

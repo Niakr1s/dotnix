@@ -169,6 +169,25 @@ in {
       v2raya = {
         enable = enabled "v2raya Service";
       };
+
+      windows = {
+        enable = enabled "windows Service";
+
+        isoPath = lib.mkOption {
+          type = lib.types.str;
+          description = "Absolute path to the Windows installer ISO image.";
+        };
+
+        shared = lib.mkOption {
+          type = lib.types.nullOr lib.types.str;
+          default = null;
+        };
+
+        shared2 = lib.mkOption {
+          type = lib.types.nullOr lib.types.str;
+          default = null;
+        };
+      };
     };
   };
 }
