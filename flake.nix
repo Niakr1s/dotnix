@@ -110,6 +110,9 @@
                 user = config.modules.core.user;
               in {
                 config = {
+                  # this allows to use 'nixpkgs.url = "nixpkgs";' in custom flake.nix
+                  nix.registry.nixpkgs.flake = inputs.nixpkgs;
+
                   networking.hostName = hostname;
                   system.stateVersion = stVersion;
                   nixpkgs.config.cudaSupport = config.modules.core.gpu.nvidia.enable;
