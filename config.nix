@@ -174,7 +174,7 @@ in {
         enable = enabled "windows Service";
 
         isoPath = lib.mkOption {
-          type = lib.types.str;
+          type = lib.types.nullOr lib.types.str;
           description = "Absolute path to the Windows installer ISO image.";
         };
 

@@ -4,7 +4,8 @@
   flakeLib,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.modules.services.windows;
 
   browserPort = 8006;
@@ -34,18 +35,10 @@
           - ${toString rdpPort}:3389/tcp
           - ${toString rdpPort}:3389/udp
         volumes:
-          - ${cfg.isoPath}:/custom.iso
+          ${if cfg.isoPath != null then "- ${cfg.isoPath}:/custom.iso" else ""}
           - ${workingDir}/storage:/storage
-          ${
-      if cfg.shared != null
-      then "- ${cfg.shared}:/shared"
-      else ""
-    }
-          ${
-      if cfg.shared2 != null
-      then "- ${cfg.shared2}:/shared2"
-      else ""
-    }
+          ${if cfg.shared != null then "- ${cfg.shared}:/shared" else ""}
+          ${if cfg.shared2 != null then "- ${cfg.shared2}:/shared2" else ""}
         restart: on-failure
         stop_grace_period: 2m
   '';
@@ -54,12 +47,19 @@
   serviceName = "windows";
   workingDir = "/var/lib/${serviceName}";
 
-  runCompose = action:
+  runCompose =
+    action:
     pkgs.writeShellScript "windows-compose-${action}" ''
-      export PATH="${lib.makeBinPath [pkgs.podman pkgs.podman-compose]}:$PATH"
+      export PATH="${
+        lib.makeBinPath [
+          pkgs.podman
+          pkgs.podman-compose
+        ]
+      }:$PATH"
       exec ${pkgs.podman-compose}/bin/podman-compose -f ${composeFile} ${action}
     '';
-in {
+in
+{
   # Implement the service block if enabled
   config = lib.mkIf cfg.enable (
     lib.mkMerge [
@@ -78,8 +78,11 @@ in {
 
         systemd.services.${serviceName} = {
           description = "Dockurr Windows Container via Podman (Manual Start)";
-          after = ["podman.service" "podman.socket"];
-          wants = ["podman.service"];
+          after = [
+            "podman.service"
+            "podman.socket"
+          ];
+          wants = [ "podman.service" ];
 
           serviceConfig = {
             Type = "oneshot";
@@ -92,7 +95,7 @@ in {
           };
         };
       }
-      (flakeLib.localhostReverseProxy "${serviceName}" browserPort {})
+      (flakeLib.localhostReverseProxy "${serviceName}" browserPort { })
     ]
   );
 }
