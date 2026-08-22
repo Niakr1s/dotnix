@@ -27,6 +27,7 @@
   "commandRunner": {
     "enabled": true,
     "history": [
+      "calc",
       "zeditor /etc/nixos",
       "alacritty",
       "nvtop",
