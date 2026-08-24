@@ -27,6 +27,7 @@ in {
         "wheel"
         "video"
         "audio"
+        "input"
       ];
     };
   };
