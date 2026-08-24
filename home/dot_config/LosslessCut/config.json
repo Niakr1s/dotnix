@@ -1,7 +1,7 @@
 {
 	"captureFormat": "jpeg",
 	"keyframeCut": true,
-	"autoMerge": false,
+	"autoMerge": true,
 	"autoDeleteMergedSegments": true,
 	"segmentsToChaptersOnly": false,
 	"enableSmartCut": false,
@@ -36,10 +36,10 @@
 	"treatOutputFileModifiedTimeAsStart": true,
 	"safeOutputFileName": true,
 	"windowBounds": {
-		"x": 2560,
-		"y": 280,
-		"width": 1920,
-		"height": 1038
+		"x": 0,
+		"y": 0,
+		"width": 1279,
+		"height": 1398
 	},
 	"enableAutoHtml5ify": true,
 	"keyBindings": [
@@ -300,5 +300,6 @@
 	"darkMode": true,
 	"preferStrongColors": false,
 	"outputFileNameMinZeroPadding": 1,
-	"cutFromAdjustmentFrames": 0
+	"cutFromAdjustmentFrames": 0,
+	"mergedFileTemplate": "(cut)${FILENAME}${EXT}"
 }
