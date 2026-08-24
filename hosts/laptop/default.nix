@@ -15,6 +15,14 @@
     enable = true;
   };
 
+  # probable fix for poweroff on power button
+  services.logind = {
+    settings.Login = {
+      HandlePowerKey = "ignore";
+      HandleLidSwitch = "ignore";
+    };
+  };
+
   modules = {
     core = {
       user = "user";
