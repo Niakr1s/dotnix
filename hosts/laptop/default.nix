@@ -10,6 +10,11 @@
 
   services.iio-niri.enable = true;
 
+  # for battttttttttttttery show in dms-shell
+  services.upower = {
+    enable = true;
+  };
+
   modules = {
     core = {
       user = "user";
